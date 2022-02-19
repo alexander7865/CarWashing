@@ -18,6 +18,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".ui.owner.OwnerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.washer.WasherActivity"
+            android:exported="false" />
     </application>
 
 </manifest>
