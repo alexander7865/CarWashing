@@ -16,6 +16,7 @@ class OwnerActivity : BaseActivity<ActivityOwnerBinding>(R.layout.activity_owner
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+
         //최초 화면
         val transaction = supportFragmentManager.beginTransaction()
         transaction.add(R.id.owner_frag, HomeOwnerFragment())
@@ -23,7 +24,7 @@ class OwnerActivity : BaseActivity<ActivityOwnerBinding>(R.layout.activity_owner
         transaction.addToBackStack("차주 홈")
 
 
-        //하단 바텀 네비게이션에서 탭레이아웃으로 변경함
+        //하단 바텀네비게이션에서 탭레이아웃으로 변경함
         binding.tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener{
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 val transaction = supportFragmentManager.beginTransaction()
@@ -53,19 +54,23 @@ class OwnerActivity : BaseActivity<ActivityOwnerBinding>(R.layout.activity_owner
         transaction.addToBackStack("가입하기")
     }
 
-    //세차작업 의뢰버튼 클릭시 세차현황으로 이동이 되어야하는데 구현이 안됩니다 (리사이클러뷰의 홀더 안에 버튼을 구현했음)
-    fun goOrderStatus () {
+    fun goBlankPage () {
         val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.owner_frag, OrderStatusOwnerFragment())
+        transaction.replace(R.id.owner_frag, BlankOwnerFragment())
         transaction.commit()
-        transaction.addToBackStack("관리현황")
+        transaction.addToBackStack("세차현황")
+
     }
 
 
     fun backStep () {
         onBackPressed()
     }
+
+    //세차작업 의뢰버튼 클릭시 세차현황으로 이동이 되어야하는데 구현이 안됩니다 (리사이클러뷰의 홀더 안에 버튼을 구현했음)
 }
+
+
 
 
 

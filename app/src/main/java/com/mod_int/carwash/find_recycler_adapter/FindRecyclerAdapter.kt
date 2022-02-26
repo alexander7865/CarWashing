@@ -1,9 +1,13 @@
 package com.mod_int.carwash.find_recycler_adapter
 
+import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.mod_int.carwash.R
+import com.mod_int.carwash.ui.owner.OrderStatusOwnerFragment
+import com.mod_int.carwash.ui.owner.OwnerActivity
 
 class FindRecyclerAdapter : RecyclerView.Adapter<FindRecyclerViewHolder>() {
 
@@ -27,11 +31,21 @@ class FindRecyclerAdapter : RecyclerView.Adapter<FindRecyclerViewHolder>() {
             notifyItemChanged(position)
         }
 
-        //엑티비티에서 프래그먼트 이동이 안됩니다
+        //엑티비티에서 프래그먼트 이동이 안됩니다 알트 다이얼로그 구현도 안되네요
         holder.btnOrder.setOnClickListener {
+//            val builder = AlertDialog.Builder(context)
+            val orderStatusOwnerFragment = OrderStatusOwnerFragment()
+            val ownerActivity = OwnerActivity()
+            val bundle = Bundle()
+            bundle.putString("hi","hi")
+            orderStatusOwnerFragment.arguments = bundle
+            ownerActivity.supportFragmentManager.beginTransaction()
+                .replace(R.id.owner_frag, OrderStatusOwnerFragment()).commit()
+
 
         }
     }
+
 
     override fun getItemCount(): Int  = washerList.size
 

@@ -47,9 +47,17 @@ class WasherActivity : BaseActivity<ActivityWasherBinding>(R.layout.activity_was
     fun paymentWasher() {
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.washer_frag,PaymentWasherFragment())
-        transaction.addToBackStack("결제하기")
+        transaction.addToBackStack("뒤로가기")
         transaction.commit()
     }
+
+    fun goBlackScreen() {
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.washer_frag,BlankWasherFragment())
+        transaction.addToBackStack("뒤로가기")
+        transaction.commit()
+    }
+
 
     fun backStep () {
         onBackPressed()

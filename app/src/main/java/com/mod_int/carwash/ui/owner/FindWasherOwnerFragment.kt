@@ -1,29 +1,19 @@
 package com.mod_int.carwash.ui.owner
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
+import com.mod_int.carwash.R
+import com.mod_int.carwash.base.BaseFragment
+import com.mod_int.carwash.databinding.FragmentFindWasherOwnerBinding
 import com.mod_int.carwash.find_recycler_adapter.FindRecyclerAdapter
 import com.mod_int.carwash.find_recycler_adapter.WasherInfo
-import com.mod_int.carwash.databinding.FragmentFindWasherOwnerBinding
 
-class FindWasherOwnerFragment : Fragment() {
+class FindWasherOwnerFragment : BaseFragment<FragmentFindWasherOwnerBinding>(R.layout.fragment_find_washer_owner) {
 
-    lateinit var binding: FragmentFindWasherOwnerBinding
     private val findAdapter = FindRecyclerAdapter()
     private val findRecycler : RecyclerView by lazy {binding.findWasherRecycler}
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        binding = FragmentFindWasherOwnerBinding.inflate(inflater,container,false)
-        return binding.root
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -38,8 +28,7 @@ class FindWasherOwnerFragment : Fragment() {
             point = 90,
             deliPrice = 6000,
             policyPrice = 20000,
-            far = 1,
-            time = 20,
+            location = "압구정동 3동",
             playTime = "24시간 작업가능"
         )
 

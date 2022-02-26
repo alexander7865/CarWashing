@@ -10,8 +10,7 @@ data class WasherInfo (
     val point : Int,
     val deliPrice : Int,
     val policyPrice : Int,
-    val far : Int,
-    val time : Int,
+    val location : String,
     val playTime : String,
     var expandable : Boolean = false
 ) : Parcelable

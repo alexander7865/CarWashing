@@ -25,8 +25,7 @@ class FindRecyclerViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(
                 pointWasher.text = item.point.toString()
                 deliPriceWasher.text = item.deliPrice.toString()
                 policyPriceWasher.text = item.policyPrice.toString()
-                farWasher.text = item.far.toString()
-                timeWasher.text = item.time.toString()
+                locationWasher.text = item.location
                 playTimeWasher.text = item.playTime
             }
         }

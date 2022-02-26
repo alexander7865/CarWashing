@@ -9,6 +9,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:backgroundTint="@color/white"
         tools:context=".ui.owner.OrderStatusOwnerFragment">
 
         <LinearLayout
@@ -47,9 +48,9 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
+                    android:layout_marginStart="16sp"
                     android:text="000허0000 벤츠 GLC220 SUV BLACK"
                     android:textSize="18sp"
                     android:textStyle="bold"
@@ -89,15 +90,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
+
                     <TextView
                         android:layout_width="130sp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="16sp"
                         android:text="세차형태"
+                        android:textColor="@color/dgray"
                         android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/dgray" />
+                        android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -510,6 +512,7 @@
                 android:orientation="horizontal">
 
                 <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_goHistory"
                     style="@style/Widget.AppCompat.Button.Borderless"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

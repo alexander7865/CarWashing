@@ -7,25 +7,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
+import androidx.transition.R
+import com.mod_int.carwash.base.BaseFragment
 import com.mod_int.carwash.databinding.FragmentManagementHistoryOwnerBinding
 import com.mod_int.carwash.history_recycler_adapter.HistoryInfo
 import com.mod_int.carwash.history_recycler_adapter.HistoryRecyclerAdapter
 
-class ManagementHistoryOwnerFragment : Fragment() {
+class ManagementHistoryOwnerFragment : BaseFragment<FragmentManagementHistoryOwnerBinding>(
+    com.mod_int.carwash.R.layout.fragment_management_history_owner){
 
-    lateinit var binding: FragmentManagementHistoryOwnerBinding
     private val historyAdapter = HistoryRecyclerAdapter()
     private val historyRecycler : RecyclerView by lazy {binding.recyclerHistory}
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        binding = FragmentManagementHistoryOwnerBinding.inflate(inflater,container,false)
-        return binding.root
-
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
