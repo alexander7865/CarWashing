@@ -6,14 +6,12 @@ import android.util.Log
 import android.view.Gravity
 import android.view.View
 import android.view.inputmethod.EditorInfo
-import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.mod_int.carwash.base.BaseActivity
 import com.mod_int.carwash.databinding.ActivityLoginBinding
-import java.util.regex.Pattern
 
 class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login) {
 
@@ -54,7 +52,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
                 auth?.signInWithEmailAndPassword(inputEmailLogin.text.toString(), inputPassLogin.text.toString())?.
                 addOnCompleteListener {
                     if(it.isSuccessful){
-                        val intent = Intent(this@LoginActivity, WelcomeActivity::class.java)
+                        val intent = Intent(this@LoginActivity, MemberTypeActivity::class.java)
                         intent.putExtra("이메일","${inputEmailLogin.text}")
                         startActivity(intent)
                     }else{
