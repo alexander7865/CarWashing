@@ -3,7 +3,7 @@
 
     <style name="TabText" parent="TextAppearance.Design.Tab">
         <item name="android:textStyle">bold</item>
-        <item name="android:textSize">18dp</item>
+        <item name="android:textSize">16sp</item>
     </style>
 
 </resources>

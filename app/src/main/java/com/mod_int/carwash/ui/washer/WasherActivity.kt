@@ -16,12 +16,13 @@ class WasherActivity : BaseActivity<ActivityWasherBinding>(R.layout.activity_was
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        //최초 보여줄 화면
         val transaction = supportFragmentManager.beginTransaction()
         transaction.add(R.id.washer_frag, HomeWasherFragment())
         transaction.commit()
         transaction.addToBackStack("워셔 홈")
 
-
+        //하단 바텀네비게이션에서 탭레이아웃으로 변경함
         binding.tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener{
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 val transaction = supportFragmentManager.beginTransaction()

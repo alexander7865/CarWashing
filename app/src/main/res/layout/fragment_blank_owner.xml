@@ -27,10 +27,11 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16sp"
+                    android:layout_marginStart="26sp"
                     android:layout_gravity="center_vertical"
                     android:text="세차현황"
-                    android:textSize="24sp"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
                     android:textColor="@color/dgray" />
             </LinearLayout>
             <Space

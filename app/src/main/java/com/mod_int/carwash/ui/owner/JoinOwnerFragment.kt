@@ -3,6 +3,8 @@ package com.mod_int.carwash.ui.owner
 import android.content.Context
 import android.os.Bundle
 import android.view.View
+import android.widget.ArrayAdapter
+import android.widget.ListView
 import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseFragment
 import com.mod_int.carwash.databinding.FragmentJoinOwnerBinding
@@ -21,11 +23,15 @@ class JoinOwnerFragment : BaseFragment<FragmentJoinOwnerBinding>(R.layout.fragme
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
         //버튼 가지고와서 클릭리스너 구현
-        binding.btnCancelRegistration.setOnClickListener(this)
-        binding.btnSaveJoin.setOnClickListener(this)
-        binding.btnCancelJoin.setOnClickListener(this)
-        binding.btnRegistrationJoin.setOnClickListener(this)
+        with(binding) {
+            btnCancelRegistration.setOnClickListener(this@JoinOwnerFragment)
+            btnSaveJoin.setOnClickListener(this@JoinOwnerFragment)
+            btnCancelJoin.setOnClickListener(this@JoinOwnerFragment)
+            btnRegistrationJoin.setOnClickListener(this@JoinOwnerFragment)
+        }
+
 
 
         //리스트에 담고 싶은데 안되네요 정보를 리스트에 담고 싶으나 안되네요

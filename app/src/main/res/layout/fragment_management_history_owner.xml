@@ -30,24 +30,25 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16sp"
-                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="26sp"
                     android:layout_weight="1"
+                    android:textStyle="bold"
                     android:text="관리이력"
-                    android:textSize="24sp"
+                    android:textSize="20sp"
                     android:textColor="@color/dgray" />
 
-                <androidx.appcompat.widget.AppCompatButton
+                <TextView
                     android:id="@+id/btn_cancel"
-                    style="@style/Widget.AppCompat.Button.Borderless"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
-                    android:textColor="@color/white"
+                    android:layout_marginStart="26sp"
+                    android:gravity="end"
+                    android:layout_marginEnd="26dp"
+                    android:backgroundTint="@drawable/button_action_lorange"
+                    android:textStyle="bold"
                     android:text="삭제하기"
-                    android:background="@drawable/button_action_lorange"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textSize="20sp"
+                    android:textColor="@color/lorange" />
 
             </LinearLayout>
             <Space
@@ -58,8 +59,8 @@
                 android:id="@+id/recycler_history"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginStart="8sp"
-                android:layout_marginEnd="8sp"
+                android:layout_marginStart="10sp"
+                android:layout_marginEnd="10sp"
                 android:layout_marginBottom="10sp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 

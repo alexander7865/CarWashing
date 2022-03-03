@@ -1,13 +1,8 @@
 package com.mod_int.carwash.ui.owner
 
 import android.os.Bundle
-import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
-import androidx.transition.R
 import com.mod_int.carwash.base.BaseFragment
 import com.mod_int.carwash.databinding.FragmentManagementHistoryOwnerBinding
 import com.mod_int.carwash.history_recycler_adapter.HistoryInfo

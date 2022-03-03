@@ -30,7 +30,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="32sp"
+                    android:layout_marginStart="26sp"
                     android:text="카우"
                     android:textSize="38sp"
                     android:textStyle="bold"
@@ -45,173 +45,245 @@
                 android:orientation="horizontal">
             </Space>
 
-            <LinearLayout
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="370sp"
-                android:layout_marginStart="16sp"
-                android:layout_marginEnd="16sp"
-                android:layout_gravity="center_horizontal"
-                android:background="@drawable/layout_box"
-                android:orientation="vertical">
-
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="25sp"
-                    android:orientation="vertical">
-                </Space>
-
+                android:layout_height="wrap_content">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:layout_width="120sp"
+                        android:layout_height="340sp"
+                        android:layout_marginStart="26sp"
+                        android:layout_marginEnd="26sp"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/layout_box"
+                        android:orientation="vertical">
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="20sp"
+                            android:orientation="vertical">
+                        </Space>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="16sp"
-                            android:text="2022.02.02"
-                            android:textSize="18sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/dgray" />
+                            android:orientation="vertical">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal">
+                                <TextView
+                                    android:layout_width="120sp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="16sp"
+                                    android:text="2022.02.02"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/dgray" />
+                            </LinearLayout>
+
+                            <Space
+                                android:layout_width="match_parent"
+                                android:layout_height="5sp"
+                                android:orientation="vertical">
+                            </Space>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="120sp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="16sp"
+                                    android:text="TODAY"
+                                    android:textColor="@color/lorange"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="10sp"
+                                    android:text="12건"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/dgray" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="16sp"
+                                    android:text="360000원"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/dgray" />
+                            </LinearLayout>
+
+                            <Space
+                                android:layout_width="match_parent"
+                                android:layout_height="5sp"
+                                android:orientation="vertical">
+                            </Space>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal">
+                                <TextView
+                                    android:layout_width="120sp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="16sp"
+                                    android:text="나의 세차점수"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/dgray" />
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="10sp"
+                                    android:text="100점"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/dgray" />
+                            </LinearLayout>
+                            <Space
+                                android:layout_width="match_parent"
+                                android:layout_height="5sp"
+                                android:orientation="vertical">
+                            </Space>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="16sp"
+                                    android:layout_marginEnd="16sp"
+                                    android:text="공정성을 위하여 세차점수는 1개월간만 유지되며, 이후 초기값(100점) 으로 갱신 됩니다."
+                                    android:textSize="16sp"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/dgray" />
+                            </LinearLayout>
+
+                            <Space
+                                android:layout_width="match_parent"
+                                android:layout_height="10sp"
+                                android:orientation="vertical">
+                            </Space>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="16sp"
+                                    android:text="활동중"
+                                    android:textSize="20sp"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/lorange" />
+
+                                <androidx.appcompat.widget.AppCompatButton
+                                    style="@style/Widget.AppCompat.Button.Borderless"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginStart="10sp"
+                                    android:background="@drawable/arrow_drop_down"
+                                    tools:ignore="SpeakableTextPresentCheck" />
+                            </LinearLayout>
+
+                            <Space
+                                android:layout_width="match_parent"
+                                android:layout_height="10sp"
+                                android:orientation="vertical">
+                            </Space>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="16sp"
+                                    android:layout_marginEnd="16sp"
+                                    android:text="한달 동안만 결제없이 활동할 수 있어요! 이후 결제를 진행하셔야 활동을 할 수 있습니다."
+                                    android:textSize="16sp"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/dgray" />
+                            </LinearLayout>
+
+                            <Space
+                                android:layout_width="match_parent"
+                                android:layout_height="10sp"
+                                android:orientation="vertical">
+                            </Space>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <androidx.appcompat.widget.AppCompatButton
+                                    android:id="@+id/btn_payment_wahser"
+                                    style="@style/Widget.AppCompat.Button.Borderless"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="16sp"
+                                    android:textColor="@color/white"
+                                    android:text="결제하기"
+                                    android:background="@drawable/button_action_lorange"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+                        </LinearLayout>
                     </LinearLayout>
 
                     <Space
                         android:layout_width="match_parent"
-                        android:layout_height="10sp"
-                        android:orientation="vertical">
-                    </Space>
-                    
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:layout_width="120sp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="16sp"
-                            android:text="미등록"
-                            android:textSize="18sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/dgray" />
-                       
-                    </LinearLayout>
-
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="10sp"
-                        android:orientation="vertical">
-                    </Space>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="120sp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="16sp"
-                            android:text="TODAY"
-                            android:textColor="@color/lorange"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="10sp"
-                            android:text="12건"
-                            android:textSize="18sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/dgray" />
-                        
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="10sp"
-                            android:text="360000"
-                            android:textSize="18sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/dgray" />
-                    </LinearLayout>
-
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="10sp"
-                        android:orientation="vertical">
-                    </Space>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:layout_width="120sp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="16sp"
-                            android:text="나의 세차점수"
-                            android:textSize="18sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/dgray" />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="10sp"
-                            android:text="100점"
-                            android:textSize="18sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/dgray" />
-                    </LinearLayout>
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="10sp"
-                        android:orientation="vertical">
-                    </Space>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="16sp"
-                            android:text="*세차점수는 1개월간만 유지되며, 이후 갱신됩니다."
-                            android:textSize="16sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/dgray" />
-                    </LinearLayout>
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="10sp"
-                        android:orientation="vertical">
+                        android:layout_height="20sp">
                     </Space>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
 
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="26sp"
+                            android:background="@drawable/my_location" />
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="16sp"
                             android:layout_gravity="center_vertical"
-                            android:text="활동중"
-                            android:textSize="20sp"
+                            android:layout_marginStart="5sp"
+                            android:text="나여기 있어요"
+                            android:textSize="16sp"
                             android:textStyle="bold"
+                            android:textColor="@color/dgray" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="5sp"
+                            android:text="( 정보등록 에서 변경할 수 있어요 )"
+                            android:textSize="14sp"
                             android:textColor="@color/lorange" />
-
-                        <androidx.appcompat.widget.AppCompatButton
-                            style="@style/Widget.AppCompat.Button.Borderless"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginStart="10sp"
-                            android:background="@drawable/arrow_drop_down"
-                            tools:ignore="SpeakableTextPresentCheck" />
                     </LinearLayout>
 
                     <Space
@@ -222,133 +294,59 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
+                        android:layout_height="60sp"
+                        android:layout_marginStart="26sp"
+                        android:layout_marginEnd="26sp"
+                        android:background="@drawable/layout_box"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="16sp"
+                                android:layout_marginEnd="16sp"
+                                android:layout_marginTop="3dp"
+                                android:layout_marginBottom="3dp"
+                                android:layout_weight="1"
+                                android:hint="서울시 강남구 신사동 502 엠아이타워 빌딩 주차장"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/dgray" />
+                        </LinearLayout>
+                    </LinearLayout>
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="20sp">
+                    </Space>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="120sp"
+                        android:layout_marginStart="26sp"
+                        android:layout_marginEnd="26sp"
+                        android:background="@drawable/layout_box"
+                        android:orientation="vertical">
                         <TextView
-                            android:layout_width="300dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="16sp"
-                            android:text="한달 동안만 결제없이 활동할 수 있어요!"
-                            android:textSize="18sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/dgray" />
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="advertising"/>
                     </LinearLayout>
 
                     <Space
                         android:layout_width="match_parent"
-                        android:layout_height="10sp"
+                        android:layout_height="20sp"
                         android:orientation="vertical">
                     </Space>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <androidx.appcompat.widget.AppCompatButton
-                            android:id="@+id/btn_payment_wahser"
-                            style="@style/Widget.AppCompat.Button.Borderless"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="16sp"
-                            android:textColor="@color/white"
-                            android:text="결제하기"
-                            android:background="@drawable/button_action_lorange"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
                 </LinearLayout>
-            </LinearLayout>
-            
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="30sp"
-                android:orientation="vertical">
-            </Space>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="32sp"
-                    android:background="@drawable/my_location" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="5sp"
-                    android:text="나여기 있어요"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/dgray" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="5sp"
-                    android:text="( 정보등록 에서 변경할 수 있어요 )"
-                    android:textSize="16sp"
-                    android:textColor="@color/lorange" />
-            </LinearLayout>
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="10sp"
-                android:orientation="vertical">
-            </Space>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="60sp"
-                android:layout_marginStart="16sp"
-                android:layout_marginEnd="16sp"
-                android:background="@drawable/layout_box"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginStart="16sp"
-                        android:layout_marginEnd="16sp"
-                        android:layout_marginTop="3dp"
-                        android:layout_marginBottom="3dp"
-                        android:layout_weight="1"
-                        android:hint="서울시 강남구 신사동 502 엠아이타워 빌딩 주차장"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/dgray" />
-                </LinearLayout>
-            </LinearLayout>
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="30sp"
-                android:orientation="vertical">
-            </Space>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="120sp"
-                android:layout_marginStart="16sp"
-                android:layout_marginEnd="16sp"
-                android:background="@drawable/layout_box"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="advertising"/>
-            </LinearLayout>
+            </ScrollView>
         </LinearLayout>
     </FrameLayout>
 </layout>

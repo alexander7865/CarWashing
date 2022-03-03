@@ -15,7 +15,6 @@ class PaymentWasherFragment : BaseFragment<FragmentPaymentWasherBinding>(R.layou
 
     lateinit var washerActivity: WasherActivity
 
-
     override fun onAttach(context: Context) {
         super.onAttach(context)
         if(context is WasherActivity) washerActivity = context

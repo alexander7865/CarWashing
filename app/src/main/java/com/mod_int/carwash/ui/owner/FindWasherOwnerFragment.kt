@@ -1,6 +1,7 @@
 package com.mod_int.carwash.ui.owner
 
 import android.os.Bundle
+import android.os.Handler
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.mod_int.carwash.R
@@ -40,6 +41,15 @@ class FindWasherOwnerFragment : BaseFragment<FragmentFindWasherOwnerBinding>(R.l
         findAdapter.addAll(myList)
         findAdapter.setItemClickListener { item ->
 
+        }
+
+        //새로고침 구현
+        with(binding) {
+            pullToRefresh.setOnRefreshListener {
+                pullToRefresh.isRefreshing = false
+                findAdapter.addAll(myList)
+
+            }
         }
     }
 }

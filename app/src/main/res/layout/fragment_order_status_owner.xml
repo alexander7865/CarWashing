@@ -29,10 +29,11 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16sp"
+                    android:layout_marginStart="26sp"
                     android:layout_gravity="center_vertical"
                     android:text="진행현황"
-                    android:textSize="24sp"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
                     android:textColor="@color/dgray" />
 
             </LinearLayout>
@@ -42,489 +43,498 @@
                 android:layout_height="15sp">
             </Space>
 
-            <LinearLayout
+            <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16sp"
-                    android:text="000허0000 벤츠 GLC220 SUV BLACK"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/dgray" />
-            </LinearLayout>
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="20sp">
-            </Space>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="16sp"
-                    android:text="2022.02.02"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/dgray" />
-            </LinearLayout>
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="10sp">
-            </Space>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:fillViewport="true">
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="130sp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="16sp"
-                        android:text="세차형태"
-                        android:textColor="@color/dgray"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
+                        android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="5sp"
-                        android:text="내부+외부세차(외제차)"
-                        android:textColor="@color/dgray"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="26sp"
+                            android:text="000허0000 벤츠 GLC220 SUV BLACK"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/dgray" />
+                    </LinearLayout>
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="15sp">
+                    </Space>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="26sp"
+                            android:text="2022.02.02"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/dgray" />
+                    </LinearLayout>
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="5sp">
+                    </Space>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="130sp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="26sp"
+                                android:text="세차형태"
+                                android:textColor="@color/dgray"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="5sp"
+                                android:text="내부+외부세차(외제차)"
+                                android:textColor="@color/dgray"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </LinearLayout>
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="5sp">
+                    </Space>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="130sp"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="26sp"
+                                android:text="세차비용"
+                                android:textColor="@color/dgray"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="5sp"
+                                android:text="25000"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/dgray" />
+                        </LinearLayout>
+                    </LinearLayout>
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="5sp">
+                    </Space>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="130sp"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="26sp"
+                                android:text="픽업탁송비용"
+                                android:textColor="@color/dgray"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="5sp"
+                                android:text="6000"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/dgray" />
+                        </LinearLayout>
+                    </LinearLayout>
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="5sp">
+                    </Space>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="130sp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="26sp"
+                                android:text="총비용"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/dgray" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="5sp"
+                                android:text="31000"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/dgray" />
+                        </LinearLayout>
+                    </LinearLayout>
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="30sp">
+                    </Space>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:id="@+id/tv_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="워셔가 주문을 확인중 입니다."
+                            android:layout_marginStart="26sp"
+                            android:layout_weight="1"
+                            android:textSize="16sp"
+                            android:textColor="@color/orange"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="80sp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="26sp"
+                            android:text="15:15:15"
+                            android:textColor="@color/dgray"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="20sp">
+                    </Space>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="워셔가 픽업장소로 이동중 입니다."
+                            android:layout_marginStart="26sp"
+                            android:layout_weight="1"
+                            android:textSize="16sp"
+                            android:textColor="@color/orange"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="80sp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="26sp"
+                            android:text="15:15:15"
+                            android:textColor="@color/dgray"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="20sp">
+                    </Space>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="워셔가 세차 작업중 입니다."
+                            android:layout_marginStart="26sp"
+                            android:layout_weight="1"
+                            android:textSize="16sp"
+                            android:textColor="@color/orange"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="80sp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="26sp"
+                            android:text="15:15:15"
+                            android:textColor="@color/dgray"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="20sp">
+                    </Space>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="260sp"
+                            android:layout_height="wrap_content"
+                            android:text="세차가 완료되어 탁송중 입니다."
+                            android:layout_marginStart="26sp"
+                            android:layout_weight="1"
+                            android:textSize="16sp"
+                            android:textColor="@color/orange"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="80sp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="26sp"
+                            android:text="15:15:15"
+                            android:textColor="@color/dgray"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="30sp">
+                    </Space>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="26sp"
+                            android:layout_marginEnd="26sp"
+                            android:gravity="center_horizontal"
+                            android:text="세차비용 결제 및 시기는 워셔와 협의하여\n아래 계좌로 송금 해주세요!"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/dgray" />
+                    </LinearLayout>
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="20sp">
+                    </Space>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="26sp"
+                            android:text="작업비용 결제계좌"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/dgray" />
+                    </LinearLayout>
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="5sp">
+                    </Space>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="130sp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="26sp"
+                                android:text="홍길동"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/dgray" />
+                        </LinearLayout>
+                    </LinearLayout>
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="5sp">
+                    </Space>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="130sp"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="26sp"
+                                android:text="하나은행"
+                                android:textColor="@color/dgray"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="5sp"
+                                android:text="00000000000000"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/dgray" />
+                        </LinearLayout>
+                    </LinearLayout>
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="5sp">
+                    </Space>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="130sp"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="26sp"
+                                android:text="휴대본번호"
+                                android:textColor="@color/dgray"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+                            <TextView
+                                android:id="@+id/tv_phone_number_owner"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="5sp"
+                                android:text="010-1234-1234"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/lorange" />
+                        </LinearLayout>
+                    </LinearLayout>
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="20sp">
+                    </Space>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="200sp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="26sp"
+                                android:text="세차점수를 주신다몀?"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/dgray" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="5sp"
+                                android:text="100점"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/dgray" />
+
+                            <androidx.appcompat.widget.AppCompatButton
+                                style="@style/Widget.AppCompat.Button.Borderless"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="10sp"
+                                android:background="@drawable/arrow_drop_down"
+                                tools:ignore="SpeakableTextPresentCheck" />
+
+
+                        </LinearLayout>
+                    </LinearLayout>
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="20sp">
+                    </Space>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btn_goHistory"
+                            style="@style/Widget.AppCompat.Button.Borderless"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16sp"
+                            android:layout_marginEnd="16sp"
+                            android:textColor="@color/white"
+                            android:layout_weight="1"
+                            android:text="확인하기"
+                            android:background="@drawable/button_action_lorange"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="40sp">
+                    </Space>
                 </LinearLayout>
-            </LinearLayout>
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="10sp">
-            </Space>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="130sp"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="16sp"
-                        android:text="세차비용"
-                        android:textColor="@color/dgray"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="5sp"
-                        android:text="25000"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/dgray" />
-                </LinearLayout>
-            </LinearLayout>
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="10sp">
-            </Space>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="130sp"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="16sp"
-                        android:text="픽업탁송비용"
-                        android:textColor="@color/dgray"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="5sp"
-                        android:text="6000"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/dgray" />
-                </LinearLayout>
-            </LinearLayout>
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="10sp">
-            </Space>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:layout_width="130sp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="16sp"
-                        android:text="총비용"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/dgray" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="5sp"
-                        android:text="31000"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/dgray" />
-                </LinearLayout>
-            </LinearLayout>
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="30sp">
-            </Space>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="30sp"
-                    android:layout_height="30sp"
-                    android:background="@drawable/check_circle" />
-                <TextView
-                    android:id="@+id/tv_text"
-                    android:layout_width="260sp"
-                    android:layout_height="wrap_content"
-                    android:text="워셔가 주문을 확인중 입니다."
-                    android:layout_marginStart="10sp"
-                    android:textSize="18sp"
-                    android:textColor="@color/orange"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="100sp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10sp"
-                    android:text="15:15:15"
-                    android:textColor="@color/dgray"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="20sp">
-            </Space>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="30sp"
-                    android:layout_height="30sp"
-                    android:background="@drawable/check_circle" />
-                <TextView
-                    android:layout_width="260sp"
-                    android:layout_height="wrap_content"
-                    android:text="워셔가 픽업장소로 이동중 입니다."
-                    android:layout_marginStart="10sp"
-                    android:textSize="18sp"
-                    android:textColor="@color/orange"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="100sp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10sp"
-                    android:text="15:15:15"
-                    android:textColor="@color/dgray"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="20sp">
-            </Space>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="30sp"
-                    android:layout_height="30sp"
-                    android:background="@drawable/check_circle" />
-                <TextView
-                    android:layout_width="260sp"
-                    android:layout_height="wrap_content"
-                    android:text="워셔가 세차 작업중 입니다."
-                    android:layout_marginStart="10sp"
-                    android:textSize="18sp"
-                    android:textColor="@color/orange"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="100sp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10sp"
-                    android:text="15:15:15"
-                    android:textColor="@color/dgray"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="20sp">
-            </Space>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="30sp"
-                    android:layout_height="30sp"
-                    android:background="@drawable/check_circle" />
-                <TextView
-                    android:layout_width="260sp"
-                    android:layout_height="wrap_content"
-                    android:text="세차가 완료되어 탁송중 입니다."
-                    android:layout_marginStart="10sp"
-                    android:textSize="18sp"
-                    android:textColor="@color/orange"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="100sp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10sp"
-                    android:text="15:15:15"
-                    android:textColor="@color/dgray"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="30sp">
-            </Space>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="400sp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:gravity="center_horizontal"
-                    android:text="세차비용 결제 및 시기는 워셔와 협의하여 계좌로 송금하시거나 현금으로 결제해주세요!"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/dgray" />
-            </LinearLayout>
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="20sp">
-            </Space>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="16sp"
-                    android:text="워셔계좌"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/dgray" />
-            </LinearLayout>
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="10sp">
-            </Space>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:layout_width="130sp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="16sp"
-                        android:text="홍길동"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/dgray" />
-                </LinearLayout>
-            </LinearLayout>
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="10sp">
-            </Space>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="130sp"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="16sp"
-                        android:text="하나은행"
-                        android:textColor="@color/dgray"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="5sp"
-                        android:text="00000000000000"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/dgray" />
-                </LinearLayout>
-            </LinearLayout>
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="10sp">
-            </Space>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="130sp"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="16sp"
-                        android:text="휴대본번호"
-                        android:textColor="@color/dgray"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-                    <TextView
-                        android:id="@+id/tv_phone_number_owner"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="5sp"
-                        android:text="010-1234-1234"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/lorange" />
-                </LinearLayout>
-            </LinearLayout>
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="20sp">
-            </Space>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:layout_width="200sp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="16sp"
-                        android:text="세차점수를 주신다몀?"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/dgray" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="5sp"
-                        android:text="100"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/dgray" />
-                </LinearLayout>
-            </LinearLayout>
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="20sp">
-            </Space>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:orientation="horizontal">
-
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btn_goHistory"
-                    style="@style/Widget.AppCompat.Button.Borderless"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16sp"
-                    android:layout_marginEnd="16sp"
-                    android:textColor="@color/white"
-                    android:layout_weight="1"
-                    android:text="확인하기"
-                    android:background="@drawable/button_action_lorange"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
+            </ScrollView>
         </LinearLayout>
     </FrameLayout>
 </layout>

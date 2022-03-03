@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".LoginActivity">
+
+        <LinearLayout
+            android:id="@+id/login_appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="15sp">
+            </Space>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="26sp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
+                    android:textStyle="bold"
+                    android:text="로그인"
+                    android:textSize="20sp"
+                    android:textColor="@color/dgray" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_cancel_login"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="26sp"
+                    android:background="@drawable/button_cancel"
+                    tools:ignore="SpeakableTextPresentCheck" />
+            </LinearLayout>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="15sp">
+            </Space>
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/login_appbar">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_welcome"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="26sp"
+                    android:layout_marginTop="20sp"
+                    android:layout_marginEnd="26sp"
+                    android:text="안녕하세요!\n가입하신 이메일 주소로\n로그인 하시고 서비스를 이용하세요."
+                    android:textColor="@color/lorange"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/login_appbar" />
+
+                <EditText
+                    android:id="@+id/input_email_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="50sp"
+                    android:layout_marginStart="26sp"
+                    android:layout_marginTop="20sp"
+                    android:layout_marginEnd="26sp"
+                    android:background="@drawable/layout_box"
+                    android:ellipsize="end"
+                    android:hint="이메일 주소를 입력"
+                    android:inputType="textEmailAddress"
+                    android:paddingStart="16sp"
+                    android:paddingEnd="16sp"
+                    android:imeOptions="actionNext"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_welcome" />
+
+                <EditText
+                    android:id="@+id/input_pass_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="50sp"
+                    android:layout_marginStart="26sp"
+                    android:layout_marginTop="10sp"
+                    android:layout_marginEnd="26sp"
+                    android:background="@drawable/layout_box"
+                    android:ellipsize="end"
+                    android:hint="패스워드 입력"
+                    android:inputType="textPassword"
+                    android:minEms="8"
+                    android:minLines="8"
+                    android:paddingStart="16sp"
+                    android:paddingEnd="16sp"
+                    android:imeOptions="actionDone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/input_email_login" />
+
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_login_owner"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="26sp"
+                    android:layout_marginTop="20sp"
+                    android:layout_marginEnd="26sp"
+                    android:background="@drawable/button_action_lorange"
+                    android:text="로그인하기"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/input_pass_login" />
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="30sp">
+                </Space>
+
+            </LinearLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

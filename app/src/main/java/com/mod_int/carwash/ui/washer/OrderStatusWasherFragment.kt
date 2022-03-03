@@ -11,6 +11,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
+import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import java.text.SimpleDateFormat
 import androidx.fragment.app.setFragmentResult
@@ -57,10 +58,12 @@ class OrderStatusWasherFragment : BaseFragment<FragmentOrderStatusWasherBinding>
                     with(binding){
                         tvPickUp.visibility = View.VISIBLE
                         btnPickUp.visibility = View.VISIBLE
+                        tvPhoneNumber.visibility = View.VISIBLE
+                        tvInquiry.visibility = View.VISIBLE
                         btnOrdCfm.isEnabled = false
                         btnOrdCfm.setBackgroundColor(Color.TRANSPARENT)
                         btnOrdCfm.setTextColor(Color.parseColor("#FFA83E"))
-                        btnOrdCfm.setTextSize(5,2.8F)
+                        btnOrdCfm.setTextSize(5,2.7F)
                         btnOrdCfm.text = formatType.format(getTime)
                     }
                 }
@@ -90,7 +93,7 @@ class OrderStatusWasherFragment : BaseFragment<FragmentOrderStatusWasherBinding>
                         btnPickUp.isEnabled = false
                         btnPickUp.setBackgroundColor(Color.TRANSPARENT)
                         btnPickUp.setTextColor(Color.parseColor("#FFA83E"))
-                        btnPickUp.setTextSize(5,2.8F)
+                        btnPickUp.setTextSize(5,2.7F)
                         btnPickUp.text = formatType.format(getTime)
                     }
                 }
@@ -118,7 +121,7 @@ class OrderStatusWasherFragment : BaseFragment<FragmentOrderStatusWasherBinding>
                         btnDeliver.isEnabled = false
                         btnDeliver.setBackgroundColor(Color.TRANSPARENT)
                         btnDeliver.setTextColor(Color.parseColor("#FFA83E"))
-                        btnDeliver.setTextSize(5,2.8F)
+                        btnDeliver.setTextSize(5,2.7F)
                         btnDeliver.text = formatType.format(getTime)
                     }
                 }
@@ -144,7 +147,7 @@ class OrderStatusWasherFragment : BaseFragment<FragmentOrderStatusWasherBinding>
                         btnFinished.isEnabled = false
                         btnFinished.setBackgroundColor(Color.TRANSPARENT)
                         btnFinished.setTextColor(Color.parseColor("#FFA83E"))
-                        btnFinished.setTextSize(5,2.8F)
+                        btnFinished.setTextSize(5,2.7F)
                         btnFinished.text = formatType.format(getTime)
                         washerActivity.goBlackScreen()
                     }

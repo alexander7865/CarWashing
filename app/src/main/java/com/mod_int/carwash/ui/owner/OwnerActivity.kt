@@ -16,13 +16,11 @@ class OwnerActivity : BaseActivity<ActivityOwnerBinding>(R.layout.activity_owner
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-
-        //최초 화면
+        //최초 보여줄 화면 엑티비에서 프래그먼트로 유저이메일 정보 전달이 안됨
         val transaction = supportFragmentManager.beginTransaction()
         transaction.add(R.id.owner_frag, HomeOwnerFragment())
         transaction.commit()
         transaction.addToBackStack("차주 홈")
-
 
         //하단 바텀네비게이션에서 탭레이아웃으로 변경함
         binding.tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener{
@@ -59,15 +57,14 @@ class OwnerActivity : BaseActivity<ActivityOwnerBinding>(R.layout.activity_owner
         transaction.replace(R.id.owner_frag, BlankOwnerFragment())
         transaction.commit()
         transaction.addToBackStack("세차현황")
-
     }
-
 
     fun backStep () {
         onBackPressed()
     }
-
     //세차작업 의뢰버튼 클릭시 세차현황으로 이동이 되어야하는데 구현이 안됩니다 (리사이클러뷰의 홀더 안에 버튼을 구현했음)
+
+
 }
 
 

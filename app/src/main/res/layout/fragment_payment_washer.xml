@@ -30,7 +30,8 @@
                     android:layout_weight="1"
                     android:layout_gravity="center_vertical"
                     android:text="결제하기"
-                    android:textSize="24sp"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
                     android:textColor="@color/dgray" />
 
                 <androidx.appcompat.widget.AppCompatButton

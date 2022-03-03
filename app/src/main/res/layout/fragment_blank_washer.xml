@@ -28,10 +28,11 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16sp"
+                    android:layout_marginStart="26sp"
                     android:layout_gravity="center_vertical"
                     android:text="진행현황"
-                    android:textSize="24sp"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
                     android:textColor="@color/dgray" />
             </LinearLayout>
             <Space
@@ -47,13 +48,12 @@
                     android:id="@+id/tv_ad"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="68dp"
+                    android:layout_marginTop="40dp"
                     android:gravity="center_horizontal"
                     android:text="- 작업의뢰를 받기위한 꿀 TIP -\n\n아래 카드를 출력하여\n 내 구역에서 광고를 진행하시면,\n매출을 올릴 수 있어요!"
-                    android:textSize="22dp"
+                    android:textSize="20dp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.495"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -62,8 +62,8 @@
                     android:layout_height="380dp"
                     android:background="@drawable/layout_box"
                     android:backgroundTint="@color/lorange"
-                    android:layout_marginStart="16sp"
-                    android:layout_marginEnd="16sp"
+                    android:layout_marginStart="26sp"
+                    android:layout_marginEnd="26sp"
                     android:orientation="vertical"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_ad"
@@ -125,14 +125,14 @@
                                 android:text="구글플레이"
                                 android:textStyle="bold"
                                 android:textColor="@color/dgray"
-                                android:textSize="26dp" />
+                                android:textSize="24sp" />
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:gravity="center_horizontal"
                                 android:text=" 에서"
                                 android:textColor="@color/white"
-                                android:textSize="22dp" />
+                                android:textSize="20sp" />
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -140,14 +140,14 @@
                                 android:text=" 카우 "
                                 android:textStyle="bold"
                                 android:textColor="@color/dgray"
-                                android:textSize="26dp" />
+                                android:textSize="24sp" />
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:gravity="center_horizontal"
                                 android:text="를 검색하고"
                                 android:textColor="@color/white"
-                                android:textSize="22dp" />
+                                android:textSize="20sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -162,7 +162,7 @@
                                 android:gravity="center_horizontal"
                                 android:text="쉽고 편하게 세차하세요!"
                                 android:textColor="@color/white"
-                                android:textSize="22dp" />
+                                android:textSize="20sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -179,7 +179,7 @@
                                 android:text=" 워셔 : 아이디명"
                                 android:textStyle="bold"
                                 android:textColor="@color/dgray"
-                                android:textSize="22dp" />
+                                android:textSize="20sp" />
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -188,11 +188,9 @@
                                 android:text="위 워셔님은 충분한 세차교육을 이수 하였으므로\n안전하게 세차를 맡기셔도 됩니다."
                                 android:textStyle="bold"
                                 android:textColor="@color/dgray"
-                                android:textSize="16dp" />
+                                android:textSize="14dp" />
                         </LinearLayout>
-
                     </LinearLayout>
-
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>

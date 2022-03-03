@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:backgroundTint="@color/white"
+        tools:context=".WelcomeActivity">
+
+        <TextView
+            android:id="@+id/text_title1"
+            android:layout_width="350sp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="150sp"
+            android:elevation="10sp"
+            android:gravity="center_horizontal"
+            android:text="WELCOME"
+            android:textColor="@color/dgray"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text_title2"
+            android:layout_width="350sp"
+            android:layout_height="wrap_content"
+            android:elevation="10sp"
+            android:gravity="center_horizontal"
+            android:padding="5sp"
+            android:text="원하시는 서비스를\n선택 하세요"
+            android:textColor="@color/dgray"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_title1" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/goOwner"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="120sp"
+            android:layout_marginStart="26sp"
+            android:layout_marginEnd="26sp"
+            android:background="@drawable/button_action_lorange"
+            android:text="세차작업 의뢰하기"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_title2" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/goWasher"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30sp"
+            android:layout_marginStart="26sp"
+            android:layout_marginEnd="26sp"
+            android:background="@drawable/button_action_lorange"
+            android:text="워셔로 활동하기"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/goOwner" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
