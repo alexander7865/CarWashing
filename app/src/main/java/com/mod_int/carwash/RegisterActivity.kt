@@ -15,6 +15,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.mod_int.carwash.base.BaseActivity
 import com.mod_int.carwash.databinding.ActivityRegisterBinding
+import com.mod_int.carwash.ui.owner.OwnerActivity
+import com.mod_int.carwash.ui.washer.WasherActivity
 import java.util.regex.Pattern
 
 class RegisterActivity : BaseActivity<ActivityRegisterBinding>(R.layout.activity_register) {
@@ -36,7 +38,7 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(R.layout.activity
         auth?.addAuthStateListener(authListener)
     }
 
-    private var isExistBlank = false
+
 
     @SuppressLint("ResourceAsColor")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,61 +48,132 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(R.layout.activity
         auth?.signOut()
 
         // 회원가입은 간단하게 구현해봤습니다
-        // 하지만 문제가 이메일이 중복일 경우도 가입이 됩니다. 이럴경우 어떻게 해야하는지요?? (회원가입에 대해 구글링을 해봤지만 너무 어렵네요ㅠㅠ)
-
+        // 하지만 문제가 생기네요 이메일이 중복가입이 됩니다.
+        // ㅠㅠ 이럴경우 어떻게 해야하는지요?? (회원가입에 대해 구글링을 해봤지만 너무 어렵네요ㅠㅠ)
         with(binding){
             btnRegister.setOnClickListener {
-                inputCfmPassRegister.setOnEditorActionListener(getEditorActionListenerDone(btnRegister))
-                btnRegister.setOnClickListener {
-                }
-
-                //회원 구분 이메일 연구해봐야겠습니다 (이렇게 구분을 하려 하는데 맞는지요?)
-//                "${"owner."}${binding.inputEmailRegister.text}"
-
+                var isExistBlank = false
                 val em = binding.inputEmailRegister.text.toString()
                 val pw = binding.inputPassRegister.text.toString()
                 val pwRe = binding.inputCfmPassRegister.text.toString()
+                val ownerMember = intent.getStringExtra("오너회원")
+                val washerMember = intent.getStringExtra("워셔회원")
 
                 if(em.isEmpty() || pw.isEmpty() || pwRe.isEmpty()){
                     isExistBlank = true
                 }
-
-
-                if(!isExistBlank && checkEmailRegister() && checkPassword() && checkPasswordLength()) {
-                    inputEmailRegister.isEnabled = false
-                    inputPassRegister.isEnabled = false
-                    inputCfmPassRegister.isEnabled = false
-                    createUserId(inputEmailRegister.text.toString(), inputPassRegister.text.toString())
-                    val intent = Intent(this@RegisterActivity, WelcomeActivity::class.java)
-                    startActivity(intent)
-                }else{
-                    if(!checkEmailRegister()) {
+                //오너가입 로직
+                if (ownerMember != null) {
+                    if (!isExistBlank && checkEmailRegister() && checkPassword() && checkPasswordLength()) {
+                        inputEmailRegister.isEnabled = false
+                        inputPassRegister.isEnabled = false
+                        inputCfmPassRegister.isEnabled = false
+                        createUserId(
+                            "${ownerMember}${binding.inputEmailRegister.text}",
+                            inputPassRegister.text.toString())
+                        val intent = Intent(this@RegisterActivity, OwnerActivity::class.java)
+                        startActivity(intent)
+                        Log.d("회원구분", "${ownerMember}${binding.inputEmailRegister.text}")
+                    } else if (!checkEmailRegister()) {
                         inputEmailRegister.editableText.clear()
                         val toastCenter = Toast.makeText(
                             this@RegisterActivity,
                             "이메일이 형식에 맞지 않습니다.\n재작성 해주세요!",
                             Toast.LENGTH_SHORT
                         )
-                        toastCenter.setGravity(Gravity.CENTER, Gravity.CENTER_HORIZONTAL, 0)
+                        toastCenter.setGravity(
+                            Gravity.CENTER,
+                            Gravity.CENTER_HORIZONTAL,
+                            0
+                        )
                         toastCenter.show()
-                    }else if(!checkPassword()){
+                    } else if (!checkPassword()) {
                         inputCfmPassRegister.editableText.clear()
                         inputPassRegister.editableText.clear()
                         val toastCenter = Toast.makeText(
-                            this@RegisterActivity,"비밀번호가 일치하지 않습니다.\n재작성 해주세요!", Toast.LENGTH_SHORT)
-                        toastCenter.setGravity(Gravity.CENTER,Gravity.CENTER_HORIZONTAL,0)
+                            this@RegisterActivity,
+                            "비밀번호가 일치하지 않습니다.\n재작성 해주세요!",
+                            Toast.LENGTH_SHORT
+                        )
+                        toastCenter.setGravity(
+                            Gravity.CENTER,
+                            Gravity.CENTER_HORIZONTAL,
+                            0
+                        )
                         toastCenter.show()
 
-                    }else{
+                    } else {
                         inputCfmPassRegister.editableText.clear()
                         inputPassRegister.editableText.clear()
                         val toastCenter = Toast.makeText(
-                            this@RegisterActivity,"비밀번호는 8자리 이상으로 입력하셔야 합니다.재작성 해주세요!", Toast.LENGTH_SHORT)
-                        toastCenter.setGravity(Gravity.CENTER,Gravity.CENTER_HORIZONTAL,0)
+                            this@RegisterActivity,
+                            "비밀번호는 8자리 이상으로 입력하셔야 합니다.재작성 해주세요!",
+                            Toast.LENGTH_SHORT
+                        )
+                        toastCenter.setGravity(
+                            Gravity.CENTER,
+                            Gravity.CENTER_HORIZONTAL,
+                            0
+                        )
+                        toastCenter.show()
+                    }
+                }else{
+                    if (!isExistBlank && checkEmailRegister() && checkPassword() && checkPasswordLength()) {
+                        inputEmailRegister.isEnabled = false
+                        inputPassRegister.isEnabled = false
+                        inputCfmPassRegister.isEnabled = false
+                        createUserId(
+                            "${washerMember}${binding.inputEmailRegister.text}",
+                            inputPassRegister.text.toString())
+                        val intent = Intent(this@RegisterActivity, WasherActivity::class.java)
+                        startActivity(intent)
+                        Log.d("회원구분", "${washerMember}${binding.inputEmailRegister.text}")
+                    } else if (!checkEmailRegister()) {
+                        inputEmailRegister.editableText.clear()
+                        val toastCenter = Toast.makeText(
+                            this@RegisterActivity,
+                            "이메일이 형식에 맞지 않습니다.\n재작성 해주세요!",
+                            Toast.LENGTH_SHORT
+                        )
+                        toastCenter.setGravity(
+                            Gravity.CENTER,
+                            Gravity.CENTER_HORIZONTAL,
+                            0
+                        )
+                        toastCenter.show()
+                    } else if (!checkPassword()) {
+                        inputCfmPassRegister.editableText.clear()
+                        inputPassRegister.editableText.clear()
+                        val toastCenter = Toast.makeText(
+                            this@RegisterActivity,
+                            "비밀번호가 일치하지 않습니다.\n재작성 해주세요!",
+                            Toast.LENGTH_SHORT
+                        )
+                        toastCenter.setGravity(
+                            Gravity.CENTER,
+                            Gravity.CENTER_HORIZONTAL,
+                            0
+                        )
+                        toastCenter.show()
+
+                    } else {
+                        inputCfmPassRegister.editableText.clear()
+                        inputPassRegister.editableText.clear()
+                        val toastCenter = Toast.makeText(
+                            this@RegisterActivity,
+                            "비밀번호는 8자리 이상으로 입력하셔야 합니다.재작성 해주세요!",
+                            Toast.LENGTH_SHORT
+                        )
+                        toastCenter.setGravity(
+                            Gravity.CENTER,
+                            Gravity.CENTER_HORIZONTAL,
+                            0
+                        )
                         toastCenter.show()
                     }
                 }
             }
+
 
             inputEmailRegister.addTextChangedListener(object : TextWatcher{
                 override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -189,15 +262,6 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(R.layout.activity
         }else{
             //패스워드가 부합되지 않을경우
             Log.d("입력비밀번호길이", "일치하지 않습니다")
-            false
-        }
-    }
-
-    private fun getEditorActionListenerDone(view: View): TextView.OnEditorActionListener {
-        return TextView.OnEditorActionListener { textView, actionId, keyEvent ->
-            if (actionId == EditorInfo.IME_ACTION_DONE) {
-                view.callOnClick()
-            }
             false
         }
     }

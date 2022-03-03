@@ -20,8 +20,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
             overridePendingTransition(0, 0) //애니메이션 효과없에기
         }
 
-        binding.btnGoRegister.setOnClickListener {
-            val intent = Intent(this, RegisterActivity::class.java)
+        binding.btnGoMemberType.setOnClickListener {
+            val intent = Intent(this, MemberTypeActivity::class.java)
             startActivity(intent)
             overridePendingTransition(0, 0) //애니메이션 효과없에기
         }
