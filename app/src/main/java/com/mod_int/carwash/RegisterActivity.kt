@@ -23,12 +23,12 @@ import java.util.regex.Pattern
 
 class RegisterActivity : BaseActivity<ActivityRegisterBinding>(R.layout.activity_register) {
 
-    private var auth : FirebaseAuth? = null
-    private var fireStore : FirebaseFirestore? = null
+    private var auth: FirebaseAuth? = null
+    private var fireStore: FirebaseFirestore? = null
 
     private val authListener = FirebaseAuth.AuthStateListener {
         val user = it.currentUser
-        if(user != null){
+        if (user != null) {
             Log.d("결과", "로그인상태 O")
         } else {
             Log.d("결과", "로그인상태 X")
@@ -41,7 +41,6 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(R.layout.activity
     }
 
 
-
     @SuppressLint("ResourceAsColor")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,7 +51,7 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(R.layout.activity
         // 회원가입은 간단하게 구현해봤습니다
         // 하지만 문제가 생기네요 이메일이 중복가입이 됩니다.
         // ㅠㅠ 이럴경우 어떻게 해야하는지요?? (회원가입에 대해 구글링을 해봤지만 너무 어렵네요ㅠㅠ)
-        with(binding){
+        with(binding) {
             btnRegister.setOnClickListener {
                 var isExistBlank = false
                 val em = binding.inputEmailRegister.text.toString()
@@ -61,7 +60,7 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(R.layout.activity
                 val ownerMember = intent.getStringExtra("오너회원")
                 val washerMember = intent.getStringExtra("워셔회원")
 
-                if(em.isEmpty() || pw.isEmpty() || pwRe.isEmpty()){
+                if (em.isEmpty() || pw.isEmpty() || pwRe.isEmpty()) {
                     isExistBlank = true
                 }
                 //오너가입 로직
@@ -71,11 +70,40 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(R.layout.activity
                         inputPassRegister.isEnabled = false
                         inputCfmPassRegister.isEnabled = false
                         createUserId(
-                            "${ownerMember}${binding.inputEmailRegister.text}",
-                            inputPassRegister.text.toString())
-                        val intent = Intent(this@RegisterActivity, OwnerActivity::class.java)
-                        startActivity(intent)
-                        Log.d("회원구분", "${ownerMember}${binding.inputEmailRegister.text}")
+                            binding.inputEmailRegister.text.toString(),
+                            inputPassRegister.text.toString()
+                        ) { isRegister ->
+                            if (isRegister) {
+                                val user = User(
+                                    email = binding.inputEmailRegister.text.toString(),
+                                    phoneNumber = "01022222222",
+                                    type = "owner"
+                                )
+                                fireStore?.collection(binding.inputEmailRegister.text.toString())
+                                    ?.document("UserInfo")?.set(user)?.addOnCompleteListener {
+                                        if (it.isSuccessful) {
+                                            val intent =
+                                                Intent(
+                                                    this@RegisterActivity,
+                                                    OwnerActivity::class.java
+                                                )
+                                            startActivity(intent)
+                                        } else {
+                                            Toast.makeText(
+                                                this@RegisterActivity,
+                                                "유저 정보 등록을 실패하였습니다. 다시시도해 주세요.",
+                                                Toast.LENGTH_SHORT
+                                            ).show()
+                                        }
+                                    }
+                            } else {
+                                Toast.makeText(
+                                    this@RegisterActivity,
+                                    "중복된 아이디입니다.",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
+                        }
                     } else if (!checkEmailRegister()) {
                         inputEmailRegister.editableText.clear()
                         val toastCenter = Toast.makeText(
@@ -121,17 +149,46 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(R.layout.activity
                         )
                         toastCenter.show()
                     }
-                }else{
+                } else {
                     if (!isExistBlank && checkEmailRegister() && checkPassword() && checkPasswordLength()) {
                         inputEmailRegister.isEnabled = false
                         inputPassRegister.isEnabled = false
                         inputCfmPassRegister.isEnabled = false
+
                         createUserId(
-                            "${washerMember}${binding.inputEmailRegister.text}",
-                            inputPassRegister.text.toString())
-                        val intent = Intent(this@RegisterActivity, WasherActivity::class.java)
-                        startActivity(intent)
-                        Log.d("회원구분", "${washerMember}${binding.inputEmailRegister.text}")
+                            binding.inputEmailRegister.text.toString(),
+                            inputPassRegister.text.toString()
+                        ) { isRegister ->
+                            if (isRegister) {
+                                val user = User(
+                                    email = binding.inputEmailRegister.text.toString(),
+                                    phoneNumber = "01022222222",
+                                    type = "washer"
+                                )
+                                fireStore?.collection(binding.inputEmailRegister.text.toString())
+                                    ?.document("UserInfo")?.set(user)?.addOnCompleteListener {
+                                        if (it.isSuccessful) {
+                                            val intent = Intent(
+                                                this@RegisterActivity,
+                                                WasherActivity::class.java
+                                            )
+                                            startActivity(intent)
+                                        } else {
+                                            Toast.makeText(
+                                                this@RegisterActivity,
+                                                "유저 정보 등록을 실패하였습니다. 다시시도해 주세요.",
+                                                Toast.LENGTH_SHORT
+                                            ).show()
+                                        }
+                                    }
+                            } else {
+                                Toast.makeText(
+                                    this@RegisterActivity,
+                                    "중복된 아이디입니다.",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
+                        }
                     } else if (!checkEmailRegister()) {
                         inputEmailRegister.editableText.clear()
                         val toastCenter = Toast.makeText(
@@ -179,19 +236,30 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(R.layout.activity
             }
 
 
-            inputEmailRegister.addTextChangedListener(object : TextWatcher{
-                override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            inputEmailRegister.addTextChangedListener(object : TextWatcher {
+                override fun beforeTextChanged(
+                    s: CharSequence?,
+                    start: Int,
+                    count: Int,
+                    after: Int
+                ) {
                 }
 
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 }
+
                 override fun afterTextChanged(s: Editable?) {
                     checkEmailRegister()
                 }
             })
 
-            inputPassRegister.addTextChangedListener(object : TextWatcher{
-                override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            inputPassRegister.addTextChangedListener(object : TextWatcher {
+                override fun beforeTextChanged(
+                    s: CharSequence?,
+                    start: Int,
+                    count: Int,
+                    after: Int
+                ) {
                 }
 
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
@@ -202,12 +270,18 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(R.layout.activity
                 }
             })
 
-            inputCfmPassRegister.addTextChangedListener(object : TextWatcher{
-                override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            inputCfmPassRegister.addTextChangedListener(object : TextWatcher {
+                override fun beforeTextChanged(
+                    s: CharSequence?,
+                    start: Int,
+                    count: Int,
+                    after: Int
+                ) {
                 }
 
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 }
+
                 override fun afterTextChanged(s: Editable?) {
                     checkPassword()
                 }
@@ -220,18 +294,20 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(R.layout.activity
         }
     }
 
-    private fun createUserId(email:String, password:String){
-        auth?.createUserWithEmailAndPassword(email, password)?.addOnCompleteListener(this){
-            if(it.isSuccessful){
-                Log.d("결과", "가입성공")
-            }else{
-                Log.d("결과", "가입실패")
-            }
+    private fun createUserId(email: String, password: String, callback: (Boolean) -> Unit) {
+        auth?.createUserWithEmailAndPassword(email, password)?.addOnCompleteListener(this) {
+            callback(it.isSuccessful)
+//            if(it.isSuccessful){
+//                Log.d("결과", "가입성공")
+//            }else{
+//                Log.d("결과", "가입실패")
+//            }
         }
     }
 
-    private fun checkEmailRegister() : Boolean{
-        var emailValidation = "^[A-Za-z0-9]([._-]?[A-Za-z0-9])*@[A-Za-z0-9]([._-]?[A-Za-z0-9])*\\.[A-Za-z]{2,}$"
+    private fun checkEmailRegister(): Boolean {
+        var emailValidation =
+            "^[A-Za-z0-9]([._-]?[A-Za-z0-9])*@[A-Za-z0-9]([._-]?[A-Za-z0-9])*\\.[A-Za-z]{2,}$"
         var email = binding.inputEmailRegister.text.toString().trim() //공백제거
         val p = Pattern.matches(emailValidation, email) // 이메일이 정규식형식과 맞는지 확인하는지 선언
         return if (p) {
@@ -244,29 +320,35 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(R.layout.activity
         }
     }
 
-    private fun checkPassword() : Boolean{
+    private fun checkPassword(): Boolean {
         var pw = binding.inputPassRegister.text.toString()
         var pwRe = binding.inputCfmPassRegister.text.toString()
-        return if(pw == pwRe){
+        return if (pw == pwRe) {
             //패스워드가 같을경우
             Log.d("입력비밀번호확인", "일치 합니다")
             true
-        }else{
+        } else {
             Log.d("입력비밀번호확인", "일치하지 않습니다")
             false
         }
     }
 
-    private fun checkPasswordLength() : Boolean{
+    private fun checkPasswordLength(): Boolean {
         var pwLength = binding.inputPassRegister.text.toString()
-        return if(pwLength.length > 7 ){
+        return if (pwLength.length > 7) {
             //패스워드가 형식에 부합될 경우
             Log.d("입력비밀번호길이", "일치 합니다")
             true
-        }else{
+        } else {
             //패스워드가 부합되지 않을경우
             Log.d("입력비밀번호길이", "일치하지 않습니다")
             false
         }
     }
+
+    data class User(
+        var email: String = "",
+        var phoneNumber: String = "",
+        var type: String = ""
+    )
 }
