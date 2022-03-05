@@ -17,12 +17,12 @@ import com.mod_int.carwash.ui.washer.WasherActivity
 
 class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login) {
 
-    private var auth : FirebaseAuth? = null
-    private var fireStore : FirebaseFirestore? = null
+    private var auth: FirebaseAuth? = null
+    private var fireStore: FirebaseFirestore? = null
 
     private val authListener = FirebaseAuth.AuthStateListener {
         val user = it.currentUser
-        if(user != null ){
+        if (user != null) {
             Log.d("결과", "로그인상태 O")
         } else {
             Log.d("결과", "로그인상태 X")
@@ -45,35 +45,49 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
 
         //회원구분하여 해당 홈페이지로 이동하게 만들어 놨습니다. 저가 만든 코드가 맞는지요?
         with(binding) {
-            btnLoginOwner.setOnClickListener{
+            btnLoginOwner.setOnClickListener {
                 inputEmailLogin.isEnabled = false
                 inputPassLogin.isEnabled = false
 
-                val a = "오너${inputEmailLogin.text}"
-                val b = "워셔${inputEmailLogin.text}"
-
-                auth?.signInWithEmailAndPassword(a, inputPassLogin.text.toString())?.
-                addOnCompleteListener {
-                    if(it.isSuccessful){
-                        val intent = Intent(this@LoginActivity, OwnerActivity::class.java)
-                        startActivity(intent)
-                    }else {
-                        auth?.signInWithEmailAndPassword(b, inputPassLogin.text.toString())?.
-                        addOnCompleteListener {
-                            if(it.isSuccessful){
-                                val intent = Intent(this@LoginActivity, WasherActivity::class.java)
-                                startActivity(intent)
-                            }else{
-                                inputEmailLogin.isEnabled = true
-                                inputPassLogin.isEnabled = true
-                                val toastCenter = Toast.makeText(
-                                    this@LoginActivity,"이메일주소 또는 비밀번호를 확인해주세요!", Toast.LENGTH_SHORT)
-                                toastCenter.setGravity(Gravity.CENTER,Gravity.CENTER_HORIZONTAL,Gravity.CENTER_VERTICAL)
-                                toastCenter.show()
-                            }
+                auth?.signInWithEmailAndPassword(
+                    inputEmailLogin.text.toString(),
+                    inputPassLogin.text.toString()
+                )
+                    ?.addOnCompleteListener {
+                        if (it.isSuccessful) {
+                            fireStore?.collection(inputEmailLogin.text.toString())
+                                ?.document("UserInfo")?.get()?.addOnCompleteListener {
+                                    if (it.isSuccessful) {
+                                        val userDTO =
+                                            it.result?.toObject(RegisterActivity.User::class.java)
+                                        Log.d(
+                                            "결과",
+                                            "email : ${userDTO?.email} phoneNumber : ${userDTO?.phoneNumber} type : ${userDTO?.type}"
+                                        )
+                                        val intent = if (userDTO?.type == "owner") {
+                                            Intent(this@LoginActivity, OwnerActivity::class.java)
+                                        } else {
+                                            Intent(this@LoginActivity, WasherActivity::class.java)
+                                        }
+                                        startActivity(intent)
+                                    }
+                                }
+                        } else {
+                            inputEmailLogin.isEnabled = true
+                            inputPassLogin.isEnabled = true
+                            val toastCenter = Toast.makeText(
+                                this@LoginActivity,
+                                "이메일주소 또는 비밀번호를 확인해주세요!",
+                                Toast.LENGTH_SHORT
+                            )
+                            toastCenter.setGravity(
+                                Gravity.CENTER,
+                                Gravity.CENTER_HORIZONTAL,
+                                Gravity.CENTER_VERTICAL
+                            )
+                            toastCenter.show()
                         }
                     }
-                }
             }
         }
 
