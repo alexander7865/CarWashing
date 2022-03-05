@@ -32,7 +32,7 @@ class OrderStatusOwnerFragment : BaseFragment<FragmentOrderStatusOwnerBinding>(
 
         binding.tvPhoneNumberOwner.setOnClickListener {
             var intent = Intent(Intent.ACTION_DIAL)
-            intent.data = Uri.parse("tel:821082277865")
+            intent.data = Uri.parse("tel:01082277865")
             startActivity(intent)
         }
 

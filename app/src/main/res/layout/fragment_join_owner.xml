@@ -9,7 +9,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:backgroundTint="@color/white"
+        android:background="@color/ivory"
         tools:context=".ui.owner.JoinOwnerFragment">
 
         <LinearLayout
@@ -39,8 +39,8 @@
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btn_cancel_registration"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:layout_marginEnd="26sp"
                     android:background="@drawable/button_cancel"
                     tools:ignore="SpeakableTextPresentCheck" />
@@ -106,6 +106,8 @@
                     </Space>
 
                     <LinearLayout
+                        android:elevation="3sp"
+                        android:layout_marginTop="5sp"
                         android:layout_width="match_parent"
                         android:layout_height="60sp"
                         android:layout_marginStart="26sp"

@@ -1,29 +1,27 @@
 package com.mod_int.carwash
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.mod_int.carwash.base.BaseActivity
 import com.mod_int.carwash.databinding.ActivityMainBinding
-import com.mod_int.carwash.ui.owner.OwnerActivity
 
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
 
+    @SuppressLint("PrivateResource")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding.goStart.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
-            overridePendingTransition(0, 0) //애니메이션 효과없에기
         }
 
         binding.btnGoMemberType.setOnClickListener {
             val intent = Intent(this, MemberTypeActivity::class.java)
             startActivity(intent)
-            overridePendingTransition(0, 0) //애니메이션 효과없에기
+//            overridePendingTransition(androidx.appcompat.R.anim.abc_fade_in, androidx.appcompat.R.anim.abc_fade_out)
         }
     }
 }

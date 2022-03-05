@@ -5,6 +5,7 @@
       <map>
         <entry key="app/src/main/res/drawable/arrow_back.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/arrow_drop_down.xml" value="0.199" />
+        <entry key="app/src/main/res/drawable/arrow_drop_down_2.xml" value="0.1655" />
         <entry key="app/src/main/res/drawable/bottomn_navi_color.xml" value="0.1655" />
         <entry key="app/src/main/res/drawable/bottomnavi_box.xml" value="0.1655" />
         <entry key="app/src/main/res/drawable/button_action_lorange.xml" value="0.199" />
@@ -12,12 +13,18 @@
         <entry key="app/src/main/res/drawable/car_wash.xml" value="0.199" />
         <entry key="app/src/main/res/drawable/check_box.xml" value="0.199" />
         <entry key="app/src/main/res/drawable/check_circle.xml" value="0.199" />
+        <entry key="app/src/main/res/drawable/ic_baseline_close_24.xml" value="0.1825" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.199" />
         <entry key="app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.199" />
+        <entry key="app/src/main/res/drawable/layout_box.xml" value="0.1655" />
+        <entry key="app/src/main/res/drawable/menu_open.xml" value="0.1655" />
+        <entry key="app/src/main/res/drawable/my_location.xml" value="0.1655" />
+        <entry key="app/src/main/res/drawable/search_icon.xml" value="0.1655" />
         <entry key="app/src/main/res/layout-w1240dp/activity_login.xml" value="0.335" />
         <entry key="app/src/main/res/layout-w936dp/activity_login.xml" value="0.20625" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.275" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_member_type.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_owner.xml" value="0.275" />
         <entry key="app/src/main/res/layout/activity_owner_login.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_owner_register.xml" value="0.275" />
@@ -32,8 +39,8 @@
         <entry key="app/src/main/res/layout/fragment_find_washer_owner.xml" value="0.275" />
         <entry key="app/src/main/res/layout/fragment_home_owner.xml" value="0.275" />
         <entry key="app/src/main/res/layout/fragment_home_washer.xml" value="0.275" />
-        <entry key="app/src/main/res/layout/fragment_join_owner.xml" value="0.335" />
-        <entry key="app/src/main/res/layout/fragment_management_history_owner.xml" value="0.275" />
+        <entry key="app/src/main/res/layout/fragment_join_owner.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/fragment_management_history_owner.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_order_status_owner.xml" value="0.25274261603375525" />
         <entry key="app/src/main/res/layout/fragment_order_status_washer.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_payment_washer.xml" value="0.275" />

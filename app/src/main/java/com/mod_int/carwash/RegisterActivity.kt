@@ -2,8 +2,10 @@ package com.mod_int.carwash
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Paint
 import android.os.Bundle
 import android.text.Editable
+import android.text.Layout
 import android.text.TextWatcher
 import android.util.Log
 import android.view.Gravity
@@ -81,10 +83,12 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(R.layout.activity
                             "이메일이 형식에 맞지 않습니다.\n재작성 해주세요!",
                             Toast.LENGTH_SHORT
                         )
+
+                        //텍스트 메세지가 중앙정렬이 안됩니다
                         toastCenter.setGravity(
-                            Gravity.CENTER,
                             Gravity.CENTER_HORIZONTAL,
-                            0
+                            Gravity.CENTER_HORIZONTAL,
+                            Gravity.CENTER_VERTICAL
                         )
                         toastCenter.show()
                     } else if (!checkPassword()) {
@@ -96,9 +100,9 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(R.layout.activity
                             Toast.LENGTH_SHORT
                         )
                         toastCenter.setGravity(
-                            Gravity.CENTER,
                             Gravity.CENTER_HORIZONTAL,
-                            0
+                            Gravity.CENTER_HORIZONTAL,
+                            Gravity.CENTER_VERTICAL
                         )
                         toastCenter.show()
 
@@ -111,9 +115,9 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(R.layout.activity
                             Toast.LENGTH_SHORT
                         )
                         toastCenter.setGravity(
-                            Gravity.CENTER,
                             Gravity.CENTER_HORIZONTAL,
-                            0
+                            Gravity.CENTER_HORIZONTAL,
+                            Gravity.CENTER_VERTICAL
                         )
                         toastCenter.show()
                     }
@@ -136,9 +140,9 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(R.layout.activity
                             Toast.LENGTH_SHORT
                         )
                         toastCenter.setGravity(
-                            Gravity.CENTER,
                             Gravity.CENTER_HORIZONTAL,
-                            0
+                            Gravity.CENTER_HORIZONTAL,
+                            Gravity.CENTER_VERTICAL
                         )
                         toastCenter.show()
                     } else if (!checkPassword()) {
@@ -150,9 +154,9 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(R.layout.activity
                             Toast.LENGTH_SHORT
                         )
                         toastCenter.setGravity(
-                            Gravity.CENTER,
                             Gravity.CENTER_HORIZONTAL,
-                            0
+                            Gravity.CENTER_HORIZONTAL,
+                            Gravity.CENTER_VERTICAL
                         )
                         toastCenter.show()
 
@@ -165,9 +169,9 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(R.layout.activity
                             Toast.LENGTH_SHORT
                         )
                         toastCenter.setGravity(
-                            Gravity.CENTER,
                             Gravity.CENTER_HORIZONTAL,
-                            0
+                            Gravity.CENTER_HORIZONTAL,
+                            Gravity.CENTER_VERTICAL
                         )
                         toastCenter.show()
                     }

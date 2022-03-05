@@ -9,7 +9,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:backgroundTint="@color/white"
+        android:background="@color/ivory"
         tools:context=".ui.registrationWasherFragment">
 
         <LinearLayout
@@ -27,9 +27,9 @@
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
                     android:layout_marginStart="26sp"
-                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
                     android:textStyle="bold"
                     android:text="정보등록"
                     android:textSize="20sp"
@@ -220,6 +220,8 @@
                             android:layout_height="10sp"></Space>
 
                         <LinearLayout
+                            android:elevation="3sp"
+                            android:layout_marginTop="5sp"
                             android:layout_width="match_parent"
                             android:layout_height="60sp"
                             android:layout_marginStart="26sp"

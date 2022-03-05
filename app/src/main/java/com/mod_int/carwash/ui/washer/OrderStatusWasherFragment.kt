@@ -1,5 +1,6 @@
 package com.mod_int.carwash.ui.washer
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Context
 import android.content.DialogInterface
@@ -7,20 +8,11 @@ import android.content.Intent
 import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.core.os.bundleOf
-import androidx.fragment.app.DialogFragment
-import androidx.fragment.app.Fragment
-import java.text.SimpleDateFormat
-import androidx.fragment.app.setFragmentResult
 import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseFragment
-import com.mod_int.carwash.databinding.FragmentHomeWasherBinding
 import com.mod_int.carwash.databinding.FragmentOrderStatusWasherBinding
-import com.mod_int.carwash.ui.owner.HomeOwnerFragment
-import com.mod_int.carwash.ui.owner.OwnerActivity
+import java.text.SimpleDateFormat
 import java.util.*
 
 class OrderStatusWasherFragment : BaseFragment<FragmentOrderStatusWasherBinding>(
@@ -34,12 +26,13 @@ class OrderStatusWasherFragment : BaseFragment<FragmentOrderStatusWasherBinding>
         if(context is WasherActivity) washerActivity = context
     }
 
+    @SuppressLint("SimpleDateFormat")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         binding.tvPhoneNumber.setOnClickListener {
             var intent = Intent(Intent.ACTION_DIAL)
-            intent.data = Uri.parse("tel:821082277865")
+            intent.data = Uri.parse("tel:01082277865")
             startActivity(intent)
         }
 

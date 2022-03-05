@@ -12,6 +12,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.mod_int.carwash.base.BaseActivity
 import com.mod_int.carwash.databinding.ActivityLoginBinding
+import com.mod_int.carwash.ui.owner.OwnerActivity
+import com.mod_int.carwash.ui.washer.WasherActivity
 
 class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login) {
 
@@ -27,6 +29,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
         }
     }
 
+
     override fun onStart() {
         super.onStart()
         auth?.addAuthStateListener(authListener)
@@ -34,34 +37,41 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        auth = FirebaseAuth.getInstance()
-        fireStore = FirebaseFirestore.getInstance()
+        auth = FirebaseAuth.getInstance() //파이어베이스 로그인 접근권한 가지고 오기
+        fireStore = FirebaseFirestore.getInstance() //파이어스토어 접근권한 가지고 오기
 
         auth?.signOut()
 
+
+        //회원구분하여 해당 홈페이지로 이동하게 만들어 놨습니다. 저가 만든 코드가 맞는지요?
         with(binding) {
             btnLoginOwner.setOnClickListener{
                 inputEmailLogin.isEnabled = false
                 inputPassLogin.isEnabled = false
-                // 키보드에서 Done(완료) 클릭 시 , 원하는 뷰 클릭되게 하기 이게 맞는걸까요?
-                inputPassLogin.setOnEditorActionListener(getEditorActionListenerDone(btnLoginOwner))
-                btnLoginOwner.setOnClickListener {
-                }
 
+                val a = "오너${inputEmailLogin.text}"
+                val b = "워셔${inputEmailLogin.text}"
 
-                auth?.signInWithEmailAndPassword(inputEmailLogin.text.toString(), inputPassLogin.text.toString())?.
+                auth?.signInWithEmailAndPassword(a, inputPassLogin.text.toString())?.
                 addOnCompleteListener {
                     if(it.isSuccessful){
-                        val intent = Intent(this@LoginActivity, MemberTypeActivity::class.java)
-                        intent.putExtra("이메일","${inputEmailLogin.text}")
+                        val intent = Intent(this@LoginActivity, OwnerActivity::class.java)
                         startActivity(intent)
-                    }else{
-                        inputEmailLogin.isEnabled = true
-                        inputPassLogin.isEnabled = true
-                        val toastCenter = Toast.makeText(
-                            this@LoginActivity,"이메일주소 또는 비밀번호를 확인해주세요!", Toast.LENGTH_SHORT)
-                        toastCenter.setGravity(Gravity.CENTER,0,0)
-                        toastCenter.show()
+                    }else {
+                        auth?.signInWithEmailAndPassword(b, inputPassLogin.text.toString())?.
+                        addOnCompleteListener {
+                            if(it.isSuccessful){
+                                val intent = Intent(this@LoginActivity, WasherActivity::class.java)
+                                startActivity(intent)
+                            }else{
+                                inputEmailLogin.isEnabled = true
+                                inputPassLogin.isEnabled = true
+                                val toastCenter = Toast.makeText(
+                                    this@LoginActivity,"이메일주소 또는 비밀번호를 확인해주세요!", Toast.LENGTH_SHORT)
+                                toastCenter.setGravity(Gravity.CENTER,Gravity.CENTER_HORIZONTAL,Gravity.CENTER_VERTICAL)
+                                toastCenter.show()
+                            }
+                        }
                     }
                 }
             }
@@ -70,15 +80,6 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
         binding.btnCancelLogin.setOnClickListener {
             onBackPressed()
             overridePendingTransition(0, 0) //애니메이션 효과없에기
-        }
-    }
-
-    private fun getEditorActionListenerDone(view: View): TextView.OnEditorActionListener {
-        return TextView.OnEditorActionListener { textView, actionId, keyEvent ->
-            if (actionId == EditorInfo.IME_ACTION_DONE) {
-                view.callOnClick()
-            }
-            false
         }
     }
 
