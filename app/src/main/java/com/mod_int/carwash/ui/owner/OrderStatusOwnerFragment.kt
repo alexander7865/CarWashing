@@ -10,11 +10,10 @@ import android.util.Log
 import android.view.View
 import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseFragment
-import com.mod_int.carwash.databinding.FragmentOrderStatusOwnerBinding
-import java.text.SimpleDateFormat
+import com.mod_int.carwash.databinding.FragmentOwnerOrderStatusBinding
 
-class OrderStatusOwnerFragment : BaseFragment<FragmentOrderStatusOwnerBinding>(
-    R.layout.fragment_order_status_owner) {
+class OrderStatusOwnerFragment : BaseFragment<FragmentOwnerOrderStatusBinding>(
+    R.layout.fragment_owner_order_status) {
 
     lateinit var ownerActivity: OwnerActivity
 

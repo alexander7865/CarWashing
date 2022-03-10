@@ -11,14 +11,15 @@ class MemberTypeActivity : BaseActivity<ActivityMemberTypeBinding>(R.layout.acti
 
         binding.goOwner.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
-            intent.putExtra("오너회원","오너")
+            intent.putExtra("오너회원","owner")
             startActivity(intent)
+            overridePendingTransition(0, 0)
         }
 
         binding.goWasher.setOnClickListener {
-            val intent = Intent(this, RegisterActivity::class.java)
-            intent.putExtra("워셔회원","워셔")
+            val intent = Intent(this, WasherTypeActivity::class.java)
             startActivity(intent)
+            overridePendingTransition(0, 0)
         }
 
         binding.btnCancelMemberType.setOnClickListener {

@@ -16,12 +16,17 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
         binding.goStart.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
+            overridePendingTransition(0, 0)
+
         }
 
         binding.btnGoMemberType.setOnClickListener {
             val intent = Intent(this, MemberTypeActivity::class.java)
             startActivity(intent)
-//            overridePendingTransition(androidx.appcompat.R.anim.abc_fade_in, androidx.appcompat.R.anim.abc_fade_out)
+            overridePendingTransition(0, 0)
+
         }
     }
 }
+
+

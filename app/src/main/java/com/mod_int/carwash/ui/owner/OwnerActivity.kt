@@ -18,19 +18,22 @@ class OwnerActivity : BaseActivity<ActivityOwnerBinding>(R.layout.activity_owner
 
         //최초 보여줄 화면 엑티비에서 프래그먼트로 유저이메일 정보 전달이 안됨
         val transaction = supportFragmentManager.beginTransaction()
-        transaction.add(R.id.owner_frag, HomeOwnerFragment())
+        transaction.add(R.id.owner_frag, OwnerHomeFragment())
         transaction.commit()
         transaction.addToBackStack("차주 홈")
+
+
+
 
         //하단 바텀네비게이션에서 탭레이아웃으로 변경함
         binding.tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener{
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 val transaction = supportFragmentManager.beginTransaction()
                 when(tab?.text) {
-                    "차주 홈" -> transaction.replace(R.id.owner_frag, HomeOwnerFragment()).commit()
-                    "워셔찾기" -> transaction.replace(R.id.owner_frag, FindWasherOwnerFragment()).commit()
+                    "차주 홈" -> transaction.replace(R.id.owner_frag, OwnerHomeFragment()).commit()
+                    "워셔찾기" -> transaction.replace(R.id.owner_frag, OwnerFindWasherFragment()).commit()
                     "세차현황" -> transaction.replace(R.id.owner_frag, OrderStatusOwnerFragment()).commit()
-                    "관리현황" -> transaction.replace(R.id.owner_frag, ManagementHistoryOwnerFragment()).commit()
+                    "관리현황" -> transaction.replace(R.id.owner_frag, OwnerManagementHistoryFragment()).commit()
                 }
             }
 
@@ -47,17 +50,18 @@ class OwnerActivity : BaseActivity<ActivityOwnerBinding>(R.layout.activity_owner
     //조인페이지 등록 페이지
     fun joinRegistration () {
         val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.owner_frag, JoinOwnerFragment())
+        transaction.replace(R.id.owner_frag, OwnerJoinFragment())
         transaction.commit()
         transaction.addToBackStack("가입하기")
     }
 
     fun goBlankPage () {
         val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.owner_frag, BlankOwnerFragment())
+        transaction.replace(R.id.owner_frag, OwnerBlankFragment())
         transaction.commit()
-        transaction.addToBackStack("세차현황")
+        transaction.addToBackStack("블랭크")
     }
+
 
     fun backStep () {
         onBackPressed()
