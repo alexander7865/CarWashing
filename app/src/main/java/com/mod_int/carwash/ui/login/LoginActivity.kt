@@ -57,7 +57,6 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
 
             is LoginViewState.Cancel -> {
                 onBackPressed()
-                overridePendingTransition(0, 0) //애니메이션 효과없에기
             }
 
             is LoginViewState.EnableInput -> {
@@ -77,6 +76,10 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
 
             is LoginViewState.RouteWasher -> {
                 startActivity(Intent(this@LoginActivity, WasherActivity::class.java))
+            }
+
+            is LoginViewState.RemoveAnimation -> {
+                overridePendingTransition(0, 0) //애니메이션 효과없에기
             }
         }
     }

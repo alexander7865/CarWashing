@@ -4,10 +4,8 @@ import android.app.Application
 import androidx.lifecycle.MutableLiveData
 import com.mod_int.carwash.base.BaseViewModel
 import com.mod_int.carwash.data.repo.FirebaseRepository
-import com.mod_int.carwash.ext.getUserInfo
 import com.mod_int.carwash.ext.ioScope
 import com.mod_int.carwash.ext.loginAndGetUserInfo
-import com.mod_int.carwash.ext.loginUser
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.async
 import javax.inject.Inject
@@ -34,6 +32,7 @@ class LoginViewModel @Inject constructor(
                     inputPasswordLiveData.value!!
                 ) { user ->
                     user?.let {
+                        viewStateChanged(LoginViewState.RemoveAnimation)
                         when (user.type) {
                             "owner" -> {
                                 viewStateChanged(LoginViewState.RouteOwner)
@@ -58,6 +57,7 @@ class LoginViewModel @Inject constructor(
     }
 
     fun cancel() {
+        viewStateChanged(LoginViewState.RemoveAnimation)
         viewStateChanged(LoginViewState.Cancel)
     }
 

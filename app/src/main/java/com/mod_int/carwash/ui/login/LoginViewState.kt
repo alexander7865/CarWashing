@@ -7,6 +7,7 @@ sealed class LoginViewState : ViewState {
     object RoutePickupManager : LoginViewState()
     object RouteOwner : LoginViewState()
     object RouteWasher : LoginViewState()
+    object RemoveAnimation : LoginViewState()
     data class Error(val message: String) : LoginViewState()
     data class EnableInput(val isEnable : Boolean) : LoginViewState()
 }
