@@ -1,15 +1,17 @@
-package com.mod_int.carwash
+package com.mod_int.carwash.ui.login
 
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.Gravity
 import android.view.inputmethod.EditorInfo
-import android.widget.Toast
+import androidx.activity.viewModels
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.mod_int.carwash.R
+import com.mod_int.carwash.RegisterActivity
 import com.mod_int.carwash.base.BaseActivity
 import com.mod_int.carwash.databinding.ActivityLoginBinding
+import com.mod_int.carwash.showToast
 import com.mod_int.carwash.ui.owner.OwnerActivity
 import com.mod_int.carwash.ui.pickup_manager.PickupManagerActivity
 import com.mod_int.carwash.ui.washer.WasherActivity
@@ -19,6 +21,8 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 
 class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login) {
+
+    private val loginViewModel by viewModels<LoginViewModel>()
 
     private var auth: FirebaseAuth? = null
     private var fireStore: FirebaseFirestore? = null
@@ -65,39 +69,50 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
     }
 
     private fun login() {
-        with(binding){
+        with(binding) {
             enableSetting(false)
-                CoroutineScope(Dispatchers.Main).launch {
-                    val checkEmail = async { checkEmail() }
-                    val checkPassword = async { checkPassword() }
+            CoroutineScope(Dispatchers.Main).launch {
+                val checkEmail = async { checkEmail() }
+                val checkPassword = async { checkPassword() }
 
-                    if (checkEmail.await() && checkPassword.await()) {
-                        auth?.signInWithEmailAndPassword(
-                            inputEmailLogin.text.toString(),
-                            inputPassLogin.text.toString()
-                        )?.addOnCompleteListener { it ->
+                if (checkEmail.await() && checkPassword.await()) {
+                    auth?.signInWithEmailAndPassword(
+                        inputEmailLogin.text.toString(),
+                        inputPassLogin.text.toString()
+                    )?.addOnCompleteListener { it ->
 
                         if (it.isSuccessful) {
                             fireStore?.collection(inputEmailLogin.text.toString())?.document(
-                                "UserInfo")?.get()?.addOnCompleteListener {
+                                "UserInfo"
+                            )?.get()?.addOnCompleteListener {
                                 if (it.isSuccessful) {
                                     //파이어스토어에서 결과값 가지고 오기
-                                    val userDTO = it.result?.toObject(RegisterActivity.User::class.java)
+                                    val userDTO =
+                                        it.result?.toObject(RegisterActivity.User::class.java)
                                     Log.d(
                                         "결과",
                                         "email : ${userDTO?.email} phoneNumber : ${userDTO?.phoneNumber} type : ${userDTO?.type}"
                                     )
                                     when {
                                         (userDTO?.type == "owner") -> {
-                                            val intent = Intent(this@LoginActivity, OwnerActivity::class.java)
+                                            val intent = Intent(
+                                                this@LoginActivity,
+                                                OwnerActivity::class.java
+                                            )
                                             startActivity(intent)
                                         }
                                         (userDTO?.type == "headWasher") -> {
-                                            val intent = Intent(this@LoginActivity, WasherActivity::class.java)
+                                            val intent = Intent(
+                                                this@LoginActivity,
+                                                WasherActivity::class.java
+                                            )
                                             startActivity(intent)
                                         }
                                         (userDTO?.type == "pickupWasher") -> {
-                                            val intent = Intent(this@LoginActivity, PickupManagerActivity::class.java)
+                                            val intent = Intent(
+                                                this@LoginActivity,
+                                                PickupManagerActivity::class.java
+                                            )
                                             startActivity(intent)
                                         }
                                     }

@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import com.mod_int.carwash.base.BaseActivity
 import com.mod_int.carwash.databinding.ActivityMainBinding
+import com.mod_int.carwash.ui.login.LoginActivity
 
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
