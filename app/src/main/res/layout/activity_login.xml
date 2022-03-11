@@ -5,12 +5,15 @@
 
     <data>
 
+        <variable
+            name="viewModel"
+            type="com.mod_int.carwash.ui.login.LoginViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:background="@color/ivory"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/ivory"
         tools:context=".ui.login.LoginActivity">
 
         <LinearLayout
@@ -18,13 +21,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintTop_toTopOf="parent">
+
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="15sp">
-            </Space>
+                android:layout_height="15sp"></Space>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -33,26 +37,27 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginStart="26sp"
                     android:layout_weight="1"
-                    android:layout_gravity="center_vertical"
-                    android:textStyle="bold"
                     android:text="로그인"
+                    android:textColor="@color/dgray"
                     android:textSize="20sp"
-                    android:textColor="@color/dgray" />
+                    android:textStyle="bold" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btn_cancel_login"
                     android:layout_width="40sp"
                     android:layout_height="40sp"
+                    android:onClick="@{()->viewModel.cancel()}"
                     android:layout_marginEnd="26sp"
                     android:background="@drawable/button_cancel"
                     tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
             </LinearLayout>
+
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="15sp">
-            </Space>
+                android:layout_height="15sp"></Space>
         </LinearLayout>
 
         <ScrollView
@@ -93,10 +98,11 @@
                     android:background="@drawable/layout_box_stroke"
                     android:ellipsize="end"
                     android:hint="이메일 주소를 입력"
+                    android:imeOptions="actionNext"
                     android:inputType="textEmailAddress"
                     android:paddingStart="16sp"
                     android:paddingEnd="16sp"
-                    android:imeOptions="actionNext"
+                    android:text="@={viewModel.inputEmailLiveData}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_welcome" />
@@ -111,12 +117,13 @@
                     android:background="@drawable/layout_box_stroke"
                     android:ellipsize="end"
                     android:hint="패스워드 입력"
+                    android:imeOptions="actionDone"
                     android:inputType="textPassword"
                     android:minEms="8"
                     android:minLines="8"
                     android:paddingStart="16sp"
                     android:paddingEnd="16sp"
-                    android:imeOptions="actionDone"
+                    android:text="@={viewModel.inputPasswordLiveData}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/input_email_login" />
@@ -131,6 +138,7 @@
                     android:layout_marginTop="20sp"
                     android:layout_marginEnd="26sp"
                     android:background="@drawable/button_action_lorange"
+                    android:onClick="@{()->viewModel.login()}"
                     android:text="로그인하기"
                     android:textColor="@color/white"
                     android:textSize="16sp"
@@ -138,10 +146,10 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/input_pass_login" />
+
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="30sp">
-                </Space>
+                    android:layout_height="30sp"></Space>
 
             </LinearLayout>
         </ScrollView>
