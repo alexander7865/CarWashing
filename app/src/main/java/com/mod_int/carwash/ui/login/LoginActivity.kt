@@ -11,7 +11,9 @@ import com.mod_int.carwash.showToast
 import com.mod_int.carwash.ui.owner.OwnerActivity
 import com.mod_int.carwash.ui.pickup_manager.PickupManagerActivity
 import com.mod_int.carwash.ui.washer.WasherActivity
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login) {
 
     private val loginViewModel by viewModels<LoginViewModel>()

@@ -51,7 +51,7 @@ class LoginViewModel @Inject constructor(
                         }
                     } ?: viewStateChanged(LoginViewState.Error("로그인이 실패하였습니다."))
                 }
-            } ?: viewStateChanged(LoginViewState.Error("로그인이 실패하였습니다."))
+            }
 
             viewStateChanged(LoginViewState.EnableInput(true))
         }
