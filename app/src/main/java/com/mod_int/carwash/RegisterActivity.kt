@@ -9,6 +9,7 @@ import android.view.inputmethod.EditorInfo
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.mod_int.carwash.base.BaseActivity
 import com.mod_int.carwash.databinding.ActivityRegisterBinding
@@ -94,26 +95,32 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(R.layout.activity
                                 val user = User(
                                     email = binding.inputEmailRegister.text.toString(),
                                     phoneNumber = "01082277865", // 임의 번호 생성해줌
-                                    type = "$ownerMember"
+                                    password = binding.inputPassRegister.text.toString()
                                 )
-                                fireStore?.collection(binding.inputEmailRegister.text.toString())
-                                    ?.document(
-                                        "UserInfo"
-                                    )?.set(user)?.addOnCompleteListener {
-                                        if (it.isSuccessful) {
-                                            val intent =
-                                                Intent(
-                                                    this@RegisterActivity,
-                                                    OwnerActivity::class.java
-                                                )
-                                            startActivity(intent)
-                                        } else {
-                                            enableSetting(true)
-                                            Toast.makeText(
-                                                this@RegisterActivity,
-                                                "유저 정보 등록을 실패하였습니다. 다시시도해 주세요.",
-                                                Toast.LENGTH_SHORT
-                                            ).show()
+                                fireStore?.collection("Owner")?.document("UserInfo")
+                                    ?.set(emptyMap<String, User>())?.addOnCompleteListener {
+                                        if(it.isSuccessful){
+                                            fireStore?.collection("Owner")
+                                                ?.document(
+                                                    "UserInfo"
+                                                )?.update("list", FieldValue.arrayUnion(user))
+                                                ?.addOnCompleteListener {
+                                                    if (it.isSuccessful) {
+                                                        val intent =
+                                                            Intent(
+                                                                this@RegisterActivity,
+                                                                OwnerActivity::class.java
+                                                            )
+                                                        startActivity(intent)
+                                                    } else {
+                                                        enableSetting(true)
+                                                        Toast.makeText(
+                                                            this@RegisterActivity,
+                                                            "유저 정보 등록을 실패하였습니다. 다시시도해 주세요.",
+                                                            Toast.LENGTH_SHORT
+                                                        ).show()
+                                                    }
+                                                }
                                         }
                                     }
                             } else {
@@ -139,12 +146,15 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(R.layout.activity
                                 val user = User(
                                     email = binding.inputEmailRegister.text.toString(),
                                     phoneNumber = "01022222222",
-                                    type = "$headWasherMember"
+                                    password = binding.inputPassRegister.text.toString()
                                 )
-                                fireStore?.collection(binding.inputEmailRegister.text.toString())
+
+
+                                fireStore?.collection("HeadWasher")
                                     ?.document(
                                         "UserInfo"
-                                    )?.set(user)?.addOnCompleteListener {
+                                    )?.update("list", FieldValue.arrayUnion(user))
+                                    ?.addOnCompleteListener {
                                         if (it.isSuccessful) {
                                             val intent = Intent(
                                                 this@RegisterActivity,
@@ -183,12 +193,13 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(R.layout.activity
                                 val user = User(
                                     email = binding.inputEmailRegister.text.toString(),
                                     phoneNumber = "01022222222",
-                                    type = "$pickupWasherMember"
+                                    password = binding.inputPassRegister.text.toString()
                                 )
-                                fireStore?.collection(binding.inputEmailRegister.text.toString())
+                                fireStore?.collection("PickUpWasher")
                                     ?.document(
                                         "UserInfo"
-                                    )?.set(user)?.addOnCompleteListener {
+                                    )?.update("list", FieldValue.arrayUnion(user))
+                                    ?.addOnCompleteListener {
                                         if (it.isSuccessful) {
                                             val intent = Intent(
                                                 this@RegisterActivity,
@@ -293,8 +304,8 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(R.layout.activity
 
     data class User(
         var email: String = "",
+        var password: String = "",
         var phoneNumber: String = "",
-        var type: String = ""
     )
 }
 

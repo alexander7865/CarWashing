@@ -28,26 +28,25 @@ class LoginViewModel @Inject constructor(
 
             checkUser(checkEmail.await(), checkPassword.await())?.let { person ->
                 firebaseRepository.loginAndGetUserInfo(
-                    inputEmailLiveData.value!!,
-                    inputPasswordLiveData.value!!
+                    person.email,
+                    person.password
                 ) { user ->
                     user?.let {
                         viewStateChanged(LoginViewState.RemoveAnimation)
-                        when (user.type) {
-                            "owner" -> {
-                                viewStateChanged(LoginViewState.RouteOwner)
-                            }
-                            "headWasher" -> {
-                                viewStateChanged(LoginViewState.RouteWasher)
-                            }
-
-                            "pickupWasher" -> {
-                                viewStateChanged(LoginViewState.RoutePickupManager)
-                            }
-                            else -> {
-                                viewStateChanged(LoginViewState.Error("로그인이 실패하였습니다."))
-                            }
-                        }
+//                        when (user.type) {
+//                            "owner" -> {
+//                                viewStateChanged(LoginViewState.RouteOwner)
+//                            }
+//                            "headWasher" -> {
+//                                viewStateChanged(LoginViewState.RouteWasher)
+//                            }
+//                            "pickupWasher" -> {
+//                                viewStateChanged(LoginViewState.RoutePickupManager)
+//                            }
+//                            else -> {
+//                                viewStateChanged(LoginViewState.Error("로그인이 실패하였습니다."))
+//                            }
+//                        }
                     } ?: viewStateChanged(LoginViewState.Error("로그인이 실패하였습니다."))
                 }
             }
