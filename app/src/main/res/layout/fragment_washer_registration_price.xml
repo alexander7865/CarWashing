@@ -30,7 +30,7 @@
                     android:layout_height="40dp"
                     android:layout_marginStart="26sp"
                     android:gravity="center_vertical"
-                    android:text="가이드라인등록"
+                    android:text="작업단가 확인"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:textColor="@color/dgray" />

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="timeSelect">
+        <item>지금당장</item>
+        <item>09시00분</item>
+        <item>10시00분</item>
+        <item>11시00분</item>
+        <item>12시00분</item>
+        <item>13시00분</item>
+        <item>14시00분</item>
+        <item>15시00분</item>
+        <item>16시00분</item>
+        <item>17시00분</item>
+        <item>18시00분</item>
+        <item>19시00분</item>
+        <item>20시00분</item>
+        <item>21시00분</item>
+        <item>22시00분</item>
+        <item>23시00분</item>
+        <item>24시00분</item>
+        <item>01시00분</item>
+        <item>02시00분</item>
+        <item>03시00분</item>
+        <item>04시00분</item>
+        <item>05시00분</item>
+        <item>06시00분</item>
+        <item>07시00분</item>
+        <item>08시00분</item>
+
+    </string-array>
+</resources>

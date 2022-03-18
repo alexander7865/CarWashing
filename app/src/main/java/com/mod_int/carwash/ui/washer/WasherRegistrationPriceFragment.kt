@@ -74,8 +74,8 @@ class WasherRegistrationPriceFragment : BaseFragment<FragmentWasherRegistrationP
         val user = Firebase.auth.currentUser
         user?.let {
             val email = user.email
-            fireStore?.collection(email.toString())?.document(
-                "PriceInfo")?.set(priceInfo)?.addOnCompleteListener{
+            fireStore?.collection("headWasher")?.document(
+                "$email")?.set(priceInfo)?.addOnCompleteListener{
                 if (it.isSuccessful) {
                     enableSetting(false)
                     val toastCenter = Toast.makeText(washerActivity, "정보가 저장되었습니다", Toast.LENGTH_SHORT)

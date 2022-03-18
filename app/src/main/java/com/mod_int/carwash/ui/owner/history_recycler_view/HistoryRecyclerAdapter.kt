@@ -2,11 +2,12 @@ package com.mod_int.carwash.ui.owner.history_recycler_view
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.mod_int.carwash.CustomDialogFragment
 
 class HistoryRecyclerAdapter : RecyclerView.Adapter<HistoryRecyclerViewHolder>(){
 
     private val historyList = mutableListOf<HistoryInfo>()
-    private lateinit var itemClickListener: (item : HistoryInfo) -> Unit
+    private lateinit var itemClickListener: (button : CustomDialogFragment) -> Unit
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HistoryRecyclerViewHolder =
         HistoryRecyclerViewHolder(parent)
@@ -23,7 +24,7 @@ class HistoryRecyclerAdapter : RecyclerView.Adapter<HistoryRecyclerViewHolder>()
         notifyDataSetChanged()
     }
 
-    fun setItemClickListener(listener: (item : HistoryInfo) -> Unit ){
+    fun setItemClickListener(listener: (button : CustomDialogFragment) -> Unit ){
         itemClickListener = listener
     }
 }

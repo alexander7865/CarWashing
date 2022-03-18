@@ -1,23 +1,23 @@
 package com.mod_int.carwash.ui.washer
 
 import android.annotation.SuppressLint
-import android.app.AlertDialog
 import android.content.Context
-import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import com.mod_int.carwash.CustomDialogFragment
+import com.mod_int.carwash.CustomDialogListener
 import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseFragment
 import com.mod_int.carwash.databinding.FragmentWasherOrderStatusBinding
 import java.text.SimpleDateFormat
 import java.util.*
 
+
 class WasherOrderStatusFragment : BaseFragment<FragmentWasherOrderStatusBinding>(
-    R.layout.fragment_washer_order_status) {
+    R.layout.fragment_washer_order_status){
 
     lateinit var washerActivity: WasherActivity
 
@@ -45,59 +45,64 @@ class WasherOrderStatusFragment : BaseFragment<FragmentWasherOrderStatusBinding>
         }
 
 
+        //커스텀 다이얼로그를 직접 구현했습니다 문제가 뒤로가기 클릭후 페이지로 들어왔을시 프로그래스바가 먼저 발동 되네요
         with(binding) {
-            btnPickUp.setOnClickListener {
-                val builder = AlertDialog.Builder(context,R.style.AppCompatAlertDialog)
-                val getTime = Date()
-                val formatType = SimpleDateFormat("HH:mm:ss")
 
-                builder.setTitle("차량이 입고 되었나요?")
-                builder.setCancelable(false)
-                builder.setMessage("확인 버튼을 클릭하시고 신속히 세차 작업을 진행하여 주시기 바랍니다")
-                builder.setPositiveButton("네") {
-                        dialogInterface: DialogInterface, i: Int ->
-                    with(binding){
-                        tvDeliver.visibility = View.VISIBLE
-                        btnDeliver.visibility = View.VISIBLE
-                        btnPickUp.isEnabled = false
-                        btnPickUp.setBackgroundColor(Color.TRANSPARENT)
-                        btnPickUp.setTextColor(Color.parseColor("#FFA83E"))
-                        btnPickUp.setTextSize(5,2.7F)
-                        btnPickUp.text = formatType.format(getTime)
-                    }
-                }
+            btnInputCar.setOnClickListener {
+                val dialog = CustomDialogFragment.CustomDialogBuilder()
+                    .setTitle("차량이 입고 되었나요?")
+                    .setQuestion("입고확인 등록을 하시고 신속히 세차 작업을 진행하여 주시기 바랍니다.")
+                    .setNoBtn("미입고")
+                    .setYesBtn("입고완료")
+                    .setBtnClickListener(object : CustomDialogListener {
+                        override fun onClickNegativeBtn() {
 
-                builder.setNegativeButton("아니요") {
-                        dialogInterface: DialogInterface, i: Int ->
-                }
-                builder.show()
+                        }
 
+                        override fun onClickPositiveBtn() {
+                            progressBar.progress = 1
+                            tvStatus.text = "세차를 진행하시고 진행이 완료되면 '작업확인' 등록을 해주세요!"
+                            btnWashingFinished.setBackgroundResource(R.drawable.button_action_lorange)
+                            btnWashingFinished.isEnabled = true
+                            btnInputCar.isEnabled = false
+                            btnInputCar.setBackgroundColor(Color.TRANSPARENT)
+                            btnInputCar.setTextColor(Color.parseColor("#FFA83E"))
+                            btnInputCar.setTextSize(5, 2.7F)
+                            btnInputCar.text = "입고완료"
+                        }
+                    })
+                    .create()
+                dialog.show(childFragmentManager, dialog.tag)
             }
 
-            btnDeliver.setOnClickListener {
-                val builder = AlertDialog.Builder(context,R.style.AppCompatAlertDialog)
-                val getTime = Date()
-                val formatType = SimpleDateFormat("HH:mm:ss")
 
-                builder.setTitle("세차작업이 완료되었나요?")
-                builder.setCancelable(false)
-                builder.setMessage("확인 버튼을 클릭하시고 픽업 매니저에게 차량을 인계하여 주시기 바랍니다")
-                builder.setPositiveButton("네") {
-                        dialogInterface: DialogInterface, i: Int ->
-                    with(binding){
-                        btnDeliver.isEnabled = false
-                        btnDeliver.setBackgroundColor(Color.TRANSPARENT)
-                        btnDeliver.setTextColor(Color.parseColor("#FFA83E"))
-                        btnDeliver.setTextSize(5,2.7F)
-                        btnDeliver.text = formatType.format(getTime)
-                    }
-                }
+            btnWashingFinished.setOnClickListener {
+//                val getTime = Date()
+//                val formatType = SimpleDateFormat("HH:mm:ss")
+                val dialog = CustomDialogFragment.CustomDialogBuilder()
+                    .setTitle("세차작업이 완료되었나요?")
+                    .setQuestion("작업완료를 등록하시면, 곧 픽업매니저가 도착할 예정입니다.")
+                    .setNoBtn("작업중")
+                    .setYesBtn("작업완료")
+                    .setBtnClickListener(object : CustomDialogListener {
+                        override fun onClickNegativeBtn() {
 
-                builder.setNegativeButton("아니요") {
-                        dialogInterface: DialogInterface, i: Int ->
-                }
-                builder.show()
+                        }
 
+                        override fun onClickPositiveBtn() {
+                            progressBar.progress = 2
+                            tvStatus.text = "수고하셨습니다. 모든 작업이 완료되었습니다."
+                            btnWashingFinished.isEnabled = false
+                            btnWashingFinished.setBackgroundColor(Color.TRANSPARENT)
+                            btnWashingFinished.setTextColor(Color.parseColor("#FFA83E"))
+                            btnWashingFinished.setTextSize(5,2.7F)
+                            btnWashingFinished.text = "세차완료"
+//                        btnPickUp.text = formatType.format(getTime)
+//                        위 스트링값 변경시 현재시간으로도 표현가능함 혹시나해서 가지고 있음
+                        }
+                    })
+                    .create()
+                dialog.show(childFragmentManager, dialog.tag)
             }
         }
     }

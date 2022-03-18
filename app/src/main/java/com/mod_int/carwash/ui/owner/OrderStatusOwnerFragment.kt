@@ -1,12 +1,9 @@
 package com.mod_int.carwash.ui.owner
 
-import android.app.AlertDialog
 import android.content.Context
-import android.content.DialogInterface
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseFragment
@@ -23,11 +20,9 @@ class OrderStatusOwnerFragment : BaseFragment<FragmentOwnerOrderStatusBinding>(
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
-        val hi = arguments?.getString("hi")
-        Log.d("값", "onViewCreated: $hi")
-
         super.onViewCreated(view, savedInstanceState)
+
+
 
         binding.tvPhoneNumberOwner.setOnClickListener {
             var intent = Intent(Intent.ACTION_DIAL)
@@ -35,33 +30,15 @@ class OrderStatusOwnerFragment : BaseFragment<FragmentOwnerOrderStatusBinding>(
             startActivity(intent)
         }
 
+
+        //상황 데이터 받는내용 코팅해야함 (데이터 받는 방법 스터디해야함)
+
+
+        //커스텀 파일로 변경해야함
+
         binding.btnGoHistory.setOnClickListener {
-            val builder = AlertDialog.Builder(context,R.style.AppCompatAlertDialog)
-
-            builder.setTitle("세차가 완료 되었습니다")
-            builder.setCancelable(false)
-            builder.setMessage("세차를 확인하셨다면 '확인' 버튼을 클릭해주세요! 세차이력은 [관리현황] 에서 확인 할 수 있습니다.")
-            builder.setPositiveButton("확인") {
-                    dialogInterface: DialogInterface, i: Int ->
-                ownerActivity.goBlankPage()
-            }
-
-            builder.setNegativeButton("미확인") {
-                    dialogInterface: DialogInterface, i: Int ->
-            }
-            builder.show()
+            ownerActivity.pickupCfmDialog()
 
         }
-
-//            val formatType = SimpleDateFormat("HH:mm:ss")
-//                tvFinished.visibility = View.VISIBLE
-//                btnFinished.visibility = View.VISIBLE
-//                btnDeliver.isEnabled = false
-//                btnDeliver.setBackgroundColor(Color.TRANSPARENT)
-//                btnDeliver.setTextColor(Color.parseColor("#FFA83E"))
-//                btnDeliver.setTextSize(5,2.7F)
-//                btnDeliver.text = formatType.format(getTime)
-
-
     }
 }

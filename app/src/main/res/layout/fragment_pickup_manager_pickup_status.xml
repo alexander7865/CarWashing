@@ -173,7 +173,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_gravity="center_vertical"
                                 android:layout_marginStart="26sp"
-                                android:text="픽업탁송비용"
+                                android:text="픽업/탁송비용"
                                 android:textColor="@color/dgray"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
@@ -243,7 +243,7 @@
                                 android:text="  010-1234-1234"
                                 android:textSize="18sp"
                                 android:textStyle="bold"
-                                android:textColor="@color/lorange"/>
+                                android:textColor="@color/dgray"/>
                             <TextView
                                 android:id="@+id/tv_inquiry"
                                 android:layout_width="wrap_content"
@@ -280,6 +280,7 @@
                                 android:textSize="16sp"/>
                             <TextView
                                 android:elevation="3sp"
+                                android:textIsSelectable="true"
                                 android:layout_marginTop="5sp"
                                 android:layout_marginBottom="5sp"
                                 android:id="@+id/locationOwner"
@@ -290,7 +291,6 @@
                                 android:background="@drawable/layout_box"
                                 android:padding="10sp"
                                 android:text="서울시 강남구 신사동 502-5 엠아이타워빌딩 주차장"
-                                android:textColor="@color/dgray"
                                 android:textStyle="bold"
                                 android:textSize="14sp"/>
                         </LinearLayout>
@@ -327,135 +327,117 @@
                                 android:layout_marginEnd="26sp"
                                 android:background="@drawable/layout_box"
                                 android:padding="10sp"
-                                android:text="차량 위치는 지하 주차장 B3층 R43 라인에 주차 되어있습니다 키는 운전석 앞바퀴에 올려놨습니다. 외부는 절대 솔로 닦지 마세요!! 탁송시간은 아무때나 갔다주시고 세차전/후 이미지를 꼭 전송해주세요!!"
-                                android:textColor="@color/dgray"
+                                android:text="차량 위치는 지하 주차장 B3층 R43 라인에 주차 되어있습니다 키는 경비실에서 찾으시면 됩니다. 외부는 절대 솔로 닦지 마세요!! 탁송시간은 아무때나 갔다주시고 세차전/후 이미지를 꼭 전송해주세요!!"
                                 android:textStyle="bold"
                                 android:textSize="14sp"/>
                         </LinearLayout>
                     </LinearLayout>
-
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="20sp">
-                    </Space>
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical">
-
-                        <TextView
-                            android:id="@+id/tv_pickUp"
-                            android:layout_width="230sp"
+                        android:layout_margin="16sp"
+                        android:elevation="3dp"
+                        android:background="@drawable/layout_box"
+                        android:orientation="vertical">
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="20sp">
+                        </Space>
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_marginStart="26sp"
-                            android:text="차량픽업 유/무 를 확인해주세요!"
-                            android:textColor="@color/dgray"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-
-                        <androidx.appcompat.widget.AppCompatButton
-                            style="@style/TextAppearance.AppCompat.Button"
-                            android:id="@+id/btn_pickUp"
-                            android:layout_marginTop="5sp"
-                            android:layout_marginBottom="5sp"
-                            android:layout_marginEnd="26sp"
-                            android:layout_width="110dp"
-                            android:layout_height="35dp"
-                            android:layout_weight="1"
-                            android:background="@drawable/button_action_lorange_radius"
-                            android:textColor="@color/white"
-                            android:text="확인"
-                            android:textSize="16sp"
-                            android:textStyle="bold"/>
-                    </LinearLayout>
-
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="10sp">
-                    </Space>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical">
-
-                        <TextView
-                            android:id="@+id/tv_deliver"
-                            android:layout_marginStart="26sp"
-                            android:layout_width="230sp"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:id="@+id/tvCfmStatus"
+                                android:layout_width="260sp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_horizontal"
+                                android:text="픽업전 본인의 휴대폰으로 차량의 외부/내부 이미지 캡쳐하여 차주에게 보내주세요!"
+                                android:layout_marginStart="16sp"
+                                android:layout_marginEnd="16sp"
+                                android:layout_weight="1"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="20sp">
+                        </Space>
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="탁송시작 유/무 를 확인해주세요!"
-                            android:textSize="16sp"
-                            android:textColor="@color/dgray"
-                            android:textStyle="bold" />
+                            android:orientation="vertical">
+                            <ProgressBar
+                                android:id="@+id/progressBar"
+                                style="@style/Widget.AppCompat.SeekBar.Discrete"
+                                android:layout_width="match_parent"
+                                android:layout_height="12dp"
+                                android:progressDrawable="@drawable/custom_progress_radius"
+                                android:max="3"
+                                android:progress="0" />
+                            <Space
+                                android:layout_width="match_parent"
+                                android:layout_height="5sp">
+                            </Space>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+                                <androidx.appcompat.widget.AppCompatButton
+                                    style="@style/Widget.AppCompat.Button.Borderless"
+                                    android:id="@+id/btn_pickUp"
+                                    android:layout_marginTop="5sp"
+                                    android:layout_marginBottom="5sp"
+                                    android:layout_marginStart="16sp"
+                                    android:layout_width="110dp"
+                                    android:layout_height="35dp"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/button_action_lorange"
+                                    android:textColor="@color/white"
+                                    android:text="픽업확인"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold"/>
+                                <androidx.appcompat.widget.AppCompatButton
+                                    style="@style/Widget.AppCompat.Button.Borderless"
+                                    android:id="@+id/btn_deliver"
+                                    android:layout_width="110dp"
+                                    android:layout_height="35dp"
+                                    android:layout_weight="1"
+                                    android:layout_marginTop="5sp"
+                                    android:layout_marginBottom="5sp"
+                                    android:layout_marginStart="10sp"
+                                    android:background="@drawable/button_enable_gray"
+                                    android:enabled="false"
+                                    android:text="탁송시작"
+                                    android:textColor="@color/white"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold" />
 
-                        <androidx.appcompat.widget.AppCompatButton
-                            style="@style/TextAppearance.AppCompat.Button"
-                            android:id="@+id/btn_deliver"
-                            android:layout_width="110dp"
-                            android:layout_height="35dp"
-                            android:layout_weight="1"
-                            android:layout_marginTop="5sp"
-                            android:layout_marginBottom="5sp"
-                            android:layout_marginEnd="26sp"
-                            android:background="@drawable/button_action_lorange_radius"
-                            android:text="확인"
-                            android:textColor="@color/white"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
+                                <androidx.appcompat.widget.AppCompatButton
+                                    android:id="@+id/btn_finished"
+                                    style="@style/Widget.AppCompat.Button.Borderless"
+                                    android:layout_width="110dp"
+                                    android:layout_height="35dp"
+                                    android:layout_marginStart="10sp"
+                                    android:layout_marginTop="5sp"
+                                    android:layout_marginBottom="5sp"
+                                    android:layout_marginEnd="16sp"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/button_enable_gray"
+                                    android:enabled="false"
+                                    android:text="탁송확인"
+                                    android:textColor="@color/white"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+                            <Space
+                                android:layout_width="match_parent"
+                                android:layout_height="20sp">
+                            </Space>
+                        </LinearLayout>
                     </LinearLayout>
-
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="10sp">
-                    </Space>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical">
-
-                        <TextView
-                            android:id="@+id/tv_finished"
-                            android:layout_width="230sp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_marginStart="26sp"
-                            android:text="탁송완료 유/무 를 확인해주세요!"
-                            android:textSize="16sp"
-                            android:textColor="@color/dgray"
-                            android:textStyle="bold" />
-                        <androidx.appcompat.widget.AppCompatButton
-                            style="@style/TextAppearance.AppCompat.Button"
-                            android:id="@+id/btn_finished"
-                            android:layout_width="110dp"
-                            android:layout_height="35dp"
-                            android:layout_weight="1"
-                            android:layout_marginTop="5sp"
-                            android:layout_marginBottom="5sp"
-                            android:layout_marginEnd="26sp"
-                            android:background="@drawable/button_action_lorange_radius"
-                            android:textColor="@color/white"
-                            android:text="확인"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="20sp">
-                    </Space>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:orientation="vertical"/>
-
                 </LinearLayout>
             </ScrollView>
         </LinearLayout>

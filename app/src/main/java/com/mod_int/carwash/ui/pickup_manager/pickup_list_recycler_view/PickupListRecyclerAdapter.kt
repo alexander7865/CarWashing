@@ -2,11 +2,12 @@ package com.mod_int.carwash.ui.pickup_manager.pickup_list_recycler_view
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.mod_int.carwash.CustomDialogFragment
 
 class PickupListRecyclerAdapter : RecyclerView.Adapter<PickupListRecyclerViewHolder>(){
 
     private val orderList = mutableListOf<PickupList>()
-    private lateinit var itemClickListener: (item : PickupList) -> Unit
+    private lateinit var itemClickListener: (button : CustomDialogFragment) -> Unit
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PickupListRecyclerViewHolder =
         PickupListRecyclerViewHolder(parent)
@@ -23,7 +24,7 @@ class PickupListRecyclerAdapter : RecyclerView.Adapter<PickupListRecyclerViewHol
         notifyDataSetChanged()
     }
 
-    fun setItemClickListener(listener: (item : PickupList) -> Unit ){
+    fun setItemClickListener(listener: (button : CustomDialogFragment) -> Unit ){
         itemClickListener = listener
     }
 }

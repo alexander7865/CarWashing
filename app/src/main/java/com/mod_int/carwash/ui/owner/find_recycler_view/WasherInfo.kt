@@ -11,6 +11,21 @@ data class WasherInfo (
     val deliPrice : Int,
     val policyPrice : Int,
     val location : String,
+    val washingType : String,
+    val inWashingCountryOfCar : String,
+    val outWashingCountryOfCar : String,
+    val inOutWashingCountryOfCar : String,
+    val inWashingCarSize : String,
+    val outWashingCarSize : String,
+    val inOutWashingCarSize : String,
+    val inWashingCost : String,
+    val outWashingCost : String,
+    val inOutWashingCost : String,
+    val inWashingTime : String,
+    val outWashingTime : String,
+    val inOutWashingTime : String,
+    val introduceText : String,
+
 //    val playTime : String,
     var expandable : Boolean = false
 ) : Parcelable

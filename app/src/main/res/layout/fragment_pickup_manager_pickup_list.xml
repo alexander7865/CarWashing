@@ -8,10 +8,11 @@
     </data>
 
     <FrameLayout
+        android:id="@+id/pickupListPickupManager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/ivory"
-        tools:context=".ui.pickup_manager.PickupManagerPickupListFragment">
+        tools:context=".ui.pickup_manager.pickuplist.PickupManagerPickupListFragment">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -43,13 +44,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="15sp">
             </Space>
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycler_pickupList_pickupManager"
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/pullToRefreshPickup"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="10sp"
-                android:layout_marginEnd="10sp"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+                android:layout_marginEnd="10sp">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerListPickupManager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10sp"
+                    android:layout_marginEnd="10sp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
         </LinearLayout>
     </FrameLayout>

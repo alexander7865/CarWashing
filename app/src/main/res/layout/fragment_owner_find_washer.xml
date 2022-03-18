@@ -8,10 +8,11 @@
     </data>
 
     <FrameLayout
+        android:id="@+id/container_owner_find_washer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/ivory"
-        tools:context=".ui.owner.OwnerFindWasherFragment">
+        tools:context=".ui.owner.findwasher.OwnerFindWasherFragment">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -29,32 +30,41 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="40dp"
                     android:layout_marginStart="26sp"
                     android:gravity="center_vertical"
+                    android:layout_weight="1"
                     android:textStyle="bold"
                     android:text="워셔찾기"
                     android:textSize="20sp"
                     android:textColor="@color/dgray" />
+                <Spinner
+                    android:id="@+id/searchSpinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="16sp"
+                    android:background="@drawable/custom_background_spinner_ivory"
+                    android:textSize="16sp">
+                </Spinner>
             </LinearLayout>
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="15sp">
             </Space>
-
-            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-                android:id="@+id/pullToRefresh"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/find_washer_recycler"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginStart="10sp"
-                android:layout_marginEnd="10sp">
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/find_washer_recycler"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
-            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+<!--            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout-->
+<!--                android:id="@+id/pullToRefresh"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_marginStart="10sp"-->
+<!--                android:layout_marginEnd="10sp">-->
+<!--            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>-->
         </LinearLayout>
     </FrameLayout>
 </layout>

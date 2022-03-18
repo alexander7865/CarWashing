@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="carBrandSelect">
+        <item>선택</item>
+        <item>벤츠</item>
+        <item>BMW</item>
+        <item>아우디</item>
+        <item>포르쉐</item>
+        <item>볼보</item>
+        <item>미니</item>
+        <item>JEEP</item>
+        <item>마세라티</item>
+        <item>등등</item>
+
+
+    </string-array>
+</resources>

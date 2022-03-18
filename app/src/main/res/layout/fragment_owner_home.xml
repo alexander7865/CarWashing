@@ -128,13 +128,17 @@
                                 android:orientation="vertical">
 
                                 <TextView
+                                    android:id="@+id/ownerPhoneNr"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="16sp"
+                                    android:inputType="phone"
                                     android:text="010-1234-1234"
                                     android:textColor="@color/dgray"
                                     android:textSize="16sp"
-                                    android:textStyle="bold" />
+                                    android:textStyle="bold"
+                                    tools:ignore="TextViewEdits" />
+
                             </LinearLayout>
 
                             <Space
@@ -158,15 +162,15 @@
                                     android:textSize="16sp"
                                     android:textStyle="bold" />
 
-                                <androidx.appcompat.widget.AppCompatButton
-                                    style="@style/Widget.AppCompat.Button.Borderless"
-                                    android:layout_width="50dp"
-                                    android:layout_height="50dp"
-                                    android:layout_gravity="center_vertical"
-                                    android:layout_marginStart="10sp"
-                                    android:layout_marginEnd="26sp"
-                                    android:background="@drawable/arrow_drop_down"
-                                    tools:ignore="SpeakableTextPresentCheck" />
+<!--                                <androidx.appcompat.widget.AppCompatButton-->
+<!--                                    style="@style/Widget.AppCompat.Button.Borderless"-->
+<!--                                    android:layout_width="50dp"-->
+<!--                                    android:layout_height="50dp"-->
+<!--                                    android:layout_gravity="center_vertical"-->
+<!--                                    android:layout_marginStart="10sp"-->
+<!--                                    android:layout_marginEnd="26sp"-->
+<!--                                    android:background="@drawable/arrow_drop_down"-->
+<!--                                    tools:ignore="SpeakableTextPresentCheck" />-->
                             </LinearLayout>
 
                             <Space
@@ -225,7 +229,6 @@
                             android:layout_gravity="center_vertical"
                             android:layout_marginStart="5sp"
                             android:text="(정보등록 에서 변경할 수 있어요)"
-                            android:textColor="@color/lorange"
                             android:textSize="14sp" />
                     </LinearLayout>
 

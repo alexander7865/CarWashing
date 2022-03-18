@@ -1,14 +1,15 @@
 package com.mod_int.carwash.ui.washer.order_list_recycler_view
 
-import android.view.View
+import android.annotation.SuppressLint
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.mod_int.carwash.ui.washer.WasherActivity
+import com.google.android.material.chip.Chip
+import com.mod_int.carwash.CustomDialogFragment
 
 class OrderListRecyclerAdapter : RecyclerView.Adapter<OrderListRecyclerViewHolder>(){
 
     private val orderList = mutableListOf<OrderList>()
-    private lateinit var itemClickListener: (item : OrderList) -> Unit
+    private lateinit var itemClickListener: (dialog: CustomDialogFragment) -> Unit
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OrderListRecyclerViewHolder =
         OrderListRecyclerViewHolder(parent)
@@ -20,12 +21,13 @@ class OrderListRecyclerAdapter : RecyclerView.Adapter<OrderListRecyclerViewHolde
 
     override fun getItemCount(): Int  = orderList.size
 
+    @SuppressLint("NotifyDataSetChanged")
     fun addAll(list: List<OrderList>) {
         orderList.addAll(list)
         notifyDataSetChanged()
     }
 
-    fun setItemClickListener(listener: (item : OrderList) -> Unit){
+    fun setItemClickListener(listener: (dialog: CustomDialogFragment) -> Unit){
         itemClickListener = listener
 
     }

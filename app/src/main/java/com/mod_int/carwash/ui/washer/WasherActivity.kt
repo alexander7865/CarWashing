@@ -4,10 +4,12 @@ import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.tabs.TabLayout
 import com.mod_int.carwash.CustomDialogFragment
+import com.mod_int.carwash.CustomDialogListener
 import com.mod_int.carwash.MainViewModel
 import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseActivity
 import com.mod_int.carwash.databinding.ActivityWasherBinding
+import com.mod_int.carwash.ui.washer.orderlist.WasherOrderListFragment
 
 class WasherActivity : BaseActivity<ActivityWasherBinding>(R.layout.activity_washer) {
 
@@ -53,24 +55,17 @@ class WasherActivity : BaseActivity<ActivityWasherBinding>(R.layout.activity_was
         transaction.commit()
     }
 
-    fun goBlackScreen() {
+    fun goListOrderWasher() {
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.washer_frag, WasherOrderListFragment())
+        transaction.addToBackStack("리스트페이지이동")
+        transaction.commit()
+    }
+
+    fun goBlankScreen() {
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.washer_frag,WasherBlankFragment())
         transaction.addToBackStack("뒤로가기")
-        transaction.commit()
-    }
-
-    fun goDetailOrderWasher() {
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.washer_frag,WasherOrderStatusFragment())
-        transaction.addToBackStack("디테일페이지이동")
-        transaction.commit()
-    }
-
-    fun goListOrderWasher() {
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.washer_frag,WasherOrderListFragment())
-        transaction.addToBackStack("리스트페이지이동")
         transaction.commit()
     }
 
@@ -78,10 +73,5 @@ class WasherActivity : BaseActivity<ActivityWasherBinding>(R.layout.activity_was
         onBackPressed()
     }
 
-    fun orderCfmDialog() {
-        val customDialog = CustomDialogFragment()
-        customDialog.show(supportFragmentManager, "CustomDialog")
-
-    }
 }
 

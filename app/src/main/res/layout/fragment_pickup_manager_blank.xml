@@ -59,6 +59,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <LinearLayout
+                    android:id="@+id/pictureImg"
                     android:layout_width="match_parent"
                     android:layout_height="380dp"
                     android:background="@drawable/layout_box"

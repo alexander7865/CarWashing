@@ -1,5 +1,6 @@
 package com.mod_int.carwash
 
+import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -11,39 +12,78 @@ import com.mod_int.carwash.databinding.FragmentCustomDialogBinding
 import com.mod_int.carwash.ui.washer.WasherActivity
 
 class CustomDialogFragment : DialogFragment() {
-    private lateinit var binding: FragmentCustomDialogBinding
+    lateinit var binding: FragmentCustomDialogBinding
     lateinit var washerActivity: WasherActivity
+    var title : String? = null
+    var question : String? = null
+    var noBtn : String? = null
+    var yesBtn : String? = null
+    var listener: CustomDialogListener? = null
 
+    class CustomDialogBuilder {
+        private val dialog = CustomDialogFragment()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        isCancelable = false
-        super.onCreate(savedInstanceState)
+        fun setTitle(title: String): CustomDialogBuilder {
+            dialog.title = title
+            return this
+        }
+        fun setQuestion(question: String): CustomDialogBuilder {
+            dialog.question = question
+            return this
+        }
+        fun setNoBtn(noBtn: String): CustomDialogBuilder {
+            dialog.noBtn = noBtn
+            return this
+        }
+        fun setYesBtn(yesBtn: String): CustomDialogBuilder {
+            dialog.yesBtn = yesBtn
+            return this
+        }
+        fun setBtnClickListener(listener: CustomDialogListener): CustomDialogBuilder {
+            dialog.listener = listener
+            return this
+        }
+        fun create(): CustomDialogFragment {
+            return dialog
+        }
     }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if(context is WasherActivity) washerActivity = context
+    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View? { binding = FragmentCustomDialogBinding.inflate(inflater,container,false)
+        val view = binding.root
+        isCancelable = false
+
         dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        binding = FragmentCustomDialogBinding.inflate(inflater,container,false)
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        val text = "안녕하세요 여러분"
-
         with(binding){
-            tvQuestion.text = text
-
+            titleDialog.text = title
+            tvQuestion.text = question
+            tvNo.text = noBtn
             tvNo.setOnClickListener {
+                listener?.onClickNegativeBtn()
                 dismiss()
             }
-
+            tvYes.text = yesBtn
             tvYes.setOnClickListener {
+                listener?.onClickPositiveBtn()
                 dismiss()
             }
+            return view
         }
     }
+
+}
+
+interface CustomDialogListener {
+    fun onClickNegativeBtn()
+    fun onClickPositiveBtn()
+
 }

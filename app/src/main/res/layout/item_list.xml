@@ -9,6 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5sp"
+        android:layout_marginStart="5sp"
+        android:layout_marginEnd="5sp"
         android:backgroundTint="@color/white">
         <LinearLayout
             android:layout_width="match_parent"
@@ -19,7 +21,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="16dp">
+                android:padding="10dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -38,9 +40,18 @@
                                 android:id="@+id/date_orderList_washer"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
                                 android:textColor="@color/dgray"
                                 android:text="2022.02.02"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+                            <TextView
+                                android:id="@+id/time_request_washer"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginStart="26sp"
+                                android:textColor="@color/dgray"
+                                android:text="12시30분"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
                             <TextView
@@ -154,7 +165,7 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
+                            android:orientation="vertical"
                             android:gravity="center_vertical">
 
                             <com.google.android.material.chip.Chip
@@ -162,10 +173,17 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="55dp"
                                 android:textColor="@color/white"
-                                android:text="주문 확인하기"
+                                android:text="세차의뢰 확인하기"
                                 android:backgroundTint="@color/lorange"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
+                            <TextView
+                                android:id="@+id/tvWarning"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_horizontal"
+                                android:text=" - 취소를 원할경우 고객센터로 연락하세요. 취소시 서비스가 제한됩니다. - "
+                                android:textSize="12sp" />
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>

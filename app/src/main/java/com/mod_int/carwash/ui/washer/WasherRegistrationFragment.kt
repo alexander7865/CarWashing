@@ -1,9 +1,12 @@
 package com.mod_int.carwash.ui.washer
 
 import android.content.Context
+import android.graphics.Color
 import android.os.Bundle
 import android.view.Gravity
 import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -31,7 +34,9 @@ class WasherRegistrationFragment : BaseFragment<FragmentWasherRegistrationBindin
         super.onViewCreated(view, savedInstanceState)
         fireStore = FirebaseFirestore.getInstance()
 
-        pickupManagerCount()
+        bankSelect()
+
+//        pickupManagerCount()
 
         with(binding){
             btnSaveWasherInfo.setOnClickListener {
@@ -41,9 +46,9 @@ class WasherRegistrationFragment : BaseFragment<FragmentWasherRegistrationBindin
     }
 
     private fun saveInfoWasher() {
-        val washerBankInfo = WasherInfo(
+        val washerInfo = WasherInfo(
             accountName = binding.accountName.text.toString(),
-            bankName = binding.bankName.text.toString(),
+            bankName = binding.bankName.toString(),
             accountNumber = binding.accountNumber.text.toString(),
             tvPhoneNoWasher = binding.tvPhoneNoWasher.text.toString(),
             tvPickupManagerNum = binding.tvPickupManagerNum.text.toString(),
@@ -63,7 +68,7 @@ class WasherRegistrationFragment : BaseFragment<FragmentWasherRegistrationBindin
                     val email = user.email
                     fireStore?.collection(email.toString())?.document(
                         "WasherInfo"
-                    )?.set(washerBankInfo)?.addOnCompleteListener {
+                    )?.set(washerInfo)?.addOnCompleteListener {
                         if (it.isSuccessful) {
                             enableSetting(false)
                             val toastCenter =
@@ -97,30 +102,31 @@ class WasherRegistrationFragment : BaseFragment<FragmentWasherRegistrationBindin
         }
     }
 
-    private fun pickupManagerCount() {
-        with(binding) {
-            var num = 1
-            tvPickupManagerNum.text = num.toString()
-
-            btnPickupManagerPlus.setOnClickListener {
-                num ++
-                tvPickupManagerNum.text = num.toString()
-            }
-
-            btnPickupManagerMinus.setOnClickListener {
-                if(num > 1) {
-                    num --
-                    tvPickupManagerNum.text = num.toString()
-                }else{
-                    num = 1
-                    tvPickupManagerNum.text = num.toString()
-                    val toastCenter = Toast.makeText(washerActivity,"픽업워셔는 1명 이상 등록하셔야 합니다", Toast.LENGTH_SHORT)
-                    toastCenter.setGravity(Gravity.CENTER,0,0)
-                    toastCenter.show()
-                }
-            }
-        }
-    }
+    //헤드워셔가 픽업인원 설정을 구현했으나 구지 필요없을듯함
+//    private fun pickupManagerCount() {
+//        with(binding) {
+//            var num = 1
+//            tvPickupManagerNum.text = num.toString()
+//
+//            btnPickupManagerPlus.setOnClickListener {
+//                num ++
+//                tvPickupManagerNum.text = num.toString()
+//            }
+//
+//            btnPickupManagerMinus.setOnClickListener {
+//                if(num > 1) {
+//                    num --
+//                    tvPickupManagerNum.text = num.toString()
+//                }else{
+//                    num = 1
+//                    tvPickupManagerNum.text = num.toString()
+//                    val toastCenter = Toast.makeText(washerActivity,"픽업워셔는 1명 이상 등록하셔야 합니다", Toast.LENGTH_SHORT)
+//                    toastCenter.setGravity(Gravity.CENTER,0,0)
+//                    toastCenter.show()
+//                }
+//            }
+//        }
+//    }
 
     private fun accountNameInputCheck() : Boolean {
         val accountName = binding.accountName.text.toString()
@@ -133,7 +139,7 @@ class WasherRegistrationFragment : BaseFragment<FragmentWasherRegistrationBindin
     }
 
     private fun bankNameInputCheck() : Boolean {
-        val bankName = binding.bankName.text.toString()
+        val bankName = binding.bankName.toString()
         return when{
             bankName.isEmpty() -> {
                 false
@@ -171,4 +177,28 @@ class WasherRegistrationFragment : BaseFragment<FragmentWasherRegistrationBindin
         var tvPickupManagerNum : String = "",
         var washingLocation : String = ""
     )
+
+    private fun bankSelect() {
+        val brand = resources.getStringArray(R.array.bankSelect)
+        val brandAdapter = ArrayAdapter (requireContext(),
+            R.layout.custom_owner_spinner, brand)
+
+        with(binding){
+            bankName.adapter = brandAdapter
+            bankName.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+                override fun onItemSelected(
+                    parent: AdapterView<*>?,
+                    view: View?,
+                    position: Int,
+                    id: Long
+                ) {
+
+                }
+
+                override fun onNothingSelected(parent: AdapterView<*>?) {
+                    view!!.setBackgroundColor(Color.TRANSPARENT)
+                }
+            }
+        }
+    }
 }

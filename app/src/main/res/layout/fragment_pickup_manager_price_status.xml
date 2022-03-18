@@ -30,7 +30,7 @@
                     android:layout_height="40dp"
                     android:layout_marginStart="26sp"
                     android:gravity="center_vertical"
-                    android:text="작업단가 확인"
+                    android:text="세차단가표"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:textColor="@color/dgray" />
@@ -100,10 +100,11 @@
                                 android:text="소형차"
                                 android:textSize="16sp"/>
 
-                            <EditText
+                            <TextView
                                 android:id="@+id/inside_korea_XS"
                                 android:layout_width="65sp"
                                 android:layout_height="wrap_content"
+                                android:textSize="18sp"
                                 android:layout_weight="1"
                                 android:ellipsize="end"
                                 android:hint="10000"
@@ -119,10 +120,11 @@
                                 android:text="소형차"
                                 android:textSize="16sp"/>
 
-                            <EditText
+                            <TextView
                                 android:id="@+id/inside_foreign_XS"
                                 android:layout_width="65sp"
                                 android:layout_height="wrap_content"
+                                android:textSize="18sp"
                                 android:layout_marginEnd="26sp"
                                 android:layout_weight="1"
                                 android:ellipsize="end"
@@ -154,10 +156,11 @@
                                 android:text="준중형차"
                                 android:textSize="16sp"/>
 
-                            <EditText
+                            <TextView
                                 android:id="@+id/inside_korea_S"
                                 android:layout_width="65sp"
                                 android:layout_height="wrap_content"
+                                android:textSize="18sp"
                                 android:layout_weight="1"
                                 android:ellipsize="end"
                                 android:hint="10000"
@@ -173,10 +176,11 @@
                                 android:text="준중형차"
                                 android:textSize="16sp"/>
 
-                            <EditText
+                            <TextView
                                 android:id="@+id/inside_foreign_S"
                                 android:layout_width="65sp"
                                 android:layout_height="wrap_content"
+                                android:textSize="18sp"
                                 android:layout_weight="1"
                                 android:layout_marginEnd="26sp"
                                 android:ellipsize="end"
@@ -207,10 +211,11 @@
                                 android:text="중형차"
                                 android:textSize="16sp"/>
 
-                            <EditText
+                            <TextView
                                 android:id="@+id/inside_korea_M"
                                 android:layout_width="65sp"
                                 android:layout_height="wrap_content"
+                                android:textSize="18sp"
                                 android:layout_weight="1"
                                 android:ellipsize="end"
                                 android:hint="10000"
@@ -226,10 +231,11 @@
                                 android:text="중형차"
                                 android:textSize="16sp"/>
 
-                            <EditText
+                            <TextView
                                 android:id="@+id/inside_foreign_M"
                                 android:layout_width="65sp"
                                 android:layout_height="wrap_content"
+                                android:textSize="18sp"
                                 android:layout_weight="1"
                                 android:layout_marginEnd="26sp"
                                 android:ellipsize="end"
@@ -261,10 +267,11 @@
                                 android:text="대형차"
                                 android:textSize="16sp"/>
 
-                            <EditText
+                            <TextView
                                 android:id="@+id/inside_korea_L"
                                 android:layout_width="65sp"
                                 android:layout_height="wrap_content"
+                                android:textSize="18sp"
                                 android:layout_weight="1"
                                 android:ellipsize="end"
                                 android:hint="10000"
@@ -280,10 +287,11 @@
                                 android:text="대형차"
                                 android:textSize="16sp"/>
 
-                            <EditText
+                            <TextView
                                 android:id="@+id/inside_foreign_L"
                                 android:layout_width="65sp"
                                 android:layout_height="wrap_content"
+                                android:textSize="18sp"
                                 android:layout_weight="1"
                                 android:layout_marginEnd="26sp"
                                 android:ellipsize="end"
@@ -348,10 +356,11 @@
                                 android:text="소형차"
                                 android:textSize="16sp"/>
 
-                            <EditText
+                            <TextView
                                 android:id="@+id/outside_korea_XS"
                                 android:layout_width="65sp"
                                 android:layout_height="wrap_content"
+                                android:textSize="18sp"
                                 android:layout_weight="1"
                                 android:ellipsize="end"
                                 android:hint="10000"
@@ -367,10 +376,11 @@
                                 android:text="소형차"
                                 android:textSize="16sp"/>
 
-                            <EditText
+                            <TextView
                                 android:id="@+id/outside_foreign_XS"
                                 android:layout_width="65sp"
                                 android:layout_height="wrap_content"
+                                android:textSize="18sp"
                                 android:layout_weight="1"
                                 android:layout_marginEnd="26sp"
                                 android:ellipsize="end"
@@ -402,10 +412,11 @@
                                 android:text="준중형차"
                                 android:textSize="16sp"/>
 
-                            <EditText
+                            <TextView
                                 android:id="@+id/outside_korea_S"
                                 android:layout_width="65sp"
                                 android:layout_height="wrap_content"
+                                android:textSize="18sp"
                                 android:layout_weight="1"
                                 android:ellipsize="end"
                                 android:hint="10000"
@@ -421,10 +432,11 @@
                                 android:text="준중형차"
                                 android:textSize="16sp"/>
 
-                            <EditText
+                            <TextView
                                 android:id="@+id/outside_foreign_S"
                                 android:layout_width="65sp"
                                 android:layout_height="wrap_content"
+                                android:textSize="18sp"
                                 android:layout_weight="1"
                                 android:layout_marginEnd="26sp"
                                 android:ellipsize="end"
@@ -455,10 +467,11 @@
                                 android:text="중형차"
                                 android:textSize="16sp"/>
 
-                            <EditText
+                            <TextView
                                 android:id="@+id/outside_korea_M"
                                 android:layout_width="65sp"
                                 android:layout_height="wrap_content"
+                                android:textSize="18sp"
                                 android:layout_weight="1"
                                 android:ellipsize="end"
                                 android:hint="10000"
@@ -474,10 +487,11 @@
                                 android:text="중형차"
                                 android:textSize="16sp"/>
 
-                            <EditText
+                            <TextView
                                 android:id="@+id/outside_foreign_M"
                                 android:layout_width="65sp"
                                 android:layout_height="wrap_content"
+                                android:textSize="18sp"
                                 android:layout_weight="1"
                                 android:layout_marginEnd="26sp"
                                 android:ellipsize="end"
@@ -509,10 +523,11 @@
                                 android:text="대형차"
                                 android:textSize="16sp"/>
 
-                            <EditText
+                            <TextView
                                 android:id="@+id/outside_korea_L"
                                 android:layout_width="65sp"
                                 android:layout_height="wrap_content"
+                                android:textSize="18sp"
                                 android:layout_weight="1"
                                 android:ellipsize="end"
                                 android:hint="10000"
@@ -528,10 +543,11 @@
                                 android:text="대형차"
                                 android:textSize="16sp"/>
 
-                            <EditText
+                            <TextView
                                 android:id="@+id/outside_foreign_L"
                                 android:layout_width="65sp"
                                 android:layout_height="wrap_content"
+                                android:textSize="18sp"
                                 android:layout_weight="1"
                                 android:layout_marginEnd="26sp"
                                 android:ellipsize="end"
@@ -594,10 +610,11 @@
                                 android:text="소형차"
                                 android:textSize="16sp"/>
 
-                            <EditText
+                            <TextView
                                 android:id="@+id/inOutside_korea_XS"
                                 android:layout_width="65sp"
                                 android:layout_height="wrap_content"
+                                android:textSize="18sp"
                                 android:layout_weight="1"
                                 android:ellipsize="end"
                                 android:hint="10000"
@@ -613,10 +630,11 @@
                                 android:text="소형차"
                                 android:textSize="16sp"/>
 
-                            <EditText
+                            <TextView
                                 android:id="@+id/inOutside_foreign_XS"
                                 android:layout_width="65sp"
                                 android:layout_height="wrap_content"
+                                android:textSize="18sp"
                                 android:layout_weight="1"
                                 android:layout_marginEnd="26sp"
                                 android:ellipsize="end"
@@ -648,10 +666,11 @@
                                 android:text="준중형차"
                                 android:textSize="16sp"/>
 
-                            <EditText
+                            <TextView
                                 android:id="@+id/inOutside_korea_S"
                                 android:layout_width="65sp"
                                 android:layout_height="wrap_content"
+                                android:textSize="18sp"
                                 android:layout_weight="1"
                                 android:ellipsize="end"
                                 android:hint="10000"
@@ -667,10 +686,11 @@
                                 android:text="준중형차"
                                 android:textSize="16sp"/>
 
-                            <EditText
+                            <TextView
                                 android:id="@+id/inOutside_foreign_S"
                                 android:layout_width="65sp"
                                 android:layout_height="wrap_content"
+                                android:textSize="18sp"
                                 android:layout_weight="1"
                                 android:layout_marginEnd="26sp"
                                 android:ellipsize="end"
@@ -701,10 +721,11 @@
                                 android:text="중형차"
                                 android:textSize="16sp"/>
 
-                            <EditText
+                            <TextView
                                 android:id="@+id/inOutside_korea_M"
                                 android:layout_width="65sp"
                                 android:layout_height="wrap_content"
+                                android:textSize="18sp"
                                 android:layout_weight="1"
                                 android:ellipsize="end"
                                 android:hint="10000"
@@ -720,10 +741,11 @@
                                 android:text="중형차"
                                 android:textSize="16sp"/>
 
-                            <EditText
+                            <TextView
                                 android:id="@+id/inOutside_foreign_M"
                                 android:layout_width="65sp"
                                 android:layout_height="wrap_content"
+                                android:textSize="18sp"
                                 android:layout_weight="1"
                                 android:layout_marginEnd="26sp"
                                 android:ellipsize="end"
@@ -755,10 +777,11 @@
                                 android:text="대형차"
                                 android:textSize="16sp"/>
 
-                            <EditText
+                            <TextView
                                 android:id="@+id/inOutside_korea_L"
                                 android:layout_width="65sp"
                                 android:layout_height="wrap_content"
+                                android:textSize="18sp"
                                 android:layout_weight="1"
                                 android:ellipsize="end"
                                 android:hint="10000"
@@ -774,10 +797,11 @@
                                 android:text="대형차"
                                 android:textSize="16sp"/>
 
-                            <EditText
+                            <TextView
                                 android:id="@+id/inOutside_foreign_L"
                                 android:layout_width="65sp"
                                 android:layout_height="wrap_content"
+                                android:textSize="18sp"
                                 android:layout_weight="1"
                                 android:layout_marginEnd="26sp"
                                 android:ellipsize="end"
@@ -841,10 +865,11 @@
                                 android:text="내부"
                                 android:textSize="16sp"/>
 
-                            <EditText
+                            <TextView
                                 android:id="@+id/inside_time"
                                 android:layout_width="65sp"
                                 android:layout_height="wrap_content"
+                                android:textSize="18sp"
                                 android:layout_weight="1"
                                 android:ellipsize="end"
                                 android:hint="20분"
@@ -861,18 +886,14 @@
                                 android:text="픽업/탁송"
                                 android:textSize="16sp" />
 
-                            <EditText
-                                android:id="@+id/delivery_cost"
+                            <TextView
+                                android:id="@+id/deliveryCost"
                                 android:layout_width="65sp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:layout_marginEnd="26sp"
-                                android:ellipsize="end"
-                                android:hint="10000"
-                                android:inputType="number"
-                                android:maxLength="5"
-                                android:maxLines="1"
-                                tools:ignore="TouchTargetSizeCheck" />
+                                android:text="7000"
+                                android:textSize="18sp"/>
                         </LinearLayout>
                     </LinearLayout>
 
@@ -896,10 +917,11 @@
                                 android:text="외부"
                                 android:textSize="16sp"/>
 
-                            <EditText
+                            <TextView
                                 android:id="@+id/outside_time"
                                 android:layout_width="65sp"
                                 android:layout_height="wrap_content"
+                                android:textSize="18sp"
                                 android:layout_weight="1"
                                 android:ellipsize="end"
                                 android:hint="20분"
@@ -916,10 +938,11 @@
                                 android:text="광택"
                                 android:textSize="16sp"/>
 
-                            <EditText
+                            <TextView
                                 android:id="@+id/polish_cost"
                                 android:layout_width="65sp"
                                 android:layout_height="wrap_content"
+                                android:textSize="18sp"
                                 android:layout_weight="1"
                                 android:layout_marginEnd="26sp"
                                 android:ellipsize="end"
@@ -950,10 +973,11 @@
                                 android:text="내부+외부"
                                 android:textSize="16sp"/>
 
-                            <EditText
+                            <TextView
                                 android:id="@+id/inOutside_time"
                                 android:layout_width="65sp"
                                 android:layout_height="wrap_content"
+                                android:textSize="18sp"
                                 android:ellipsize="end"
                                 android:layout_weight="1"
                                 android:hint="30분"
@@ -976,41 +1000,6 @@
 
                     <Space
                         android:layout_width="match_parent"
-                        android:layout_height="30sp">
-                    </Space>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <androidx.appcompat.widget.AppCompatButton
-                            style="@style/Widget.AppCompat.Button.Borderless"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textColor="@color/white"
-                            android:layout_weight="1"
-                            android:layout_marginStart="26sp"
-                            android:text="수정하기"
-                            android:background="@drawable/button_action_lorange"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-
-                        <androidx.appcompat.widget.AppCompatButton
-                            android:id="@+id/btn_price_save"
-                            style="@style/Widget.AppCompat.Button.Borderless"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="16sp"
-                            android:layout_marginEnd="26sp"
-                            android:textColor="@color/white"
-                            android:layout_weight="1"
-                            android:text="등록하기"
-                            android:background="@drawable/button_action_lorange"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-                    <Space
-                        android:layout_width="match_parent"
                         android:layout_height="40sp">
                     </Space>
                 </LinearLayout>
@@ -1018,3 +1007,4 @@
         </LinearLayout>
     </FrameLayout>
 </layout>
+

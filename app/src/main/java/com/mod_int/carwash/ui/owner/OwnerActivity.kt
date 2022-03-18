@@ -1,17 +1,27 @@
 package com.mod_int.carwash.ui.owner
 
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.tabs.TabLayout
+import com.mod_int.carwash.CustomDialogFragment
+import com.mod_int.carwash.CustomDialogListener
 import com.mod_int.carwash.MainViewModel
 import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseActivity
 import com.mod_int.carwash.databinding.ActivityOwnerBinding
+import com.mod_int.carwash.ui.owner.findwasher.OwnerFindWasherFragment
+import com.mod_int.carwash.ui.owner.history.OwnerManagementHistoryFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class OwnerActivity : BaseActivity<ActivityOwnerBinding>(R.layout.activity_owner) {
 
-    private val mainViewModel by lazy { ViewModelProvider(
-        this, defaultViewModelProviderFactory).get(MainViewModel::class.java)}
+    private val mainViewModel by lazy {
+        ViewModelProvider(
+            this, defaultViewModelProviderFactory
+        ).get(MainViewModel::class.java)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,9 +41,9 @@ class OwnerActivity : BaseActivity<ActivityOwnerBinding>(R.layout.activity_owner
                 val transaction = supportFragmentManager.beginTransaction()
                 when(tab?.text) {
                     "차주 홈" -> transaction.replace(R.id.owner_frag, OwnerHomeFragment()).commit()
-                    "워셔찾기" -> transaction.replace(R.id.owner_frag, OwnerFindWasherFragment()).commit()
                     "세차현황" -> transaction.replace(R.id.owner_frag, OrderStatusOwnerFragment()).commit()
                     "관리현황" -> transaction.replace(R.id.owner_frag, OwnerManagementHistoryFragment()).commit()
+                    "워셔찾기" -> transaction.replace(R.id.owner_frag, OwnerFindWasherFragment()).commit()
                 }
             }
 
@@ -48,27 +58,41 @@ class OwnerActivity : BaseActivity<ActivityOwnerBinding>(R.layout.activity_owner
     }
 
     //조인페이지 등록 페이지
-    fun joinRegistration () {
+    fun joinRegistration() {
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.owner_frag, OwnerJoinFragment())
         transaction.commit()
         transaction.addToBackStack("가입하기")
     }
 
-    fun goBlankPage () {
+    fun goBlankPage() {
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.owner_frag, OwnerBlankFragment())
         transaction.commit()
         transaction.addToBackStack("블랭크")
     }
 
-
-    fun backStep () {
+    fun backStep() {
         onBackPressed()
     }
-    //세차작업 의뢰버튼 클릭시 세차현황으로 이동이 되어야하는데 구현이 안됩니다 (리사이클러뷰의 홀더 안에 버튼을 구현했음)
+    fun pickupCfmDialog() {
+        val dialog = CustomDialogFragment.CustomDialogBuilder()
+            .setTitle("세차완료 확인하세요")
+            .setQuestion("차를 확인하셨다면 '확인' 버튼을 클릭해주세요! 세차이력은 [관리현황] 에서 확인 할 수 있습니다.")
+            .setNoBtn("나중에 확인")
+            .setYesBtn("확인완료")
+            .setBtnClickListener(object : CustomDialogListener {
+                override fun onClickNegativeBtn() {
+                    //불가능한경우 행동
+                }
 
-
+                override fun onClickPositiveBtn() {
+                    goBlankPage()
+                }
+            })
+            .create()
+        dialog.show(supportFragmentManager, dialog.tag)
+    }
 }
 
 

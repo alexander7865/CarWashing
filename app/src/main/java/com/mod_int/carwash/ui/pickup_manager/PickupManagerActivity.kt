@@ -3,11 +3,13 @@ package com.mod_int.carwash.ui.pickup_manager
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.tabs.TabLayout
+import com.mod_int.carwash.CustomDialogFragment
+import com.mod_int.carwash.CustomDialogListener
 import com.mod_int.carwash.MainViewModel
 import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseActivity
 import com.mod_int.carwash.databinding.ActivityPickupManagerBinding
-import com.mod_int.carwash.ui.washer.WasherBlankFragment
+import com.mod_int.carwash.ui.pickup_manager.pickuplist.PickupManagerPickupListFragment
 
 class PickupManagerActivity : BaseActivity<ActivityPickupManagerBinding>(R.layout.activity_pickup_manager) {
 
@@ -26,7 +28,7 @@ class PickupManagerActivity : BaseActivity<ActivityPickupManagerBinding>(R.layou
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 val transaction = supportFragmentManager.beginTransaction()
                 when(tab?.text) {
-                    "픽업매니저" -> transaction.replace(R.id.pickupManager_frag, PickupManagerHomeFragment()).commit()
+                    "픽업 홈" -> transaction.replace(R.id.pickupManager_frag, PickupManagerHomeFragment()).commit()
                     "정보등록" -> transaction.replace(R.id.pickupManager_frag, PickupManagerRegistrationFragment()).commit()
                     "단가현황" -> transaction.replace(R.id.pickupManager_frag, PickupManagerPriceStatusFragment()).commit()
                     "작업현황" -> transaction.replace(R.id.pickupManager_frag, PickupManagerPickupListFragment()).commit()
@@ -46,32 +48,51 @@ class PickupManagerActivity : BaseActivity<ActivityPickupManagerBinding>(R.layou
     fun settlementRequest() {
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.pickupManager_frag, PickupManagerSettlementRequestFragment())
-        transaction.addToBackStack("뒤로가기")
+        transaction.addToBackStack("")
         transaction.commit()
     }
 
-    fun goBlackTipScreen() {
+    fun goBlankTipScreen() {
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.pickupManager_frag, PickupManagerBlankFragment())
-        transaction.addToBackStack("뒤로가기")
+        transaction.addToBackStack("")
         transaction.commit()
     }
 
     fun goDetailOrderPickup() {
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.pickupManager_frag, PickupManagerPickupStatusFragment())
-        transaction.addToBackStack("디테일페이지이동")
+        transaction.addToBackStack("")
         transaction.commit()
     }
 
     fun goListOrderPickup() {
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.pickupManager_frag, PickupManagerPickupListFragment())
-        transaction.addToBackStack("리스트페이지이동")
+        transaction.addToBackStack("")
         transaction.commit()
     }
 
     fun backStep () {
         onBackPressed()
+    }
+    //커스텀 다이얼로그 만들었습니다.
+    fun pickupCfmDialog() {
+        val dialog = CustomDialogFragment.CustomDialogBuilder()
+            .setTitle("픽업 가능한가요?")
+            .setQuestion("000허0000 벤츠 GLC220 SUV BLACK\n내부+외부 준중형 (외제차)")
+            .setNoBtn("불가능해요")
+            .setYesBtn("가능해요")
+            .setBtnClickListener(object : CustomDialogListener {
+                override fun onClickNegativeBtn() {
+                    //불가능한경우 행동
+                }
+
+                override fun onClickPositiveBtn() {
+                    goDetailOrderPickup()
+                }
+            })
+            .create()
+        dialog.show(supportFragmentManager, dialog.tag)
     }
 }

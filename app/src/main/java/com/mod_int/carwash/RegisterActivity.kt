@@ -8,7 +8,9 @@ import android.view.Gravity
 import android.view.inputmethod.EditorInfo
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.collection.arrayMapOf
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.mod_int.carwash.base.BaseActivity
 import com.mod_int.carwash.databinding.ActivityRegisterBinding
@@ -58,24 +60,14 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(R.layout.activity
                 onBackPressed()
                 overridePendingTransition(0, 0) //애니메이션 효과없에기
             }
-
-            //키보드 done 버튼 클릭 당장 필요없음
-//            inputCfmPassRegister.setOnEditorActionListener { _, actionId, _ ->
-//                if (actionId == EditorInfo.IME_ACTION_DONE) {
-//                    register()
-//                    true
-//                } else {
-//                    false
-//                }
-//            }
         }
     }
 
     private fun register() {
         enableSetting(false)
         val ownerMember = intent.getStringExtra("오너회원")
-        val headWasherMember = intent.getStringExtra("헤드워셔")
-        val pickupWasherMember = intent.getStringExtra("픽업워셔")
+        val headWasher = intent.getStringExtra("헤드워셔")
+        val pickupWasher = intent.getStringExtra("픽업워셔")
 
         when {
             (ownerMember != null) -> {
@@ -88,18 +80,20 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(R.layout.activity
                         enableSetting(false)
                         createUserId(
                             binding.inputEmailRegister.text.toString(),
-                            binding.inputPassRegister.text.toString()
+                            binding.inputPassRegister.text.toString(),
+
                         ) { isRegister ->
                             if (isRegister) {
+                                //저장될 데이터
                                 val user = User(
                                     email = binding.inputEmailRegister.text.toString(),
-                                    phoneNumber = "01082277865", // 임의 번호 생성해줌
-                                    type = "$ownerMember"
+                                    phoneNumber = "01082277865",
+                                    type = "ownerMember",
+
                                 )
-                                fireStore?.collection(binding.inputEmailRegister.text.toString())
-                                    ?.document(
-                                        "UserInfo"
-                                    )?.set(user)?.addOnCompleteListener {
+                                fireStore?.collection("ownerMember")?.document(
+                                    binding.inputEmailRegister.text.toString())
+                                    ?.set(user)?.addOnCompleteListener { it ->
                                         if (it.isSuccessful) {
                                             val intent =
                                                 Intent(
@@ -124,7 +118,7 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(R.layout.activity
                     }
                 }
             }
-            (headWasherMember != null) -> {
+            (headWasher != null) -> {
                 CoroutineScope(Dispatchers.Main).launch {
                     val checkEmail = async { checkEmail() }
                     val checkPassword = async { checkPassword() }
@@ -139,12 +133,11 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(R.layout.activity
                                 val user = User(
                                     email = binding.inputEmailRegister.text.toString(),
                                     phoneNumber = "01022222222",
-                                    type = "$headWasherMember"
+                                    type = "headWasher",
                                 )
-                                fireStore?.collection(binding.inputEmailRegister.text.toString())
-                                    ?.document(
-                                        "UserInfo"
-                                    )?.set(user)?.addOnCompleteListener {
+                                fireStore?.collection("headWasher")?.document(
+                                    binding.inputEmailRegister.text.toString())
+                                    ?.set(user)?.addOnCompleteListener { it ->
                                         if (it.isSuccessful) {
                                             val intent = Intent(
                                                 this@RegisterActivity,
@@ -168,7 +161,7 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(R.layout.activity
                     }
                 }
             }
-            (pickupWasherMember != null) -> {
+            (pickupWasher != null) -> {
                 CoroutineScope(Dispatchers.Main).launch {
                     val checkEmail = async { checkEmail() }
                     val checkPassword = async { checkPassword() }
@@ -183,12 +176,11 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(R.layout.activity
                                 val user = User(
                                     email = binding.inputEmailRegister.text.toString(),
                                     phoneNumber = "01022222222",
-                                    type = "$pickupWasherMember"
+                                    type = "pickupWasher",
                                 )
-                                fireStore?.collection(binding.inputEmailRegister.text.toString())
-                                    ?.document(
-                                        "UserInfo"
-                                    )?.set(user)?.addOnCompleteListener {
+                                fireStore?.collection("pickupWasher")?.document(
+                                    binding.inputEmailRegister.text.toString()
+                                )?.set(user)?.addOnCompleteListener { it ->
                                         if (it.isSuccessful) {
                                             val intent = Intent(
                                                 this@RegisterActivity,
@@ -214,7 +206,6 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(R.layout.activity
             }
         }
     }
-
 
     private fun createUserId(email: String, password: String, callback: (Boolean) -> Unit) {
         auth?.createUserWithEmailAndPassword(email, password)?.addOnCompleteListener(this) {
@@ -294,7 +285,7 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(R.layout.activity
     data class User(
         var email: String = "",
         var phoneNumber: String = "",
-        var type: String = ""
+        var type: String = "",
     )
 }
 

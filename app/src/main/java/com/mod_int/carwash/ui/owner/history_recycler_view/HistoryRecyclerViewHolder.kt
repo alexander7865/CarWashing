@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.mod_int.carwash.CustomDialogFragment
 import com.mod_int.carwash.R
 import com.mod_int.carwash.databinding.ItemHistoryBinding
 
@@ -12,7 +13,7 @@ class HistoryRecyclerViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(
 
     private val binding = DataBindingUtil.bind<ItemHistoryBinding>(itemView)
 
-    fun bind(item: HistoryInfo, itemClickListener: (item : HistoryInfo) -> Unit) {
+    fun bind(item: HistoryInfo, itemClickListener: (Button : CustomDialogFragment) -> Unit) {
         binding?.let {
             with(it){
                 dateHistory.text = item.historyDate
@@ -22,12 +23,13 @@ class HistoryRecyclerViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(
                 styleNameHistory.text = item.styleNameHistory
                 carKindsHistory.text = item.carKindsHistory
                 carColorHistory.text = item.carColorHistory
+
+                btnCancelHistory.setOnClickListener {
+                    val button = CustomDialogFragment()
+                    itemClickListener(button)
+
+                }
             }
-        }
-
-        itemView.setOnClickListener {
-            itemClickListener(item)
-
         }
     }
 }
