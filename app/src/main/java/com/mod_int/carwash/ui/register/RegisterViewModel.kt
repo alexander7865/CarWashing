@@ -49,11 +49,11 @@ class RegisterViewModel @Inject constructor(
                             "ownerMember" -> {
                                 viewStateChanged(RegisterViewState.RouteOwner)
                             }
-                            "headWasher" -> {
+                            "washerMember" -> {
                                 viewStateChanged(RegisterViewState.RouteWasher)
                             }
 
-                            "pickupWasher" -> {
+                            "pickupMember" -> {
                                 viewStateChanged(RegisterViewState.RoutePickupManager)
                             }
                             else -> {

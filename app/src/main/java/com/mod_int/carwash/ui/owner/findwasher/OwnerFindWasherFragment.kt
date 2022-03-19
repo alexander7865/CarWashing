@@ -36,7 +36,7 @@ class OwnerFindWasherFragment :
     }
 
     private fun initViewModel() {
-        ownerFindWasherViewModel.getHeadWasher()
+        ownerFindWasherViewModel.getWasherMember()
         ownerFindWasherViewModel.viewStateLiveData.observe(viewLifecycleOwner) { viewState ->
             (viewState as? OwnerFindWasherViewState)?.let {
                 onChangedOwnerFindWasherViewState(
@@ -48,7 +48,7 @@ class OwnerFindWasherFragment :
 
     private fun onChangedOwnerFindWasherViewState(viewState: OwnerFindWasherViewState) {
         when (viewState) {
-            is OwnerFindWasherViewState.GetHeadWashers -> {
+            is OwnerFindWasherViewState.GetWasherMember -> {
 //                findAdapter.addAll()
                 findAdapter.addAll(viewState.list)
 //                Log.d("결과", viewState.list.toString())

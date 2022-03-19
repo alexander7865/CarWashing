@@ -1,6 +1,7 @@
 package com.mod_int.carwash.ext
 
 import com.google.firebase.firestore.FieldValue
+import com.google.firebase.firestore.SetOptions
 import com.mod_int.carwash.data.repo.FirebaseRepository
 import com.mod_int.carwash.model.User
 import com.mod_int.carwash.model.WasherInfo
@@ -109,12 +110,13 @@ fun FirebaseRepository.createTypeDB(
                 }
         }
 
-        "headWasher" -> {
-            getFirebaseFireStore().collection("Washer").document("HeadWasher")
-                .set(emptyMap<String, WasherInfo>())
+        // SetOptions.merge() 덮어씌기 방지
+        "washerMember" -> {
+            getFirebaseFireStore().collection("WasherMember").document("info")
+                .set(emptyMap<String, WasherInfo>(),SetOptions.merge())
                 .addOnCompleteListener {
                     if (it.isSuccessful) {
-                        getFirebaseFireStore().collection("Washer").document("HeadWasher").update(
+                        getFirebaseFireStore().collection("WasherMember").document("info").update(
                             "list", FieldValue.arrayUnion(WasherInfo().copy(id = id))
                         ).addOnCompleteListener {
                             callback(it.isSuccessful)
@@ -125,8 +127,8 @@ fun FirebaseRepository.createTypeDB(
                 }
         }
 
-        "pickupWasher" -> {
-            getFirebaseFireStore().collection("PickupWasher").document(id).set(user)
+        "pickupMember" -> {
+            getFirebaseFireStore().collection("PickupMember").document(id).set(user)
                 .addOnCompleteListener {
                     callback(it.isSuccessful)
                 }

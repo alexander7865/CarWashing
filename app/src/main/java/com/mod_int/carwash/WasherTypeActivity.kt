@@ -12,7 +12,7 @@ class WasherTypeActivity : BaseActivity<ActivityWasherTypeBinding>(R.layout.acti
 
         binding.headWasher.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
-            intent.putExtra(RegisterActivity.KEY_TYPE, "headWasher")
+            intent.putExtra(RegisterActivity.KEY_TYPE, "washerMember")
             startActivity(intent)
             overridePendingTransition(0, 0)
 
@@ -20,7 +20,7 @@ class WasherTypeActivity : BaseActivity<ActivityWasherTypeBinding>(R.layout.acti
 
         binding.pickupWasher.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
-            intent.putExtra(RegisterActivity.KEY_TYPE, "pickupWasher")
+            intent.putExtra(RegisterActivity.KEY_TYPE, "pickupMember")
             startActivity(intent)
             overridePendingTransition(0, 0)
 

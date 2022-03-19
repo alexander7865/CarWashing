@@ -35,11 +35,11 @@ class LoginViewModel @Inject constructor(
                             "ownerMember" -> {
                                 viewStateChanged(LoginViewState.RouteOwner)
                             }
-                            "headWasher" -> {
+                            "washerMember" -> {
                                 viewStateChanged(LoginViewState.RouteWasher)
                             }
 
-                            "pickupWasher" -> {
+                            "pickupMember" -> {
                                 viewStateChanged(LoginViewState.RoutePickupManager)
                             }
                             else -> {

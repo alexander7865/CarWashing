@@ -1,6 +1,7 @@
 package com.mod_int.carwash.ui.owner.findwasher
 
 import android.app.Application
+import android.util.Log
 import com.mod_int.carwash.base.BaseViewModel
 import com.mod_int.carwash.base.ViewState
 import com.mod_int.carwash.data.repo.FirebaseRepository
@@ -15,9 +16,12 @@ class OwnerFindWasherViewModel
 @Inject constructor(app: Application, private val firebaseRepository: FirebaseRepository) :
     BaseViewModel(app) {
 
-    fun getHeadWasher() {
+
+
+    // 데이터가 덥어씌기가 되어 수정했습니다.
+    fun getWasherMember() {
         ioScope {
-            firebaseRepository.getFirebaseFireStore().collection("Washer").document("HeadWasher")
+            firebaseRepository.getFirebaseFireStore().collection("WasherMember").document("info")
                 .get()
                 .addOnCompleteListener {
                     if (it.isSuccessful) {
@@ -25,9 +29,11 @@ class OwnerFindWasherViewModel
                             val getResult: ArrayList<HashMap<String, String>>? =
                                 it.result.get("list") as ArrayList<HashMap<String, String>>?
                             val toResultList = getResult?.map { it.toWasherInfo() }
+
+                            Log.d("결과값", "$toResultList")
                             if (!toResultList.isNullOrEmpty()) {
                                 viewStateChanged(
-                                    OwnerFindWasherViewState.GetHeadWashers(
+                                    OwnerFindWasherViewState.GetWasherMember(
                                         toResultList
                                     )
                                 )
@@ -43,6 +49,6 @@ class OwnerFindWasherViewModel
 }
 
 sealed class OwnerFindWasherViewState : ViewState {
-    data class GetHeadWashers(val list: List<WasherInfo>) : OwnerFindWasherViewState()
+    data class GetWasherMember(val list: List<WasherInfo>) : OwnerFindWasherViewState()
 }
 
