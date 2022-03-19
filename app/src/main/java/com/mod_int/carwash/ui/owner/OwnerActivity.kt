@@ -77,8 +77,8 @@ class OwnerActivity : BaseActivity<ActivityOwnerBinding>(R.layout.activity_owner
     }
     fun pickupCfmDialog() {
         val dialog = CustomDialogFragment.CustomDialogBuilder()
-            .setTitle("세차완료 확인하세요")
-            .setQuestion("차를 확인하셨다면 '확인' 버튼을 클릭해주세요! 세차이력은 [관리현황] 에서 확인 할 수 있습니다.")
+            .setTitle("차량을 확인하셨나요?")
+            .setQuestion("차량을 확인하셨다면 '확인' 버튼을 클릭해주세요! 세차이력은 [관리현황] 에서 확인 할 수 있습니다.")
             .setNoBtn("나중에 확인")
             .setYesBtn("확인완료")
             .setBtnClickListener(object : CustomDialogListener {

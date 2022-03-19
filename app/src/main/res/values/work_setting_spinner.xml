@@ -2,6 +2,6 @@
 <resources>
     <string-array name="workSettingSelect">
         <item>활동중</item>
-        <item>휴무</item>
+        <item>휴무중</item>
     </string-array>
 </resources>

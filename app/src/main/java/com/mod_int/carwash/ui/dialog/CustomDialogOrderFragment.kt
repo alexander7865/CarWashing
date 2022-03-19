@@ -87,7 +87,7 @@ class CustomDialogOrderFragment : DialogFragment() {
     private fun timeSelect() {
         val time = resources.getStringArray(R.array.timeSelect)
         val timeAdapter = ArrayAdapter (requireContext(),
-            R.layout.custom_spinner, time)
+            R.layout.custom_find_spinner, time)
 
         with(binding){
             timeSelect.adapter = timeAdapter

@@ -34,6 +34,8 @@ class WasherHomeFragment : BaseFragment<FragmentWasherHomeBinding>(R.layout.frag
 //            toastCenter.show()
         }
     }
+
+    //스피너
     private fun workSelect() {
         val brand = resources.getStringArray(R.array.workSettingSelect)
         val brandAdapter = ArrayAdapter (requireContext(),

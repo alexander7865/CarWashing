@@ -7,7 +7,6 @@ import android.view.Gravity
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.ListView
 import android.widget.Toast
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -82,7 +81,7 @@ class OwnerJoinFragment : BaseFragment<FragmentOwnerJoinBinding>(R.layout.fragme
                 val user = Firebase.auth.currentUser
                 user?.let {
                     val email = user.email
-                    //저장될 위치 OwnerInfo
+                    //저장될 위치 OwnerInfo -> SetOptions.merge() 덮어씌기 방지
                     fireStore?.collection("ownerMember")?.document(
                         "$email"
                     )?.set(ownerInfo, SetOptions.merge())?.addOnCompleteListener {
@@ -219,6 +218,7 @@ class OwnerJoinFragment : BaseFragment<FragmentOwnerJoinBinding>(R.layout.fragme
         }
     }
 
+    //스피너
     private fun modelSelect() {
         val model = resources.getStringArray(R.array.carModelSelect)
         val modelAdapter = ArrayAdapter (requireContext(),

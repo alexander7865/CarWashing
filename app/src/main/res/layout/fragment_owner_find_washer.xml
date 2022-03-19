@@ -39,11 +39,16 @@
                     android:text="워셔찾기"
                     android:textSize="20sp"
                     android:textColor="@color/dgray" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/content_paste_search"/>
                 <Spinner
                     android:id="@+id/searchSpinner"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
-                    android:layout_marginEnd="16sp"
+                    android:layout_marginEnd="13sp"
                     android:background="@drawable/custom_background_spinner_ivory"
                     android:textSize="16sp">
                 </Spinner>
@@ -52,19 +57,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="15sp">
             </Space>
+<!--                        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout-->
+<!--                            android:id="@+id/pullToRefresh"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:layout_marginStart="10sp"-->
+<!--                            android:layout_marginEnd="10sp">-->
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/find_washer_recycler"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+<!--                        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>-->
 
-<!--            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout-->
-<!--                android:id="@+id/pullToRefresh"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:layout_marginStart="10sp"-->
-<!--                android:layout_marginEnd="10sp">-->
-<!--            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>-->
         </LinearLayout>
     </FrameLayout>
 </layout>

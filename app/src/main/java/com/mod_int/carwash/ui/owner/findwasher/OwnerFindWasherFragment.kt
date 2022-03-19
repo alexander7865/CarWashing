@@ -36,7 +36,7 @@ class OwnerFindWasherFragment :
 
     private fun initUi() {
 
-        //새로고침 구현
+        //새로고침 구현 하지만 필터링 구현하니 동작을 하지 않네요.
         with(binding) {
 //            pullToRefresh.setOnRefreshListener {
 //                pullToRefresh.isRefreshing = false
@@ -123,7 +123,7 @@ class OwnerFindWasherFragment :
     private fun washingTypeSpinner() {
         val data = resources.getStringArray(R.array.washingType)
         val spinnerAdapter = ArrayAdapter (requireContext(),
-            R.layout.custom_spinner, data)
+            R.layout.custom_find_spinner, data)
 
         with(binding){
             searchSpinner.adapter = spinnerAdapter

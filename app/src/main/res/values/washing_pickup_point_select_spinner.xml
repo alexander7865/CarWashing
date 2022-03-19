@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="washingPickupPointSelect">
+        <item>100P</item>
+        <item>90P</item>
+        <item>80P</item>
+        <item>70P</item>
+        <item>60P</item>
+        <item>50P</item>
+    </string-array>
+</resources>

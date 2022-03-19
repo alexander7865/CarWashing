@@ -56,7 +56,7 @@
                         android:elevation="3sp"
                         android:layout_marginTop="5sp"
                         android:layout_width="match_parent"
-                        android:layout_height="340sp"
+                        android:layout_height="310sp"
                         android:layout_marginStart="26sp"
                         android:layout_marginEnd="26sp"
                         android:layout_gravity="center_horizontal"
@@ -83,7 +83,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="16sp"
                                     android:layout_marginEnd="16sp"
-                                    android:text="365일 24시간 세차작업의뢰 플랫폼"
+                                    android:text="365일 24시간\n세차작업의뢰 플랫폼"
                                     android:textSize="20sp"
                                     android:textStyle="bold"
                                     android:textColor="@color/dgray" />
@@ -92,7 +92,7 @@
 
                             <Space
                                 android:layout_width="match_parent"
-                                android:layout_height="10sp"
+                                android:layout_height="15sp"
                                 android:orientation="vertical">
                             </Space>
                             <LinearLayout
@@ -178,24 +178,6 @@
                             </LinearLayout>
                             <Space
                                 android:layout_width="match_parent"
-                                android:layout_height="5sp"
-                                android:orientation="vertical">
-                            </Space>
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:orientation="horizontal">
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="16sp"
-                                    android:layout_marginEnd="16sp"
-                                    android:text="(세차점수는 3개월 간만 유지됩니다.)"
-                                    android:textSize="14sp" />
-                            </LinearLayout>
-
-                            <Space
-                                android:layout_width="match_parent"
                                 android:layout_height="10sp"
                                 android:orientation="vertical">
                             </Space>
@@ -208,8 +190,8 @@
                                 <ImageView
                                     android:layout_width="20dp"
                                     android:layout_height="20dp"
-                                    android:layout_marginStart="12sp"
-                                    android:background="@drawable/arrow_forward_ios"/>
+                                    android:layout_marginStart="16sp"
+                                    android:background="@drawable/schedule_send"/>
 
                                 <!--  커스텀 스피너는 코드상으로 구현해야함-->
                                 <Spinner
@@ -244,7 +226,7 @@
                                     android:layout_height="55dp"
                                     android:layout_marginStart="16sp"
                                     android:textColor="@color/white"
-                                    android:text="픽업/탁송 정산하기"
+                                    android:text="픽업/탁송비용 정산하기"
                                     android:backgroundTint="@color/lorange"
                                     android:textSize="16sp"
                                     android:textStyle="bold" />
@@ -343,7 +325,7 @@
 
                     <Space
                         android:layout_width="match_parent"
-                        android:layout_height="47dp"
+                        android:layout_height="40sp"
                         android:orientation="vertical"></Space>
 
                 </LinearLayout>

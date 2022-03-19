@@ -2,9 +2,12 @@ package com.mod_int.carwash.ui.owner
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseFragment
 import com.mod_int.carwash.databinding.FragmentOwnerOrderStatusBinding
@@ -21,6 +24,8 @@ class OrderStatusOwnerFragment : BaseFragment<FragmentOwnerOrderStatusBinding>(
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        washingPointSelect()
+        pickupPointSelect()
 
 
 
@@ -41,4 +46,55 @@ class OrderStatusOwnerFragment : BaseFragment<FragmentOwnerOrderStatusBinding>(
 
         }
     }
+
+    //스피너 구현
+    private fun washingPointSelect() {
+        val brand = resources.getStringArray(R.array.washingPickupPointSelect)
+        val brandAdapter = ArrayAdapter (requireContext(),
+            R.layout.custom_find_spinner, brand)
+
+        with(binding){
+            washingPoint.adapter = brandAdapter
+            washingPoint.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+                override fun onItemSelected(
+                    parent: AdapterView<*>?,
+                    view: View?,
+                    position: Int,
+                    id: Long
+                ) {
+
+                }
+
+                override fun onNothingSelected(parent: AdapterView<*>?) {
+                    view!!.setBackgroundColor(Color.TRANSPARENT)
+                }
+            }
+        }
+    }
+
+    private fun pickupPointSelect() {
+        val brand = resources.getStringArray(R.array.washingPickupPointSelect)
+        val brandAdapter = ArrayAdapter (requireContext(),
+            R.layout.custom_find_spinner, brand)
+
+        with(binding){
+            pickupPoint.adapter = brandAdapter
+            pickupPoint.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+                override fun onItemSelected(
+                    parent: AdapterView<*>?,
+                    view: View?,
+                    position: Int,
+                    id: Long
+                ) {
+
+                }
+
+                override fun onNothingSelected(parent: AdapterView<*>?) {
+                    view!!.setBackgroundColor(Color.TRANSPARENT)
+                }
+            }
+        }
+    }
+
+
 }

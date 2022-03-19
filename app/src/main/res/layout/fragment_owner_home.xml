@@ -8,7 +8,7 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:background="@color/ivory"
         tools:context=".ui.owner.OwnerHomeFragment">
 
@@ -53,7 +53,7 @@
                         android:elevation="3sp"
                         android:layout_marginTop="5sp"
                         android:layout_width="match_parent"
-                        android:layout_height="340sp"
+                        android:layout_height="310sp"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginStart="26sp"
                         android:layout_marginEnd="26sp"
@@ -157,7 +157,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_vertical"
                                     android:layout_marginStart="16sp"
-                                    android:text="밴츠 GLC220 SUV 준중형 BLACK"
+                                    android:text="벤츠 GLC220 SUV 준중형 BLACK"
                                     android:textColor="@color/dgray"
                                     android:textSize="16sp"
                                     android:textStyle="bold" />
@@ -289,7 +289,7 @@
 
                     <Space
                         android:layout_width="match_parent"
-                        android:layout_height="45dp"
+                        android:layout_height="40sp"
                         android:orientation="vertical"></Space>
 
                 </LinearLayout>

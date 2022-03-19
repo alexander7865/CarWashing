@@ -7,9 +7,9 @@ import androidx.activity.viewModels
 import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseActivity
 import com.mod_int.carwash.databinding.ActivityLoginBinding
-import com.mod_int.carwash.showToast
 import com.mod_int.carwash.ui.owner.OwnerActivity
 import com.mod_int.carwash.ui.pickup_manager.PickupManagerActivity
+import com.mod_int.carwash.ui.register.showToast
 import com.mod_int.carwash.ui.washer.WasherActivity
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -20,7 +20,6 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         initUi()
         initViewModel()
     }

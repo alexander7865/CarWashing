@@ -36,6 +36,8 @@ class PickupManagerHomeFragment : BaseFragment<FragmentPickupManagerHomeBinding>
 //            toastCenter.show()
         }
     }
+
+    //스피너구현
     private fun workSelect() {
         val brand = resources.getStringArray(R.array.workSettingSelect)
         val brandAdapter = ArrayAdapter (requireContext(),

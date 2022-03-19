@@ -178,6 +178,7 @@ class WasherRegistrationFragment : BaseFragment<FragmentWasherRegistrationBindin
         var washingLocation : String = ""
     )
 
+    //스피너 구현
     private fun bankSelect() {
         val brand = resources.getStringArray(R.array.bankSelect)
         val brandAdapter = ArrayAdapter (requireContext(),

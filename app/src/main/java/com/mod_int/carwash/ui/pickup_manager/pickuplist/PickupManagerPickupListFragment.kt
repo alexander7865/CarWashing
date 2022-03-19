@@ -74,7 +74,7 @@ class PickupManagerPickupListFragment : BaseFragment<FragmentPickupManagerPickup
     private fun orderCfmDialog() {
         val dialog = CustomDialogFragment.CustomDialogBuilder()
             .setTitle("픽업이 가능하신가요??")
-            .setQuestion("000허0000 벤츠 GLC220 SUV BLACK\n내부+외부 준중형 (외제차)")
+            .setQuestion("콜 이후 취소를 할 경우 서비스가 제한되며, 취소는 고객센터로 문의 주세요")
             .setNoBtn("불가능해요")
             .setYesBtn("가능해요")
             .setBtnClickListener(object : CustomDialogListener {

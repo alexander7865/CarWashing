@@ -30,7 +30,7 @@ class PickupManagerRegistrationFragment : BaseFragment<FragmentPickupManagerRegi
 
 
 
-    //뱅크 셀렉
+    //뱅크 셀렉 스피너
     private fun bankSelect() {
         val brand = resources.getStringArray(R.array.bankSelect)
         val brandAdapter = ArrayAdapter (requireContext(),

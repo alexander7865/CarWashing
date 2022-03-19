@@ -5,13 +5,17 @@
 
     <data>
 
+        <variable
+            name="viewModel"
+            type="com.mod_int.carwash.ui.register.RegisterViewModel" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:background="@color/ivory"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".RegisterActivity">
+        android:background="@color/ivory"
+        tools:context=".ui.register.RegisterActivity">
 
         <LinearLayout
             android:id="@+id/register_appbar"
@@ -49,6 +53,7 @@
                     android:layout_height="40dp"
                     android:layout_marginEnd="26sp"
                     android:background="@drawable/button_cancel"
+                    android:onClick="@{()->viewModel.cancel()}"
                     tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
             </LinearLayout>
 
@@ -78,10 +83,9 @@
                     android:layout_marginStart="26sp"
                     android:layout_marginTop="30sp"
                     android:layout_marginEnd="26sp"
-                    android:text="가입하고 서비스를 시작하세요   "
-                    android:textColor="@color/lorange"
+                    android:text="가입하고 서비스를 시작하세요!"
+                    android:textColor="@color/dgray"
                     android:textSize="22sp"
-                    android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/register_appbar" />
@@ -100,6 +104,7 @@
                     android:paddingStart="16sp"
                     android:paddingEnd="16sp"
                     android:imeOptions="actionNext"
+                    android:text="@={viewModel.inputEmailLiveData}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_welcome" />
@@ -121,6 +126,7 @@
                     android:paddingStart="16sp"
                     android:paddingEnd="16sp"
                     android:imeOptions="actionNext"
+                    android:text="@={viewModel.inputPasswordLiveData}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/input_email_register" />
@@ -141,6 +147,7 @@
                     android:paddingStart="16sp"
                     android:paddingEnd="16sp"
                     android:imeOptions="actionDone"
+                    android:text="@={viewModel.inputPasswordOkLiveData}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/input_pass_register" />
@@ -160,8 +167,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="26sp"
                         android:text="휴대폰 인증을 해주세요!"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:textColor="@color/dgray"
+                        android:textSize="16sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -251,6 +258,7 @@
                     android:textColor="@color/white"
                     android:textSize="16sp"
                     android:textStyle="bold"
+                    android:onClick="@{()->viewModel.register()}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/cfmPassInput_register" />

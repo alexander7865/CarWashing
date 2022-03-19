@@ -238,7 +238,7 @@
                                 android:text="워셔님이 작업을 확인하는 중입니다."
                                 android:layout_marginStart="16sp"
                                 android:layout_weight="1"
-                                android:textSize="16sp"
+                                android:textSize="14sp"
                                 android:textStyle="bold" />
                         </LinearLayout>
                         <Space
@@ -323,8 +323,8 @@
                             android:layout_marginStart="26sp"
                             android:layout_marginEnd="26sp"
                             android:gravity="center_horizontal"
-                            android:text="세차비용 결제 및 시기는 픽업 매니저와 협의하여\n아래 계좌로 송금 해주세요!"
-                            android:textSize="16sp"
+                            android:text="세차비용 결제는 아래 계좌로 송금 해주세요!"
+                            android:textSize="14sp"
                             android:textColor="@color/dgray" />
                     </LinearLayout>
                     <Space
@@ -435,7 +435,7 @@
                                 android:layout_marginStart="5sp"
                                 android:text="010-1234-1234"
                                 android:textColor="@color/dgray"
-                                android:textSize="18sp"
+                                android:textSize="16sp"
                                 android:textStyle="bold" />
                         </LinearLayout>
                     </LinearLayout>
@@ -461,9 +461,11 @@
                                 android:textStyle="bold"
                                 android:textColor="@color/dgray" />
                             <Spinner
+                                android:id="@+id/washingPoint"
                                 android:layout_width="120sp"
                                 android:layout_height="40dp"
-                                android:layout_marginStart="16sp"
+                                android:paddingTop="5sp"
+                                android:background="@drawable/layout_box_stroke"
                                 android:textSize="20sp"
                                 android:textStyle="bold"
                                 android:textColor="@color/dgray" />
@@ -473,6 +475,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="10sp"
                         android:orientation="vertical">
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -488,9 +491,11 @@
                                 android:textStyle="bold"
                                 android:textColor="@color/dgray" />
                             <Spinner
+                                android:id="@+id/pickupPoint"
                                 android:layout_width="120sp"
                                 android:layout_height="40dp"
-                                android:layout_marginStart="16sp"
+                                android:paddingTop="5sp"
+                                android:background="@drawable/layout_box_stroke"
                                 android:textSize="20sp"
                                 android:textStyle="bold"
                                 android:textColor="@color/dgray" />
