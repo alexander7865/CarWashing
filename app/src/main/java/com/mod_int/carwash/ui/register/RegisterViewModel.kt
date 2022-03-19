@@ -26,9 +26,6 @@ class RegisterViewModel @Inject constructor(
 
     val typeObservableField = ObservableField<String>()
 
-    fun cancel() {
-        viewStateChanged(LoginViewState.Cancel)
-    }
 
     fun register() {
         ioScope {
@@ -71,6 +68,10 @@ class RegisterViewModel @Inject constructor(
         }
     }
 
+    //LoginViewState -> RegisterViewState 바꿨습니다
+    fun cancel() {
+        viewStateChanged(RegisterViewState.Cancel)
+    }
 
     private fun checkUser(
         checkEmail: Boolean,

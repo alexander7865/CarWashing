@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
 import androidx.recyclerview.widget.RecyclerView
+import com.mod_int.carwash.model.WasherInfo
 
 class FindRecyclerAdapter : RecyclerView.Adapter<FindRecyclerViewHolder>(), Filterable {
 
@@ -37,7 +38,7 @@ class FindRecyclerAdapter : RecyclerView.Adapter<FindRecyclerViewHolder>(), Filt
     fun toggleExpand(item: WasherInfo) {
         if (filteredList.contains(item)) {
             val index = filteredList.indexOf(item)
-            filteredList[index] = item.copy(expandable = !item.expandable)
+            filteredList[index] = item.copy(expandable = (!item.expandable.toBoolean()).toString())
             notifyItemChanged(index)
         }
     }

@@ -14,10 +14,10 @@ import com.mod_int.carwash.CustomDialogOrderListener
 import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseFragment
 import com.mod_int.carwash.databinding.FragmentOwnerFindWasherBinding
+import com.mod_int.carwash.model.WasherInfo
 import com.mod_int.carwash.ui.owner.OrderStatusOwnerFragment
 import com.mod_int.carwash.ui.owner.find_recycler_view.ClickType
 import com.mod_int.carwash.ui.owner.find_recycler_view.FindRecyclerAdapter
-import com.mod_int.carwash.ui.owner.find_recycler_view.WasherInfo
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -29,9 +29,31 @@ class OwnerFindWasherFragment :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        washingTypeSpinner()
+//        washingTypeSpinner()
         initUi()
+        initViewModel()
 
+    }
+
+    private fun initViewModel() {
+        ownerFindWasherViewModel.getHeadWasher()
+        ownerFindWasherViewModel.viewStateLiveData.observe(viewLifecycleOwner) { viewState ->
+            (viewState as? OwnerFindWasherViewState)?.let {
+                onChangedOwnerFindWasherViewState(
+                    viewState
+                )
+            }
+        }
+    }
+
+    private fun onChangedOwnerFindWasherViewState(viewState: OwnerFindWasherViewState) {
+        when (viewState) {
+            is OwnerFindWasherViewState.GetHeadWashers -> {
+//                findAdapter.addAll()
+                findAdapter.addAll(viewState.list)
+//                Log.d("결과", viewState.list.toString())
+            }
+        }
     }
 
     private fun initUi() {
@@ -47,7 +69,7 @@ class OwnerFindWasherFragment :
 
         //초기 리사이클러뷰 구현.
         with(findAdapter) {
-            addAll(mockList)
+//            addAll(mockList)
             setItemClickListener { item, clickType ->
                 when (clickType) {
                     is ClickType.Expand -> {
@@ -66,10 +88,10 @@ class OwnerFindWasherFragment :
 
         private val mockData = WasherInfo( //리사이클러뷰 초기값 설정
             name = "홍길동",
-            count = 5,
-            point = 90,
-            deliPrice = 6000,
-            policyPrice = 20000,
+            count = "5",
+            point = "90",
+            deliPrice = "6000",
+            policyPrice = "20000",
             location = "압구정동 3동",
             washingType = "픽업손세차",
             inWashingCountryOfCar = "내부세차(외제차)",

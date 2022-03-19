@@ -89,13 +89,6 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(R.layout.activity
             inputCfmPassRegister.isEnabled = isEnable
         }
     }
-
-    data class User(
-        var email: String = "",
-        var phoneNumber: String = "",
-        var type: String = "",
-    )
-
     companion object {
         const val KEY_TYPE = "key_type"
     }

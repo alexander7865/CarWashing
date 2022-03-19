@@ -1,12 +1,14 @@
 package com.mod_int.carwash.ext
 
+import com.google.firebase.firestore.FieldValue
 import com.mod_int.carwash.data.repo.FirebaseRepository
-import com.mod_int.carwash.ui.register.RegisterActivity
+import com.mod_int.carwash.model.User
+import com.mod_int.carwash.model.WasherInfo
 
 fun FirebaseRepository.loginAndGetUserInfo(
     email: String,
     password: String,
-    callback: (user: RegisterActivity.User?) -> Unit
+    callback: (user: User?) -> Unit
 ) {
     loginUser(email, password) { isLogin ->
         if (isLogin) {
@@ -28,15 +30,15 @@ fun FirebaseRepository.loginUser(
         }
 }
 
-// 이하 내용들 3.19 바뀐내용 적용
+
 fun FirebaseRepository.getUserInfo(
-    callback: (user: RegisterActivity.User?) -> Unit
+    callback: (user: User?) -> Unit
 ) {
     getFirebaseAuth().currentUser?.email?.let { email ->
         getFirebaseFireStore().collection(email).document("User").get()
             .addOnCompleteListener {
                 if (it.isSuccessful) {
-                    callback(it.result.toObject(RegisterActivity.User::class.java))
+                    callback(it.result.toObject(User::class.java))
                 } else {
                     callback(null)
                 }
@@ -81,7 +83,7 @@ fun FirebaseRepository.createUserDB(
     type: String,
     callback: (isSuccess: Boolean) -> Unit
 ) {
-    val user = RegisterActivity.User(
+    val user = User(
         id, "010xxxxxxxx", type
     )
 
@@ -96,7 +98,7 @@ fun FirebaseRepository.createTypeDB(
     type: String,
     callback: (isSuccess: Boolean) -> Unit
 ) {
-    val user = RegisterActivity.User(
+    val user = User(
         id, "010xxxxxxxx", type
     )
     when (type) {
@@ -108,9 +110,18 @@ fun FirebaseRepository.createTypeDB(
         }
 
         "headWasher" -> {
-            getFirebaseFireStore().collection("HeadWasher").document(id).set(user)
+            getFirebaseFireStore().collection("Washer").document("HeadWasher")
+                .set(emptyMap<String, WasherInfo>())
                 .addOnCompleteListener {
-                    callback(it.isSuccessful)
+                    if (it.isSuccessful) {
+                        getFirebaseFireStore().collection("Washer").document("HeadWasher").update(
+                            "list", FieldValue.arrayUnion(WasherInfo().copy(id = id))
+                        ).addOnCompleteListener {
+                            callback(it.isSuccessful)
+                        }
+                    } else {
+                        callback(false)
+                    }
                 }
         }
 
