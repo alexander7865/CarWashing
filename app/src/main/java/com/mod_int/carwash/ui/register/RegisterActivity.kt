@@ -90,12 +90,6 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(R.layout.activity
         }
     }
 
-    data class User(
-        var email: String = "",
-        var phoneNumber: String = "",
-        var type: String = "",
-    )
-
     companion object {
         const val KEY_TYPE = "key_type"
     }

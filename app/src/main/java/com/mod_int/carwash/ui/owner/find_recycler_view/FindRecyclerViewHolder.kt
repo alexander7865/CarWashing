@@ -2,12 +2,11 @@ package com.mod_int.carwash.ui.owner.find_recycler_view
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.LinearLayout
 import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.mod_int.carwash.R
+import com.mod_int.carwash.data.model.WasherInfo
 import com.mod_int.carwash.databinding.ItemModelBinding
 
 class FindRecyclerViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(
@@ -19,10 +18,10 @@ class FindRecyclerViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(
         binding?.let {
             with(it){
                 nameWasher.text = item.name
-                countOrder.text = item.count.toString()
-                pointWasher.text = item.point.toString()
-                deliPriceWasher.text = item.deliPrice.toString()
-                policyPriceWasher.text = item.policyPrice.toString()
+                countOrder.text = item.count
+                pointWasher.text = item.point
+                deliPriceWasher.text = item.deliPrice
+                policyPriceWasher.text = item.policyPrice
                 locationWasher.text = item.location
                 washingType.text = item.washingType
                 inWashingCountryOfCar.text = item.inWashingCountryOfCar
@@ -42,7 +41,7 @@ class FindRecyclerViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(
                 btnWashingOrder.setOnClickListener {
                     itemClickListener(item, ClickType.Route)
                 }
-                expandableLayout.isVisible = item.expandable
+                expandableLayout.isVisible = item.expandable.toBoolean()
             }
         }
 

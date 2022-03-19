@@ -17,7 +17,7 @@ import com.mod_int.carwash.databinding.FragmentOwnerFindWasherBinding
 import com.mod_int.carwash.ui.owner.OrderStatusOwnerFragment
 import com.mod_int.carwash.ui.owner.find_recycler_view.ClickType
 import com.mod_int.carwash.ui.owner.find_recycler_view.FindRecyclerAdapter
-import com.mod_int.carwash.ui.owner.find_recycler_view.WasherInfo
+import com.mod_int.carwash.data.model.WasherInfo
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -29,10 +29,33 @@ class OwnerFindWasherFragment :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        washingTypeSpinner()
+//        washingTypeSpinner()
         initUi()
+        initViewModel()
 
     }
+
+    private fun initViewModel() {
+        ownerFindWasherViewModel.getHeadWasher()
+        ownerFindWasherViewModel.viewStateLiveData.observe(viewLifecycleOwner) { viewState ->
+            (viewState as? OwnerFindWasherViewState)?.let {
+                onChangedOwnerFindWasherViewState(
+                    viewState
+                )
+            }
+        }
+    }
+
+    private fun onChangedOwnerFindWasherViewState(viewState: OwnerFindWasherViewState) {
+        when (viewState) {
+            is OwnerFindWasherViewState.GetHeadWashers -> {
+//                findAdapter.addAll()
+                findAdapter.addAll(viewState.list)
+//                Log.d("결과", viewState.list.toString())
+            }
+        }
+    }
+
 
     private fun initUi() {
 
@@ -47,7 +70,7 @@ class OwnerFindWasherFragment :
 
         //초기 리사이클러뷰 구현.
         with(findAdapter) {
-            addAll(mockList)
+//            addAll(mockList)
             setItemClickListener { item, clickType ->
                 when (clickType) {
                     is ClickType.Expand -> {
@@ -64,12 +87,13 @@ class OwnerFindWasherFragment :
 
     companion object {
 
-        private val mockData = WasherInfo( //리사이클러뷰 초기값 설정
+        private val mockData = WasherInfo(
+            //리사이클러뷰 초기값 설정
             name = "홍길동",
-            count = 5,
-            point = 90,
-            deliPrice = 6000,
-            policyPrice = 20000,
+            count = "5",
+            point = "90",
+            deliPrice = "6000",
+            policyPrice = "20000",
             location = "압구정동 3동",
             washingType = "픽업손세차",
             inWashingCountryOfCar = "내부세차(외제차)",
@@ -85,7 +109,6 @@ class OwnerFindWasherFragment :
             outWashingTime = "20",
             inOutWashingTime = "30",
             introduceText = "반가워요 슈퍼카 전문 손세차입니다!!",
-
         )
 
         private val mockList = mutableListOf<WasherInfo>().apply {
@@ -122,12 +145,14 @@ class OwnerFindWasherFragment :
     //타입별로 필터링 구현했습니다
     private fun washingTypeSpinner() {
         val data = resources.getStringArray(R.array.washingType)
-        val spinnerAdapter = ArrayAdapter (requireContext(),
-            R.layout.custom_spinner, data)
+        val spinnerAdapter = ArrayAdapter(
+            requireContext(),
+            R.layout.custom_spinner, data
+        )
 
-        with(binding){
+        with(binding) {
             searchSpinner.adapter = spinnerAdapter
-            searchSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            searchSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(
                     parent: AdapterView<*>?,
                     view: View?,
@@ -142,14 +167,16 @@ class OwnerFindWasherFragment :
                         }
                         1 -> {
                             findAdapter.filter.filter("홍길동2")
-                            val toastCenter = Toast.makeText(requireContext(),"손세차예약", Toast.LENGTH_SHORT)
-                            toastCenter.setGravity(Gravity.CENTER,0,0)
+                            val toastCenter =
+                                Toast.makeText(requireContext(), "손세차예약", Toast.LENGTH_SHORT)
+                            toastCenter.setGravity(Gravity.CENTER, 0, 0)
                             toastCenter.show()
                         }
                         2 -> {
                             findAdapter.filter.filter("홍길동5")
-                            val toastCenter = Toast.makeText(requireContext(),"출장손세차", Toast.LENGTH_SHORT)
-                            toastCenter.setGravity(Gravity.CENTER,0,0)
+                            val toastCenter =
+                                Toast.makeText(requireContext(), "출장손세차", Toast.LENGTH_SHORT)
+                            toastCenter.setGravity(Gravity.CENTER, 0, 0)
                             toastCenter.show()
                         }
                     }
