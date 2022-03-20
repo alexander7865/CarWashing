@@ -9,11 +9,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import com.mod_int.carwash.databinding.FragmentCustomDialogBinding
-import com.mod_int.carwash.ui.washer.WasherActivity
+import com.mod_int.carwash.ui.washer_member.WmActivity
 
 class CustomDialogFragment : DialogFragment() {
     lateinit var binding: FragmentCustomDialogBinding
-    lateinit var washerActivity: WasherActivity
+    lateinit var wmActivity: WmActivity
     var title : String? = null
     var question : String? = null
     var noBtn : String? = null
@@ -50,7 +50,7 @@ class CustomDialogFragment : DialogFragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        if(context is WasherActivity) washerActivity = context
+        if(context is WmActivity) wmActivity = context
     }
 
 

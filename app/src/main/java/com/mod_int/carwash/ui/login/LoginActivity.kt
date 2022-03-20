@@ -7,10 +7,10 @@ import androidx.activity.viewModels
 import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseActivity
 import com.mod_int.carwash.databinding.ActivityLoginBinding
-import com.mod_int.carwash.ui.owner.OwnerActivity
-import com.mod_int.carwash.ui.pickup_manager.PickupManagerActivity
+import com.mod_int.carwash.ui.owner_member.OmActivity
+import com.mod_int.carwash.ui.pickup_member.PmActivity
 import com.mod_int.carwash.ui.register.showToast
-import com.mod_int.carwash.ui.washer.WasherActivity
+import com.mod_int.carwash.ui.washer_member.WmActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -66,15 +66,15 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
             }
 
             is LoginViewState.RouteOwner -> {
-                startActivity(Intent(this@LoginActivity, OwnerActivity::class.java))
+                startActivity(Intent(this@LoginActivity, OmActivity::class.java))
             }
 
             is LoginViewState.RouteWasher -> {
-                startActivity(Intent(this@LoginActivity, WasherActivity::class.java))
+                startActivity(Intent(this@LoginActivity, WmActivity::class.java))
             }
 
             is LoginViewState.RoutePickupManager -> {
-                startActivity(Intent(this@LoginActivity, PickupManagerActivity::class.java))
+                startActivity(Intent(this@LoginActivity, PmActivity::class.java))
             }
 
             is LoginViewState.RemoveAnimation -> {

@@ -11,11 +11,11 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.fragment.app.DialogFragment
 import com.mod_int.carwash.databinding.FragmentCustomDialogOrderBinding
-import com.mod_int.carwash.ui.owner.OwnerActivity
+import com.mod_int.carwash.ui.owner_member.OmActivity
 
 class CustomDialogOrderFragment : DialogFragment() {
     lateinit var binding: FragmentCustomDialogOrderBinding
-    lateinit var ownerActivity: OwnerActivity
+    lateinit var ownerActivity: OmActivity
     var title1 : String? = null
     var request : String? = null
     var noBtn : String? = null
@@ -52,7 +52,7 @@ class CustomDialogOrderFragment : DialogFragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        if(context is OwnerActivity) ownerActivity = context
+        if(context is OmActivity) ownerActivity = context
     }
 
 

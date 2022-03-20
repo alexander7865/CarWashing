@@ -17,7 +17,7 @@
             android:name=".WasherTypeActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.pickup_manager.PickupManagerActivity"
+            android:name=".ui.pickup_member.PmActivity"
             android:exported="false" />
         <activity
             android:name=".MemberTypeActivity"
@@ -38,11 +38,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.owner.OwnerActivity"
+            android:name=".ui.owner_member.OmActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name=".ui.washer.WasherActivity"
+            android:name=".ui.washer_member.WmActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustPan" />
     </application>

@@ -8,22 +8,13 @@ import android.view.Gravity
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.os.bundleOf
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
 import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseActivity
 import com.mod_int.carwash.databinding.ActivityRegisterBinding
-import com.mod_int.carwash.ui.login.LoginViewState
-import com.mod_int.carwash.ui.owner.OwnerActivity
-import com.mod_int.carwash.ui.pickup_manager.PickupManagerActivity
-import com.mod_int.carwash.ui.washer.WasherActivity
+import com.mod_int.carwash.ui.owner_member.OmActivity
+import com.mod_int.carwash.ui.pickup_member.PmActivity
+import com.mod_int.carwash.ui.washer_member.WmActivity
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
-import kotlinx.coroutines.launch
-import java.util.regex.Pattern
 
 @AndroidEntryPoint
 class RegisterActivity : BaseActivity<ActivityRegisterBinding>(R.layout.activity_register) {
@@ -69,15 +60,15 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(R.layout.activity
             }
 
             is RegisterViewState.RouteOwner -> {
-                startActivity(Intent(this@RegisterActivity, OwnerActivity::class.java))
+                startActivity(Intent(this@RegisterActivity, OmActivity::class.java))
             }
 
             is RegisterViewState.RouteWasher -> {
-                startActivity(Intent(this@RegisterActivity, WasherActivity::class.java))
+                startActivity(Intent(this@RegisterActivity, WmActivity::class.java))
             }
 
             is RegisterViewState.RoutePickupManager -> {
-                startActivity(Intent(this@RegisterActivity, PickupManagerActivity::class.java))
+                startActivity(Intent(this@RegisterActivity, PmActivity::class.java))
             }
         }
     }
