@@ -17,37 +17,35 @@ import com.mod_int.carwash.ui.owner_member.find_recycler_view.FindRecyclerAdapte
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class OwnerFindWasherFragment :
+class OmFindWasherFragment :
     BaseFragment<FragmentOmFindWasherBinding>(R.layout.fragment_om_find_washer) {
 
-    private val ownerFindWasherViewModel by viewModels<OwnerFindWasherViewModel>()
+    private val omFindWasherViewModel by viewModels<OmFindWasherViewModel>()
     private val findAdapter = FindRecyclerAdapter()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        washingTypeSpinner()
+//        washingTypeSpinner()
         initUi()
         initViewModel()
 
     }
 
     private fun initViewModel() {
-        ownerFindWasherViewModel.getWasherMember()
-        ownerFindWasherViewModel.viewStateLiveData.observe(viewLifecycleOwner) { viewState ->
-            (viewState as? OwnerFindWasherViewState)?.let {
-                onChangedOwnerFindWasherViewState(
+        omFindWasherViewModel.getWasherMember()
+        omFindWasherViewModel.viewStateLiveData.observe(viewLifecycleOwner) { viewState ->
+            (viewState as? OmFindWasherViewState)?.let {
+                onChangedOmFindWasherViewState(
                     viewState
                 )
             }
         }
     }
 
-    private fun onChangedOwnerFindWasherViewState(viewState: OwnerFindWasherViewState) {
+    private fun onChangedOmFindWasherViewState(viewState: OmFindWasherViewState) {
         when (viewState) {
-            is OwnerFindWasherViewState.GetWasherMember -> {
-//                findAdapter.addAll()
+            is OmFindWasherViewState.GetWasherMember -> {
                 findAdapter.addAll(viewState.list)
-//                Log.d("결과", viewState.list.toString())
             }
         }
     }
@@ -60,7 +58,6 @@ class OwnerFindWasherFragment :
 
         //초기 리사이클러뷰 구현.
         with(findAdapter) {
-//            addAll(mockList)
             setItemClickListener { item, clickType ->
                 when (clickType) {
                     is ClickType.Expand -> {
@@ -75,39 +72,6 @@ class OwnerFindWasherFragment :
         }
     }
 
-//    companion object {
-//
-//        private val mockData = WasherInfo( //리사이클러뷰 초기값 설정
-//            name = "홍길동",
-//            count = "5",
-//            point = "90",
-//            deliPrice = "6000",
-//            policyPrice = "20000",
-//            location = "압구정동 3동",
-//            washingType = "픽업손세차",
-//            inWashingCountryOfCar = "내부세차(외제차)",
-//            outWashingCountryOfCar = "외부세차(외제차)",
-//            inOutWashingCountryOfCar = "내부+외부세차(외제차)",
-//            inWashingCarSize = "준중형 :",
-//            outWashingCarSize = "준중형 :",
-//            inOutWashingCarSize = "준중형 :",
-//            inWashingCost = "12000",
-//            outWashingCost = "15000",
-//            inOutWashingCost = "25000",
-//            inWashingTime = "20",
-//            outWashingTime = "20",
-//            inOutWashingTime = "30",
-//            introduceText = "반가워요 슈퍼카 전문 손세차입니다!!",
-//
-//        )
-//
-//        private val mockList = mutableListOf<WasherInfo>().apply {
-//            for (i in 0..100) {
-//                add(mockData.copy(name = "홍길동$i"))
-//            }
-//        }
-//
-//    }
 
     //커스텀 다이얼로그 만들었습니다.
     private fun orderDialog() {

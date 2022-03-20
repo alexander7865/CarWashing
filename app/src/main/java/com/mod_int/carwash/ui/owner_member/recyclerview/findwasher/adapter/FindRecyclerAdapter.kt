@@ -55,11 +55,10 @@ class FindRecyclerAdapter : RecyclerView.Adapter<FindRecyclerViewHolder>(), Filt
                     unFilteredList
 
 
-                }else {
+                }else {  //로그테스트결과 item.washingType , charString 데이터 검색이 안됩니다.
                     val filteringList = ArrayList<WasherInfo>()
                     for (item in unFilteredList) {
                         if (item.washingType == charString) filteringList.add(item)
-                        //로그테스트결과 item.washingType , charString 데이터 검색이 안됩니다.
 
                     }
                     filteringList

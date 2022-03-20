@@ -1,10 +1,9 @@
 package com.mod_int.carwash.ext
 
-import com.google.firebase.firestore.FieldValue
-import com.google.firebase.firestore.SetOptions
+
+import android.util.Log
 import com.mod_int.carwash.data.repo.FirebaseRepository
 import com.mod_int.carwash.model.User
-import com.mod_int.carwash.model.WasherInfo
 
 fun FirebaseRepository.loginAndGetUserInfo(
     email: String,
@@ -36,7 +35,7 @@ fun FirebaseRepository.getUserInfo(
     callback: (user: User?) -> Unit
 ) {
     getFirebaseAuth().currentUser?.email?.let { email ->
-        getFirebaseFireStore().collection(email).document("User").get()
+        getFirebaseFireStore().collection(email).document("UserInfo").get()
             .addOnCompleteListener {
                 if (it.isSuccessful) {
                     callback(it.result.toObject(User::class.java))
@@ -46,6 +45,7 @@ fun FirebaseRepository.getUserInfo(
             }
     } ?: callback(null)
 }
+
 
 fun FirebaseRepository.checkRegister(
     id: String,
@@ -88,7 +88,7 @@ fun FirebaseRepository.createUserDB(
         id, "010xxxxxxxx", type
     )
 
-    getFirebaseFireStore().collection(id).document("User").set(user)
+    getFirebaseFireStore().collection(id).document("UserInfo").set(user)
         .addOnCompleteListener {
             callback(it.isSuccessful)
         }
@@ -102,22 +102,29 @@ fun FirebaseRepository.createTypeDB(
     val user = User(
         id, "010xxxxxxxx", type
     )
+
     when (type) {
         "ownerMember" -> {
+            Log.d("회원타입", type)
             getFirebaseFireStore().collection("OwnerMember").document(id).set(user)
                 .addOnCompleteListener {
                     callback(it.isSuccessful)
                 }
         }
 
-        // SetOptions.merge() 덮어씌기 방지
+        // 다른형태로 보여주고 싶어 이렇게 만들었습니다.
         "washerMember" -> {
-            //방법 1 본 방법으로 구현했을시 워셔맴버가 정보입력을 받았을경우 많이 꼬여버렸습니다.
-//            getFirebaseFireStore().collection("WasherMember").document("info")
-//                .set(emptyMap<String, WasherInfo>(),SetOptions.merge())
+            getFirebaseFireStore().collection("WasherMember").document(id).set(user)
+                .addOnCompleteListener {
+                    callback(it.isSuccessful)
+                }
+
+            // HasMap 형태로 데이터를 보여주기위한 방법 최초 데이터만 사용이 가능함
+//            getFirebaseFireStore().collection("WasherMember").document("User")
+//                .set(emptyMap<String, WasherInfo>(), SetOptions.merge())
 //                .addOnCompleteListener {
 //                    if (it.isSuccessful) {
-//                        getFirebaseFireStore().collection("WasherMember").document("info").update(
+//                        getFirebaseFireStore().collection("WasherMember").document("User").update(
 //                            "list", FieldValue.arrayUnion(WasherInfo().copy(id = id))
 //                        ).addOnCompleteListener {
 //                            callback(it.isSuccessful)
@@ -126,20 +133,6 @@ fun FirebaseRepository.createTypeDB(
 //                        callback(false)
 //                    }
 //                }
-
-            // 방법 2 맵형태로가 아닌 일반 형태로 가지고 오는 형식으로도 만들었습니다.
-            getFirebaseFireStore().collection("WasherMember").document(id)
-                .set(user)
-                .addOnCompleteListener {
-                    if (it.isSuccessful) {
-                        getFirebaseFireStore().collection("WasherMember").document(id).set(user)
-                        .addOnCompleteListener {
-                            callback(it.isSuccessful)
-                        }
-                    } else {
-                        callback(false)
-                    }
-                }
         }
 
         "pickupMember" -> {

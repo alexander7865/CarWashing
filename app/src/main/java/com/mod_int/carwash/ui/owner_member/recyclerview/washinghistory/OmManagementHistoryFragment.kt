@@ -2,6 +2,7 @@ package com.mod_int.carwash.ui.owner_member.recyclerview.washinghistory
 
 import android.os.Bundle
 import android.view.View
+import androidx.fragment.app.viewModels
 import com.mod_int.carwash.CustomDialogFragment
 import com.mod_int.carwash.CustomDialogListener
 import com.mod_int.carwash.R
@@ -10,35 +11,49 @@ import com.mod_int.carwash.databinding.FragmentOmManagementHistoryBinding
 import com.mod_int.carwash.model.HistoryInfo
 import com.mod_int.carwash.ui.owner_member.recyclerview.washinghistory.adapter.HistoryRecyclerAdapter
 
-class OwnerManagementHistoryFragment : BaseFragment<FragmentOmManagementHistoryBinding>(
+class OmManagementHistoryFragment : BaseFragment<FragmentOmManagementHistoryBinding>(
     R.layout.fragment_om_management_history){
 
+    private val omManagementHistoryViewModel by viewModels<OmManagementHistoryViewModel>()
     private val historyAdapter = HistoryRecyclerAdapter()
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initUi()
+//        initViewModel()
+    }
+
+    private fun initViewModel() {
+        omManagementHistoryViewModel.getFinishedWashing()
+        omManagementHistoryViewModel.viewStateLiveData.observe(viewLifecycleOwner) { viewState ->
+            (viewState as? FinishedWashingViewState)?.let {
+                onChangedFinishedWashingViewState(
+                    viewState
+                )
+            }
+        }
+    }
+
+    private fun onChangedFinishedWashingViewState(viewState: FinishedWashingViewState){
+        when (viewState) {
+            is FinishedWashingViewState.FinishedWashing -> {
+                historyAdapter.addAll(viewState.list as MutableList<HistoryInfo>)
+
+            }
+        }
     }
 
 
     private fun initUi() {
-
         //새로고침 구현
         with(binding) {
-            pullToRefreshHistory.setOnRefreshListener {
-                pullToRefreshHistory.isRefreshing = false
-                historyAdapter.addAll(mockList)
-            }
-
             recyclerHistory.adapter = historyAdapter
-
-
         }
 
         //초기 리사이클러뷰 구현.
         with(historyAdapter) {
-            addAll(com.mod_int.carwash.ui.owner_member.recyclerview.washinghistory.OwnerManagementHistoryFragment.mockList)
+            addAll(mockList)
             setItemClickListener {
                 orderCfmDialog()
 
@@ -80,8 +95,9 @@ class OwnerManagementHistoryFragment : BaseFragment<FragmentOmManagementHistoryB
 
 
                 override fun onClickPositiveBtn() {
-                    //삭제 하는 로직구현하고
-                    //리스트상 안보이게 하는 로직
+
+                //삭제 하는 로직구현하고
+                //리스트상 안보이게 하는 로직
 
 //                    requireActivity().supportFragmentManager.beginTransaction()
 //                        .add(R.id.붙여넣어야할 프래임레이아웃 아이디, 전환 되고 싶은 프래그먼트())

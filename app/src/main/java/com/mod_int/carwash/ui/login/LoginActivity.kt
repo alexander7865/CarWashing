@@ -65,15 +65,15 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
                 }
             }
 
-            is LoginViewState.RouteOwner -> {
+            is LoginViewState.RouteOwnerMember -> {
                 startActivity(Intent(this@LoginActivity, OmActivity::class.java))
             }
 
-            is LoginViewState.RouteWasher -> {
+            is LoginViewState.RouteWasherMember -> {
                 startActivity(Intent(this@LoginActivity, WmActivity::class.java))
             }
 
-            is LoginViewState.RoutePickupManager -> {
+            is LoginViewState.RoutePickupMember -> {
                 startActivity(Intent(this@LoginActivity, PmActivity::class.java))
             }
 

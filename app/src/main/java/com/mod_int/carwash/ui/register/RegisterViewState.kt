@@ -5,9 +5,9 @@ import com.mod_int.carwash.base.ViewState
 sealed class RegisterViewState : ViewState {
 
     object Cancel : RegisterViewState()
-    object RoutePickupManager : RegisterViewState()
-    object RouteOwner : RegisterViewState()
-    object RouteWasher : RegisterViewState()
+    object RoutePickupMember : RegisterViewState()
+    object RouteOwnerMember : RegisterViewState()
+    object RouteWasherMember : RegisterViewState()
     data class Error(val message: String) : RegisterViewState()
     data class EnableInput(val isEnable : Boolean) : RegisterViewState()
 }

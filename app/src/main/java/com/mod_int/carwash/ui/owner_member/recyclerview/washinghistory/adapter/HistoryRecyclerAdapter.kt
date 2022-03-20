@@ -11,6 +11,7 @@ class HistoryRecyclerAdapter : RecyclerView.Adapter<HistoryRecyclerViewHolder>()
     private val historyList = mutableListOf<HistoryInfo>()
     private lateinit var itemClickListener: (button : CustomDialogFragment) -> Unit
 
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HistoryRecyclerViewHolder =
         HistoryRecyclerViewHolder(parent)
 

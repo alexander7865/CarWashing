@@ -59,15 +59,15 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(R.layout.activity
                 enableSetting(viewState.isEnable)
             }
 
-            is RegisterViewState.RouteOwner -> {
+            is RegisterViewState.RouteOwnerMember -> {
                 startActivity(Intent(this@RegisterActivity, OmActivity::class.java))
             }
 
-            is RegisterViewState.RouteWasher -> {
+            is RegisterViewState.RouteWasherMember -> {
                 startActivity(Intent(this@RegisterActivity, WmActivity::class.java))
             }
 
-            is RegisterViewState.RoutePickupManager -> {
+            is RegisterViewState.RoutePickupMember -> {
                 startActivity(Intent(this@RegisterActivity, PmActivity::class.java))
             }
         }

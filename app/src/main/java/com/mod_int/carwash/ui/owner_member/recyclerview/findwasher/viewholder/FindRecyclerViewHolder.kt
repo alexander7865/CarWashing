@@ -6,8 +6,8 @@ import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.mod_int.carwash.R
-import com.mod_int.carwash.databinding.ItemModelBinding
 import com.mod_int.carwash.model.WasherInfo
+import com.mod_int.carwash.databinding.ItemModelBinding
 import com.mod_int.carwash.ui.owner_member.find_recycler_view.ClickType
 
 class FindRecyclerViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(

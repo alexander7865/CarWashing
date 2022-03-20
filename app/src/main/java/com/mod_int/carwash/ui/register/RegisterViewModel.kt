@@ -35,26 +35,26 @@ class RegisterViewModel @Inject constructor(
             checkUser(
                 checkEmail.await(),
                 checkPassword.await(),
-                checkPasswordOk.await()
+                checkPasswordOk.await(),
             )?.let { person ->
                 firebaseRepository.checkRegister(
                     person.email,
                     person.password,
                     typeObservableField.get()!!
                 ) { isSuccess ->
-
-                    viewStateChanged(LoginViewState.EnableInput(false))
+                    viewStateChanged(RegisterViewState.EnableInput(false))
                     if (isSuccess) {
                         when (typeObservableField.get()) {
                             "ownerMember" -> {
-                                viewStateChanged(RegisterViewState.RouteOwner)
+                                viewStateChanged(RegisterViewState.RouteOwnerMember)
+
                             }
                             "washerMember" -> {
-                                viewStateChanged(RegisterViewState.RouteWasher)
+                                viewStateChanged(RegisterViewState.RouteWasherMember)
                             }
 
                             "pickupMember" -> {
-                                viewStateChanged(RegisterViewState.RoutePickupManager)
+                                viewStateChanged(RegisterViewState.RoutePickupMember)
                             }
                             else -> {
                                 viewStateChanged(RegisterViewState.Error("회원가입이 실패하였습니다."))

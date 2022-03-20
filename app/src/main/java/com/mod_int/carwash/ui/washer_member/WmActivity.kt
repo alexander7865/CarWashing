@@ -4,10 +4,10 @@ import android.os.Bundle
 import com.google.android.material.tabs.TabLayout
 import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseActivity
-import com.mod_int.carwash.databinding.ActivityOmBinding
+import com.mod_int.carwash.databinding.ActivityWmBinding
 import com.mod_int.carwash.ui.washer_member.recyclerview.WasherOrderListFragment
 
-class WmActivity : BaseActivity<ActivityOmBinding>(R.layout.activity_wm) {
+class WmActivity : BaseActivity<ActivityWmBinding>(R.layout.activity_wm) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

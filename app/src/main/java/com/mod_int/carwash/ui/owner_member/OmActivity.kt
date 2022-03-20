@@ -7,8 +7,8 @@ import com.mod_int.carwash.CustomDialogListener
 import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseActivity
 import com.mod_int.carwash.databinding.ActivityOmBinding
-import com.mod_int.carwash.ui.owner_member.recyclerview.findwasher.OwnerFindWasherFragment
-import com.mod_int.carwash.ui.owner_member.recyclerview.washinghistory.OwnerManagementHistoryFragment
+import com.mod_int.carwash.ui.owner_member.recyclerview.findwasher.OmFindWasherFragment
+import com.mod_int.carwash.ui.owner_member.recyclerview.washinghistory.OmManagementHistoryFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -34,8 +34,8 @@ class OmActivity : BaseActivity<ActivityOmBinding>(R.layout.activity_om) {
                 when(tab?.text) {
                     "차주 홈" -> transaction.replace(R.id.owner_frag, OmHomeFragment()).commit()
                     "세차현황" -> transaction.replace(R.id.owner_frag, OmOrderStateFragment()).commit()
-                    "관리현황" -> transaction.replace(R.id.owner_frag, OwnerManagementHistoryFragment()).commit()
-                    "워셔찾기" -> transaction.replace(R.id.owner_frag, OwnerFindWasherFragment()).commit()
+                    "관리현황" -> transaction.replace(R.id.owner_frag, OmManagementHistoryFragment()).commit()
+                    "워셔찾기" -> transaction.replace(R.id.owner_frag, OmFindWasherFragment()).commit()
                 }
             }
 

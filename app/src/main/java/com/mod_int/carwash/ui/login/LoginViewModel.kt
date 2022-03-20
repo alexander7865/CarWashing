@@ -33,14 +33,14 @@ class LoginViewModel @Inject constructor(
                         viewStateChanged(LoginViewState.EnableInput(false))
                         when (user.type) {
                             "ownerMember" -> {
-                                viewStateChanged(LoginViewState.RouteOwner)
+                                viewStateChanged(LoginViewState.RouteOwnerMember)
                             }
                             "washerMember" -> {
-                                viewStateChanged(LoginViewState.RouteWasher)
+                                viewStateChanged(LoginViewState.RouteWasherMember)
                             }
 
                             "pickupMember" -> {
-                                viewStateChanged(LoginViewState.RoutePickupManager)
+                                viewStateChanged(LoginViewState.RoutePickupMember)
                             }
                             else -> {
                                 viewStateChanged(LoginViewState.Error("로그인이 실패하였습니다."))
