@@ -1,4 +1,4 @@
-package com.mod_int.carwash.ui.owner.history_recycler_view
+package com.mod_int.carwash.model
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

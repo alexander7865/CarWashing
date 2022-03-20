@@ -1,7 +1,6 @@
 package com.mod_int.carwash.ui.owner.findwasher
 
 import android.app.Application
-import android.util.Log
 import com.mod_int.carwash.base.BaseViewModel
 import com.mod_int.carwash.base.ViewState
 import com.mod_int.carwash.data.repo.FirebaseRepository
@@ -18,8 +17,9 @@ class OwnerFindWasherViewModel
 
 
 
-    // 데이터가 덥어씌기가 되어 수정했습니다.
+    // 데이터가 덥어씌기가 안되게 수정했습니다.
     fun getWasherMember() {
+        // hasMap 형태로 가지고오는 패턴
         ioScope {
             firebaseRepository.getFirebaseFireStore().collection("WasherMember").document("info")
                 .get()
@@ -29,8 +29,6 @@ class OwnerFindWasherViewModel
                             val getResult: ArrayList<HashMap<String, String>>? =
                                 it.result.get("list") as ArrayList<HashMap<String, String>>?
                             val toResultList = getResult?.map { it.toWasherInfo() }
-
-                            Log.d("결과값", "$toResultList")
                             if (!toResultList.isNullOrEmpty()) {
                                 viewStateChanged(
                                     OwnerFindWasherViewState.GetWasherMember(
@@ -46,6 +44,25 @@ class OwnerFindWasherViewModel
 
         }
     }
+
+
+              // 방법2 다른형태로 document의 모든문서 가지고오기 이유는 리사이클러뷰 뿐만 아니라 다른화면에서도 데이터가
+              // 필요하기 때문입니다. 구현하다 실패하였습니다.
+
+//            var washerMember : ArrayList<WasherInfo> = arrayListOf()
+//            firebaseRepository.getFirebaseFireStore().collection("WasherMember")
+//                .addSnapshotListener {querySnapshot, firebaseFirestoreException ->
+//                    washerMember.clear()
+//                    for (snapshot in querySnapshot!!.documents) {
+//                        var item = snapshot.toObject(WasherInfo::class.java)
+//
+//
+//
+//                    }
+//                }
+//        }
+
+
 }
 
 sealed class OwnerFindWasherViewState : ViewState {

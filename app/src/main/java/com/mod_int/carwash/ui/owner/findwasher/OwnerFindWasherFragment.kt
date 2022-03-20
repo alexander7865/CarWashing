@@ -2,12 +2,9 @@ package com.mod_int.carwash.ui.owner.findwasher
 
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
-import android.view.Gravity
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.Toast
 import androidx.fragment.app.viewModels
 import com.mod_int.carwash.CustomDialogOrderFragment
 import com.mod_int.carwash.CustomDialogOrderListener
@@ -29,7 +26,7 @@ class OwnerFindWasherFragment :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        washingTypeSpinner()
+        washingTypeSpinner()
         initUi()
         initViewModel()
 
@@ -58,12 +55,7 @@ class OwnerFindWasherFragment :
 
     private fun initUi() {
 
-        //새로고침 구현 하지만 필터링 구현하니 동작을 하지 않네요.
         with(binding) {
-//            pullToRefresh.setOnRefreshListener {
-//                pullToRefresh.isRefreshing = false
-//                findAdapter.addAll(mockList)
-//            }
             findWasherRecycler.adapter = findAdapter
         }
 
@@ -84,39 +76,39 @@ class OwnerFindWasherFragment :
         }
     }
 
-    companion object {
-
-        private val mockData = WasherInfo( //리사이클러뷰 초기값 설정
-            name = "홍길동",
-            count = "5",
-            point = "90",
-            deliPrice = "6000",
-            policyPrice = "20000",
-            location = "압구정동 3동",
-            washingType = "픽업손세차",
-            inWashingCountryOfCar = "내부세차(외제차)",
-            outWashingCountryOfCar = "외부세차(외제차)",
-            inOutWashingCountryOfCar = "내부+외부세차(외제차)",
-            inWashingCarSize = "준중형 :",
-            outWashingCarSize = "준중형 :",
-            inOutWashingCarSize = "준중형 :",
-            inWashingCost = "12000",
-            outWashingCost = "15000",
-            inOutWashingCost = "25000",
-            inWashingTime = "20",
-            outWashingTime = "20",
-            inOutWashingTime = "30",
-            introduceText = "반가워요 슈퍼카 전문 손세차입니다!!",
-
-        )
-
-        private val mockList = mutableListOf<WasherInfo>().apply {
-            for (i in 0..100) {
-                add(mockData.copy(name = "홍길동$i"))
-            }
-        }
-
-    }
+//    companion object {
+//
+//        private val mockData = WasherInfo( //리사이클러뷰 초기값 설정
+//            name = "홍길동",
+//            count = "5",
+//            point = "90",
+//            deliPrice = "6000",
+//            policyPrice = "20000",
+//            location = "압구정동 3동",
+//            washingType = "픽업손세차",
+//            inWashingCountryOfCar = "내부세차(외제차)",
+//            outWashingCountryOfCar = "외부세차(외제차)",
+//            inOutWashingCountryOfCar = "내부+외부세차(외제차)",
+//            inWashingCarSize = "준중형 :",
+//            outWashingCarSize = "준중형 :",
+//            inOutWashingCarSize = "준중형 :",
+//            inWashingCost = "12000",
+//            outWashingCost = "15000",
+//            inOutWashingCost = "25000",
+//            inWashingTime = "20",
+//            outWashingTime = "20",
+//            inOutWashingTime = "30",
+//            introduceText = "반가워요 슈퍼카 전문 손세차입니다!!",
+//
+//        )
+//
+//        private val mockList = mutableListOf<WasherInfo>().apply {
+//            for (i in 0..100) {
+//                add(mockData.copy(name = "홍길동$i"))
+//            }
+//        }
+//
+//    }
 
     //커스텀 다이얼로그 만들었습니다.
     private fun orderDialog() {
@@ -141,7 +133,7 @@ class OwnerFindWasherFragment :
     }
 
 
-    //타입별로 필터링 구현했습니다
+    //타입별로 필터링 구현했습니다 데이터 연결이후 문제가 생깁니다.
     private fun washingTypeSpinner() {
         val data = resources.getStringArray(R.array.washingType)
         val spinnerAdapter = ArrayAdapter (requireContext(),
@@ -158,21 +150,16 @@ class OwnerFindWasherFragment :
                 ) {
                     when (position) {
                         0 -> {
-                            //필터 타입으로 검색가능 하도록 구현 했습니다.
-                            findAdapter.filter.filter("홍길동0")
-                            Log.d("스피너테스트", "기본페이지")
+                            findAdapter.filter.filter("픽업손세차")
+
                         }
                         1 -> {
-                            findAdapter.filter.filter("홍길동2")
-                            val toastCenter = Toast.makeText(requireContext(),"손세차예약", Toast.LENGTH_SHORT)
-                            toastCenter.setGravity(Gravity.CENTER,0,0)
-                            toastCenter.show()
+                            findAdapter.filter.filter("손세차예약")
+
                         }
                         2 -> {
-                            findAdapter.filter.filter("홍길동5")
-                            val toastCenter = Toast.makeText(requireContext(),"출장손세차", Toast.LENGTH_SHORT)
-                            toastCenter.setGravity(Gravity.CENTER,0,0)
-                            toastCenter.show()
+                            findAdapter.filter.filter("출장손세차")
+
                         }
                     }
                 }

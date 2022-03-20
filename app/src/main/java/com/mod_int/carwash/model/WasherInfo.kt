@@ -1,12 +1,11 @@
 package com.mod_int.carwash.model
 
 import android.os.Parcelable
-import com.mod_int.carwash.ui.register.RegisterActivity
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class WasherInfo(
-    var id : String = "",
+    var id: String = "",
     var name: String = "",
     var count: String = "",
     var point: String = "",

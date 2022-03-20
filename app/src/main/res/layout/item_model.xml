@@ -72,14 +72,15 @@
                                 android:textSize="16sp"
                                 android:textColor="@color/dgray"
                                 android:textStyle="bold"/>
+
                             <TextView
                                 android:id="@+id/countOrder"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="5sp"
                                 android:text="5"
-                                android:textSize="16sp"
-                                android:textColor="@color/dgray"/>
+                                android:textColor="@color/dgray"
+                                android:textSize="16sp" />
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -169,7 +170,7 @@
                             android:paddingEnd="16sp"
                             android:background="@drawable/recyclerview_radius"
                             android:gravity="center"
-                            android:text=" 픽업손세차 "
+                            android:text="픽업손세차"
                             android:textColor="@color/white"
                             android:textStyle="bold"/>
                     </LinearLayout>

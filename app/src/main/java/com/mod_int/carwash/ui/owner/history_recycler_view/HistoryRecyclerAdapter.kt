@@ -3,6 +3,7 @@ package com.mod_int.carwash.ui.owner.history_recycler_view
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.mod_int.carwash.CustomDialogFragment
+import com.mod_int.carwash.model.HistoryInfo
 
 class HistoryRecyclerAdapter : RecyclerView.Adapter<HistoryRecyclerViewHolder>(){
 

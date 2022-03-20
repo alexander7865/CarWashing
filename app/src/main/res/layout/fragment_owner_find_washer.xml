@@ -57,18 +57,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="15sp">
             </Space>
-<!--                        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout-->
-<!--                            android:id="@+id/pullToRefresh"-->
-<!--                            android:layout_width="match_parent"-->
-<!--                            android:layout_height="match_parent"-->
-<!--                            android:layout_marginStart="10sp"-->
-<!--                            android:layout_marginEnd="10sp">-->
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/find_washer_recycler"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
-<!--                        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>-->
 
         </LinearLayout>
     </FrameLayout>

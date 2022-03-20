@@ -66,8 +66,8 @@ class WasherRegistrationFragment : BaseFragment<FragmentWasherRegistrationBindin
                 val user = Firebase.auth.currentUser
                 user?.let {
                     val email = user.email
-                    fireStore?.collection(email.toString())?.document(
-                        "WasherInfo"
+                    fireStore?.collection("WasherMember")?.document(
+                        "$email"
                     )?.set(washerInfo)?.addOnCompleteListener {
                         if (it.isSuccessful) {
                             enableSetting(false)

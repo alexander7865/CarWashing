@@ -81,7 +81,6 @@ class OwnerJoinFragment : BaseFragment<FragmentOwnerJoinBinding>(R.layout.fragme
                 val user = Firebase.auth.currentUser
                 user?.let {
                     val email = user.email
-                    //저장될 위치 OwnerInfo -> SetOptions.merge() 덮어씌기 방지
                     fireStore?.collection("ownerMember")?.document(
                         "$email"
                     )?.set(ownerInfo, SetOptions.merge())?.addOnCompleteListener {

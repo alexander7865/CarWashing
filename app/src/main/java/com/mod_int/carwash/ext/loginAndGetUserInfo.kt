@@ -112,13 +112,28 @@ fun FirebaseRepository.createTypeDB(
 
         // SetOptions.merge() 덮어씌기 방지
         "washerMember" -> {
-            getFirebaseFireStore().collection("WasherMember").document("info")
-                .set(emptyMap<String, WasherInfo>(),SetOptions.merge())
+            //방법 1 본 방법으로 구현했을시 워셔맴버가 정보입력을 받았을경우 많이 꼬여버렸습니다.
+//            getFirebaseFireStore().collection("WasherMember").document("info")
+//                .set(emptyMap<String, WasherInfo>(),SetOptions.merge())
+//                .addOnCompleteListener {
+//                    if (it.isSuccessful) {
+//                        getFirebaseFireStore().collection("WasherMember").document("info").update(
+//                            "list", FieldValue.arrayUnion(WasherInfo().copy(id = id))
+//                        ).addOnCompleteListener {
+//                            callback(it.isSuccessful)
+//                        }
+//                    } else {
+//                        callback(false)
+//                    }
+//                }
+
+            // 방법 2 맵형태로가 아닌 일반 형태로 가지고 오는 형식으로도 만들었습니다.
+            getFirebaseFireStore().collection("WasherMember").document(id)
+                .set(user)
                 .addOnCompleteListener {
                     if (it.isSuccessful) {
-                        getFirebaseFireStore().collection("WasherMember").document("info").update(
-                            "list", FieldValue.arrayUnion(WasherInfo().copy(id = id))
-                        ).addOnCompleteListener {
+                        getFirebaseFireStore().collection("WasherMember").document(id).set(user)
+                        .addOnCompleteListener {
                             callback(it.isSuccessful)
                         }
                     } else {

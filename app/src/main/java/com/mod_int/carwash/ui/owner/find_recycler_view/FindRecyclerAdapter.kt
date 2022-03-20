@@ -8,10 +8,11 @@ import android.widget.Filterable
 import androidx.recyclerview.widget.RecyclerView
 import com.mod_int.carwash.model.WasherInfo
 
+
 class FindRecyclerAdapter : RecyclerView.Adapter<FindRecyclerViewHolder>(), Filterable {
 
-    private val washerList = mutableListOf<WasherInfo>()
     private lateinit var itemClickListener: (item : WasherInfo, ClickType) -> Unit
+    private val washerList = mutableListOf<WasherInfo>()
     private var unFilteredList = washerList
     private var filteredList = washerList
 
@@ -43,18 +44,22 @@ class FindRecyclerAdapter : RecyclerView.Adapter<FindRecyclerViewHolder>(), Filt
         }
     }
 
-    //워싱 타입별로 필터를 만들었습니다. 문제는 새로고침을 할경우 전체 데이터가 나오네요 (일단은 리프레쉬가 필요없어 주석처리 했습니다)
+    //리사이클러뷰 데이터 연결이후 작동이 안됩니다. 왜 이런현상이 일어나는 건가요?
     override fun getFilter(): Filter {
         return object : Filter(){
             override fun performFiltering(constraint: CharSequence?): FilterResults {
                 val charString = constraint.toString()
+                Log.d("테스트", charString)
                 filteredList = if (charString.isEmpty()) {
                     unFilteredList
+
+
                 }else {
                     val filteringList = ArrayList<WasherInfo>()
                     for (item in unFilteredList) {
-                        if (item.name == charString) filteringList.add(item)
-                        Log.d("테스트", charString)
+                        if (item.washingType == charString) filteringList.add(item)
+                        //로그테스트결과 item.washingType , charString 데이터 검색이 안됩니다.
+
                     }
                     filteringList
                 }

@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.mod_int.carwash.CustomDialogFragment
 import com.mod_int.carwash.R
 import com.mod_int.carwash.databinding.ItemHistoryBinding
+import com.mod_int.carwash.model.HistoryInfo
 
 class HistoryRecyclerViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(
     LayoutInflater.from(parent.context).inflate(R.layout.item_history, parent, false)){

@@ -2,16 +2,13 @@ package com.mod_int.carwash.ui.owner.history
 
 import android.os.Bundle
 import android.view.View
-import androidx.recyclerview.widget.RecyclerView
 import com.mod_int.carwash.CustomDialogFragment
 import com.mod_int.carwash.CustomDialogListener
 import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseFragment
 import com.mod_int.carwash.databinding.FragmentOwnerManagementHistoryBinding
-import com.mod_int.carwash.ui.owner.history_recycler_view.HistoryInfo
+import com.mod_int.carwash.model.HistoryInfo
 import com.mod_int.carwash.ui.owner.history_recycler_view.HistoryRecyclerAdapter
-import com.mod_int.carwash.ui.pickup_manager.PickupManagerPickupStatusFragment
-import com.mod_int.carwash.ui.pickup_manager.pickup_list_recycler_view.PickupList
 
 class OwnerManagementHistoryFragment : BaseFragment<FragmentOwnerManagementHistoryBinding>(
     R.layout.fragment_owner_management_history){
