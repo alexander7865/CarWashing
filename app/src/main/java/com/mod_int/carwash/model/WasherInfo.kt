@@ -30,28 +30,28 @@ data class WasherInfo(
 ) : Parcelable
 
 
-//fun HashMap<String, String>.toWasherInfo(): WasherInfo =
-//    WasherInfo(
-//        id = getValue("id"),
-//        name = getValue("name"),
-//        count = getValue("count"),
-//        point = getValue("point"),
-//        deliPrice = getValue("deliPrice"),
-//        policyPrice = getValue("policyPrice"),
-//        location = getValue("location"),
-//        washingType = getValue("washingType"),
-//        inWashingCountryOfCar = getValue("inWashingCountryOfCar"),
-//        outWashingCountryOfCar = getValue("outWashingCountryOfCar"),
-//        inOutWashingCountryOfCar = getValue("inOutWashingCountryOfCar"),
-//        inWashingCarSize = getValue("inWashingCarSize"),
-//        outWashingCarSize = getValue("outWashingCarSize"),
-//        inOutWashingCarSize = getValue("inOutWashingCarSize"),
-//        inWashingCost = getValue("inWashingCost"),
-//        outWashingCost = getValue("outWashingCost"),
-//        inOutWashingCost = getValue("inOutWashingCost"),
-//        inWashingTime = getValue("inWashingTime"),
-//        outWashingTime = getValue("outWashingTime"),
-//        inOutWashingTime = getValue("inOutWashingTime"),
-//        introduceText = getValue("introduceText"),
-//        expandable = getValue("expandable")
-//    )
+fun HashMap<String, String>.toWasherInfo(): WasherInfo =
+    WasherInfo(
+        id = getValue("id"),
+        name = getValue("name"),
+        count = getValue("count"),
+        point = getValue("point"),
+        deliPrice = getValue("deliPrice"),
+        policyPrice = getValue("policyPrice"),
+        location = getValue("location"),
+        washingType = getValue("washingType"),
+        inWashingCountryOfCar = getValue("inWashingCountryOfCar"),
+        outWashingCountryOfCar = getValue("outWashingCountryOfCar"),
+        inOutWashingCountryOfCar = getValue("inOutWashingCountryOfCar"),
+        inWashingCarSize = getValue("inWashingCarSize"),
+        outWashingCarSize = getValue("outWashingCarSize"),
+        inOutWashingCarSize = getValue("inOutWashingCarSize"),
+        inWashingCost = getValue("inWashingCost"),
+        outWashingCost = getValue("outWashingCost"),
+        inOutWashingCost = getValue("inOutWashingCost"),
+        inWashingTime = getValue("inWashingTime"),
+        outWashingTime = getValue("outWashingTime"),
+        inOutWashingTime = getValue("inOutWashingTime"),
+        introduceText = getValue("introduceText"),
+        expandable = getValue("expandable")
+    )

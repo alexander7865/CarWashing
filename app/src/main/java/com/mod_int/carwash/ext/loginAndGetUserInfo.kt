@@ -2,8 +2,11 @@ package com.mod_int.carwash.ext
 
 
 import android.util.Log
+import com.google.firebase.firestore.FieldValue
+import com.google.firebase.firestore.SetOptions
 import com.mod_int.carwash.data.repo.FirebaseRepository
 import com.mod_int.carwash.model.User
+import com.mod_int.carwash.model.WasherInfo
 
 fun FirebaseRepository.loginAndGetUserInfo(
     email: String,
@@ -35,7 +38,7 @@ fun FirebaseRepository.getUserInfo(
     callback: (user: User?) -> Unit
 ) {
     getFirebaseAuth().currentUser?.email?.let { email ->
-        getFirebaseFireStore().collection(email).document("UserInfo").get()
+        getFirebaseFireStore().collection(email).document("User").get()
             .addOnCompleteListener {
                 if (it.isSuccessful) {
                     callback(it.result.toObject(User::class.java))
@@ -88,7 +91,8 @@ fun FirebaseRepository.createUserDB(
         id, "010xxxxxxxx", type
     )
 
-    getFirebaseFireStore().collection(id).document("UserInfo").set(user)
+    //회원가입 생성
+    getFirebaseFireStore().collection(id).document("User").set(user)
         .addOnCompleteListener {
             callback(it.isSuccessful)
         }
@@ -106,7 +110,7 @@ fun FirebaseRepository.createTypeDB(
     when (type) {
         "ownerMember" -> {
             Log.d("회원타입", type)
-            getFirebaseFireStore().collection("OwnerMember").document(id).set(user)
+            getFirebaseFireStore().collection("OwnerMember").document("User").set(user)
                 .addOnCompleteListener {
                     callback(it.isSuccessful)
                 }
@@ -114,29 +118,24 @@ fun FirebaseRepository.createTypeDB(
 
         // 다른형태로 보여주고 싶어 이렇게 만들었습니다.
         "washerMember" -> {
-            getFirebaseFireStore().collection("WasherMember").document(id).set(user)
-                .addOnCompleteListener {
-                    callback(it.isSuccessful)
-                }
-
             // HasMap 형태로 데이터를 보여주기위한 방법 최초 데이터만 사용이 가능함
-//            getFirebaseFireStore().collection("WasherMember").document("User")
-//                .set(emptyMap<String, WasherInfo>(), SetOptions.merge())
-//                .addOnCompleteListener {
-//                    if (it.isSuccessful) {
-//                        getFirebaseFireStore().collection("WasherMember").document("User").update(
-//                            "list", FieldValue.arrayUnion(WasherInfo().copy(id = id))
-//                        ).addOnCompleteListener {
-//                            callback(it.isSuccessful)
-//                        }
-//                    } else {
-//                        callback(false)
-//                    }
-//                }
+            getFirebaseFireStore().collection("WasherMember").document("User")
+                .set(emptyMap<String, WasherInfo>(), SetOptions.merge())
+                .addOnCompleteListener {
+                    if (it.isSuccessful) {
+                        getFirebaseFireStore().collection("WasherMember").document("User").update(
+                            "list", FieldValue.arrayUnion(WasherInfo().copy(id = id))
+                        ).addOnCompleteListener {
+                            callback(it.isSuccessful)
+                        }
+                    } else {
+                        callback(false)
+                    }
+                }
         }
 
         "pickupMember" -> {
-            getFirebaseFireStore().collection("PickupMember").document(id).set(user)
+            getFirebaseFireStore().collection("PickupMember").document("User").set(user)
                 .addOnCompleteListener {
                     callback(it.isSuccessful)
                 }

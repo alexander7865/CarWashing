@@ -6,6 +6,7 @@ import com.mod_int.carwash.base.ViewState
 import com.mod_int.carwash.model.WasherInfo
 import com.mod_int.carwash.data.repo.FirebaseRepository
 import com.mod_int.carwash.ext.ioScope
+import com.mod_int.carwash.model.toWasherInfo
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -19,25 +20,25 @@ class OmFindWasherViewModel
         // hasMap 형태로 가지고오는 패턴
         ioScope {
             firebaseRepository.getFirebaseFireStore().collection("WasherMember")
-                .document("UserInfo")
+                .document("User")
                 .get()
                 .addOnCompleteListener {
-//                    if (it.isSuccessful) {
-//                        if (it.result.exists()) {
-//                            val getResult: ArrayList<HashMap<String, String>>? =
-//                                it.result.get("list") as ArrayList<HashMap<String, String>>?
-//                            val toResultList = getResult?.map { it.toWasherInfo() }
-//                            if (!toResultList.isNullOrEmpty()) {
-//                                viewStateChanged(
-//                                    OmFindWasherViewState.GetWasherMember(
-//                                        toResultList
-//                                    )
-//                                )
-//                            } else {
-//                            }
-//                        } else {
-//                        }
-//                    }
+                    if (it.isSuccessful) {
+                        if (it.result.exists()) {
+                            val getResult: ArrayList<HashMap<String, String>>? =
+                                it.result.get("list") as ArrayList<HashMap<String, String>>?
+                            val toResultList = getResult?.map { it.toWasherInfo() }
+                            if (!toResultList.isNullOrEmpty()) {
+                                viewStateChanged(
+                                    OmFindWasherViewState.GetWasherMember(
+                                        toResultList
+                                    )
+                                )
+                            } else {
+                            }
+                        } else {
+                        }
+                    }
                 }
 
         }

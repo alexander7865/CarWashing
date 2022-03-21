@@ -57,10 +57,12 @@ class RegisterViewModel @Inject constructor(
                                 viewStateChanged(RegisterViewState.RoutePickupMember)
                             }
                             else -> {
+                                viewStateChanged(RegisterViewState.EnableInput(true))
                                 viewStateChanged(RegisterViewState.Error("회원가입이 실패하였습니다."))
                             }
                         }
                     } else {
+                        viewStateChanged(RegisterViewState.EnableInput(true))
                         viewStateChanged(RegisterViewState.Error("회원가입이 실패하였습니다."))
                     }
                 }
