@@ -19,14 +19,16 @@ class OmManagementHistoryViewModel
     fun getFinishedWashing() {
 
         ioScope {
-        firebaseRepository.getFirebaseFireStore().collection("WasherMember")
+        firebaseRepository.getFirebaseFireStore().collection("PickupMember")
             .get()
             .addOnSuccessListener {
                 it.documents.forEach{ _ ->
                     val items = mutableListOf<HistoryInfo>()
-//                    for (document in items) {
+                    for (document in items) {
                         Log.d("히스토리", "$items")
-//                    }
+
+
+                    }
                 }
             }
         }

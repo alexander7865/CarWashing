@@ -17,13 +17,15 @@ class HistoryRecyclerViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(
     fun bind(item: HistoryInfo, itemClickListener: (Button : CustomDialogFragment) -> Unit) {
         binding?.let {
             with(it){
-                dateHistory.text = item.historyDate
-                washTypeHistory.text = item.washTypeCategory
-                carNumberHistory.text = item.carNumber
-                brandHistory.text = item.brandHistory
-                styleNameHistory.text = item.styleNameHistory
-                carKindsHistory.text = item.carKindsHistory
-                carColorHistory.text = item.carColorHistory
+                dateHistory.text = item.email
+                washTypeHistory.text = item.phoneNumber
+                carNumberHistory.text = item.type
+//                brandHistory.text = item.brandHistory
+//                styleNameHistory.text = item.styleNameHistory
+//                carKindsHistory.text = item.carKindsHistory
+//                carColorHistory.text = item.carColorHistory
+
+
 
                 btnCancelHistory.setOnClickListener {
                     val button = CustomDialogFragment()
