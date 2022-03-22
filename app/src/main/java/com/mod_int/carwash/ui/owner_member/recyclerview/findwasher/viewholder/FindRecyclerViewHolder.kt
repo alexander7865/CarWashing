@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.mod_int.carwash.R
 import com.mod_int.carwash.model.WasherInfo
 import com.mod_int.carwash.databinding.ItemModelBinding
-import com.mod_int.carwash.ui.owner_member.find_recycler_view.ClickType
+import com.mod_int.carwash.ui.owner_member.recyclerview.findwasher.adapter.ClickType
 
 class FindRecyclerViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(
     LayoutInflater.from(parent.context).inflate(R.layout.item_model, parent, false)){

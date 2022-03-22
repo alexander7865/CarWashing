@@ -1,18 +1,19 @@
 package com.mod_int.carwash.ui.owner_member.recyclerview.washinghistory
 
+import android.icu.text.Transliterator
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.viewModels
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firestore.admin.v1.Index
 import com.mod_int.carwash.CustomDialogFragment
 import com.mod_int.carwash.CustomDialogListener
 import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseFragment
-import com.mod_int.carwash.data.repo.FirebaseRepository
 import com.mod_int.carwash.databinding.FragmentOmManagementHistoryBinding
 import com.mod_int.carwash.model.HistoryInfo
 import com.mod_int.carwash.ui.owner_member.recyclerview.washinghistory.adapter.HistoryRecyclerAdapter
+import kotlinx.coroutines.currentCoroutineContext
 
 class OmManagementHistoryFragment : BaseFragment<FragmentOmManagementHistoryBinding>(
     R.layout.fragment_om_management_history) {
@@ -51,39 +52,34 @@ class OmManagementHistoryFragment : BaseFragment<FragmentOmManagementHistoryBind
 
 
     //파이어베이스 컬렉션에 필드값만 가지고 왔습니다 이렇게도 되네요 ㅋㅋㅋㅋ 조금 무식하지만 이렇게 가지고오면 처음부터
-    //등록을 안하고 나중에 데이터를 등록하고 가지고 오고 싶은것만 가지고 와도되는 장점이 있어요
+    //등록을 안하고 나중에 데이터를 등록해도 가지고올 수 있다는 장점이 있어요
+    //이제 요부분을 MVVM 패턴으로 적용 시켜야겠습니다. 몇번 하다 터져 버리더라고요 ㅋㅋㅋ
     private fun initUi() {
-        with(binding) {
-            recyclerHistory.adapter = historyAdapter
-            db.collection("PickupMember")
-                .get()
-                .addOnSuccessListener { result ->
-                    itemList.clear()
-                    for(document in result) {
-                        val list = HistoryInfo(
-                            email = document.get("email") as String,
-                            phoneNumber = document.get("phoneNumber") as String,
-                            type = document.get("type") as String
-                        )
-
-                        val testList = mutableListOf<HistoryInfo>().apply {
-                            add(list)
-                        }
-                        historyAdapter.addAll(testList)
-
-//                        Log.d("완료값", "$email")
-
+        db.collection("WasherMember")
+            .get()
+            .addOnSuccessListener { result ->
+                itemList.clear()
+                for(document in result) {
+                    val list = HistoryInfo(
+                        email = document.get("email") as String,
+                        phoneNumber = document.get("phoneNumber") as String,
+                        type = document.get("type") as String,
+//                        carBrand = document.get("carBrand") as String,
+//                        carModel = document.get("carModel") as String,
+//                        carKinds = document.get("carKinds") as String,
+//                        carColor = document.get("carColor") as String
+                    )
+                    val testList = mutableListOf<HistoryInfo>().apply {
+                        add(list)
                     }
-
+                    historyAdapter.addAll(testList)
                 }
+            }
 
-        }
-
-        //초기 리사이클러뷰 구현.
-        with(historyAdapter) {
-            setItemClickListener {
+        with(binding){
+            recyclerHistory.adapter = historyAdapter
+            historyAdapter.setItemClickListener {
                 orderCfmDialog()
-
             }
         }
     }
@@ -103,10 +99,13 @@ class OmManagementHistoryFragment : BaseFragment<FragmentOmManagementHistoryBind
                 }
 
 
-                override fun onClickPositiveBtn() {
+                //나름 삭제하는 로직을 구현했습니다 그러나 전부다 삭제시 앱이 꺼지는 문제가 발생합니다 나중에 수정해야 할 듯 합니다
+                //해당 포지션 값으로 넣어야 합니다 1번 값만 없어지네요 ㅎㅎ
 
-                //삭제 하는 로직구현하고
-                //리스트상 안보이게 하는 로직
+                override fun onClickPositiveBtn() {
+                    historyAdapter.removeItem()
+                    binding.recyclerHistory.adapter = historyAdapter
+
 
 //                    requireActivity().supportFragmentManager.beginTransaction()
 //                        .add(R.id.붙여넣어야할 프래임레이아웃 아이디, 전환 되고 싶은 프래그먼트())
@@ -116,5 +115,4 @@ class OmManagementHistoryFragment : BaseFragment<FragmentOmManagementHistoryBind
             .create()
         dialog.show(childFragmentManager, dialog.tag)
     }
-
 }

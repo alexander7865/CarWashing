@@ -66,11 +66,13 @@ class OmJoinFragment : BaseFragment<FragmentOmJoinBinding>(R.layout.fragment_om_
 
     private fun saveInfoOwner(){
         val ownerInfo = OwnerInfo(
-            CarNumber = binding.etCarNum.text.toString(),
-            CarBrand = binding.etCarBrand.toString(),
-            CarModel = binding.etCarModel.toString(),
-            CarColor = binding.etCarCol.text.toString(),
-            CarLocation = binding.tvCarLocation.text.toString(),
+            carNumber = binding.etCarNum.text.toString(),
+            carBrand = binding.etCarBrand.toString(),
+            carModel = binding.etCarModel.toString(),
+            carKinds = binding.etCarKinds.toString(),
+            carSize = binding.etCarSize.toString(),
+            carColor = binding.etCarCol.text.toString(),
+            carLocation = binding.tvCarLocation.text.toString(),
         )
         CoroutineScope(Dispatchers.Main).launch {
             val etCarNumInputCheck = async { etCarNumInputCheck() }
@@ -81,7 +83,7 @@ class OmJoinFragment : BaseFragment<FragmentOmJoinBinding>(R.layout.fragment_om_
                 val user = Firebase.auth.currentUser
                 user?.let {
                     val email = user.email
-                    fireStore?.collection("ownerMember")?.document(
+                    fireStore?.collection("OwnerMember")?.document(
                         "$email"
                     )?.set(ownerInfo, SetOptions.merge())?.addOnCompleteListener {
                         if (it.isSuccessful) {
@@ -180,13 +182,13 @@ class OmJoinFragment : BaseFragment<FragmentOmJoinBinding>(R.layout.fragment_om_
     }
 
     data class OwnerInfo (
-        var CarNumber : String = "",
-        var CarBrand : String = "",
-        var CarModel : String = "",
-//        var CarKinds : String = "",
-//        var CarSize : String = "",
-        var CarColor : String = "",
-        var CarLocation : String = ""
+        var carNumber : String = "",
+        var carBrand : String = "",
+        var carModel : String = "",
+        var carKinds : String = "",
+        var carSize : String = "",
+        var carColor : String = "",
+        var carLocation : String = ""
 
     )
 

@@ -20,10 +20,10 @@ class HistoryRecyclerViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(
                 dateHistory.text = item.email
                 washTypeHistory.text = item.phoneNumber
                 carNumberHistory.text = item.type
-//                brandHistory.text = item.brandHistory
-//                styleNameHistory.text = item.styleNameHistory
-//                carKindsHistory.text = item.carKindsHistory
-//                carColorHistory.text = item.carColorHistory
+//                brandHistory.text = item.carBrand
+//                styleNameHistory.text = item.carModel
+//                carKindsHistory.text = item.carKinds
+//                carColorHistory.text = item.carColor
 
 
 

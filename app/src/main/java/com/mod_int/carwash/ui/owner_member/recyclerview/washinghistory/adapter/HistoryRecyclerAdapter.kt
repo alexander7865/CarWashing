@@ -16,6 +16,7 @@ class HistoryRecyclerAdapter : RecyclerView.Adapter<HistoryRecyclerViewHolder>()
         HistoryRecyclerViewHolder(parent)
 
     override fun onBindViewHolder(holder: HistoryRecyclerViewHolder, position: Int) {
+
         holder.bind(historyList[position], itemClickListener)
 
     }
@@ -24,6 +25,11 @@ class HistoryRecyclerAdapter : RecyclerView.Adapter<HistoryRecyclerViewHolder>()
 
     fun addAll(list: MutableList<HistoryInfo>) {
         historyList.addAll(list)
+        notifyDataSetChanged()
+    }
+
+    fun removeItem(){
+        historyList.removeAt(1)
         notifyDataSetChanged()
     }
 

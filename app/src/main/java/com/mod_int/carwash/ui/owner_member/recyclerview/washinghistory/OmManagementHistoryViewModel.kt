@@ -27,7 +27,6 @@ class OmManagementHistoryViewModel
                     for (document in items) {
                         Log.d("히스토리", "$items")
 
-
                     }
                 }
             }

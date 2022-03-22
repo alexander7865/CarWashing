@@ -202,7 +202,7 @@
                                 android:layout_weight="1"
                                 android:background="@drawable/layout_box_stroke"
                                 android:gravity="center_vertical"
-                                android:hint="SUV"
+                                android:text="SUV"
                                 android:textSize="16sp" />
 
                         </LinearLayout>
@@ -233,7 +233,7 @@
                                 android:layout_weight="1"
                                 android:background="@drawable/layout_box_stroke"
                                 android:gravity="center_vertical"
-                                android:hint="준중형"
+                                android:text="준중형"
                                 android:textSize="16sp"/>
 
                         </LinearLayout>

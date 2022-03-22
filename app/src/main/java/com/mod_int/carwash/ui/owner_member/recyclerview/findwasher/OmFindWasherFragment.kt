@@ -12,8 +12,8 @@ import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseFragment
 import com.mod_int.carwash.databinding.FragmentOmFindWasherBinding
 import com.mod_int.carwash.ui.owner_member.OmOrderStateFragment
-import com.mod_int.carwash.ui.owner_member.find_recycler_view.ClickType
-import com.mod_int.carwash.ui.owner_member.find_recycler_view.FindRecyclerAdapter
+import com.mod_int.carwash.ui.owner_member.recyclerview.findwasher.adapter.ClickType
+import com.mod_int.carwash.ui.owner_member.recyclerview.findwasher.adapter.FindRecyclerAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -51,7 +51,6 @@ class OmFindWasherFragment :
     }
 
     private fun initUi() {
-
         with(binding) {
             findWasherRecycler.adapter = findAdapter
         }

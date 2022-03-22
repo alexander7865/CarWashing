@@ -122,6 +122,7 @@
         <entry key="app/src/main/res/layout/fragment_washer_registration_price.xml" value="0.2111111111111111" />
         <entry key="app/src/main/res/layout/fragment_wm_home.xml" value="0.18703703703703703" />
         <entry key="app/src/main/res/layout/fragment_wm_order_list.xml" value="0.18703703703703703" />
+        <entry key="app/src/main/res/layout/fragment_wm_registration.xml" value="0.18703703703703703" />
         <entry key="app/src/main/res/layout/item_history.xml" value="0.275" />
         <entry key="app/src/main/res/layout/item_list.xml" value="0.335" />
         <entry key="app/src/main/res/layout/item_model.xml" value="0.275" />

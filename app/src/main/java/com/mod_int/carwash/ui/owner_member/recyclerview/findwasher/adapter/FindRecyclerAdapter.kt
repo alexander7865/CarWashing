@@ -1,4 +1,4 @@
-package com.mod_int.carwash.ui.owner_member.find_recycler_view
+package com.mod_int.carwash.ui.owner_member.recyclerview.findwasher.adapter
 
 import android.annotation.SuppressLint
 import android.util.Log

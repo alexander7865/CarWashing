@@ -9,20 +9,8 @@ data class HistoryInfo(
     val email: String,
     val phoneNumber: String,
     val type: String,
-//    val brandHistory: String,
-//    val styleNameHistory: String,
-//    val carKindsHistory: String,
-//    val carColorHistory: String,
+//    val carBrand: String,
+//    val carModel: String,
+//    val carKinds: String,
+//    val carColor: String,
 ) : Parcelable
-
-//fun HashMap<String, String>.toHisInfo(): HistoryInfo =
-//    HistoryInfo(
-//        historyDate = getValue("historyDate"),
-//        washTypeCategory = getValue("washTypeCategory"),
-//        carNumber = getValue("carNumber"),
-//        brandHistory = getValue("brandHistory"),
-//        styleNameHistory = getValue("styleNameHistory"),
-//        carKindsHistory = getValue("carKindsHistory"),
-//        carColorHistory = getValue("carColorHistory")
-//
-//    )
