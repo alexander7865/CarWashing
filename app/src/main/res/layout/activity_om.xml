@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:backgroundTint="@color/white"
-        tools:context=".ui.owner_member.OmActivity">
+        tools:context=".ui.owner_member.om_activity.OmActivity">
 
         <FrameLayout
             android:id="@+id/owner_frag"
@@ -32,8 +32,8 @@
             app:tabIndicatorHeight="5dp"
             app:tabRippleColor="@color/white"
             app:tabGravity="fill"
-            app:tabIndicatorColor="@color/lorange"
-            app:tabSelectedTextColor="@color/lorange"
+            app:tabIndicatorColor="@color/aqua"
+            app:tabSelectedTextColor="@color/aqua"
             app:tabIndicatorGravity="top"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

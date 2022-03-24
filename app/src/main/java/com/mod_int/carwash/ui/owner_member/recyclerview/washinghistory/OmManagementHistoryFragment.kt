@@ -1,11 +1,10 @@
 package com.mod_int.carwash.ui.owner_member.recyclerview.washinghistory
 
-import android.icu.text.Transliterator
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.viewModels
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firestore.admin.v1.Index
 import com.mod_int.carwash.CustomDialogFragment
 import com.mod_int.carwash.CustomDialogListener
 import com.mod_int.carwash.R
@@ -13,7 +12,6 @@ import com.mod_int.carwash.base.BaseFragment
 import com.mod_int.carwash.databinding.FragmentOmManagementHistoryBinding
 import com.mod_int.carwash.model.HistoryInfo
 import com.mod_int.carwash.ui.owner_member.recyclerview.washinghistory.adapter.HistoryRecyclerAdapter
-import kotlinx.coroutines.currentCoroutineContext
 
 class OmManagementHistoryFragment : BaseFragment<FragmentOmManagementHistoryBinding>(
     R.layout.fragment_om_management_history) {
@@ -60,7 +58,7 @@ class OmManagementHistoryFragment : BaseFragment<FragmentOmManagementHistoryBind
             .addOnSuccessListener { result ->
                 itemList.clear()
                 for(document in result) {
-                    val list = HistoryInfo(
+                    val list = HistoryInfo( //가지고 오는 아이템명과 일치해야함
                         email = document.get("email") as String,
                         phoneNumber = document.get("phoneNumber") as String,
                         type = document.get("type") as String,
@@ -69,10 +67,11 @@ class OmManagementHistoryFragment : BaseFragment<FragmentOmManagementHistoryBind
 //                        carKinds = document.get("carKinds") as String,
 //                        carColor = document.get("carColor") as String
                     )
-                    val testList = mutableListOf<HistoryInfo>().apply {
+                    val finishedList = mutableListOf<HistoryInfo>().apply {
                         add(list)
                     }
-                    historyAdapter.addAll(testList)
+                    Log.d("리스트값", finishedList.toString())
+                    historyAdapter.addAll(finishedList)
                 }
             }
 
@@ -98,21 +97,26 @@ class OmManagementHistoryFragment : BaseFragment<FragmentOmManagementHistoryBind
 
                 }
 
-
                 //나름 삭제하는 로직을 구현했습니다 그러나 전부다 삭제시 앱이 꺼지는 문제가 발생합니다 나중에 수정해야 할 듯 합니다
                 //해당 포지션 값으로 넣어야 합니다 1번 값만 없어지네요 ㅎㅎ
-
                 override fun onClickPositiveBtn() {
                     historyAdapter.removeItem()
                     binding.recyclerHistory.adapter = historyAdapter
 
-
-//                    requireActivity().supportFragmentManager.beginTransaction()
-//                        .add(R.id.붙여넣어야할 프래임레이아웃 아이디, 전환 되고 싶은 프래그먼트())
-//                        .addToBackStack("").commit()
                 }
             })
             .create()
         dialog.show(childFragmentManager, dialog.tag)
     }
+
+//    private fun initViewModel(){
+//
+//
+//    }
+//
+//    private fun onChangedHistoryViewState(){
+//
+//    }
+
+
 }

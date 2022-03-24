@@ -1,4 +1,4 @@
-package com.mod_int.carwash.ui.washer_member
+package com.mod_int.carwash.ui.washer_member.wm_home
 
 import android.content.Context
 import android.graphics.Color
@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter
 import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseFragment
 import com.mod_int.carwash.databinding.FragmentWmHomeBinding
+import com.mod_int.carwash.ui.washer_member.wm_activity.WmActivity
 
 class WmHomeFragment : BaseFragment<FragmentWmHomeBinding>(R.layout.fragment_wm_home) {
 

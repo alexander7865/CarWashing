@@ -1,5 +1,6 @@
-package com.mod_int.carwash.ui.owner_member
+package com.mod_int.carwash.ui.owner_member.om_home
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
@@ -9,6 +10,8 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseFragment
 import com.mod_int.carwash.databinding.FragmentOmHomeBinding
+import com.mod_int.carwash.ui.owner_member.om_activity.OmActivity
+import java.time.LocalDateTime
 
 
 class OmHomeFragment : BaseFragment<FragmentOmHomeBinding>(R.layout.fragment_om_home) {
@@ -18,6 +21,7 @@ class OmHomeFragment : BaseFragment<FragmentOmHomeBinding>(R.layout.fragment_om_
     private var auth = FirebaseAuth.getInstance()
 
 
+    @SuppressLint("SetTextI18n")
     override fun onStart() {
         super.onStart()
 
@@ -30,12 +34,21 @@ class OmHomeFragment : BaseFragment<FragmentOmHomeBinding>(R.layout.fragment_om_
                 .document("$user")
                 .get()
                 .addOnSuccessListener { document ->
-                    if (document != null) {
+                    if (document != null) { //가지고 오고싶은 데이터만 가지고 오면 됩니다.
                         Log.d("차주이메일", document.get("email") as String)
                         with(binding){
-                            omDate.text = document.get("email") as String
+                            val current = LocalDateTime.now()
+                            omDate.text = "${current.year}년 ${current.monthValue}월 ${current.dayOfMonth}일"
                             omPhoneNr.text = document.get("phoneNumber") as String
-                            omCarInfo.text = document.get("type") as String
+                            omCarInfo.text =
+                                    "${document.get("carNumber") as String} " +
+                                            "${document.get("carBrand") as String} " +
+                                            "${document.get("carModel") as String} " +
+                                            "${document.get("carKinds") as String} " +
+                                            "${document.get("carSize") as String} " +
+                                            "${document.get("carColor") as String}"
+
+                            carLocation.text = document.get("carLocation") as String
                         }
                     }
                 }

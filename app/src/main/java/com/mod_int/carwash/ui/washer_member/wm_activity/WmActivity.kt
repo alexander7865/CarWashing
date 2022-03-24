@@ -1,10 +1,15 @@
-package com.mod_int.carwash.ui.washer_member
+package com.mod_int.carwash.ui.washer_member.wm_activity
 
 import android.os.Bundle
 import com.google.android.material.tabs.TabLayout
 import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseActivity
 import com.mod_int.carwash.databinding.ActivityWmBinding
+import com.mod_int.carwash.ui.blank.WmBlankFragment
+import com.mod_int.carwash.ui.washer_member.wm_home.WmHomeFragment
+import com.mod_int.carwash.ui.washer_member.wm_payment.WmPaymentFragment
+import com.mod_int.carwash.ui.washer_member.wm_registration.WmRegistrationFragment
+import com.mod_int.carwash.ui.washer_member.wm_price.WmRegistrationPriceFragment
 import com.mod_int.carwash.ui.washer_member.recyclerview.WasherOrderListFragment
 
 class WmActivity : BaseActivity<ActivityWmBinding>(R.layout.activity_wm) {
@@ -43,7 +48,7 @@ class WmActivity : BaseActivity<ActivityWmBinding>(R.layout.activity_wm) {
     //페이먼트 페이지로 이동
     fun paymentWasher() {
         val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.washer_frag,WmPaymentFragment())
+        transaction.replace(R.id.washer_frag, WmPaymentFragment())
         transaction.addToBackStack("뒤로가기")
         transaction.commit()
     }
@@ -57,7 +62,7 @@ class WmActivity : BaseActivity<ActivityWmBinding>(R.layout.activity_wm) {
 
     fun goBlankScreen() {
         val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.washer_frag,WmBlankFragment())
+        transaction.replace(R.id.washer_frag, WmBlankFragment())
         transaction.addToBackStack("뒤로가기")
         transaction.commit()
     }

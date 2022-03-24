@@ -16,7 +16,6 @@ class HistoryRecyclerAdapter : RecyclerView.Adapter<HistoryRecyclerViewHolder>()
         HistoryRecyclerViewHolder(parent)
 
     override fun onBindViewHolder(holder: HistoryRecyclerViewHolder, position: Int) {
-
         holder.bind(historyList[position], itemClickListener)
 
     }
@@ -28,12 +27,21 @@ class HistoryRecyclerAdapter : RecyclerView.Adapter<HistoryRecyclerViewHolder>()
         notifyDataSetChanged()
     }
 
+    //여기서 포지션값을 전달하고 싶은데 안되네요 일단 0을 넣었습니다.
     fun removeItem(){
-        historyList.removeAt(1)
+        historyList.removeAt(0)
         notifyDataSetChanged()
+
     }
 
     fun setItemClickListener(listener: (button : CustomDialogFragment) -> Unit ){
         itemClickListener = listener
     }
+
+
+}
+
+interface OnItemSelected {
+    fun removeItem ()
+
 }

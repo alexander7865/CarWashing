@@ -34,7 +34,7 @@
                     android:text="카우"
                     android:textSize="38sp"
                     android:textStyle="bold"
-                    android:textColor="@color/lorange"
+                    android:textColor="@color/aqua"
                     android:layout_weight="1" />
 
             </LinearLayout>
@@ -227,7 +227,7 @@
                                     android:layout_marginStart="16sp"
                                     android:textColor="@color/white"
                                     android:text="픽업/탁송비용 정산하기"
-                                    android:backgroundTint="@color/lorange"
+                                    android:backgroundTint="@color/aqua"
                                     android:textSize="16sp"
                                     android:textStyle="bold" />
                             </LinearLayout>

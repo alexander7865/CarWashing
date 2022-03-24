@@ -11,7 +11,7 @@ import com.mod_int.carwash.CustomDialogOrderListener
 import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseFragment
 import com.mod_int.carwash.databinding.FragmentOmFindWasherBinding
-import com.mod_int.carwash.ui.owner_member.OmOrderStateFragment
+import com.mod_int.carwash.ui.owner_member.om_state.OmOrderStateFragment
 import com.mod_int.carwash.ui.owner_member.recyclerview.findwasher.adapter.ClickType
 import com.mod_int.carwash.ui.owner_member.recyclerview.findwasher.adapter.FindRecyclerAdapter
 import dagger.hilt.android.AndroidEntryPoint

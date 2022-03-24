@@ -1,4 +1,4 @@
-package com.mod_int.carwash.ui.pickup_member
+package com.mod_int.carwash.ui.pickup_member.pm_registration
 
 import android.content.Context
 import android.graphics.Color
@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter
 import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseFragment
 import com.mod_int.carwash.databinding.FragmentPmRegistrationBinding
+import com.mod_int.carwash.ui.pickup_member.pm_activity.PmActivity
 
 class PmRegistrationFragment : BaseFragment<FragmentPmRegistrationBinding>(
     R.layout.fragment_pm_registration) {

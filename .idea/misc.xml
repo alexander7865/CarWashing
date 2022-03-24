@@ -33,6 +33,7 @@
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.199" />
         <entry key="app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.199" />
         <entry key="app/src/main/res/drawable/layout_box.xml" value="0.1655" />
+        <entry key="app/src/main/res/drawable/layout_box_color_stroke.xml" value="0.1765" />
         <entry key="app/src/main/res/drawable/layout_box_radius.xml" value="0.1825" />
         <entry key="app/src/main/res/drawable/layout_box_spinner.xml" value="0.1775" />
         <entry key="app/src/main/res/drawable/layout_box_stroke.xml" value="0.1825" />
@@ -122,6 +123,7 @@
         <entry key="app/src/main/res/layout/fragment_washer_registration_price.xml" value="0.2111111111111111" />
         <entry key="app/src/main/res/layout/fragment_wm_home.xml" value="0.18703703703703703" />
         <entry key="app/src/main/res/layout/fragment_wm_order_list.xml" value="0.18703703703703703" />
+        <entry key="app/src/main/res/layout/fragment_wm_order_status.xml" value="0.18703703703703703" />
         <entry key="app/src/main/res/layout/fragment_wm_registration.xml" value="0.18703703703703703" />
         <entry key="app/src/main/res/layout/item_history.xml" value="0.275" />
         <entry key="app/src/main/res/layout/item_list.xml" value="0.335" />

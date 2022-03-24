@@ -12,7 +12,9 @@ import javax.inject.Inject
 
 @HiltViewModel
 class OmFindWasherViewModel
-@Inject constructor(app: Application, private val firebaseRepository: FirebaseRepository) :
+@Inject constructor(
+    app: Application,
+    private val firebaseRepository: FirebaseRepository) :
     BaseViewModel(app) {
 
     // 데이터가 덥어씌기가 안되게 수정했습니다.
@@ -43,7 +45,6 @@ class OmFindWasherViewModel
 
         }
     }
-
 }
 
 sealed class OmFindWasherViewState : ViewState {

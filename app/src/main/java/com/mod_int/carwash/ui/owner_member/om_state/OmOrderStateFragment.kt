@@ -1,4 +1,4 @@
-package com.mod_int.carwash.ui.owner_member
+package com.mod_int.carwash.ui.owner_member.om_state
 
 import android.content.Context
 import android.content.Intent
@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter
 import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseFragment
 import com.mod_int.carwash.databinding.FragmentOmOrderStatusBinding
+import com.mod_int.carwash.ui.owner_member.om_activity.OmActivity
 
 class OmOrderStateFragment : BaseFragment<FragmentOmOrderStatusBinding>(
     R.layout.fragment_om_order_status) {

@@ -1,4 +1,4 @@
-package com.mod_int.carwash.ui.washer_member
+package com.mod_int.carwash.ui.washer_member.wm_state
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -12,6 +12,7 @@ import com.mod_int.carwash.CustomDialogListener
 import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseFragment
 import com.mod_int.carwash.databinding.FragmentWmOrderStatusBinding
+import com.mod_int.carwash.ui.washer_member.wm_activity.WmActivity
 
 
 class WmOrderStateFragment : BaseFragment<FragmentWmOrderStatusBinding>(

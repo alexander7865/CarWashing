@@ -1,4 +1,4 @@
-package com.mod_int.carwash.ui.pickup_member
+package com.mod_int.carwash.ui.pickup_member.pm_activity
 
 import android.os.Bundle
 import com.google.android.material.tabs.TabLayout
@@ -7,6 +7,12 @@ import com.mod_int.carwash.CustomDialogListener
 import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseActivity
 import com.mod_int.carwash.databinding.ActivityPmBinding
+import com.mod_int.carwash.ui.blank.PmBlankFragment
+import com.mod_int.carwash.ui.pickup_member.pm_home.PmHomeFragment
+import com.mod_int.carwash.ui.pickup_member.pm_price.PmPriceStateFragment
+import com.mod_int.carwash.ui.pickup_member.pm_registration.PmRegistrationFragment
+import com.mod_int.carwash.ui.pickup_member.pm_settle.PmSettlementRequestFragment
+import com.mod_int.carwash.ui.pickup_member.pm_state.PmPickupStateFragment
 import com.mod_int.carwash.ui.pickup_member.recyclerview.PickupManagerPickupListFragment
 
 class PmActivity : BaseActivity<ActivityPmBinding>(R.layout.activity_pm) {

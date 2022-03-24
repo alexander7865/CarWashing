@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/ivory"
-        tools:context=".ui.owner_member.OmJoinFragment">
+        tools:context=".ui.owner_member.om_join.OmJoinFragment">
 
         <LinearLayout
             android:id="@+id/appbar_join"
@@ -113,6 +113,7 @@
                                 android:maxLength="8"
                                 android:maxLines="1"
                                 android:textSize="16sp"
+                                android:textColor="@color/dgray"
                                 android:inputType="text"
                                 android:imeOptions="actionNext"/>
 
@@ -134,7 +135,7 @@
                                 android:textStyle="bold" />
 
                             <Spinner
-                                android:id="@+id/etCarBrand"
+                                android:id="@+id/spCarBrand"
                                 android:background="@drawable/layout_box_stroke"
                                 android:layout_width="match_parent"
                                 android:layout_height="40sp"
@@ -163,7 +164,7 @@
                                 android:textStyle="bold" />
 
                             <Spinner
-                                android:id="@+id/etCarModel"
+                                android:id="@+id/spCarModel"
                                 android:background="@drawable/layout_box_stroke"
                                 android:layout_width="match_parent"
                                 android:layout_height="40sp"
@@ -192,7 +193,7 @@
                                 android:textStyle="bold" />
 
                             <TextView
-                                android:id="@+id/etCarKinds"
+                                android:id="@+id/tvCarKinds"
                                 android:layout_width="match_parent"
                                 android:layout_height="40sp"
                                 android:paddingStart="20sp"
@@ -200,9 +201,10 @@
                                 android:layout_marginEnd="26sp"
                                 android:layout_marginBottom="5sp"
                                 android:layout_weight="1"
-                                android:background="@drawable/layout_box_stroke"
+                                android:background="@drawable/layout_box_color_stroke"
                                 android:gravity="center_vertical"
                                 android:text="SUV"
+                                android:textColor="@color/dgray"
                                 android:textSize="16sp" />
 
                         </LinearLayout>
@@ -223,7 +225,7 @@
                                 android:textStyle="bold" />
 
                             <TextView
-                                android:id="@+id/etCarSize"
+                                android:id="@+id/tvCarSize"
                                 android:layout_width="match_parent"
                                 android:layout_height="40sp"
                                 android:paddingStart="20sp"
@@ -231,9 +233,10 @@
                                 android:layout_marginEnd="26sp"
                                 android:layout_marginBottom="5sp"
                                 android:layout_weight="1"
-                                android:background="@drawable/layout_box_stroke"
+                                android:background="@drawable/layout_box_color_stroke"
                                 android:gravity="center_vertical"
                                 android:text="준중형"
+                                android:textColor="@color/dgray"
                                 android:textSize="16sp"/>
 
                         </LinearLayout>
@@ -267,8 +270,9 @@
                                 android:maxLines="1"
                                 android:ellipsize="end"
                                 android:hint="BLACK"
+                                android:textColor="@color/dgray"
                                 android:textSize="16sp"
-                                android:inputType="text"
+                                android:inputType="textCapWords"
                                 android:gravity="center_vertical"
                                 android:imeOptions="actionNext"/>
 
@@ -341,21 +345,14 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:orientation="horizontal">
-
-                                <TextView
-                                    android:id="@+id/tvCarLocation"
+                                <Space
                                     android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:layout_marginStart="16sp"
-                                    android:layout_marginEnd="16sp"
-                                    android:layout_weight="1"
-                                    android:hint="주소를 입력하세요"
-                                    android:textColor="@color/dgray"
-                                    android:textSize="14sp"
-                                    android:textStyle="bold" />
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1">
+                                </Space>
 
                                 <ImageView
+                                    android:id="@+id/btnCarLocation"
                                     android:layout_width="47sp"
                                     android:layout_height="47sp"
                                     android:layout_marginEnd="5sp"
@@ -371,11 +368,25 @@
                         </Space>
 
                         <TextView
-                            android:id="@+id/car_list_owner"
+                            android:id="@+id/carLocation"
                             android:layout_width="match_parent"
-                            android:layout_height="50sp"
+                            android:layout_height="70sp"
                             android:layout_marginStart="26sp"
-                            android:layout_marginEnd="26sp">
+                            android:layout_marginEnd="26sp"
+                            android:padding="10sp"
+                            android:text="서울특별시 강남구 논현동 111-11">
+                        </TextView>
+                        <TextView
+                            android:id="@+id/carBrand"
+                            android:visibility="gone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                        </TextView>
+                        <TextView
+                            android:id="@+id/carModel"
+                            android:visibility="gone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
                         </TextView>
 
                         <Space

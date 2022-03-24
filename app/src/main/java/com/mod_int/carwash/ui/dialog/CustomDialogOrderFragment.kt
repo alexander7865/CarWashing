@@ -11,7 +11,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.fragment.app.DialogFragment
 import com.mod_int.carwash.databinding.FragmentCustomDialogOrderBinding
-import com.mod_int.carwash.ui.owner_member.OmActivity
+import com.mod_int.carwash.ui.owner_member.om_activity.OmActivity
 
 class CustomDialogOrderFragment : DialogFragment() {
     lateinit var binding: FragmentCustomDialogOrderBinding

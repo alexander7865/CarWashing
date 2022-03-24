@@ -61,7 +61,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginEnd="10sp"
-                                android:textColor="@color/lorange"
+                                android:textColor="@color/aqua"
                                 android:text="의뢰확인"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
@@ -183,7 +183,7 @@
                                 android:layout_marginStart="10sp"
                                 android:textColor="@color/white"
                                 android:text="세차의뢰 확인하기"
-                                android:backgroundTint="@color/lorange"
+                                android:backgroundTint="@color/aqua"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
                             <Space

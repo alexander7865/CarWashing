@@ -1,12 +1,17 @@
-package com.mod_int.carwash.ui.owner_member
+package com.mod_int.carwash.ui.owner_member.om_activity
 
 import android.os.Bundle
+import androidx.activity.viewModels
 import com.google.android.material.tabs.TabLayout
 import com.mod_int.carwash.CustomDialogFragment
 import com.mod_int.carwash.CustomDialogListener
 import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseActivity
 import com.mod_int.carwash.databinding.ActivityOmBinding
+import com.mod_int.carwash.ui.blank.OmBlankFragment
+import com.mod_int.carwash.ui.owner_member.om_join.OmJoinFragment
+import com.mod_int.carwash.ui.owner_member.om_state.OmOrderStateFragment
+import com.mod_int.carwash.ui.owner_member.om_home.OmHomeFragment
 import com.mod_int.carwash.ui.owner_member.recyclerview.findwasher.OmFindWasherFragment
 import com.mod_int.carwash.ui.owner_member.recyclerview.washinghistory.OmManagementHistoryFragment
 import dagger.hilt.android.AndroidEntryPoint
@@ -14,20 +19,17 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class OmActivity : BaseActivity<ActivityOmBinding>(R.layout.activity_om) {
 
+    private val omViewModel by viewModels<OmViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        //최초 보여줄 화면 엑티비에서 프래그먼트로 유저이메일 정보 전달이 안됨
         val transaction = supportFragmentManager.beginTransaction()
         transaction.add(R.id.owner_frag, OmHomeFragment())
         transaction.commit()
         transaction.addToBackStack("차주 홈")
 
 
-
-
-        //하단 바텀네비게이션에서 탭레이아웃으로 변경함
         binding.tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener{
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 val transaction = supportFragmentManager.beginTransaction()
@@ -67,6 +69,7 @@ class OmActivity : BaseActivity<ActivityOmBinding>(R.layout.activity_om) {
     fun backStep() {
         onBackPressed()
     }
+
     fun pickupCfmDialog() {
         val dialog = CustomDialogFragment.CustomDialogBuilder()
             .setTitle("차량을 확인하셨나요?")
@@ -84,6 +87,19 @@ class OmActivity : BaseActivity<ActivityOmBinding>(R.layout.activity_om) {
             })
             .create()
         dialog.show(supportFragmentManager, dialog.tag)
+    }
+
+
+
+
+    //뷰모델 관찰자 초기화
+    private fun initViewModel() {
+
+    }
+
+    //변경될경우 행동
+    private fun onChangedOmViewState(viewState: OmViewState) {
+
     }
 }
 

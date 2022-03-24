@@ -8,8 +8,8 @@ import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseFragment
 import com.mod_int.carwash.databinding.FragmentWmOrderListBinding
 import com.mod_int.carwash.model.OrderList
-import com.mod_int.carwash.ui.washer_member.WmActivity
-import com.mod_int.carwash.ui.washer_member.WmOrderStateFragment
+import com.mod_int.carwash.ui.washer_member.wm_activity.WmActivity
+import com.mod_int.carwash.ui.washer_member.wm_state.WmOrderStateFragment
 import com.mod_int.carwash.ui.washer_member.recyclerview.adapter.OrderListRecyclerAdapter
 
 class WasherOrderListFragment : BaseFragment<FragmentWmOrderListBinding>(

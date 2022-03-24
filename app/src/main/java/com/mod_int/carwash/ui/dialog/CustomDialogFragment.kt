@@ -9,7 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import com.mod_int.carwash.databinding.FragmentCustomDialogBinding
-import com.mod_int.carwash.ui.washer_member.WmActivity
+import com.mod_int.carwash.ui.washer_member.wm_activity.WmActivity
 
 class CustomDialogFragment : DialogFragment() {
     lateinit var binding: FragmentCustomDialogBinding

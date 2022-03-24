@@ -11,9 +11,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseActivity
 import com.mod_int.carwash.databinding.ActivityRegisterBinding
-import com.mod_int.carwash.ui.owner_member.OmActivity
-import com.mod_int.carwash.ui.pickup_member.PmActivity
-import com.mod_int.carwash.ui.washer_member.WmActivity
+import com.mod_int.carwash.ui.owner_member.om_activity.OmActivity
+import com.mod_int.carwash.ui.pickup_member.pm_activity.PmActivity
+import com.mod_int.carwash.ui.washer_member.wm_activity.WmActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

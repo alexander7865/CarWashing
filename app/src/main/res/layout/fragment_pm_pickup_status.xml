@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/ivory"
-        tools:context=".ui.pickup_member.PmPickupStateFragment">
+        tools:context=".ui.pickup_member.pm_state.PmPickupStateFragment">
 
         <LinearLayout
             android:layout_width="match_parent"

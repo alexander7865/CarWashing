@@ -1,4 +1,4 @@
-package com.mod_int.carwash.ui.pickup_member
+package com.mod_int.carwash.ui.blank
 
 import android.content.Context
 import android.os.Bundle
@@ -7,6 +7,7 @@ import android.widget.ImageView
 import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseFragment
 import com.mod_int.carwash.databinding.FragmentPmBlankBinding
+import com.mod_int.carwash.ui.pickup_member.pm_activity.PmActivity
 
 class PmBlankFragment : BaseFragment<FragmentPmBlankBinding>(
     R.layout.fragment_pm_blank) {

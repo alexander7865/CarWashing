@@ -6,9 +6,9 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class HistoryInfo(
-    val email: String,
-    val phoneNumber: String,
-    val type: String,
+    var email: String,
+    var phoneNumber: String,
+    var type: String,
 //    val carBrand: String,
 //    val carModel: String,
 //    val carKinds: String,

@@ -1,4 +1,4 @@
-package com.mod_int.carwash.ui.pickup_member
+package com.mod_int.carwash.ui.pickup_member.pm_state
 
 import android.content.Context
 import android.content.Intent
@@ -11,6 +11,7 @@ import com.mod_int.carwash.CustomDialogListener
 import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseFragment
 import com.mod_int.carwash.databinding.FragmentPmPickupStatusBinding
+import com.mod_int.carwash.ui.pickup_member.pm_activity.PmActivity
 
 class PmPickupStateFragment : BaseFragment<FragmentPmPickupStatusBinding>(
     R.layout.fragment_pm_pickup_status) {

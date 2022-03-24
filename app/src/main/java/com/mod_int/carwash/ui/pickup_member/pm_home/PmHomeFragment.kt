@@ -1,4 +1,4 @@
-package com.mod_int.carwash.ui.pickup_member
+package com.mod_int.carwash.ui.pickup_member.pm_home
 
 import android.content.Context
 import android.graphics.Color
@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter
 import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseFragment
 import com.mod_int.carwash.databinding.FragmentPmHomeBinding
+import com.mod_int.carwash.ui.pickup_member.pm_activity.PmActivity
 
 class PmHomeFragment : BaseFragment<FragmentPmHomeBinding>(
     R.layout.fragment_pm_home) {

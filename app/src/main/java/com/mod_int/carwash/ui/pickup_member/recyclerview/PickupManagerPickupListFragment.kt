@@ -8,7 +8,7 @@ import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseFragment
 import com.mod_int.carwash.databinding.FragmentPmPickupListBinding
 import com.mod_int.carwash.model.PickupList
-import com.mod_int.carwash.ui.pickup_member.PmPickupStateFragment
+import com.mod_int.carwash.ui.pickup_member.pm_state.PmPickupStateFragment
 import com.mod_int.carwash.ui.pickup_member.recyclerview.adapter.PickupListRecyclerAdapter
 
 class PickupManagerPickupListFragment : BaseFragment<FragmentPmPickupListBinding>(

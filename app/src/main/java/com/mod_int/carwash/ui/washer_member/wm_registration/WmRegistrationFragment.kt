@@ -1,4 +1,4 @@
-package com.mod_int.carwash.ui.washer_member
+package com.mod_int.carwash.ui.washer_member.wm_registration
 
 import android.content.Context
 import android.graphics.Color
@@ -14,6 +14,7 @@ import com.google.firebase.ktx.Firebase
 import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseFragment
 import com.mod_int.carwash.databinding.FragmentWmRegistrationBinding
+import com.mod_int.carwash.ui.washer_member.wm_activity.WmActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async

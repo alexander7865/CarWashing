@@ -1,4 +1,4 @@
-package com.mod_int.carwash.ui.washer_member
+package com.mod_int.carwash.ui.washer_member.wm_price
 
 import android.content.Context
 import android.os.Bundle
@@ -12,6 +12,7 @@ import com.google.firebase.ktx.Firebase
 import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseFragment
 import com.mod_int.carwash.databinding.FragmentWmRegistrationPriceBinding
+import com.mod_int.carwash.ui.washer_member.wm_activity.WmActivity
 
 class WmRegistrationPriceFragment : BaseFragment<FragmentWmRegistrationPriceBinding>(
     R.layout.fragment_wm_registration_price) {
