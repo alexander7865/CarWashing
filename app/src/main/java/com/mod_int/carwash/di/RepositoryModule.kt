@@ -3,8 +3,8 @@ package com.mod_int.carwash.di
 
 import com.mod_int.carwash.data.repo.FirebaseRepository
 import com.mod_int.carwash.data.repo.FirebaseRepositoryImpl
-import com.mod_int.carwash.data.source.FirebaseRemoteDataSource
-import com.mod_int.carwash.data.source.FirebaseRemoteDataSourceImpl
+import com.mod_int.carwash.data.source.remote.FirebaseRemoteDataSource
+import com.mod_int.carwash.data.source.remote.FirebaseRemoteDataSourceImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

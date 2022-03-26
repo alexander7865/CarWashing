@@ -5,7 +5,7 @@ import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.mod_int.carwash.data.source.FirebaseRemoteDataSource
+import com.mod_int.carwash.data.source.remote.FirebaseRemoteDataSource
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject

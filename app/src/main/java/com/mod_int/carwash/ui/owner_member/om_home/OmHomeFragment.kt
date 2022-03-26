@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.View
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.toObject
 import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseFragment
 import com.mod_int.carwash.databinding.FragmentOmHomeBinding
@@ -25,31 +26,39 @@ class OmHomeFragment : BaseFragment<FragmentOmHomeBinding>(R.layout.fragment_om_
     override fun onStart() {
         super.onStart()
 
-        //파이어베이스 에서 데이터 가지고오는것 까지만 성공 했습니다 이후 데이터에관하여 가지고 오는 방법을 모르겠네요
-        //또한 데이터를 가지고 와서 보여줄경우 화면이 깜빡이는 현상이 일어 납니다... 왜 그런걸까요??
-        //한번 받아오고 계속 갱신하는 문제인듯 하네요 뷰모델을 사용하면 이런일이 없어지겠지요?
-        val user = auth.currentUser?.email
-        user?.let {
+        //코드수정을 해야 할 것 같습니다. 온스타트 실행 될때마다 실행이 되어 앱이 문제가 되는거 같습니다.
+        val user = auth.currentUser!!.email
+        user!!.let {
             db.collection("OwnerMember")
                 .document("$user")
                 .get()
                 .addOnSuccessListener { document ->
-                    if (document != null) { //가지고 오고싶은 데이터만 가지고 오면 됩니다.
-                        Log.d("차주이메일", document.get("email") as String)
-                        with(binding){
-                            val current = LocalDateTime.now()
-                            omDate.text = "${current.year}년 ${current.monthValue}월 ${current.dayOfMonth}일"
-                            omPhoneNr.text = document.get("phoneNumber") as String
-                            omCarInfo.text =
-                                    "${document.get("carNumber") as String} " +
-                                            "${document.get("carBrand") as String} " +
-                                            "${document.get("carModel") as String} " +
-                                            "${document.get("carKinds") as String} " +
-                                            "${document.get("carSize") as String} " +
-                                            "${document.get("carColor") as String}"
+                    if (document.exists()){
+                        if(document != null) {
+                            with(binding){
+                                val current = LocalDateTime.now()
+                                omDate.text = "${current.year}년 ${current.monthValue}월 ${current.dayOfMonth}일"
+                                omPhoneNr.text = "미등록"
+                                omCarInfo.text = "미등록"
+                                carLocation.text = "미등록"
+                            }
+                        }else{
+                            with(binding){
+                                val current = LocalDateTime.now()
+                                omDate.text = "${current.year}년 ${current.monthValue}월 ${current.dayOfMonth}일"
+                                omPhoneNr.text = document?.get("phoneNumber") as String
+                                omCarInfo.text = "${document?.get("carNumber") as String} " +
+                                        "${document?.get("carBrand") as String} " +
+                                        "${document?.get("carModel") as String} " +
+                                        "${document?.get("carKinds") as String} " +
+                                        "${document?.get("carSize") as String} " +
+                                        "${document?.get("carColor") as String}"
+                                carLocation.text = document?.get("carLocation") as String
 
-                            carLocation.text = document.get("carLocation") as String
+                            }
                         }
+                    }else{
+
                     }
                 }
 

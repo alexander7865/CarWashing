@@ -58,50 +58,19 @@
                         </LinearLayout>
 
                         <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
                             android:orientation="horizontal">
-                            <TextView
-                                android:id="@+id/car_number_history"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="5sp"
-                                android:text="000허0000"
-                                android:textSize="16sp"/>
 
                             <TextView
-                                android:id="@+id/brand_history"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:id="@+id/carInfo"
+                                android:layout_width="match_parent"
+                                android:layout_height="55sp"
                                 android:layout_marginTop="5sp"
-                                android:layout_marginStart="10sp"
-                                android:text="벤츠"
-                                android:textSize="16sp" />
-
-                            <TextView
-                                android:id="@+id/styleName_history"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="5sp"
-                                android:layout_marginTop="5sp"
-                                android:text="GLC220"
-                                android:textSize="16sp" />
-                            <TextView
-                                android:id="@+id/car_kinds_history"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="5sp"
-                                android:layout_marginStart="5sp"
-                                android:text="SUV"
+                                android:text="00허0000 벤츠 GLC220 SUV 준중형 BLACK"
                                 android:textSize="16sp"/>
-                            <TextView
-                                android:id="@+id/car_color_history"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="5sp"
-                                android:layout_marginStart="5sp"
-                                android:text="BLACK"
-                                android:textSize="16sp" />
+
+
                         </LinearLayout>
                     </LinearLayout>
                     <androidx.appcompat.widget.AppCompatButton

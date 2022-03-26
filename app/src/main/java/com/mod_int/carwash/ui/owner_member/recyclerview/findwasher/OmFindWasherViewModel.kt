@@ -19,7 +19,7 @@ class OmFindWasherViewModel
 
     // 데이터가 덥어씌기가 안되게 수정했습니다.
     fun getWasherMember() {
-        // hasMap 형태로 가지고오는 패턴
+        // hashMap 형태로 가지고오는 패턴
         ioScope {
             firebaseRepository.getFirebaseFireStore().collection("WasherMember")
                 .document("User")

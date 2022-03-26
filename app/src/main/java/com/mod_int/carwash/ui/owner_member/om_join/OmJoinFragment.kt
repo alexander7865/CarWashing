@@ -10,12 +10,14 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import com.google.firebase.ktx.Firebase
 import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseFragment
 import com.mod_int.carwash.databinding.FragmentOmJoinBinding
+import com.mod_int.carwash.model.WasherInfo
 import com.mod_int.carwash.ui.owner_member.om_activity.OmActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -65,7 +67,6 @@ class OmJoinFragment : BaseFragment<FragmentOmJoinBinding>(R.layout.fragment_om_
         }
     }
 
-
     private fun saveInfoOwner(){
         val ownerInfo = OwnerInfo(
             carNumber = binding.etCarNum.text.toString(),
@@ -92,22 +93,34 @@ class OmJoinFragment : BaseFragment<FragmentOmJoinBinding>(R.layout.fragment_om_
                 val user = Firebase.auth.currentUser
                 user?.let {
                     val email = user.email
+
+                    //HasMap 형태로저장하기 테스트 오더가 이루어 지면 이런형태로 저장 예정임
                     fireStore?.collection("OwnerMember")?.document(
-                        "$email"
-                    )?.set(ownerInfo, SetOptions.merge())?.addOnCompleteListener {
-                        if (it.isSuccessful) {
+                        "$email")?.update("order", FieldValue.arrayUnion(ownerInfo)
+                    )?.addOnCompleteListener {
                             enableSetting(false)
                             val toastCenter =
                                 Toast.makeText(ownerActivity, "정보가 저장되었습니다", Toast.LENGTH_SHORT)
                             toastCenter.setGravity(Gravity.CENTER, Gravity.CENTER_HORIZONTAL, 0)
                             toastCenter.show()
-                        } else {
-                            val toastCenter =
-                                Toast.makeText(ownerActivity, "정보가 저장되지 않았습니다", Toast.LENGTH_SHORT)
-                            toastCenter.setGravity(Gravity.CENTER, Gravity.CENTER_HORIZONTAL, 0)
-                            toastCenter.show()
-                        }
                     }
+
+
+//                    fireStore?.collection("OwnerMember")?.document("$email"
+//                    )?.set(ownerInfo, SetOptions.merge())?.addOnCompleteListener {
+//                        if (it.isSuccessful) {
+//                            enableSetting(false)
+//                            val toastCenter =
+//                                Toast.makeText(ownerActivity, "정보가 저장되었습니다", Toast.LENGTH_SHORT)
+//                            toastCenter.setGravity(Gravity.CENTER, Gravity.CENTER_HORIZONTAL, 0)
+//                            toastCenter.show()
+//                        } else {
+//                            val toastCenter =
+//                                Toast.makeText(ownerActivity, "정보가 저장되지 않았습니다", Toast.LENGTH_SHORT)
+//                            toastCenter.setGravity(Gravity.CENTER, Gravity.CENTER_HORIZONTAL, 0)
+//                            toastCenter.show()
+//                        }
+//                    }
                 }
             }else{
                 val toastCenter =
@@ -275,15 +288,28 @@ class OmJoinFragment : BaseFragment<FragmentOmJoinBinding>(R.layout.fragment_om_
             }
         }
     }
-
-    data class OwnerInfo (
-        var carNumber : String = "",
-        var carBrand : String = "",
-        var carModel : String = "",
-        var carKinds : String = "",
-        var carSize : String = "",
-        var carColor : String = "",
-        var carLocation : String = ""
-
-    )
 }
+
+
+data class OwnerInfo (
+    var carNumber : String = "",
+    var carBrand : String = "",
+    var carModel : String = "",
+    var carKinds : String = "",
+    var carSize : String = "",
+    var carColor : String = "",
+    var carLocation : String = ""
+
+)
+
+//해쉬맵 형태로 가지고 올때 피요함
+fun HashMap<String, String>.toOwnerInfo(): OwnerInfo =
+    OwnerInfo(
+        carNumber = getValue("carNumber"),
+        carBrand = getValue("carBrand"),
+        carModel = getValue("carModel"),
+        carKinds = getValue("carKinds"),
+        carSize = getValue("carSize"),
+        carColor = getValue("carColor"),
+        carLocation = getValue("carLocation"),
+    )

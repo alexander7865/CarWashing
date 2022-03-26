@@ -40,8 +40,3 @@ class HistoryRecyclerAdapter : RecyclerView.Adapter<HistoryRecyclerViewHolder>()
 
 
 }
-
-interface OnItemSelected {
-    fun removeItem ()
-
-}

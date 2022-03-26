@@ -1,10 +1,11 @@
 package com.mod_int.carwash.ui.owner_member.recyclerview.washinghistory
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.viewModels
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.ktx.Firebase
 import com.mod_int.carwash.CustomDialogFragment
 import com.mod_int.carwash.CustomDialogListener
 import com.mod_int.carwash.R
@@ -12,75 +13,81 @@ import com.mod_int.carwash.base.BaseFragment
 import com.mod_int.carwash.databinding.FragmentOmManagementHistoryBinding
 import com.mod_int.carwash.model.HistoryInfo
 import com.mod_int.carwash.ui.owner_member.recyclerview.washinghistory.adapter.HistoryRecyclerAdapter
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class OmManagementHistoryFragment : BaseFragment<FragmentOmManagementHistoryBinding>(
     R.layout.fragment_om_management_history) {
 
     private val omManagementHistoryViewModel by viewModels<OmManagementHistoryViewModel>()
     private val historyAdapter = HistoryRecyclerAdapter()
-    private val db = FirebaseFirestore.getInstance()
-    private val itemList = mutableListOf<HistoryInfo>()
+//    private val auth = FirebaseAuth.getInstance()
+//    private val db = FirebaseFirestore.getInstance()
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initUi()
-//        initViewModel()
+        initViewModel()
     }
 
-//    private fun initViewModel() {
-//        omManagementHistoryViewModel.getFinishedWashing()
-//        omManagementHistoryViewModel.viewStateLiveData.observe(viewLifecycleOwner) { viewState ->
-//            (viewState as? FinishedWashingViewState)?.let {
-//                onChangedFinishedWashingViewState(
-//                    viewState
-//                )
-//            }
-//        }
-//    }
-//
-//    private fun onChangedFinishedWashingViewState(viewState: FinishedWashingViewState){
-//        when (viewState) {
-//            is FinishedWashingViewState.FinishedWashing -> {
-//                historyAdapter.addAll(viewState.list as MutableList<HistoryInfo>)
-//
-//            }
-//        }
-//    }
-
-
-    //파이어베이스 컬렉션에 필드값만 가지고 왔습니다 이렇게도 되네요 ㅋㅋㅋㅋ 조금 무식하지만 이렇게 가지고오면 처음부터
-    //등록을 안하고 나중에 데이터를 등록해도 가지고올 수 있다는 장점이 있어요
-    //이제 요부분을 MVVM 패턴으로 적용 시켜야겠습니다. 몇번 하다 터져 버리더라고요 ㅋㅋㅋ
-    private fun initUi() {
-        db.collection("WasherMember")
-            .get()
-            .addOnSuccessListener { result ->
-                itemList.clear()
-                for(document in result) {
-                    val list = HistoryInfo( //가지고 오는 아이템명과 일치해야함
-                        email = document.get("email") as String,
-                        phoneNumber = document.get("phoneNumber") as String,
-                        type = document.get("type") as String,
-//                        carBrand = document.get("carBrand") as String,
-//                        carModel = document.get("carModel") as String,
-//                        carKinds = document.get("carKinds") as String,
-//                        carColor = document.get("carColor") as String
-                    )
-                    val finishedList = mutableListOf<HistoryInfo>().apply {
-                        add(list)
-                    }
-                    Log.d("리스트값", finishedList.toString())
-                    historyAdapter.addAll(finishedList)
-                }
-            }
-
-        with(binding){
-            recyclerHistory.adapter = historyAdapter
-            historyAdapter.setItemClickListener {
-                orderCfmDialog()
+    private fun initViewModel() {
+        omManagementHistoryViewModel.getFinishedOrder()
+        omManagementHistoryViewModel.viewStateLiveData.observe(viewLifecycleOwner) { viewState ->
+            (viewState as? OmManagementHistoryViewState)?.let {
+                onChangedFinishedOrderViewState(
+                    viewState
+                )
             }
         }
+    }
+
+    private fun onChangedFinishedOrderViewState(viewState: OmManagementHistoryViewState){
+        when (viewState) {
+            is OmManagementHistoryViewState.GetFinishedOrder -> {
+                historyAdapter.addAll(viewState.list)
+
+            }
+        }
+    }
+
+    //다른아이디로 접근시 앱이 터지는 현상 발생 null 익셉션 발생하는데 어떻게 해야 할까요?
+    private fun initUi() {
+
+        //전에 했던 코드
+//        val user = auth.currentUser!!.email
+//        user!!.let {
+//            db.collection("OwnerMember")
+//                .document("$user")
+//                .get()
+//                .addOnSuccessListener { document ->
+//                    if(document.exists()) {
+//                        val list = HistoryInfo( //가지고 오는 아이템명과 일치해야함
+//                            email = "2022년 2월 2일",
+//                            phoneNumber = document.get("phoneNumber") as String,
+//                            type = "${document.get("carNumber") as String} " +
+//                                    "${document.get("carBrand") as String} " +
+//                                    "${document.get("carModel") as String} " +
+//                                    "${document.get("carKinds") as String} " +
+//                                    "${document.get("carSize") as String} " +
+//                                    "${document.get("carColor") as String} "
+//                        )
+//                        val finishedList = mutableListOf<HistoryInfo>().apply {
+//                            add(list)
+//                        }
+//                        historyAdapter.addAll(finishedList)
+//                    }else{
+//
+//                    }
+//                }
+
+            with(binding) {
+                recyclerHistory.adapter = historyAdapter
+                historyAdapter.setItemClickListener {
+                    orderCfmDialog()
+                }
+            }
+//        }
     }
 
 
@@ -108,15 +115,4 @@ class OmManagementHistoryFragment : BaseFragment<FragmentOmManagementHistoryBind
             .create()
         dialog.show(childFragmentManager, dialog.tag)
     }
-
-//    private fun initViewModel(){
-//
-//
-//    }
-//
-//    private fun onChangedHistoryViewState(){
-//
-//    }
-
-
 }

@@ -1,4 +1,4 @@
-package com.mod_int.carwash.data.source
+package com.mod_int.carwash.data.source.remote
 
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
