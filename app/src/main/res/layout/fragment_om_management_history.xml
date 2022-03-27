@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/ivory"
-        tools:context=".ui.owner_member.recyclerview.washinghistory.OmManagementHistoryFragment">
+        tools:context=".manage.history.OmManagementHistoryFragment">
 
         <LinearLayout
             android:layout_width="match_parent"

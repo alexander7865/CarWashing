@@ -2,7 +2,6 @@ package com.mod_int.carwash.ui.login
 
 import android.app.Application
 import androidx.lifecycle.MutableLiveData
-import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseViewModel
 import com.mod_int.carwash.data.repo.FirebaseRepository
 import com.mod_int.carwash.ext.ioScope

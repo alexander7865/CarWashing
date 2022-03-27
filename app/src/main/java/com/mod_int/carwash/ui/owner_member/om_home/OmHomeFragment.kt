@@ -5,22 +5,46 @@ import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.fragment.app.viewModels
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.ktx.toObject
 import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseFragment
+import com.mod_int.carwash.base.ViewState
 import com.mod_int.carwash.databinding.FragmentOmHomeBinding
+import com.mod_int.carwash.model.User
 import com.mod_int.carwash.ui.owner_member.om_activity.OmActivity
+import dagger.hilt.android.AndroidEntryPoint
 import java.time.LocalDateTime
 
-
+@AndroidEntryPoint
 class OmHomeFragment : BaseFragment<FragmentOmHomeBinding>(R.layout.fragment_om_home) {
 
+    private val omHomeViewModel by viewModels<OmHomeViewModel>()
     private lateinit var ownerActivity: OmActivity
     private val db = FirebaseFirestore.getInstance()
     private var auth = FirebaseAuth.getInstance()
 
+
+
+    private fun initUi(){
+
+    }
+
+    private fun initViewModel(){
+        binding.viewModel = omHomeViewModel
+        omHomeViewModel.viewStateLiveData.observe(this){ viewState ->
+            (viewState as? OmHomeViewState)?.let{
+                onChangedHomeViewState(
+                    viewState
+                )
+            }
+        }
+    }
+
+    private fun onChangedHomeViewState(viewState: ViewState){
+
+    }
 
     @SuppressLint("SetTextI18n")
     override fun onStart() {
@@ -41,6 +65,7 @@ class OmHomeFragment : BaseFragment<FragmentOmHomeBinding>(R.layout.fragment_om_
                                 omPhoneNr.text = "미등록"
                                 omCarInfo.text = "미등록"
                                 carLocation.text = "미등록"
+                                Log.d("리스트값", "$document")
                             }
                         }else{
                             with(binding){
@@ -82,9 +107,7 @@ class OmHomeFragment : BaseFragment<FragmentOmHomeBinding>(R.layout.fragment_om_
         //가입으로 이동
         binding.btnJoin.setOnClickListener {
             ownerActivity.joinRegistration()
-//            val toastCenter = Toast.makeText(context,"정확한 정보를 입력하세요!",Toast.LENGTH_SHORT)
-//            toastCenter.setGravity(Gravity.CENTER,0,0)
-//            toastCenter.show()
+
         }
     }
 }

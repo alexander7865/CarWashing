@@ -8,7 +8,6 @@ import com.mod_int.carwash.base.BaseViewModel
 import com.mod_int.carwash.data.repo.FirebaseRepository
 import com.mod_int.carwash.ext.checkRegister
 import com.mod_int.carwash.ext.ioScope
-import com.mod_int.carwash.ui.login.LoginViewState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.async
 import java.util.regex.Pattern
@@ -150,6 +149,4 @@ class RegisterViewModel @Inject constructor(
         val email: String,
         val password: String
     )
-
-
 }

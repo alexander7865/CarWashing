@@ -46,6 +46,7 @@
         <entry key="app/src/main/res/drawable/recyclerview_radius.xml" value="0.1825" />
         <entry key="app/src/main/res/drawable/recyclerview_radius_washer_pickup.xml" value="0.1775" />
         <entry key="app/src/main/res/drawable/search_icon.xml" value="0.1655" />
+        <entry key="app/src/main/res/drawable/tab_select.xml" value="0.1765" />
         <entry key="app/src/main/res/drawable/workspace_premium.xml" value="0.1825" />
         <entry key="app/src/main/res/layout-w1240dp/activity_login.xml" value="0.335" />
         <entry key="app/src/main/res/layout-w936dp/activity_login.xml" value="0.20625" />

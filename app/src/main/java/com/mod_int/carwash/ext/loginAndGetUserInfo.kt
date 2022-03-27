@@ -2,11 +2,8 @@ package com.mod_int.carwash.ext
 
 
 import android.util.Log
-import com.google.firebase.firestore.FieldValue
-import com.google.firebase.firestore.SetOptions
 import com.mod_int.carwash.data.repo.FirebaseRepository
 import com.mod_int.carwash.model.User
-import com.mod_int.carwash.model.WasherInfo
 
 fun FirebaseRepository.loginAndGetUserInfo(
     email: String,
@@ -90,7 +87,6 @@ fun FirebaseRepository.createUserDB(
     val user = User(
         id, "010xxxxxxxx", type
     )
-
     //회원가입 생성
     getFirebaseFireStore().collection(id).document("User").set(user)
         .addOnCompleteListener {

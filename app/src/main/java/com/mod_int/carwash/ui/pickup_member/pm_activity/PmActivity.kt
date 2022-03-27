@@ -13,7 +13,7 @@ import com.mod_int.carwash.ui.pickup_member.pm_price.PmPriceStateFragment
 import com.mod_int.carwash.ui.pickup_member.pm_registration.PmRegistrationFragment
 import com.mod_int.carwash.ui.pickup_member.pm_settle.PmSettlementRequestFragment
 import com.mod_int.carwash.ui.pickup_member.pm_state.PmPickupStateFragment
-import com.mod_int.carwash.ui.pickup_member.recyclerview.PickupManagerPickupListFragment
+import com.mod_int.carwash.manage.pickuplist.PickupManagerPickupListFragment
 
 class PmActivity : BaseActivity<ActivityPmBinding>(R.layout.activity_pm) {
 
@@ -23,17 +23,18 @@ class PmActivity : BaseActivity<ActivityPmBinding>(R.layout.activity_pm) {
        val transaction = supportFragmentManager.beginTransaction()
        transaction.add(R.id.pickupManager_frag, PmHomeFragment())
        transaction.commit()
-        transaction.addToBackStack("픽업매니저")
+        transaction.addToBackStack("")
 
         binding.tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener{
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 val transaction = supportFragmentManager.beginTransaction()
-                when(tab?.text) {
-                    "픽업 홈" -> transaction.replace(R.id.pickupManager_frag, PmHomeFragment()).commit()
-                    "정보등록" -> transaction.replace(R.id.pickupManager_frag, PmRegistrationFragment()).commit()
-                    "단가현황" -> transaction.replace(R.id.pickupManager_frag, PmPriceStateFragment()).commit()
-                    "작업현황" -> transaction.replace(R.id.pickupManager_frag, PickupManagerPickupListFragment()).commit()
+                when(tab?.position) {
+                    0 -> transaction.replace(R.id.pickupManager_frag, PmHomeFragment())
+                    1 -> transaction.replace(R.id.pickupManager_frag, PmRegistrationFragment())
+                    2 -> transaction.replace(R.id.pickupManager_frag, PmPriceStateFragment())
+                    3 -> transaction.replace(R.id.pickupManager_frag, PickupManagerPickupListFragment())
                 }
+                transaction.commit()
             }
 
             override fun onTabUnselected(tab: TabLayout.Tab?) {

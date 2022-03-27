@@ -4,7 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="viewModel"
+            type="com.mod_int.carwash.ui.owner_member.om_activity.OmViewModel"
+            />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -29,7 +32,7 @@
             android:layout_width="0dp"
             android:layout_height="70dp"
             app:tabTextAppearance="@style/TabText"
-            app:tabIndicatorHeight="5dp"
+            app:tabIndicatorHeight="0dp"
             app:tabRippleColor="@color/white"
             app:tabGravity="fill"
             app:tabIndicatorColor="@color/aqua"

@@ -6,9 +6,9 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class HistoryInfo(
-    var email: String ="",
-    var phoneNumber: String ="",
-    var type: String =""
+    var date: String ="",
+    var washType: String ="",
+    var carInfo: String =""
 ) : Parcelable
 
 
