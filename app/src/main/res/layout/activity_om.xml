@@ -14,7 +14,6 @@
         android:background="@color/ivory"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:backgroundTint="@color/white"
         tools:context=".ui.owner_member.om_activity.OmActivity">
 
         <FrameLayout
@@ -27,10 +26,11 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.tabs.TabLayout
-            android:background="@color/ivory"
+            android:background="@drawable/bottomnavi_box"
             android:id="@+id/tabLayout"
             android:layout_width="0dp"
             android:layout_height="70dp"
+            android:elevation="10dp"
             app:tabTextAppearance="@style/TabText"
             app:tabIndicatorHeight="0dp"
             app:tabRippleColor="@color/white"

@@ -14,9 +14,9 @@ class FirebaseRemoteDataSourceImpl @Inject constructor(
 ) :
     FirebaseRemoteDataSource {
 
-    override suspend fun login(id: String, password: String): Task<AuthResult> =
+    override suspend fun login(email: String, password: String): Task<AuthResult> =
         withContext(Dispatchers.IO) {
-            return@withContext firebaseAuth.signInWithEmailAndPassword(id, password)
+            return@withContext firebaseAuth.signInWithEmailAndPassword(email, password)
         }
 
     override suspend fun logout(): Boolean =
@@ -29,10 +29,10 @@ class FirebaseRemoteDataSourceImpl @Inject constructor(
             }
         }
 
-    override suspend fun register(id: String, password: String): Task<AuthResult> =
+    override suspend fun register(email: String, password: String): Task<AuthResult> =
         withContext(Dispatchers.IO) {
             return@withContext firebaseAuth.createUserWithEmailAndPassword(
-                id,
+                email,
                 password
             )
         }
@@ -41,9 +41,9 @@ class FirebaseRemoteDataSourceImpl @Inject constructor(
         return@withContext firebaseAuth.currentUser?.delete()
     }
 
-    override suspend fun resetPass(resetPassToId: String): Task<Void> =
+    override suspend fun resetPass(resetPassToEmail: String): Task<Void> =
         withContext(Dispatchers.IO) {
-            return@withContext firebaseAuth.sendPasswordResetEmail(resetPassToId)
+            return@withContext firebaseAuth.sendPasswordResetEmail(resetPassToEmail)
         }
 
     override fun getFirebaseAuth(): FirebaseAuth =

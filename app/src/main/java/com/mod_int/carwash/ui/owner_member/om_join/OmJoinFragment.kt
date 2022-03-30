@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.fragment.app.viewModels
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
@@ -19,14 +20,18 @@ import com.mod_int.carwash.base.BaseFragment
 import com.mod_int.carwash.databinding.FragmentOmJoinBinding
 import com.mod_int.carwash.model.WasherInfo
 import com.mod_int.carwash.ui.owner_member.om_activity.OmActivity
+import com.mod_int.carwash.ui.owner_member.om_home.OmHomeViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class OmJoinFragment : BaseFragment<FragmentOmJoinBinding>(R.layout.fragment_om_join),
     View.OnClickListener {
 
+    private val omJoinViewModel by viewModels<OmJoinViewModel>()
     lateinit var ownerActivity: OmActivity
     private var fireStore: FirebaseFirestore? = null
 
@@ -95,32 +100,33 @@ class OmJoinFragment : BaseFragment<FragmentOmJoinBinding>(R.layout.fragment_om_
                     val email = user.email
 
                     //HasMap 형태로저장하기 테스트 오더가 이루어 지면 이런형태로 저장 예정임
-                    fireStore?.collection("OwnerMember")?.document(
-                        "$email")?.update("order", FieldValue.arrayUnion(ownerInfo)
-                    )?.addOnCompleteListener {
-                            enableSetting(false)
-                            val toastCenter =
-                                Toast.makeText(ownerActivity, "정보가 저장되었습니다", Toast.LENGTH_SHORT)
-                            toastCenter.setGravity(Gravity.CENTER, Gravity.CENTER_HORIZONTAL, 0)
-                            toastCenter.show()
-                    }
-
-
-//                    fireStore?.collection("OwnerMember")?.document("$email"
-//                    )?.set(ownerInfo, SetOptions.merge())?.addOnCompleteListener {
-//                        if (it.isSuccessful) {
+//                    fireStore?.collection("OwnerMember")?.document(
+//                        "$email")?.update("order", FieldValue.arrayUnion(ownerInfo)
+//                    )?.addOnCompleteListener {
 //                            enableSetting(false)
 //                            val toastCenter =
 //                                Toast.makeText(ownerActivity, "정보가 저장되었습니다", Toast.LENGTH_SHORT)
 //                            toastCenter.setGravity(Gravity.CENTER, Gravity.CENTER_HORIZONTAL, 0)
 //                            toastCenter.show()
-//                        } else {
-//                            val toastCenter =
-//                                Toast.makeText(ownerActivity, "정보가 저장되지 않았습니다", Toast.LENGTH_SHORT)
-//                            toastCenter.setGravity(Gravity.CENTER, Gravity.CENTER_HORIZONTAL, 0)
-//                            toastCenter.show()
-//                        }
 //                    }
+
+
+                    //HashMap 형태 아닌 다른 방법 저장
+                    fireStore?.collection("OwnerMember")?.document("$email"
+                    )?.set(ownerInfo, SetOptions.merge())?.addOnCompleteListener {
+                        if (it.isSuccessful) {
+                            enableSetting(false)
+                            val toastCenter =
+                                Toast.makeText(ownerActivity, "정보가 저장되었습니다", Toast.LENGTH_SHORT)
+                            toastCenter.setGravity(Gravity.CENTER, Gravity.CENTER_HORIZONTAL, 0)
+                            toastCenter.show()
+                        } else {
+                            val toastCenter =
+                                Toast.makeText(ownerActivity, "정보가 저장되지 않았습니다", Toast.LENGTH_SHORT)
+                            toastCenter.setGravity(Gravity.CENTER, Gravity.CENTER_HORIZONTAL, 0)
+                            toastCenter.show()
+                        }
+                    }
                 }
             }else{
                 val toastCenter =

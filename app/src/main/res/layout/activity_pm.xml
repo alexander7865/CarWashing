@@ -4,6 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+        <variable
+            name="viewModel"
+            type="com.mod_int.carwash.ui.pickup_member.pm_activity.PmViewModel" />
 
     </data>
 
@@ -11,7 +14,6 @@
         android:background="@color/ivory"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:backgroundTint="@color/white"
         tools:context=".ui.pickup_member.pm_activity.PmActivity">
 
         <FrameLayout
@@ -24,11 +26,12 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.tabs.TabLayout
-            android:background="@color/ivory"
+            android:background="@drawable/bottomnavi_box"
             android:id="@+id/tabLayout"
             android:layout_width="0dp"
             android:layout_height="70dp"
-            app:tabIndicatorHeight="5dp"
+            android:elevation="10dp"
+            app:tabIndicatorHeight="0dp"
             app:tabTextAppearance="@style/TabText"
             app:tabRippleColor="@color/white"
             app:tabGravity="fill"

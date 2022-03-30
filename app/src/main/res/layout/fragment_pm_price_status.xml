@@ -106,12 +106,7 @@
                                 android:layout_height="wrap_content"
                                 android:textSize="18sp"
                                 android:layout_weight="1"
-                                android:ellipsize="end"
-                                android:hint="10000"
-                                android:inputType="numberDecimal"
-                                android:maxLength="5"
-                                android:maxLines="1"
-                                tools:ignore="TouchTargetSizeCheck" />
+                                android:text="10000"  />
                             <TextView
                                 android:layout_width="90sp"
                                 android:layout_height="wrap_content"
@@ -125,14 +120,9 @@
                                 android:layout_width="65sp"
                                 android:layout_height="wrap_content"
                                 android:textSize="18sp"
-                                android:layout_marginEnd="26sp"
                                 android:layout_weight="1"
-                                android:ellipsize="end"
-                                android:hint="10000"
-                                android:inputType="number"
-                                android:maxLength="5"
-                                android:maxLines="1"
-                                tools:ignore="TouchTargetSizeCheck" />
+                                android:layout_marginEnd="26sp"
+                                android:text="10000" />
                         </LinearLayout>
                     </LinearLayout>
 
@@ -162,12 +152,7 @@
                                 android:layout_height="wrap_content"
                                 android:textSize="18sp"
                                 android:layout_weight="1"
-                                android:ellipsize="end"
-                                android:hint="10000"
-                                android:inputType="number"
-                                android:maxLength="5"
-                                android:maxLines="1"
-                                tools:ignore="TouchTargetSizeCheck" />
+                                android:text="10000" />
                             <TextView
                                 android:layout_width="90sp"
                                 android:layout_height="wrap_content"
@@ -183,12 +168,7 @@
                                 android:textSize="18sp"
                                 android:layout_weight="1"
                                 android:layout_marginEnd="26sp"
-                                android:ellipsize="end"
-                                android:hint="10000"
-                                android:inputType="number"
-                                android:maxLength="5"
-                                android:maxLines="1"
-                                tools:ignore="TouchTargetSizeCheck" />
+                                android:text="10000"/>
                         </LinearLayout>
                     </LinearLayout>
                     <Space
@@ -217,12 +197,7 @@
                                 android:layout_height="wrap_content"
                                 android:textSize="18sp"
                                 android:layout_weight="1"
-                                android:ellipsize="end"
-                                android:hint="10000"
-                                android:inputType="number"
-                                android:maxLength="5"
-                                android:maxLines="1"
-                                tools:ignore="TouchTargetSizeCheck" />
+                                android:text="10000" />
                             <TextView
                                 android:layout_width="90sp"
                                 android:layout_height="wrap_content"
@@ -238,12 +213,7 @@
                                 android:textSize="18sp"
                                 android:layout_weight="1"
                                 android:layout_marginEnd="26sp"
-                                android:ellipsize="end"
-                                android:hint="10000"
-                                android:inputType="number"
-                                android:maxLength="5"
-                                android:maxLines="1"
-                                tools:ignore="TouchTargetSizeCheck" />
+                                android:text="10000"/>
                         </LinearLayout>
                     </LinearLayout>
                     <Space
@@ -273,12 +243,7 @@
                                 android:layout_height="wrap_content"
                                 android:textSize="18sp"
                                 android:layout_weight="1"
-                                android:ellipsize="end"
-                                android:hint="10000"
-                                android:inputType="number"
-                                android:maxLength="5"
-                                android:maxLines="1"
-                                tools:ignore="TouchTargetSizeCheck" />
+                                android:text="10000"  />
                             <TextView
                                 android:layout_width="90sp"
                                 android:layout_height="wrap_content"
@@ -294,12 +259,7 @@
                                 android:textSize="18sp"
                                 android:layout_weight="1"
                                 android:layout_marginEnd="26sp"
-                                android:ellipsize="end"
-                                android:hint="10000"
-                                android:inputType="number"
-                                android:maxLength="5"
-                                android:maxLines="1"
-                                tools:ignore="TouchTargetSizeCheck" />
+                                android:text="10000" />
                         </LinearLayout>
                     </LinearLayout>
                     <Space
@@ -362,12 +322,7 @@
                                 android:layout_height="wrap_content"
                                 android:textSize="18sp"
                                 android:layout_weight="1"
-                                android:ellipsize="end"
-                                android:hint="10000"
-                                android:inputType="number"
-                                android:maxLength="5"
-                                android:maxLines="1"
-                                tools:ignore="TouchTargetSizeCheck" />
+                                android:text="10000" />
                             <TextView
                                 android:layout_width="90sp"
                                 android:layout_height="wrap_content"
@@ -383,12 +338,7 @@
                                 android:textSize="18sp"
                                 android:layout_weight="1"
                                 android:layout_marginEnd="26sp"
-                                android:ellipsize="end"
-                                android:hint="10000"
-                                android:inputType="number"
-                                android:maxLength="5"
-                                android:maxLines="1"
-                                tools:ignore="TouchTargetSizeCheck" />
+                                android:text="10000" />
                         </LinearLayout>
                     </LinearLayout>
 
@@ -418,12 +368,7 @@
                                 android:layout_height="wrap_content"
                                 android:textSize="18sp"
                                 android:layout_weight="1"
-                                android:ellipsize="end"
-                                android:hint="10000"
-                                android:inputType="number"
-                                android:maxLength="5"
-                                android:maxLines="1"
-                                tools:ignore="TouchTargetSizeCheck" />
+                                android:text="10000"  />
                             <TextView
                                 android:layout_width="90sp"
                                 android:layout_height="wrap_content"
@@ -439,12 +384,7 @@
                                 android:textSize="18sp"
                                 android:layout_weight="1"
                                 android:layout_marginEnd="26sp"
-                                android:ellipsize="end"
-                                android:hint="10000"
-                                android:inputType="number"
-                                android:maxLength="5"
-                                android:maxLines="1"
-                                tools:ignore="TouchTargetSizeCheck" />
+                                android:text="10000"/>
                         </LinearLayout>
                     </LinearLayout>
                     <Space
@@ -473,12 +413,7 @@
                                 android:layout_height="wrap_content"
                                 android:textSize="18sp"
                                 android:layout_weight="1"
-                                android:ellipsize="end"
-                                android:hint="10000"
-                                android:inputType="number"
-                                android:maxLength="5"
-                                android:maxLines="1"
-                                tools:ignore="TouchTargetSizeCheck" />
+                                android:text="10000" />
                             <TextView
                                 android:layout_width="90sp"
                                 android:layout_height="wrap_content"
@@ -494,12 +429,7 @@
                                 android:textSize="18sp"
                                 android:layout_weight="1"
                                 android:layout_marginEnd="26sp"
-                                android:ellipsize="end"
-                                android:hint="10000"
-                                android:inputType="number"
-                                android:maxLength="5"
-                                android:maxLines="1"
-                                tools:ignore="TouchTargetSizeCheck" />
+                                android:text="10000" />
                         </LinearLayout>
                     </LinearLayout>
                     <Space
@@ -529,12 +459,7 @@
                                 android:layout_height="wrap_content"
                                 android:textSize="18sp"
                                 android:layout_weight="1"
-                                android:ellipsize="end"
-                                android:hint="10000"
-                                android:inputType="number"
-                                android:maxLength="5"
-                                android:maxLines="1"
-                                tools:ignore="TouchTargetSizeCheck" />
+                                android:text="10000"  />
                             <TextView
                                 android:layout_width="90sp"
                                 android:layout_height="wrap_content"
@@ -550,12 +475,7 @@
                                 android:textSize="18sp"
                                 android:layout_weight="1"
                                 android:layout_marginEnd="26sp"
-                                android:ellipsize="end"
-                                android:hint="10000"
-                                android:inputType="number"
-                                android:maxLength="5"
-                                android:maxLines="1"
-                                tools:ignore="TouchTargetSizeCheck" />
+                                android:text="10000"/>
                         </LinearLayout>
                     </LinearLayout>
                     <Space
@@ -616,12 +536,7 @@
                                 android:layout_height="wrap_content"
                                 android:textSize="18sp"
                                 android:layout_weight="1"
-                                android:ellipsize="end"
-                                android:hint="10000"
-                                android:inputType="number"
-                                android:maxLength="5"
-                                android:maxLines="1"
-                                tools:ignore="TouchTargetSizeCheck" />
+                                android:text="10000"  />
                             <TextView
                                 android:layout_width="90sp"
                                 android:layout_height="wrap_content"
@@ -637,12 +552,7 @@
                                 android:textSize="18sp"
                                 android:layout_weight="1"
                                 android:layout_marginEnd="26sp"
-                                android:ellipsize="end"
-                                android:hint="10000"
-                                android:inputType="number"
-                                android:maxLength="5"
-                                android:maxLines="1"
-                                tools:ignore="TouchTargetSizeCheck" />
+                                android:text="10000"/>
                         </LinearLayout>
                     </LinearLayout>
 
@@ -672,12 +582,7 @@
                                 android:layout_height="wrap_content"
                                 android:textSize="18sp"
                                 android:layout_weight="1"
-                                android:ellipsize="end"
-                                android:hint="10000"
-                                android:inputType="number"
-                                android:maxLength="5"
-                                android:maxLines="1"
-                                tools:ignore="TouchTargetSizeCheck" />
+                                android:text="10000"  />
                             <TextView
                                 android:layout_width="90sp"
                                 android:layout_height="wrap_content"
@@ -693,12 +598,7 @@
                                 android:textSize="18sp"
                                 android:layout_weight="1"
                                 android:layout_marginEnd="26sp"
-                                android:ellipsize="end"
-                                android:hint="10000"
-                                android:inputType="number"
-                                android:maxLength="5"
-                                android:maxLines="1"
-                                tools:ignore="TouchTargetSizeCheck" />
+                                android:text="10000" />
                         </LinearLayout>
                     </LinearLayout>
                     <Space
@@ -727,12 +627,7 @@
                                 android:layout_height="wrap_content"
                                 android:textSize="18sp"
                                 android:layout_weight="1"
-                                android:ellipsize="end"
-                                android:hint="10000"
-                                android:inputType="number"
-                                android:maxLength="5"
-                                android:maxLines="1"
-                                tools:ignore="TouchTargetSizeCheck" />
+                                android:text="10000"  />
                             <TextView
                                 android:layout_width="90sp"
                                 android:layout_height="wrap_content"
@@ -748,12 +643,7 @@
                                 android:textSize="18sp"
                                 android:layout_weight="1"
                                 android:layout_marginEnd="26sp"
-                                android:ellipsize="end"
-                                android:hint="10000"
-                                android:inputType="number"
-                                android:maxLength="5"
-                                android:maxLines="1"
-                                tools:ignore="TouchTargetSizeCheck" />
+                                android:text="10000" />
                         </LinearLayout>
                     </LinearLayout>
                     <Space
@@ -783,12 +673,7 @@
                                 android:layout_height="wrap_content"
                                 android:textSize="18sp"
                                 android:layout_weight="1"
-                                android:ellipsize="end"
-                                android:hint="10000"
-                                android:inputType="number"
-                                android:maxLength="5"
-                                android:maxLines="1"
-                                tools:ignore="TouchTargetSizeCheck" />
+                                android:text="10000" />
                             <TextView
                                 android:layout_width="90sp"
                                 android:layout_height="wrap_content"
@@ -804,12 +689,7 @@
                                 android:textSize="18sp"
                                 android:layout_weight="1"
                                 android:layout_marginEnd="26sp"
-                                android:ellipsize="end"
-                                android:hint="10000"
-                                android:inputType="number"
-                                android:maxLength="5"
-                                android:maxLines="1"
-                                tools:ignore="TouchTargetSizeCheck" />
+                                android:text="10000" />
                         </LinearLayout>
                     </LinearLayout>
 
@@ -871,12 +751,7 @@
                                 android:layout_height="wrap_content"
                                 android:textSize="18sp"
                                 android:layout_weight="1"
-                                android:ellipsize="end"
-                                android:hint="20분"
-                                android:inputType="datetime"
-                                android:maxLength="5"
-                                android:maxLines="1"
-                                tools:ignore="TouchTargetSizeCheck" />
+                                android:text="20분" />
 
                             <TextView
                                 android:layout_width="90sp"
@@ -923,12 +798,7 @@
                                 android:layout_height="wrap_content"
                                 android:textSize="18sp"
                                 android:layout_weight="1"
-                                android:ellipsize="end"
-                                android:hint="20분"
-                                android:inputType="datetime"
-                                android:maxLength="5"
-                                android:maxLines="1"
-                                tools:ignore="TouchTargetSizeCheck" />
+                                android:text="20분" />
 
                             <TextView
                                 android:layout_width="90sp"
@@ -945,12 +815,7 @@
                                 android:textSize="18sp"
                                 android:layout_weight="1"
                                 android:layout_marginEnd="26sp"
-                                android:ellipsize="end"
-                                android:hint="10000"
-                                android:inputType="number"
-                                android:maxLength="5"
-                                android:maxLines="1"
-                                tools:ignore="TouchTargetSizeCheck" />
+                                android:text="10000" />
                         </LinearLayout>
                     </LinearLayout>
                     <Space
@@ -978,13 +843,8 @@
                                 android:layout_width="65sp"
                                 android:layout_height="wrap_content"
                                 android:textSize="18sp"
-                                android:ellipsize="end"
                                 android:layout_weight="1"
-                                android:hint="30분"
-                                android:inputType="datetime"
-                                android:maxLength="5"
-                                android:maxLines="1"
-                                tools:ignore="TouchTargetSizeCheck" />
+                                android:text="30분" />
                             <TextView
                                 android:layout_width="90sp"
                                 android:layout_height="wrap_content"

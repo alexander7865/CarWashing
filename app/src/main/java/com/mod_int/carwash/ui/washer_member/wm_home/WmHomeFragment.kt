@@ -6,13 +6,18 @@ import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import androidx.fragment.app.viewModels
 import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseFragment
 import com.mod_int.carwash.databinding.FragmentWmHomeBinding
+import com.mod_int.carwash.ui.pickup_member.pm_state.PmPickupStateViewModel
 import com.mod_int.carwash.ui.washer_member.wm_activity.WmActivity
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class WmHomeFragment : BaseFragment<FragmentWmHomeBinding>(R.layout.fragment_wm_home) {
 
+    private val wmHomeViewModel by viewModels<WmHomeViewModel>()
     lateinit var wmActivity: WmActivity
 
     override fun onAttach(context: Context) {

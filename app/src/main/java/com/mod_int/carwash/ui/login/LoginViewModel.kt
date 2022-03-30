@@ -89,10 +89,9 @@ class LoginViewModel @Inject constructor(
             else -> true
         }
     }
-
-    data class Person(
-        val email: String,
-        val password: String
-    )
-
 }
+
+data class Person(
+    val email: String,
+    val password: String
+)

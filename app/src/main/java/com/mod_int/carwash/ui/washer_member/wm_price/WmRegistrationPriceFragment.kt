@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.Gravity
 import android.view.View
 import android.widget.Toast
+import androidx.fragment.app.viewModels
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
@@ -13,10 +14,14 @@ import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseFragment
 import com.mod_int.carwash.databinding.FragmentWmRegistrationPriceBinding
 import com.mod_int.carwash.ui.washer_member.wm_activity.WmActivity
+import com.mod_int.carwash.ui.washer_member.wm_payment.WmPaymentViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class WmRegistrationPriceFragment : BaseFragment<FragmentWmRegistrationPriceBinding>(
     R.layout.fragment_wm_registration_price) {
 
+    private val wmRegistrationPriceViewModel by viewModels<WmRegistrationPriceViewModel>()
     lateinit var wmActivity: WmActivity
     private var fireStore: FirebaseFirestore? = null
 

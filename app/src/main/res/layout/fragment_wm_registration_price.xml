@@ -868,7 +868,7 @@
                                 android:layout_weight="1"
                                 android:layout_marginEnd="26sp"
                                 android:ellipsize="end"
-                                android:hint="10000"
+                                android:hint="2000"
                                 android:inputType="number"
                                 android:maxLength="5"
                                 android:maxLines="1"

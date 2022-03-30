@@ -15,9 +15,9 @@ class FirebaseRepositoryImpl @Inject constructor(private val firebaseRemoteDataS
     FirebaseRepository {
 
 
-    override suspend fun login(id: String, password: String): Task<AuthResult> =
+    override suspend fun login(email: String, password: String): Task<AuthResult> =
         withContext(Dispatchers.IO) {
-            return@withContext firebaseRemoteDataSource.login(id, password)
+            return@withContext firebaseRemoteDataSource.login(email, password)
         }
 
     override suspend fun logout(): Boolean =
@@ -25,9 +25,9 @@ class FirebaseRepositoryImpl @Inject constructor(private val firebaseRemoteDataS
             return@withContext firebaseRemoteDataSource.logout()
         }
 
-    override suspend fun register(id: String, password: String): Task<AuthResult> =
+    override suspend fun register(email: String, password: String): Task<AuthResult> =
         withContext(Dispatchers.IO) {
-            return@withContext firebaseRemoteDataSource.register(id, password)
+            return@withContext firebaseRemoteDataSource.register(email, password)
         }
 
     override suspend fun delete(): Task<Void>? = withContext(Dispatchers.IO) {

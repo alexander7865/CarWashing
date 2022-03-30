@@ -6,14 +6,19 @@ import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import androidx.fragment.app.viewModels
 import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseFragment
 import com.mod_int.carwash.databinding.FragmentPmHomeBinding
+import com.mod_int.carwash.ui.owner_member.om_state.OmOrderStateViewModel
 import com.mod_int.carwash.ui.pickup_member.pm_activity.PmActivity
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class PmHomeFragment : BaseFragment<FragmentPmHomeBinding>(
     R.layout.fragment_pm_home) {
 
+    private val pmHomeViewModel by viewModels<PmHomeViewModel>()
     private lateinit var pmActivity: PmActivity
 
     override fun onAttach(context: Context) {

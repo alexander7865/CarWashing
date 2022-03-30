@@ -1,6 +1,8 @@
 package com.mod_int.carwash.ui.pickup_member.pm_activity
 
 import android.os.Bundle
+import androidx.activity.viewModels
+import androidx.fragment.app.viewModels
 import com.google.android.material.tabs.TabLayout
 import com.mod_int.carwash.CustomDialogFragment
 import com.mod_int.carwash.CustomDialogListener
@@ -14,8 +16,13 @@ import com.mod_int.carwash.ui.pickup_member.pm_registration.PmRegistrationFragme
 import com.mod_int.carwash.ui.pickup_member.pm_settle.PmSettlementRequestFragment
 import com.mod_int.carwash.ui.pickup_member.pm_state.PmPickupStateFragment
 import com.mod_int.carwash.manage.pickuplist.PickupManagerPickupListFragment
+import com.mod_int.carwash.ui.owner_member.om_state.OmOrderStateViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class PmActivity : BaseActivity<ActivityPmBinding>(R.layout.activity_pm) {
+
+    private val pmViewModel by viewModels<PmViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <variable
+            name="viewModel"
+            type="com.mod_int.carwash.ui.owner_member.om_join.OmJoinViewModel" />
 
     </data>
 

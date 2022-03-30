@@ -48,16 +48,16 @@ fun FirebaseRepository.getUserInfo(
 
 
 fun FirebaseRepository.checkRegister(
-    id: String,
+    email : String,
     password: String,
     type: String,
     callback: (isSuccess: Boolean) -> Unit
 ) {
-    registerUser(id, password) { isRegister ->
+    registerUser(email, password) { isRegister ->
         if (isRegister) {
-            createUserDB(id, type) { isCreateUserDB ->
+            createUserDB(email, type) { isCreateUserDB ->
                 if (isCreateUserDB) {
-                    createTypeDB(id, type, callback)
+                    createTypeDB(email, type, callback)
                 } else {
                     callback(false)
                 }
@@ -69,44 +69,44 @@ fun FirebaseRepository.checkRegister(
 }
 
 fun FirebaseRepository.registerUser(
-    id: String,
+    email: String,
     password: String,
     callback: (isSuccess: Boolean) -> Unit
 ) {
-    getFirebaseAuth().createUserWithEmailAndPassword(id, password).addOnCompleteListener {
+    getFirebaseAuth().createUserWithEmailAndPassword(email, password).addOnCompleteListener {
         callback(it.isSuccessful)
     }
 }
 
 
 fun FirebaseRepository.createUserDB(
-    id: String,
+    email: String,
     type: String,
     callback: (isSuccess: Boolean) -> Unit
 ) {
     val user = User(
-        id, "010xxxxxxxx", type
+        email, "010xxxxxxxx", type
     )
     //회원가입 생성
-    getFirebaseFireStore().collection(id).document("User").set(user)
+    getFirebaseFireStore().collection(email).document("User").set(user)
         .addOnCompleteListener {
             callback(it.isSuccessful)
         }
 }
 
 fun FirebaseRepository.createTypeDB(
-    id: String,
+    email: String,
     type: String,
     callback: (isSuccess: Boolean) -> Unit
 ) {
     val user = User(
-        id, "010xxxxxxxx", type
+        email, "010xxxxxxxx", type
     )
 
     when (type) {
         "ownerMember" -> {
             Log.d("회원타입", type)
-            getFirebaseFireStore().collection("OwnerMember").document(id).set(user)
+            getFirebaseFireStore().collection("OwnerMember").document(email).set(user)
                 .addOnCompleteListener {
                     callback(it.isSuccessful)
                 }
@@ -114,7 +114,7 @@ fun FirebaseRepository.createTypeDB(
 
         // 다른형태로 보여주고 싶어 이렇게 만들었습니다. 가지고 오는 방법은 컬렉션의 모든 데이터를 가지고 오는 형식으로 했습니다
         "washerMember" -> {
-            getFirebaseFireStore().collection("WasherMember").document(id).set(user)
+            getFirebaseFireStore().collection("WasherMember").document(email).set(user)
                 .addOnCompleteListener {
                     callback(it.isSuccessful)
                 }
@@ -136,7 +136,7 @@ fun FirebaseRepository.createTypeDB(
         }
 
         "pickupMember" -> {
-            getFirebaseFireStore().collection("PickupMember").document(id).set(user)
+            getFirebaseFireStore().collection("PickupMember").document(email).set(user)
                 .addOnCompleteListener {
                     callback(it.isSuccessful)
                 }

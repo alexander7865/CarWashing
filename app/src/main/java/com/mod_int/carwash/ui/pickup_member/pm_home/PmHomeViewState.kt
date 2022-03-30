@@ -1,4 +1,6 @@
 package com.mod_int.carwash.ui.pickup_member.pm_home
 
-class PmHomeViewState {
+import com.mod_int.carwash.base.ViewState
+
+class PmHomeViewState : ViewState {
 }

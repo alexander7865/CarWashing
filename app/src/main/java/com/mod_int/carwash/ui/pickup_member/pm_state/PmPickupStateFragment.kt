@@ -6,16 +6,21 @@ import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import androidx.fragment.app.viewModels
 import com.mod_int.carwash.CustomDialogFragment
 import com.mod_int.carwash.CustomDialogListener
 import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseFragment
 import com.mod_int.carwash.databinding.FragmentPmPickupStatusBinding
 import com.mod_int.carwash.ui.pickup_member.pm_activity.PmActivity
+import com.mod_int.carwash.ui.pickup_member.pm_registration.PmRegistrationViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class PmPickupStateFragment : BaseFragment<FragmentPmPickupStatusBinding>(
     R.layout.fragment_pm_pickup_status) {
 
+    private val pmPickupStateViewModel by viewModels<PmPickupStateViewModel>()
     private lateinit var pmActivity: PmActivity
 
     override fun onAttach(context: Context) {

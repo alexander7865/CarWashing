@@ -9,21 +9,21 @@ import com.google.firebase.firestore.FirebaseFirestore
 interface FirebaseRemoteDataSource {
 
     suspend fun login(
-        id: String,
+        email: String,
         password: String
     ): Task<AuthResult>
 
     suspend fun logout(): Boolean
 
     suspend fun register(
-        id: String,
+        email: String,
         password: String
     ): Task<AuthResult>
 
     suspend fun delete(): Task<Void>?
 
     suspend fun resetPass(
-        resetPassToId: String
+        resetPassToEmail: String
     ): Task<Void>
 
     fun getFirebaseAuth(): FirebaseAuth

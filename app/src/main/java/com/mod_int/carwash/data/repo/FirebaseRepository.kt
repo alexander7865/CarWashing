@@ -8,16 +8,15 @@ import com.mod_int.carwash.CustomDialogFragment
 
 interface FirebaseRepository {
 
-    //로그인뷰모델에서 사용
     suspend fun login(
-        id: String,
+        email: String,
         password: String
     ): Task<AuthResult>
 
     suspend fun logout(): Boolean
 
     suspend fun register(
-        id: String,
+        email: String,
         password: String
     ): Task<AuthResult>
 
@@ -26,7 +25,6 @@ interface FirebaseRepository {
     suspend fun resetPass(
         resetPassToId: String
     ): Task<Void>
-
 
     fun getFirebaseAuth(): FirebaseAuth
 

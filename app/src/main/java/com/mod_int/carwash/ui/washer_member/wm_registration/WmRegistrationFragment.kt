@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.fragment.app.viewModels
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
@@ -15,14 +16,18 @@ import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseFragment
 import com.mod_int.carwash.databinding.FragmentWmRegistrationBinding
 import com.mod_int.carwash.ui.washer_member.wm_activity.WmActivity
+import com.mod_int.carwash.ui.washer_member.wm_home.WmHomeViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class WmRegistrationFragment : BaseFragment<FragmentWmRegistrationBinding>(
     R.layout.fragment_wm_registration) {
 
+    private val wmRegistrationViewModel by viewModels<WmRegistrationViewModel>()
     lateinit var wmActivity: WmActivity
     private var fireStore: FirebaseFirestore? = null
 

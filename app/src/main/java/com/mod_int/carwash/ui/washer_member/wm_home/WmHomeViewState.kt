@@ -1,4 +1,6 @@
 package com.mod_int.carwash.ui.washer_member.wm_home
 
-class WmHomeViewState {
+import com.mod_int.carwash.base.ViewState
+
+class WmHomeViewState : ViewState {
 }

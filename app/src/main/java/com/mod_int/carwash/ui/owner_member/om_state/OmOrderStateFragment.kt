@@ -8,14 +8,19 @@ import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import androidx.fragment.app.viewModels
 import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseFragment
 import com.mod_int.carwash.databinding.FragmentOmOrderStatusBinding
 import com.mod_int.carwash.ui.owner_member.om_activity.OmActivity
+import com.mod_int.carwash.ui.owner_member.om_join.OmJoinViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class OmOrderStateFragment : BaseFragment<FragmentOmOrderStatusBinding>(
     R.layout.fragment_om_order_status) {
 
+    private val omOrderStateViewModel by viewModels<OmOrderStateViewModel>()
     lateinit var ownerActivity: OmActivity
 
     override fun onAttach(context: Context) {

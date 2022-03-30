@@ -7,17 +7,21 @@ import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import androidx.fragment.app.viewModels
 import com.mod_int.carwash.CustomDialogFragment
 import com.mod_int.carwash.CustomDialogListener
 import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseFragment
 import com.mod_int.carwash.databinding.FragmentWmOrderStatusBinding
 import com.mod_int.carwash.ui.washer_member.wm_activity.WmActivity
+import com.mod_int.carwash.ui.washer_member.wm_home.WmHomeViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class WmOrderStateFragment : BaseFragment<FragmentWmOrderStatusBinding>(
     R.layout.fragment_wm_order_status){
 
+    private val wmOrderStateViewModel by viewModels<WmOrderStateViewModel>()
     lateinit var wmActivity: WmActivity
 
 

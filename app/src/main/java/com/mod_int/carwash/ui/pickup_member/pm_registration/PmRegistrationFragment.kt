@@ -6,14 +6,19 @@ import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import androidx.fragment.app.viewModels
 import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseFragment
 import com.mod_int.carwash.databinding.FragmentPmRegistrationBinding
+import com.mod_int.carwash.ui.owner_member.om_state.OmOrderStateViewModel
 import com.mod_int.carwash.ui.pickup_member.pm_activity.PmActivity
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class PmRegistrationFragment : BaseFragment<FragmentPmRegistrationBinding>(
     R.layout.fragment_pm_registration) {
 
+    private val pmRegistrationViewModel by viewModels<PmRegistrationViewModel>()
     lateinit var pmActivity: PmActivity
 
     override fun onAttach(context: Context) {

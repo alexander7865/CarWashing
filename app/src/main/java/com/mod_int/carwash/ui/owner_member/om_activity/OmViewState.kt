@@ -5,7 +5,6 @@ import com.mod_int.carwash.base.ViewState
 
 sealed class OmViewState : ViewState {
 
-    object RouteTab : OmViewState()
     object RouteBlank : OmViewState()
     object RouteBack : OmViewState()
     object RouteJoin : OmViewState()
