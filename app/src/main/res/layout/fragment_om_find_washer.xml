@@ -8,10 +8,10 @@
     </data>
 
     <FrameLayout
+        android:background="@color/white"
         android:id="@+id/container_owner_find_washer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/ivory"
         tools:context=".manage.findwasher.OmFindWasherFragment">
 
         <LinearLayout
@@ -47,9 +47,12 @@
                 <Spinner
                     android:id="@+id/searchSpinner"
                     android:layout_width="wrap_content"
-                    android:layout_height="40dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginEnd="13sp"
-                    android:background="@drawable/custom_background_spinner_ivory"
+                    android:paddingTop="6sp"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/custom_background_spinner_white"
                     android:textSize="16sp">
                 </Spinner>
             </LinearLayout>

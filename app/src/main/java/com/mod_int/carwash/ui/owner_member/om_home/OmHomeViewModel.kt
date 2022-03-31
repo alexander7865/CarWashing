@@ -31,7 +31,7 @@ class OmHomeViewModel @Inject constructor(
     private fun checkDate() : Boolean{
         return when {
             date.get().isNullOrEmpty() -> {
-                date.set("${current.year}년 ${current.monthValue}월 ${current.dayOfMonth}")
+                date.set("${current.year}년 ${current.monthValue}월 ${current.dayOfMonth}일")
                 viewStateChanged(OmHomeViewState.ChangeDate)
                 false
             }

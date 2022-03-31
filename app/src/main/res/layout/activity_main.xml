@@ -7,7 +7,7 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:background="@color/ivory"
+        android:background="@color/white"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:backgroundTint="@color/white">
@@ -16,7 +16,7 @@
             android:id="@+id/textView2"
             android:layout_width="300sp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="130dp"
+            android:layout_marginTop="145dp"
             android:gravity="center_horizontal"
             android:text="CAW logo"
             android:textColor="@color/aqua"

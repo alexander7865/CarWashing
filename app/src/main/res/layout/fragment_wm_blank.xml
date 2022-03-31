@@ -8,10 +8,10 @@
     </data>
 
     <FrameLayout
+        android:background="@color/white"
         android:id="@+id/blankWasherScreen"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/ivory">
+        android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"

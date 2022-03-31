@@ -153,7 +153,7 @@ class OmActivity : BaseActivity<ActivityOmBinding>(R.layout.activity_om) {
     fun pickupCfmDialog() {
         val dialog = CustomDialogFragment.CustomDialogBuilder()
             .setTitle("차량을 확인하셨나요?")
-            .setQuestion("차량을 확인하셨다면 '확인' 버튼을 클릭해주세요! 세차이력은 [관리현황] 에서 확인 할 수 있습니다.")
+            .setQuestion("차량을 확인하셨다면 '확인' 버튼을 클릭해주세요! 세차 이력은 [관리현황] 에서\n확인 할 수 있습니다.")
             .setNoBtn("나중에 확인")
             .setYesBtn("확인완료")
             .setBtnClickListener(object : CustomDialogListener {

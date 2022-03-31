@@ -17,38 +17,39 @@ class OmManagementHistoryViewModel
     BaseViewModel(app){
 
         fun getFinishedOrder() {
-            ioScope {
-                val user = firebaseRepository.getFirebaseAuth().currentUser!!.email
-                firebaseRepository.getFirebaseFireStore().collection("OwnerMember")
-                    .document("$user")
-                    .get()
-                    .addOnSuccessListener {document ->
-                        if(document .exists()) {
-                            val list = HistoryInfo(
-                            date = "2022워 2월 2일",
-                            washType = document.get("phoneNumber") as String,
-                            carInfo = "${document.get("carNumber") as String} " +
-                                    "${document.get("carBrand") as String} " +
-                                    "${document.get("carModel") as String} " +
-                                    "${document.get("carKinds") as String} " +
-                                    "${document.get("carSize") as String} " +
-                                    "${document.get("carColor") as String} "
-                            )
-                            val finishedList = mutableListOf<HistoryInfo>().apply {
-                                add(list)
-                            }
-                            if (!finishedList.isNullOrEmpty()) {
-                                viewStateChanged(
-                                    OmManagementHistoryViewState.GetFinishedOrder(
-                                        finishedList
-                                    )
-                                )
-                            }
-                            Log.d("리스트값", finishedList.toString())
-                        }
-                    }
-
-            }
+            //테스트 코드임 바꿔야합니다.
+//            ioScope {
+//                val user = firebaseRepository.getFirebaseAuth().currentUser!!.email
+//                firebaseRepository.getFirebaseFireStore().collection("OwnerMember")
+//                    .document("$user")
+//                    .get()
+//                    .addOnSuccessListener {document ->
+//                        if(document .exists()) {
+//                            val list = HistoryInfo(
+//                            date = "2022워 2월 2일",
+//                            washType = document.get("phoneNumber") as String,
+//                            carInfo = "${document.get("carNumber") as String} " +
+//                                    "${document.get("carBrand") as String} " +
+//                                    "${document.get("carModel") as String} " +
+//                                    "${document.get("carKinds") as String} " +
+//                                    "${document.get("carSize") as String} " +
+//                                    "${document.get("carColor") as String} "
+//                            )
+//                            val finishedList = mutableListOf<HistoryInfo>().apply {
+//                                add(list)
+//                            }
+//                            if (!finishedList.isNullOrEmpty()) {
+//                                viewStateChanged(
+//                                    OmManagementHistoryViewState.GetFinishedOrder(
+//                                        finishedList
+//                                    )
+//                                )
+//                            }
+//                            Log.d("리스트값", finishedList.toString())
+//                        }
+//                    }
+//
+//            }
         }
 
 }

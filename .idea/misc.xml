@@ -83,7 +83,7 @@
         <entry key="app/src/main/res/layout/fragment_join_owner.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_management_history_owner.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_om_blank.xml" value="0.18703703703703703" />
-        <entry key="app/src/main/res/layout/fragment_om_find_washer.xml" value="0.18703703703703703" />
+        <entry key="app/src/main/res/layout/fragment_om_find_washer.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_om_home.xml" value="0.18703703703703703" />
         <entry key="app/src/main/res/layout/fragment_om_join.xml" value="0.18703703703703703" />
         <entry key="app/src/main/res/layout/fragment_om_management_history.xml" value="0.18703703703703703" />
@@ -110,9 +110,13 @@
         <entry key="app/src/main/res/layout/fragment_pickup_manager_price_status.xml" value="0.2111111111111111" />
         <entry key="app/src/main/res/layout/fragment_pickup_manager_registration.xml" value="0.2111111111111111" />
         <entry key="app/src/main/res/layout/fragment_pickup_manager_settlement_request.xml" value="0.2111111111111111" />
+        <entry key="app/src/main/res/layout/fragment_pm_blank.xml" value="0.18703703703703703" />
         <entry key="app/src/main/res/layout/fragment_pm_home.xml" value="0.18703703703703703" />
+        <entry key="app/src/main/res/layout/fragment_pm_pickup_list.xml" value="0.18703703703703703" />
         <entry key="app/src/main/res/layout/fragment_pm_pickup_status.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_pm_price_status.xml" value="0.28425925925925927" />
+        <entry key="app/src/main/res/layout/fragment_pm_registration.xml" value="0.18703703703703703" />
+        <entry key="app/src/main/res/layout/fragment_pm_settlement_request.xml" value="0.18703703703703703" />
         <entry key="app/src/main/res/layout/fragment_price_status_pickup_manager.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_registration_pickup_manager.xml" value="0.2111111111111111" />
         <entry key="app/src/main/res/layout/fragment_registration_price_washer.xml" value="0.25" />
@@ -127,9 +131,11 @@
         <entry key="app/src/main/res/layout/fragment_washer_payment.xml" value="0.2111111111111111" />
         <entry key="app/src/main/res/layout/fragment_washer_registration.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_washer_registration_price.xml" value="0.2111111111111111" />
+        <entry key="app/src/main/res/layout/fragment_wm_blank.xml" value="0.18703703703703703" />
         <entry key="app/src/main/res/layout/fragment_wm_home.xml" value="0.18703703703703703" />
         <entry key="app/src/main/res/layout/fragment_wm_order_list.xml" value="0.18703703703703703" />
         <entry key="app/src/main/res/layout/fragment_wm_order_status.xml" value="0.18703703703703703" />
+        <entry key="app/src/main/res/layout/fragment_wm_payment.xml" value="0.18703703703703703" />
         <entry key="app/src/main/res/layout/fragment_wm_registration.xml" value="0.18703703703703703" />
         <entry key="app/src/main/res/layout/fragment_wm_registration_price.xml" value="0.18703703703703703" />
         <entry key="app/src/main/res/layout/item_history.xml" value="0.275" />
