@@ -8,7 +8,6 @@ sealed class OmViewState : ViewState {
     object RouteBlank : OmViewState()
     object RouteBack : OmViewState()
     object RouteJoin : OmViewState()
-    data class RouteDialog(val customDialogFragment: CustomDialogFragment) : OmViewState()
 
 
 }

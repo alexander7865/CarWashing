@@ -28,32 +28,9 @@ class OmActivity : BaseActivity<ActivityOmBinding>(R.layout.activity_om) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         initUi()
         initViewModel()
 
-//        val transaction = supportFragmentManager.beginTransaction()
-//        transaction.add(R.id.owner_frag, OmHomeFragment()).commit()
-//        transaction.addToBackStack("")
-//
-//        binding.tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener{
-//            override fun onTabSelected(tab: TabLayout.Tab?) {
-//                val transaction = supportFragmentManager.beginTransaction()
-//                when (tab?.position){
-//                    0 -> transaction.replace(R.id.owner_frag, OmHomeFragment())
-//                    1 -> transaction.replace(R.id.owner_frag, OmOrderStateFragment())
-//                    2 -> transaction.replace(R.id.owner_frag, OmManagementHistoryFragment())
-//                    3 -> transaction.replace(R.id.owner_frag, OmFindWasherFragment())
-//                }
-//                transaction.commit()
-//            }
-//            override fun onTabUnselected(tab: TabLayout.Tab?) {
-//
-//            }
-//            override fun onTabReselected(tab: TabLayout.Tab?) {
-//
-//            }
-//        })
     }
 
     private fun initUi() {

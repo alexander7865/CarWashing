@@ -93,7 +93,6 @@ class RegisterViewModel @Inject constructor(
                 viewStateChanged(RegisterViewState.Error("이메일이 형식에 맞지 않습니다.\n재작성 해주세요!"))
                 false
             }
-
             inputEmailLiveData.value.isNullOrEmpty() -> {
                 viewStateChanged(RegisterViewState.EnableInput(false))
                 viewStateChanged(RegisterViewState.Error("이메일과 비밀번호를 입력해 주세요."))

@@ -112,6 +112,7 @@
                                 android:layout_weight="1"
                                 android:paddingLeft="88sp"
                                 android:ellipsize="end"
+                                android:text="@={viewModel.inputCarNumber}"
                                 android:hint="000허0000"
                                 android:maxLength="8"
                                 android:maxLines="1"
@@ -206,7 +207,7 @@
                                 android:layout_weight="1"
                                 android:background="@drawable/layout_box_color_stroke"
                                 android:gravity="center_vertical"
-                                android:text="SUV"
+                                android:text="@={viewModel.inputCarKinds}"
                                 android:textColor="@color/dgray"
                                 android:textSize="16sp" />
 
@@ -238,7 +239,7 @@
                                 android:layout_weight="1"
                                 android:background="@drawable/layout_box_color_stroke"
                                 android:gravity="center_vertical"
-                                android:text="준중형"
+                                android:text="@={viewModel.inputCarSize}"
                                 android:textColor="@color/dgray"
                                 android:textSize="16sp"/>
 
@@ -272,6 +273,7 @@
                                 android:maxLength="10"
                                 android:maxLines="1"
                                 android:ellipsize="end"
+                                android:text="@={viewModel.inputCarColor}"
                                 android:hint="BLACK"
                                 android:textColor="@color/dgray"
                                 android:textSize="16sp"
@@ -377,17 +379,19 @@
                             android:layout_marginStart="26sp"
                             android:layout_marginEnd="26sp"
                             android:padding="10sp"
-                            android:text="서울특별시 강남구 논현동 111-11">
+                            android:text="@={viewModel.inputCarLocation}">
                         </TextView>
                         <TextView
                             android:id="@+id/carBrand"
                             android:visibility="gone"
+                            android:text="@={viewModel.inputCarBrand}"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content">
                         </TextView>
                         <TextView
                             android:id="@+id/carModel"
                             android:visibility="gone"
+                            android:text="@={viewModel.inputCarModel}"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content">
                         </TextView>
@@ -426,6 +430,7 @@
                                 android:textColor="@color/white"
                                 android:layout_weight="1"
                                 android:text="등록하기"
+                                android:onClick="@{()->viewModel.omSaveInfo()}"
                                 android:background="@drawable/button_action_lorange"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />

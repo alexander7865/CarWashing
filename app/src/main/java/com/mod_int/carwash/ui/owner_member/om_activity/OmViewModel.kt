@@ -1,6 +1,7 @@
 package com.mod_int.carwash.ui.owner_member.om_activity
 
 import android.app.Application
+import androidx.databinding.ObservableField
 import com.google.android.material.tabs.TabLayout
 import com.mod_int.carwash.CustomDialogFragment
 import com.mod_int.carwash.CustomDialogListener
