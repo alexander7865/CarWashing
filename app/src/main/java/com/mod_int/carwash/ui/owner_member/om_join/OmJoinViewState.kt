@@ -5,4 +5,7 @@ import com.mod_int.carwash.base.ViewState
 
 sealed class OmJoinViewState : ViewState {
     object OmInfoSave : OmJoinViewState()
+    object BackStep : OmJoinViewState()
+    data class ErrorMsg(val message: String) : OmJoinViewState()
+    data class EnableInput(val isEnable : Boolean) : OmJoinViewState()
 }

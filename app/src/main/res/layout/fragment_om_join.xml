@@ -207,7 +207,6 @@
                                 android:layout_weight="1"
                                 android:background="@drawable/layout_box_color_stroke"
                                 android:gravity="center_vertical"
-                                android:text="@={viewModel.inputCarKinds}"
                                 android:textColor="@color/dgray"
                                 android:textSize="16sp" />
 
@@ -239,7 +238,6 @@
                                 android:layout_weight="1"
                                 android:background="@drawable/layout_box_color_stroke"
                                 android:gravity="center_vertical"
-                                android:text="@={viewModel.inputCarSize}"
                                 android:textColor="@color/dgray"
                                 android:textSize="16sp"/>
 
@@ -378,8 +376,7 @@
                             android:layout_height="70sp"
                             android:layout_marginStart="26sp"
                             android:layout_marginEnd="26sp"
-                            android:padding="10sp"
-                            android:text="@={viewModel.inputCarLocation}">
+                            android:padding="10sp">
                         </TextView>
                         <TextView
                             android:id="@+id/carBrand"
