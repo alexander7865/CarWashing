@@ -35,6 +35,7 @@
         <entry key="app/src/main/res/drawable/layout_box.xml" value="0.1655" />
         <entry key="app/src/main/res/drawable/layout_box_color_stroke.xml" value="0.1765" />
         <entry key="app/src/main/res/drawable/layout_box_radius.xml" value="0.1825" />
+        <entry key="app/src/main/res/drawable/layout_box_radius_stroke.xml" value="0.1855" />
         <entry key="app/src/main/res/drawable/layout_box_spinner.xml" value="0.1775" />
         <entry key="app/src/main/res/drawable/layout_box_stroke.xml" value="0.1825" />
         <entry key="app/src/main/res/drawable/layout_box_stroke_recycler.xml" value="0.1825" />
@@ -47,6 +48,7 @@
         <entry key="app/src/main/res/drawable/recyclerview_radius_washer_pickup.xml" value="0.1775" />
         <entry key="app/src/main/res/drawable/search_icon.xml" value="0.1655" />
         <entry key="app/src/main/res/drawable/tab_select.xml" value="0.1765" />
+        <entry key="app/src/main/res/drawable/weather_sunny.xml" value="0.1855" />
         <entry key="app/src/main/res/drawable/workspace_premium.xml" value="0.1825" />
         <entry key="app/src/main/res/layout-w1240dp/activity_login.xml" value="0.335" />
         <entry key="app/src/main/res/layout-w936dp/activity_login.xml" value="0.20625" />
@@ -84,7 +86,7 @@
         <entry key="app/src/main/res/layout/fragment_management_history_owner.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_om_blank.xml" value="0.18703703703703703" />
         <entry key="app/src/main/res/layout/fragment_om_find_washer.xml" value="0.335" />
-        <entry key="app/src/main/res/layout/fragment_om_home.xml" value="0.18703703703703703" />
+        <entry key="app/src/main/res/layout/fragment_om_home.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_om_join.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_om_management_history.xml" value="0.18703703703703703" />
         <entry key="app/src/main/res/layout/fragment_om_order_status.xml" value="0.335" />

@@ -45,6 +45,7 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginEnd="26sp"
+                    android:onClick="@{()->viewModel.routeBackStep()}"
                     android:background="@drawable/button_cancel"
                     tools:ignore="SpeakableTextPresentCheck" />
             </LinearLayout>
@@ -205,6 +206,7 @@
                                 android:layout_marginEnd="26sp"
                                 android:layout_marginBottom="5sp"
                                 android:layout_weight="1"
+                                android:hint="SUV"
                                 android:background="@drawable/layout_box_color_stroke"
                                 android:gravity="center_vertical"
                                 android:textColor="@color/dgray"
@@ -236,6 +238,7 @@
                                 android:layout_marginEnd="26sp"
                                 android:layout_marginBottom="5sp"
                                 android:layout_weight="1"
+                                android:hint="준중형"
                                 android:background="@drawable/layout_box_color_stroke"
                                 android:gravity="center_vertical"
                                 android:textColor="@color/dgray"
@@ -376,21 +379,16 @@
                             android:layout_height="70sp"
                             android:layout_marginStart="26sp"
                             android:layout_marginEnd="26sp"
+                            android:hint="차량 위치를 등록하세요!"
                             android:padding="10sp">
-                        </TextView>
-                        <TextView
-                            android:id="@+id/carBrand"
-                            android:visibility="gone"
-                            android:text="@={viewModel.inputCarBrand}"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
                         </TextView>
                         <TextView
                             android:id="@+id/carModel"
                             android:visibility="gone"
                             android:text="@={viewModel.inputCarModel}"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            android:hint="GLC220">
                         </TextView>
 
                         <Space

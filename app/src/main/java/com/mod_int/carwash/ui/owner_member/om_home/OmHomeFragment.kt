@@ -9,29 +9,18 @@ import com.mod_int.carwash.base.BaseFragment
 import com.mod_int.carwash.base.ViewState
 import com.mod_int.carwash.databinding.FragmentOmHomeBinding
 import com.mod_int.carwash.ui.owner_member.om_activity.OmActivity
+import com.mod_int.carwash.ui.owner_member.om_join.OmJoinFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class OmHomeFragment : BaseFragment<FragmentOmHomeBinding>(R.layout.fragment_om_home) {
 
     private val omHomeViewModel by viewModels<OmHomeViewModel>()
-    private lateinit var ownerActivity: OmActivity
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        if (context is OmActivity) ownerActivity = context
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initViewModel()
         initUi()
-
-
-        binding.btnJoin.setOnClickListener {
-            ownerActivity.joinRegistration()
-        }
-
     }
 
     private fun initUi(){
@@ -67,7 +56,16 @@ class OmHomeFragment : BaseFragment<FragmentOmHomeBinding>(R.layout.fragment_om_
             is OmHomeViewState.ChangeCarLocation -> {
 
             }
+            is OmHomeViewState.RouteOmJoin -> {
+                routeOmJoinFragment()
+            }
         }
+    }
+
+    private fun routeOmJoinFragment() {
+        parentFragmentManager.beginTransaction().add(R.id.container_om_home, OmJoinFragment())
+            .addToBackStack("OmJoinFragment")
+            .commit()
     }
 }
 

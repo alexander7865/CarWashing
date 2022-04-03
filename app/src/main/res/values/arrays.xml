@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="array_content">
+        <item>차주 홈</item>
+        <item>세차현황</item>
+        <item>관리현황</item>
+        <item>워셔찾기</item>
+    </array>
+</resources>

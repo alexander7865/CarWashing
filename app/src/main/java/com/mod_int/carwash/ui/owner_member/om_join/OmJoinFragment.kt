@@ -13,37 +13,23 @@ import androidx.fragment.app.viewModels
 import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseFragment
 import com.mod_int.carwash.databinding.FragmentOmJoinBinding
+import com.mod_int.carwash.ext.showToast
 import com.mod_int.carwash.ui.owner_member.om_activity.OmActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class OmJoinFragment : BaseFragment<FragmentOmJoinBinding>(R.layout.fragment_om_join){
     private val omJoinViewModel by viewModels<OmJoinViewModel>()
-    lateinit var ownerActivity: OmActivity
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        if(context is OmActivity) ownerActivity = context
-    }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        brandSelect()
-        modelSelect()
         initUi()
         initViewModel()
-
-        with(binding){
-            btnCancelRegistration.setOnClickListener {
-                ownerActivity.backStep()
-            }
-        }
     }
 
-    private fun initUi(){
-        omJoinViewModel.omSaveInfo()
-
+    private fun initUi() {
+        brandSelect()
+        modelSelect()
     }
 
     private fun initViewModel(){
@@ -59,11 +45,15 @@ class OmJoinFragment : BaseFragment<FragmentOmJoinBinding>(R.layout.fragment_om_
     private fun  onChangedJoinViewState(viewState: OmJoinViewState){
         when (viewState) {
             is OmJoinViewState.ErrorMsg -> {
-                showMsg(message = viewState.message)
+                showToast(message = viewState.message)
             }
 
             is OmJoinViewState.EnableInput -> {
                 enableSetting(viewState.isEnable)
+            }
+
+            is OmJoinViewState.BackStep -> {
+                requireActivity().onBackPressed()
             }
         }
     }
@@ -74,12 +64,14 @@ class OmJoinFragment : BaseFragment<FragmentOmJoinBinding>(R.layout.fragment_om_
     //스피너를 뷰모델로 옮기고 싶은데 잘 안되네요
     private fun brandSelect() {
         val brand = resources.getStringArray(R.array.carBrandSelect)
-        val brandAdapter = ArrayAdapter (requireContext(),
-            R.layout.custom_owner_spinner, brand)
+        val brandAdapter = ArrayAdapter(
+            requireContext(),
+            R.layout.custom_owner_spinner, brand
+        )
 
-        with(binding){
+        with(binding) {
             spCarBrand.adapter = brandAdapter
-            spCarBrand.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            spCarBrand.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 @SuppressLint("ResourceAsColor")
                 override fun onItemSelected(
                     parent: AdapterView<*>?,
@@ -88,9 +80,9 @@ class OmJoinFragment : BaseFragment<FragmentOmJoinBinding>(R.layout.fragment_om_
                     id: Long
                 ) {
                     if (position > 0) {
-                        var selected = brand[position]
-                        carBrand.text = selected
-                        showMsg(message = "${brand[position]}가 선택되었습니다.")
+                        val selected = brand[position]
+                        omJoinViewModel.inputCarBrandObservableField.set(selected)
+                        showToast(message = "${brand[position]}가 선택되었습니다.")
                     }
                 }
 
@@ -104,12 +96,14 @@ class OmJoinFragment : BaseFragment<FragmentOmJoinBinding>(R.layout.fragment_om_
     //스피너
     private fun modelSelect() {
         val model = resources.getStringArray(R.array.carModelSelect)
-        val modelAdapter = ArrayAdapter (requireContext(),
-            R.layout.custom_owner_spinner, model)
+        val modelAdapter = ArrayAdapter(
+            requireContext(),
+            R.layout.custom_owner_spinner, model
+        )
 
-        with(binding){
+        with(binding) {
             spCarModel.adapter = modelAdapter
-            spCarModel.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            spCarModel.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(
                     parent: AdapterView<*>?,
                     view: View?,
@@ -119,8 +113,7 @@ class OmJoinFragment : BaseFragment<FragmentOmJoinBinding>(R.layout.fragment_om_
                     if (position > 0) {
                         var selected = model[position]
                         carModel.text = selected
-                        showMsg(message = "${model[position]}가 선택되었습니다.")
-
+                        showToast(message = "${model[position]}가 선택되었습니다.")
                     }
                 }
 
@@ -135,27 +128,12 @@ class OmJoinFragment : BaseFragment<FragmentOmJoinBinding>(R.layout.fragment_om_
     private fun enableSetting(isEnable: Boolean) {
         with(binding){
             etCarNum.isEnabled = isEnable
-            carBrand.isEnabled = isEnable
             carModel.isEnabled = isEnable
             tvCarKinds.isEnabled = isEnable
             tvCarSize.isEnabled = isEnable
             etCarCol.isEnabled = isEnable
             carLocation.isEnabled = isEnable
         }
-    }
-
-    fun showMsg(message: String){
-        val toastCenter = Toast.makeText(
-            requireContext(),
-            message,
-            Toast.LENGTH_SHORT
-        )
-        toastCenter.setGravity(
-            Gravity.CENTER,
-            Gravity.CENTER_HORIZONTAL,
-            0
-        )
-        toastCenter.show()
     }
 }
 

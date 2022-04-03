@@ -4,13 +4,11 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.Gravity
-import android.widget.Toast
 import androidx.activity.viewModels
-import androidx.appcompat.app.AppCompatActivity
 import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseActivity
 import com.mod_int.carwash.databinding.ActivityRegisterBinding
+import com.mod_int.carwash.ext.showToast
 import com.mod_int.carwash.ui.owner_member.om_activity.OmActivity
 import com.mod_int.carwash.ui.pickup_member.pm_activity.PmActivity
 import com.mod_int.carwash.ui.washer_member.wm_activity.WmActivity
@@ -78,22 +76,8 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(R.layout.activity
             inputCfmPassRegister.isEnabled = isEnable
         }
     }
+
     companion object {
         const val KEY_TYPE = "key_type"
     }
-}
-
-
-fun AppCompatActivity.showToast(message: String) {
-    val toastCenter = Toast.makeText(
-        this,
-        message,
-        Toast.LENGTH_SHORT
-    )
-    toastCenter.setGravity(
-        Gravity.CENTER,
-        Gravity.CENTER_HORIZONTAL,
-        0
-    )
-    toastCenter.show()
 }

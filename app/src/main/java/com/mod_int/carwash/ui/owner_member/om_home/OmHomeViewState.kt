@@ -5,9 +5,11 @@ import com.mod_int.carwash.base.ViewState
 sealed class OmHomeViewState : ViewState {
     object ChangeDate : OmHomeViewState()
     object ChangePhoneNr : OmHomeViewState()
-    object ChangeCarInfo : OmHomeViewState()
+    data class ChangeCarInfo(val carInfo : String) : OmHomeViewState()
     object ChangeCarLocation : OmHomeViewState()
 
+
+    object RouteOmJoin : OmHomeViewState()
 }
 
 

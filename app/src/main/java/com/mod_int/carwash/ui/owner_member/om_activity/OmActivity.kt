@@ -1,14 +1,21 @@
 package com.mod_int.carwash.ui.owner_member.om_activity
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.FragmentPagerAdapter
+import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 import com.mod_int.carwash.CustomDialogFragment
 import com.mod_int.carwash.CustomDialogListener
 import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseActivity
 import com.mod_int.carwash.base.ViewState
 import com.mod_int.carwash.databinding.ActivityOmBinding
+import com.mod_int.carwash.databinding.FragmentWmPaymentBindingImpl
 import com.mod_int.carwash.ui.blank.OmBlankFragment
 import com.mod_int.carwash.ui.owner_member.om_join.OmJoinFragment
 import com.mod_int.carwash.ui.owner_member.om_state.OmOrderStateFragment
@@ -25,6 +32,10 @@ import dagger.hilt.android.AndroidEntryPoint
 class OmActivity : BaseActivity<ActivityOmBinding>(R.layout.activity_om) {
 
     private val omViewModel by viewModels<OmViewModel>()
+    private val tabConfigurationStrategy =
+        TabLayoutMediator.TabConfigurationStrategy { tab, position ->
+            tab.text = resources.getStringArray(R.array.array_content)[position]
+        }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,30 +44,23 @@ class OmActivity : BaseActivity<ActivityOmBinding>(R.layout.activity_om) {
 
     }
 
+    @SuppressLint("WrongConstant")
     private fun initUi() {
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.add(R.id.owner_frag, OmHomeFragment()).commit()
-        transaction.addToBackStack("")
+        val list = listOf(
+            OmHomeFragment(),
+            OmOrderStateFragment(),
+            OmManagementHistoryFragment(),
+            OmFindWasherFragment()
+        )
 
-        binding.tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener{
-            override fun onTabSelected(tab: TabLayout.Tab?) {
-                val transaction = supportFragmentManager.beginTransaction()
-                when (tab?.position){
-                    0 -> transaction.replace(R.id.owner_frag, OmHomeFragment())
-                    1 -> transaction.replace(R.id.owner_frag, OmOrderStateFragment())
-                    2 -> transaction.replace(R.id.owner_frag, OmManagementHistoryFragment())
-                    3 -> transaction.replace(R.id.owner_frag, OmFindWasherFragment())
-                }
+        val pagerAdapter = FragmentPagerAdapter(list, this)
 
-                transaction.commit()
-            }
-            override fun onTabUnselected(tab: TabLayout.Tab?) {
-
-            }
-            override fun onTabReselected(tab: TabLayout.Tab?) {
-
-            }
-        })
+        with(binding) {
+            viewPager.adapter = pagerAdapter
+            viewPager.offscreenPageLimit = OFF_SCREEN_COUNT
+            viewPager.isUserInputEnabled = false
+            TabLayoutMediator(tabLayout, viewPager, tabConfigurationStrategy).attach()
+        }
     }
 
     private fun initViewModel() {
@@ -71,80 +75,22 @@ class OmActivity : BaseActivity<ActivityOmBinding>(R.layout.activity_om) {
     }
 
     private fun onChangedOmViewState(viewState: OmViewState) {
-//        when(viewState){
-//            is OmViewState.RouteJoin -> {
-//                val transaction = supportFragmentManager.beginTransaction()
-//                transaction.replace(R.id.owner_frag, OmJoinFragment()).commit()
-//                transaction.addToBackStack("")
-//
-//            }
-//            is OmViewState.RouteBlank -> {
-//                val transaction = supportFragmentManager.beginTransaction()
-//                transaction.replace(R.id.owner_frag, OmBlankFragment()).commit()
-//                transaction.addToBackStack("")
-//
-//            }
-//            is OmViewState.RouteBack -> {
-//                onBackPressed()
-//
-//            }
-//            is OmViewState.RouteDialog -> {
-//                val dialog = CustomDialogFragment.CustomDialogBuilder()
-//                    .setTitle("차량을 확인하셨나요?")
-//                    .setQuestion("차량을 확인하셨다면 '확인' 버튼을 클릭해주세요! 세차이력은 [관리현황] 에서 확인 할 수 있습니다.")
-//                    .setNoBtn("나중에 확인")
-//                    .setYesBtn("확인완료")
-//                    .setBtnClickListener(object : CustomDialogListener {
-//                        override fun onClickNegativeBtn() {
-//                            //불가능한경우 행동
-//                        }
-//
-//                        override fun onClickPositiveBtn() {
-//                            goBlankPage()
-//                        }
-//                    })
-//                    .create()
-//                dialog.show(supportFragmentManager, dialog.tag)
-//            }
-//        }
     }
 
-
-    //조인페이지 등록 페이지
-    fun joinRegistration() {
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.owner_frag, OmJoinFragment()).commit()
-        transaction.addToBackStack("")
+    companion object {
+        private const val OFF_SCREEN_COUNT = 5
     }
+}
 
-    fun goBlankPage() {
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.owner_frag, OmBlankFragment()).commit()
-        transaction.addToBackStack("")
-    }
 
-    fun backStep() {
-        onBackPressed()
-    }
+class FragmentPagerAdapter(
+    private val fragmentList: List<Fragment>,
+    fragmentActivity: FragmentActivity
+) :
+    FragmentStateAdapter(fragmentActivity) {
+    override fun getItemCount() = fragmentList.size
+    override fun createFragment(position: Int) = fragmentList[position]
 
-    fun pickupCfmDialog() {
-        val dialog = CustomDialogFragment.CustomDialogBuilder()
-            .setTitle("차량을 확인하셨나요?")
-            .setQuestion("차량을 확인하셨다면 '확인' 버튼을 클릭해주세요! 세차 이력은 [관리현황] 에서\n확인 할 수 있습니다.")
-            .setNoBtn("나중에 확인")
-            .setYesBtn("확인완료")
-            .setBtnClickListener(object : CustomDialogListener {
-                override fun onClickNegativeBtn() {
-                    //불가능한경우 행동
-                }
-
-                override fun onClickPositiveBtn() {
-                    goBlankPage()
-                }
-            })
-            .create()
-        dialog.show(supportFragmentManager, dialog.tag)
-    }
 }
 
 
