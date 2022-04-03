@@ -1,6 +1,7 @@
 package com.mod_int.carwash.ui.owner_member.om_join
 
 import android.app.Application
+import androidx.databinding.ObservableField
 import androidx.lifecycle.MutableLiveData
 import com.google.firebase.firestore.SetOptions
 import com.mod_int.carwash.base.BaseViewModel
@@ -16,11 +17,11 @@ class OmJoinViewModel @Inject constructor(
     private val firebaseRepository: FirebaseRepository
 ) : BaseViewModel(app) {
     val inputCarNumber = MutableLiveData("")
-    val inputCarBrand = MutableLiveData("")
     val inputCarModel = MutableLiveData("")
     val inputCarColor = MutableLiveData("")
+    val inputCarBrandObservableField = ObservableField("")
 
-    fun omSaveInfo(){
+    fun omSaveInfo() {
         ioScope {
             val carNumInputCheck = async { carNumInputCheck() }
             val carBrandInputCheck = async { carBrandInputCheck() }
@@ -31,29 +32,24 @@ class OmJoinViewModel @Inject constructor(
                 carBrandInputCheck.await(),
                 carModelInputCheck.await(),
                 carColInputCheck.await(),
-                )?.let{
+            )?.let { ownerInfo ->
                 val email = firebaseRepository.getFirebaseAuth().currentUser!!.email
-                val ownerInfo = OwnerInfo(
-                    "${inputCarNumber.value}",
-                    "${inputCarBrand.value}",
-                    "${inputCarModel.value}",
-                    "${inputCarColor.value}",
-                )
                 firebaseRepository.getFirebaseFireStore().collection("OwnerMember")
                     .document("$email")
                     .set(ownerInfo, SetOptions.merge()).addOnCompleteListener {
                         if (it.isSuccessful) {
                             viewStateChanged(OmJoinViewState.EnableInput(false))
                             viewStateChanged(OmJoinViewState.OmInfoSave)
-
                         } else {
                             viewStateChanged(OmJoinViewState.ErrorMsg(message = "정보를 모두 입력하세요"))
-
                         }
                     }
-
             }
         }
+    }
+
+    fun routeBackStep(){
+        viewStateChanged(OmJoinViewState.BackStep)
     }
 
     private fun checkInfo(
@@ -63,8 +59,10 @@ class OmJoinViewModel @Inject constructor(
         carColInputCheck: Boolean
     ): OwnerInfo? {
         return if (carNumInputCheck && carBrandInputCheck && carModelInputCheck &&
-            carColInputCheck) {
-            OwnerInfo(inputCarNumber.value!!, inputCarBrand.value!!, inputCarModel.value!!,
+            carColInputCheck
+        ) {
+            OwnerInfo(
+                inputCarNumber.value!!, inputCarBrandObservableField.get()!!, inputCarModel.value!!,
                 inputCarColor.value!!
             )
         } else {
@@ -73,49 +71,53 @@ class OmJoinViewModel @Inject constructor(
     }
 
 
-    private fun carNumInputCheck() : Boolean {
-        return when{
+    private fun carNumInputCheck(): Boolean {
+        return when {
             inputCarNumber.value?.isEmpty() == true -> {
+                viewStateChanged(OmJoinViewState.ErrorMsg(message = "차량번호를 입력하세요."))
                 false
             }
             else -> true
         }
     }
 
-    private fun carBrandInputCheck() : Boolean {
-        return when{
-            inputCarBrand.value?.isEmpty() == true -> {
+    private fun carBrandInputCheck(): Boolean {
+        return when {
+            inputCarBrandObservableField.get()?.isEmpty() == true -> {
+                viewStateChanged(OmJoinViewState.ErrorMsg(message = "브랜드를 선택하세요."))
                 false
             }
             else -> true
         }
     }
-    private fun carModelInputCheck() : Boolean {
-        return when{
+
+    private fun carModelInputCheck(): Boolean {
+        return when {
             inputCarModel.value?.isEmpty() == true -> {
+                viewStateChanged(OmJoinViewState.ErrorMsg(message = "모델명을 선택하세요."))
                 false
             }
             else -> true
         }
     }
 
-    private fun etCarColInputCheck() : Boolean {
-        return when{
+    private fun etCarColInputCheck(): Boolean {
+        return when {
             inputCarColor.value?.isEmpty() == true -> {
+                viewStateChanged(OmJoinViewState.ErrorMsg(message = "차량색상을 입력하세요"))
                 false
             }
             else -> true
         }
     }
 
-    data class OwnerInfo (
-        var carNumber : String = "",
-        var carBrand : String = "",
-        var carModel : String = "",
-        var carColor : String = "",
+    data class OwnerInfo(
+        var carNumber: String = "",
+        var carBrand: String = "",
+        var carModel: String = "",
+        var carColor: String = "",
     )
 }
-
 
 
 //                    //HashMap 형태 아닌 다른 방법 저장

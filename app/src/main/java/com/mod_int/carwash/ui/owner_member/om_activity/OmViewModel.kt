@@ -21,9 +21,6 @@ import javax.inject.Inject
 class OmViewModel @Inject constructor(
     app: Application,
     private val firebaseRepository: FirebaseRepository,
-) : BaseViewModel(app) {
-
-}
-
+) : BaseViewModel(app)
 
 

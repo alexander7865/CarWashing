@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.databinding.ObservableField
 import com.mod_int.carwash.base.BaseViewModel
 import com.mod_int.carwash.data.repo.FirebaseRepository
+import com.mod_int.carwash.ui.owner_member.om_join.OmJoinViewState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import java.time.LocalDateTime
 import javax.inject.Inject
@@ -21,35 +22,12 @@ class OmHomeViewModel @Inject constructor(
     private val current: LocalDateTime = LocalDateTime.now()
 
     fun homeInfo() {
-        checkDate()
-        checkPhoneNr()
+        date.set("${current.year}년 ${current.monthValue}월 ${current.dayOfMonth}일")
+        phoneNr.set("010-1111-1111")
+        myLocation.set("서울시 강남구 논현동 111-11 지하주차장")
         carInfoCheck()
-        carLocationCheck()
-
     }
 
-    private fun checkDate() : Boolean{
-        return when {
-            date.get().isNullOrEmpty() -> {
-                date.set("${current.year}년 ${current.monthValue}월 ${current.dayOfMonth}일")
-                viewStateChanged(OmHomeViewState.ChangeDate)
-                false
-            }
-            else -> true
-        }
-    }
-
-
-    private fun checkPhoneNr() : Boolean {
-        return when {
-            phoneNr.get().isNullOrEmpty() -> {
-                phoneNr.set("010-1111-1111")
-                viewStateChanged(OmHomeViewState.ChangePhoneNr)
-                false
-            }
-            else -> true
-        }
-    }
 
     //데이터 베이스에서 가지고오게 구현을 하면 함수가 지속적으로 진행 되기에 화면이 깜빡이는 현상이 일어 납니다 이부분은
     //레지스터와 똑같이 인풋데이터와 등록된 데이터를 비교해서 수정등록을 하는 방법으로 처리하면 될까용? 어렵네용
@@ -62,19 +40,16 @@ class OmHomeViewModel @Inject constructor(
                 .addOnSuccessListener { document ->
                     return@addOnSuccessListener when {
                         (myCar.get().isNullOrEmpty()) -> {
-
-
-                        }else -> {
-//                            myCar.set(
-//                                "${document.get("carNumber") as String} " +
-//                                        "${document.get("carBrand") as String} " +
-//                                        "${document.get("carModel") as String} " +
-//                                        "${document.get("carKinds") as String} " +
-//                                        "${document.get("carSize") as String} " +
-//                                        document.get("carColor") as String
-//                            )
-//                            viewStateChanged(OmHomeViewState.ChangeCarInfo)
-
+                        }
+                        else -> {
+                            myCar.set(
+                                "${document.get("carNumber") as String?} " +
+                                        "${(document.get("carBrand") as String?).orEmpty()} " +
+                                        "${(document.get("carModel") as String?).orEmpty()} " +
+                                        "${(document.get("carKinds") as String?).orEmpty()} " +
+                                        "${(document.get("carSize") as String?).orEmpty()} " +
+                                        (document.get("carColor") as String?).orEmpty()
+                            )
                         }
                     }
                 }
@@ -82,16 +57,8 @@ class OmHomeViewModel @Inject constructor(
         }
     }
 
-
-    private fun carLocationCheck() : Boolean {
-        return when {
-            myLocation.get().isNullOrEmpty() -> {
-                myLocation.set("서울시 강남구 논현동 111-11 지하주차장")
-                viewStateChanged(OmHomeViewState.ChangeCarLocation)
-                false
-            }
-            else -> true
-        }
+    fun routeOmJoin() {
+        viewStateChanged(OmHomeViewState.RouteOmJoin)
     }
 }
 

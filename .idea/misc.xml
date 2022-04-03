@@ -53,7 +53,7 @@
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.275" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_member_type.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_om.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/activity_om.xml" value="0.125" />
         <entry key="app/src/main/res/layout/activity_owner.xml" value="0.275" />
         <entry key="app/src/main/res/layout/activity_owner_login.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_owner_register.xml" value="0.275" />

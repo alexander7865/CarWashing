@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.mod_int.carwash.ui.owner_member.om_home.OmHomeViewModel" />
@@ -10,20 +11,21 @@
     </data>
 
     <FrameLayout
-        android:background="@color/white"
+        android:id="@+id/container_om_home"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/white"
         tools:context=".ui.owner_member.om_home.OmHomeFragment">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="15sp"
-                android:orientation="horizontal">
-            </Space>
+                android:orientation="horizontal"></Space>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -39,33 +41,37 @@
                     android:textColor="@color/aqua"
                     android:textSize="38sp"
                     android:textStyle="bold" />
+
                 <ImageView
                     android:layout_width="50dp"
                     android:layout_height="match_parent"
                     android:layout_marginEnd="26sp"
-                    android:background="@drawable/menu_open"/>
+                    android:background="@drawable/menu_open" />
             </LinearLayout>
+
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="15sp"
-                android:orientation="horizontal">
-            </Space>
+                android:orientation="horizontal"></Space>
+
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
+
                     <LinearLayout
-                        android:elevation="3sp"
-                        android:layout_marginTop="5sp"
                         android:layout_width="match_parent"
                         android:layout_height="310sp"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginStart="26sp"
+                        android:layout_marginTop="5sp"
                         android:layout_marginEnd="26sp"
                         android:background="@drawable/layout_box"
+                        android:elevation="3sp"
                         android:orientation="vertical">
 
                         <Space
@@ -107,8 +113,7 @@
 
                             <Space
                                 android:layout_width="match_parent"
-                                android:layout_height="15sp">
-                            </Space>
+                                android:layout_height="15sp"></Space>
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -128,8 +133,7 @@
 
                             <Space
                                 android:layout_width="match_parent"
-                                android:layout_height="10sp">
-                            </Space>
+                                android:layout_height="10sp"></Space>
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -152,8 +156,7 @@
 
                             <Space
                                 android:layout_width="match_parent"
-                                android:layout_height="10sp">
-                            </Space>
+                                android:layout_height="10sp"></Space>
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -172,21 +175,20 @@
                                     android:textSize="16sp"
                                     android:textStyle="bold" />
 
-<!--                                <androidx.appcompat.widget.AppCompatButton-->
-<!--                                    style="@style/Widget.AppCompat.Button.Borderless"-->
-<!--                                    android:layout_width="50dp"-->
-<!--                                    android:layout_height="50dp"-->
-<!--                                    android:layout_gravity="center_vertical"-->
-<!--                                    android:layout_marginStart="10sp"-->
-<!--                                    android:layout_marginEnd="26sp"-->
-<!--                                    android:background="@drawable/arrow_drop_down"-->
-<!--                                    tools:ignore="SpeakableTextPresentCheck" />-->
+                                <!--                                <androidx.appcompat.widget.AppCompatButton-->
+                                <!--                                    style="@style/Widget.AppCompat.Button.Borderless"-->
+                                <!--                                    android:layout_width="50dp"-->
+                                <!--                                    android:layout_height="50dp"-->
+                                <!--                                    android:layout_gravity="center_vertical"-->
+                                <!--                                    android:layout_marginStart="10sp"-->
+                                <!--                                    android:layout_marginEnd="26sp"-->
+                                <!--                                    android:background="@drawable/arrow_drop_down"-->
+                                <!--                                    tools:ignore="SpeakableTextPresentCheck" />-->
                             </LinearLayout>
 
                             <Space
                                 android:layout_width="match_parent"
-                                android:layout_height="10sp">
-                            </Space>
+                                android:layout_height="10sp"></Space>
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -200,6 +202,7 @@
                                     android:layout_marginStart="16sp"
                                     android:backgroundTint="@color/aqua"
                                     android:text="정보등록/수정"
+                                    android:onClick="@{()->viewModel.routeOmJoin()}"
                                     android:textColor="@color/white"
                                     android:textSize="16sp"
                                     android:textStyle="bold" />
@@ -209,8 +212,7 @@
 
                     <Space
                         android:layout_width="match_parent"
-                        android:layout_height="20sp">
-                    </Space>
+                        android:layout_height="20sp"></Space>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -244,17 +246,16 @@
 
                     <Space
                         android:layout_width="match_parent"
-                        android:layout_height="10sp">
-                    </Space>
+                        android:layout_height="10sp"></Space>
 
                     <LinearLayout
-                        android:elevation="3sp"
-                        android:layout_marginTop="5sp"
                         android:layout_width="match_parent"
                         android:layout_height="60sp"
                         android:layout_marginStart="26sp"
+                        android:layout_marginTop="5sp"
                         android:layout_marginEnd="26sp"
                         android:background="@drawable/layout_box_radius"
+                        android:elevation="3sp"
                         android:orientation="vertical">
 
                         <LinearLayout
@@ -266,13 +267,13 @@
                                 android:id="@+id/carLocation"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:gravity="center_vertical"
                                 android:layout_gravity="center"
                                 android:layout_marginStart="26sp"
-                                android:layout_marginEnd="26sp"
                                 android:layout_marginTop="3dp"
+                                android:layout_marginEnd="26sp"
                                 android:layout_marginBottom="3dp"
                                 android:layout_weight="1"
+                                android:gravity="center_vertical"
                                 android:text="@{viewModel.myLocation}"
                                 android:textColor="@color/dgray"
                                 android:textSize="14sp"
@@ -282,8 +283,7 @@
 
                     <Space
                         android:layout_width="match_parent"
-                        android:layout_height="20sp">
-                    </Space>
+                        android:layout_height="20sp"></Space>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -292,6 +292,7 @@
                         android:layout_marginEnd="26sp"
                         android:background="@drawable/layout_box"
                         android:orientation="vertical">
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -299,7 +300,7 @@
                             android:background="@drawable/layout_box"
                             android:elevation="3dp"
                             android:gravity="center"
-                            android:text="advertising"/>
+                            android:text="advertising" />
                     </LinearLayout>
 
                     <Space
