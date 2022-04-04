@@ -8,6 +8,7 @@
         <entry key="app/src/main/res/drawable/arrow_drop_down.xml" value="0.199" />
         <entry key="app/src/main/res/drawable/arrow_drop_down_2.xml" value="0.1655" />
         <entry key="app/src/main/res/drawable/arrow_right_24.xml" value="0.1775" />
+        <entry key="app/src/main/res/drawable/arrow_right_alt.xml" value="0.1855" />
         <entry key="app/src/main/res/drawable/bottomn_navi_color.xml" value="0.1655" />
         <entry key="app/src/main/res/drawable/bottomnavi_box.xml" value="0.1655" />
         <entry key="app/src/main/res/drawable/button_action_black.xml" value="0.1825" />
@@ -113,7 +114,7 @@
         <entry key="app/src/main/res/layout/fragment_pickup_manager_registration.xml" value="0.2111111111111111" />
         <entry key="app/src/main/res/layout/fragment_pickup_manager_settlement_request.xml" value="0.2111111111111111" />
         <entry key="app/src/main/res/layout/fragment_pm_blank.xml" value="0.18703703703703703" />
-        <entry key="app/src/main/res/layout/fragment_pm_home.xml" value="0.18703703703703703" />
+        <entry key="app/src/main/res/layout/fragment_pm_home.xml" value="0.375" />
         <entry key="app/src/main/res/layout/fragment_pm_pickup_list.xml" value="0.18703703703703703" />
         <entry key="app/src/main/res/layout/fragment_pm_pickup_status.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_pm_price_status.xml" value="0.28425925925925927" />
@@ -134,7 +135,7 @@
         <entry key="app/src/main/res/layout/fragment_washer_registration.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_washer_registration_price.xml" value="0.2111111111111111" />
         <entry key="app/src/main/res/layout/fragment_wm_blank.xml" value="0.18703703703703703" />
-        <entry key="app/src/main/res/layout/fragment_wm_home.xml" value="0.18703703703703703" />
+        <entry key="app/src/main/res/layout/fragment_wm_home.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_wm_order_list.xml" value="0.18703703703703703" />
         <entry key="app/src/main/res/layout/fragment_wm_order_status.xml" value="0.18703703703703703" />
         <entry key="app/src/main/res/layout/fragment_wm_payment.xml" value="0.18703703703703703" />

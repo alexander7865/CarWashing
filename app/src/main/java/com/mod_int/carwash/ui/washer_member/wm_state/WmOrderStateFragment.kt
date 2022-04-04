@@ -38,7 +38,7 @@ class WmOrderStateFragment : BaseFragment<FragmentWmOrderStatusBinding>(
         //디테일 페이지에서 리스트로 돌아가게 되었을시 리프레쉬가 안됩니다. notifyDataSetChanged() 없어서 그런듯 합니다
         //일단 그전 페이지 이동은 이렇게 해놨습니다. 상관이 없을듯 합니다.
         binding.btnBackToOrderList.setOnClickListener {
-            wmActivity.goListOrderWasher()
+
         }
 
         binding.tvPhoneNumber.setOnClickListener {

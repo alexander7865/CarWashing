@@ -49,3 +49,16 @@ fun Fragment.showSpinner(
     spinner.adapter = brandAdapter
     return spinner
 }
+
+fun Fragment.showOwnerSpinner(
+    spinner: Spinner,
+    resourceList: Array<String>
+): Spinner {
+    val brandAdapter = ArrayAdapter(
+        requireContext(),
+        R.layout.custom_owner_spinner, resourceList
+    )
+
+    spinner.adapter = brandAdapter
+    return spinner
+}

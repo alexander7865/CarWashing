@@ -7,6 +7,7 @@
     </data>
 
     <FrameLayout
+        android:id="@+id/container_pm_home"
         android:background="@color/white"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -61,7 +62,7 @@
                         android:elevation="3sp"
                         android:layout_marginTop="5sp"
                         android:layout_width="match_parent"
-                        android:layout_height="310sp"
+                        android:layout_height="305sp"
                         android:layout_marginStart="26sp"
                         android:layout_marginEnd="26sp"
                         android:layout_gravity="center_horizontal"
@@ -316,16 +317,152 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="120sp"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="26sp"
                         android:layout_marginEnd="26sp"
                         android:background="@drawable/layout_box"
                         android:orientation="vertical">
-                        <TextView
+
+                        <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:text="advertising"/>
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/dgray"
+                                android:text="2022.02.02"
+                                android:textSize="26sp" />
+
+                            <Space
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"></Space>
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10sp"
+                                android:background="@drawable/weather_sunny" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="15sp"
+                                android:text="7.7"
+                                android:textColor="@color/dgray"
+                                android:textSize="26sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="top"
+                                android:layout_marginStart="5sp"
+                                android:layout_marginTop="5sp"
+                                android:text="o"
+                                android:textColor="@color/dgray"
+                                android:textSize="10sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="1sp"
+                                android:text="C"
+                                android:textColor="@color/dgray"
+                                android:textSize="26sp" />
+                        </LinearLayout>
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="10sp"></Space>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:elevation="3dp"
+                                android:text="픽업/탁송하고 수익을 얻어보세요!"
+                                android:textColor="@color/dgray"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="10sp"></Space>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="125sp"
+                                android:layout_height="wrap_content"
+                                android:elevation="3dp"
+                                android:text="추천 카페/맛집"
+                                android:textColor="@color/dgray"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10sp"
+                                android:layout_weight="1"
+                                android:elevation="3dp"
+                                android:ellipsize="end"
+                                android:text="미사리 나인블럭"
+                                android:textColor="@color/dgray"/>
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/arrow_right_alt" />
+                        </LinearLayout>
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="8sp"></Space>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="125sp"
+                                android:layout_height="wrap_content"
+                                android:elevation="3dp"
+                                android:text="오늘의 드라이브코스"
+                                android:textColor="@color/dgray"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10sp"
+                                android:layout_weight="1"
+                                android:elevation="3dp"
+                                android:ellipsize="end"
+                                android:text="북한산 둘레길"
+                                android:textColor="@color/dgray"/>
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/arrow_right_alt" />
+                        </LinearLayout>
+
                     </LinearLayout>
 
                     <Space

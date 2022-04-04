@@ -34,7 +34,7 @@ class OmActivity : BaseActivity<ActivityOmBinding>(R.layout.activity_om) {
     private val omViewModel by viewModels<OmViewModel>()
     private val tabConfigurationStrategy =
         TabLayoutMediator.TabConfigurationStrategy { tab, position ->
-            tab.text = resources.getStringArray(R.array.array_content)[position]
+            tab.text = resources.getStringArray(R.array.array_om)[position]
         }
 
     override fun onCreate(savedInstanceState: Bundle?) {

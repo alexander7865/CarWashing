@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <array name="array_content">
+    <array name="array_om">
         <item>차주 홈</item>
         <item>세차현황</item>
         <item>관리현황</item>

@@ -3,7 +3,5 @@
     <string-array name="carModelSelect">
         <item>선택</item>
         <item>GLC220</item>
-
-
     </string-array>
 </resources>

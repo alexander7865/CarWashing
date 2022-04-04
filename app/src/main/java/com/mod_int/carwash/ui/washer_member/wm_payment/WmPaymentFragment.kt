@@ -27,7 +27,7 @@ class WmPaymentFragment : BaseFragment<FragmentWmPaymentBinding>(R.layout.fragme
         super.onViewCreated(view, savedInstanceState)
 
         binding.BtnBackToRegistration.setOnClickListener {
-            wmActivity.backStep()
+
         }
     }
 }

@@ -1,7 +1,8 @@
 package com.mod_int.carwash.ui.washer_member.wm_home
 
-import android.content.Context
+import android.content.Intent
 import android.graphics.Color
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
@@ -10,43 +11,62 @@ import androidx.fragment.app.viewModels
 import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseFragment
 import com.mod_int.carwash.databinding.FragmentWmHomeBinding
-import com.mod_int.carwash.ui.pickup_member.pm_state.PmPickupStateViewModel
-import com.mod_int.carwash.ui.washer_member.wm_activity.WmActivity
+import com.mod_int.carwash.ui.washer_member.wm_payment.WmPaymentFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class WmHomeFragment : BaseFragment<FragmentWmHomeBinding>(R.layout.fragment_wm_home) {
-
     private val wmHomeViewModel by viewModels<WmHomeViewModel>()
-    lateinit var wmActivity: WmActivity
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        if(context is WmActivity) wmActivity = context
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         workSelect()
+        initUi()
+        initViewModel()
 
-        //픽업/탁송비용 정산
-        binding.btnPaymentWahser.setOnClickListener {
-            wmActivity.paymentWasher()
-//            val toastCenter = Toast.makeText(washerActivity,"픽업/탁송 비용을 정산하세요", Toast.LENGTH_SHORT)
-//            toastCenter.setGravity(Gravity.CENTER,0,0)
-//            toastCenter.show()
+    }
+
+    private fun initUi() {
+        wmHomeViewModel.wmHomeInfo()
+
+    }
+
+    private fun initViewModel() {
+        binding.viewModel = wmHomeViewModel
+        wmHomeViewModel.viewStateLiveData.observe(viewLifecycleOwner) { viewState ->
+            (viewState as? WmHomeViewState)?.let {
+                onChangedWmHomeViewState(
+                    viewState
+                )
+            }
+        }
+    }
+
+    private fun onChangedWmHomeViewState(viewState: WmHomeViewState) {
+        when (viewState) {
+            is WmHomeViewState.RoutePayment -> {
+                routePayment()
+            }
+            is WmHomeViewState.RouteWebViewSuggestWm1 -> {
+                routeWebViewSuggestWm1()
+            }
+            is WmHomeViewState.RouteWebViewSuggestWm2 -> {
+                routeWebViewSuggestWm2()
+            }
         }
     }
 
     //스피너
     private fun workSelect() {
         val brand = resources.getStringArray(R.array.workSettingSelect)
-        val brandAdapter = ArrayAdapter (requireContext(),
-            R.layout.custom_washer_spinner, brand)
+        val brandAdapter = ArrayAdapter(
+            requireContext(),
+            R.layout.custom_washer_spinner, brand
+        )
 
-        with(binding){
+        with(binding) {
             workSetting.adapter = brandAdapter
-            workSetting.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            workSetting.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(
                     parent: AdapterView<*>?,
                     view: View?,
@@ -61,5 +81,21 @@ class WmHomeFragment : BaseFragment<FragmentWmHomeBinding>(R.layout.fragment_wm_
                 }
             }
         }
+    }
+
+    private fun routePayment() {
+        parentFragmentManager.beginTransaction().add(R.id.container_wm_home, WmPaymentFragment())
+            .addToBackStack("WmPaymentFragment")
+            .commit()
+    }
+
+    private fun routeWebViewSuggestWm1() {
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.9block.co.kr"))
+        view?.context?.startActivity(intent)
+    }
+
+    private fun routeWebViewSuggestWm2() {
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://gil.seoul.go.kr/walk/main.jsp"))
+        view?.context?.startActivity(intent)
     }
 }

@@ -58,10 +58,7 @@ class OmJoinFragment : BaseFragment<FragmentOmJoinBinding>(R.layout.fragment_om_
         }
     }
 
-
-    //브랜드별 차량 종류를 구현하려 하는데 사실 무식하게 하면 할 수 있을꺼 같은데 더 좋은 방법이 있을까요? ㅋㅋㅋ
-    //관리자 페이지 만들어서 새로운 모델 변경된 모델이 나오면 변경해주는 방식으로 진행하려합니다
-    //스피너를 뷰모델로 옮기고 싶은데 잘 안되네요
+    //스피너 브랜드셀렉
     private fun brandSelect() {
         val brand = resources.getStringArray(R.array.carBrandSelect)
         val brandAdapter = ArrayAdapter(
@@ -73,6 +70,7 @@ class OmJoinFragment : BaseFragment<FragmentOmJoinBinding>(R.layout.fragment_om_
             spCarBrand.adapter = brandAdapter
             spCarBrand.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 @SuppressLint("ResourceAsColor")
+
                 override fun onItemSelected(
                     parent: AdapterView<*>?,
                     view: View?,
@@ -93,7 +91,7 @@ class OmJoinFragment : BaseFragment<FragmentOmJoinBinding>(R.layout.fragment_om_
         }
     }
 
-    //스피너
+    //스피너 모델셀렉
     private fun modelSelect() {
         val model = resources.getStringArray(R.array.carModelSelect)
         val modelAdapter = ArrayAdapter(
@@ -112,7 +110,7 @@ class OmJoinFragment : BaseFragment<FragmentOmJoinBinding>(R.layout.fragment_om_
                 ) {
                     if (position > 0) {
                         var selected = model[position]
-                        carModel.text = selected
+                        omJoinViewModel.inputCarModelObservableField.set(selected)
                         showToast(message = "${model[position]}가 선택되었습니다.")
                     }
                 }
@@ -124,11 +122,9 @@ class OmJoinFragment : BaseFragment<FragmentOmJoinBinding>(R.layout.fragment_om_
         }
     }
 
-    //비활성화가 되어야하는데 어떻게 코드를 만들까용?
     private fun enableSetting(isEnable: Boolean) {
         with(binding){
             etCarNum.isEnabled = isEnable
-            carModel.isEnabled = isEnable
             tvCarKinds.isEnabled = isEnable
             tvCarSize.isEnabled = isEnable
             etCarCol.isEnabled = isEnable

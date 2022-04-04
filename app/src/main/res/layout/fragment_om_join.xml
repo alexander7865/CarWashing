@@ -118,7 +118,6 @@
                                 android:maxLength="8"
                                 android:maxLines="1"
                                 android:textSize="16sp"
-                                android:textColor="@color/dgray"
                                 android:inputType="text"
                                 android:imeOptions="actionNext"/>
 
@@ -139,9 +138,10 @@
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
 
-                            <Spinner
+                            <androidx.appcompat.widget.AppCompatSpinner
                                 android:id="@+id/spCarBrand"
                                 android:background="@drawable/layout_box_stroke"
+                                android:popupBackground="@drawable/layout_box"
                                 android:layout_width="match_parent"
                                 android:layout_height="40sp"
                                 android:paddingTop="5sp"
@@ -168,9 +168,10 @@
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
 
-                            <Spinner
+                            <androidx.appcompat.widget.AppCompatSpinner
                                 android:id="@+id/spCarModel"
                                 android:background="@drawable/layout_box_stroke"
+                                android:popupBackground="@drawable/layout_box"
                                 android:layout_width="match_parent"
                                 android:layout_height="40sp"
                                 android:paddingTop="5sp"
@@ -209,7 +210,6 @@
                                 android:hint="SUV"
                                 android:background="@drawable/layout_box_color_stroke"
                                 android:gravity="center_vertical"
-                                android:textColor="@color/dgray"
                                 android:textSize="16sp" />
 
                         </LinearLayout>
@@ -241,7 +241,6 @@
                                 android:hint="준중형"
                                 android:background="@drawable/layout_box_color_stroke"
                                 android:gravity="center_vertical"
-                                android:textColor="@color/dgray"
                                 android:textSize="16sp"/>
 
                         </LinearLayout>
@@ -276,7 +275,6 @@
                                 android:ellipsize="end"
                                 android:text="@={viewModel.inputCarColor}"
                                 android:hint="BLACK"
-                                android:textColor="@color/dgray"
                                 android:textSize="16sp"
                                 android:inputType="textCapWords"
                                 android:gravity="center_vertical"
@@ -338,13 +336,12 @@
                         </Space>
 
                         <LinearLayout
-                            android:elevation="3sp"
                             android:layout_marginTop="5sp"
                             android:layout_width="match_parent"
                             android:layout_height="60sp"
                             android:layout_marginStart="26sp"
                             android:layout_marginEnd="26sp"
-                            android:background="@drawable/layout_box_radius"
+                            android:background="@drawable/layout_box_radius_stroke"
                             android:orientation="vertical">
 
                             <LinearLayout
@@ -361,7 +358,7 @@
                                     android:id="@+id/btnCarLocation"
                                     android:layout_width="47sp"
                                     android:layout_height="47sp"
-                                    android:layout_marginEnd="5sp"
+                                    android:layout_marginEnd="8sp"
                                     android:layout_marginStart="16sp"
                                     android:layout_gravity="center_vertical"
                                     android:background="@drawable/search_icon" />
@@ -381,14 +378,6 @@
                             android:layout_marginEnd="26sp"
                             android:hint="차량 위치를 등록하세요!"
                             android:padding="10sp">
-                        </TextView>
-                        <TextView
-                            android:id="@+id/carModel"
-                            android:visibility="gone"
-                            android:text="@={viewModel.inputCarModel}"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:hint="GLC220">
                         </TextView>
 
                         <Space

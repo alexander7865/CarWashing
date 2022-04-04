@@ -3,10 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <variable
+            name="viewModel"
+            type="com.mod_int.carwash.ui.washer_member.wm_home.WmHomeViewModel" />
 
     </data>
 
     <FrameLayout
+        android:id="@+id/container_wm_home"
         android:background="@color/white"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -58,14 +62,13 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
                     <LinearLayout
-                        android:elevation="3sp"
                         android:layout_marginTop="5sp"
                         android:layout_width="match_parent"
-                        android:layout_height="310sp"
+                        android:layout_height="305sp"
                         android:layout_marginStart="26sp"
                         android:layout_marginEnd="26sp"
                         android:layout_gravity="center_horizontal"
-                        android:background="@drawable/layout_box"
+                        android:background="@drawable/layout_box_stroke"
                         android:orientation="vertical">
 
                         <Space
@@ -108,7 +111,7 @@
                                     android:layout_width="120sp"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="16sp"
-                                    android:text="2022.02.02"
+                                    android:text="@{viewModel.nowDate}"
                                     android:textSize="16sp"
                                     android:textStyle="bold"
                                     android:textColor="@color/dgray" />
@@ -139,7 +142,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="10sp"
-                                    android:text="12건"
+                                    android:text="@{viewModel.count}"
                                     android:textSize="16sp"
                                     android:textStyle="bold"
                                     android:textColor="@color/dgray" />
@@ -148,7 +151,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="16sp"
-                                    android:text="360000원"
+                                    android:text="@{viewModel.account}"
                                     android:textStyle="bold"
                                     android:textSize="16sp"
                                     android:textColor="@color/dgray" />
@@ -176,7 +179,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="10sp"
-                                    android:text="100점"
+                                    android:text="@{viewModel.washerPoint}"
                                     android:textStyle="bold"
                                     android:textSize="16sp"
                                     android:textColor="@color/dgray" />
@@ -232,6 +235,7 @@
                                     android:layout_marginStart="16sp"
                                     android:textColor="@color/white"
                                     android:text="픽업/탁송비용 정산하기"
+                                    android:onClick="@{() -> viewModel.routePayment()}"
                                     android:backgroundTint="@color/aqua"
                                     android:textSize="16sp"
                                     android:textStyle="bold" />
@@ -280,13 +284,12 @@
                     </Space>
 
                     <LinearLayout
-                        android:elevation="3sp"
-                        android:layout_marginTop="5sp"
                         android:layout_width="match_parent"
                         android:layout_height="60sp"
                         android:layout_marginStart="26sp"
+                        android:layout_marginTop="5sp"
                         android:layout_marginEnd="26sp"
-                        android:background="@drawable/layout_box_radius"
+                        android:background="@drawable/layout_box_radius_stroke"
                         android:orientation="vertical">
 
                         <LinearLayout
@@ -296,37 +299,176 @@
 
                             <TextView
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_height="match_parent"
                                 android:layout_gravity="center"
-                                android:layout_marginStart="16sp"
-                                android:layout_marginEnd="16sp"
+                                android:layout_marginStart="26sp"
                                 android:layout_marginTop="3dp"
+                                android:layout_marginEnd="26sp"
                                 android:layout_marginBottom="3dp"
                                 android:layout_weight="1"
-                                android:hint="서울시 강남구 신사동 502 엠아이타워 빌딩 주차장"
+                                android:gravity="center_vertical"
+                                android:text="@{viewModel.washerLocation}"
                                 android:textSize="14sp"
-                                android:textStyle="bold"
-                                android:textColor="@color/dgray" />
+                                android:textStyle="bold" />
                         </LinearLayout>
                     </LinearLayout>
                     <Space
                         android:layout_width="match_parent"
                         android:layout_height="20sp">
                     </Space>
-
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="120sp"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="26sp"
                         android:layout_marginEnd="26sp"
                         android:background="@drawable/layout_box"
                         android:orientation="vertical">
-                        <TextView
+
+                        <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:text="advertising"/>
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/dgray"
+                                android:text="2022.02.02"
+                                android:textSize="26sp" />
+
+                            <Space
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"></Space>
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10sp"
+                                android:background="@drawable/weather_sunny" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="15sp"
+                                android:text="7.7"
+                                android:textColor="@color/dgray"
+                                android:textSize="26sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="top"
+                                android:layout_marginStart="5sp"
+                                android:layout_marginTop="5sp"
+                                android:text="o"
+                                android:textColor="@color/dgray"
+                                android:textSize="10sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="1sp"
+                                android:text="C"
+                                android:textColor="@color/dgray"
+                                android:textSize="26sp" />
+                        </LinearLayout>
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="10sp"></Space>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:elevation="3dp"
+                                android:text="오늘도 수고해주세요!"
+                                android:textColor="@color/dgray"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="10sp"></Space>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="125sp"
+                                android:layout_height="wrap_content"
+                                android:elevation="3dp"
+                                android:text="추천 카페/맛집"
+                                android:textColor="@color/dgray"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10sp"
+                                android:layout_weight="1"
+                                android:elevation="3dp"
+                                android:ellipsize="end"
+                                android:text="미사리 나인블럭"
+                                android:textColor="@color/dgray"/>
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:onClick="@{() -> viewModel.routeWebViewSuggestWm1()}"
+                                android:background="@drawable/arrow_right_alt" />
+                        </LinearLayout>
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="8sp"></Space>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="125sp"
+                                android:layout_height="wrap_content"
+                                android:elevation="3dp"
+                                android:text="오늘의 드라이브코스"
+                                android:textColor="@color/dgray"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10sp"
+                                android:layout_weight="1"
+                                android:elevation="3dp"
+                                android:ellipsize="end"
+                                android:text="북한산 둘레길"
+                                android:textColor="@color/dgray"/>
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:onClick="@{() -> viewModel.routeWebViewSuggestWm2()}"
+                                android:background="@drawable/arrow_right_alt" />
+                        </LinearLayout>
+
                     </LinearLayout>
+
+
 
                     <Space
                         android:layout_width="match_parent"

@@ -8,8 +8,9 @@ sealed class OmHomeViewState : ViewState {
     data class ChangeCarInfo(val carInfo : String) : OmHomeViewState()
     object ChangeCarLocation : OmHomeViewState()
 
-
     object RouteOmJoin : OmHomeViewState()
+    object RouteWebViewSuggestOm1 : OmHomeViewState()
+    object RouteWebViewSuggestOm2 : OmHomeViewState()
 }
 
 

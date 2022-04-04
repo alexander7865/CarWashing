@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="array_wm">
+        <item>워셔 홈</item>
+        <item>정보등록</item>
+        <item>단가등록</item>
+        <item>작업현황</item>
+    </array>
+</resources>

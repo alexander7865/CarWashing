@@ -9,6 +9,5 @@
     android:paddingEnd="10sp"
     android:textSize="18sp"
     android:textStyle="bold"
-    android:gravity="center_horizontal"
-    android:textColor="@color/dgray">
+    android:gravity="center_horizontal">
 </TextView>

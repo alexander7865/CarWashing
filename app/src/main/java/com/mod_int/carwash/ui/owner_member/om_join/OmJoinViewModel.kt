@@ -17,9 +17,10 @@ class OmJoinViewModel @Inject constructor(
     private val firebaseRepository: FirebaseRepository
 ) : BaseViewModel(app) {
     val inputCarNumber = MutableLiveData("")
-    val inputCarModel = MutableLiveData("")
-    val inputCarColor = MutableLiveData("")
     val inputCarBrandObservableField = ObservableField("")
+    val inputCarModelObservableField = ObservableField("")
+    val inputCarColor = MutableLiveData("")
+
 
     fun omSaveInfo() {
         ioScope {
@@ -52,7 +53,7 @@ class OmJoinViewModel @Inject constructor(
         }
     }
 
-    fun routeBackStep(){
+    fun routeBackStep() {
         viewStateChanged(OmJoinViewState.BackStep)
     }
 
@@ -66,7 +67,9 @@ class OmJoinViewModel @Inject constructor(
             carColInputCheck
         ) {
             OwnerInfo(
-                inputCarNumber.value!!, inputCarBrandObservableField.get()!!, inputCarModel.value!!,
+                inputCarNumber.value!!,
+                inputCarBrandObservableField.get()!!,
+                inputCarModelObservableField.get()!!,
                 inputCarColor.value!!
             )
         } else {
@@ -97,7 +100,7 @@ class OmJoinViewModel @Inject constructor(
 
     private fun carModelInputCheck(): Boolean {
         return when {
-            inputCarModel.value?.isEmpty() == true -> {
+            inputCarModelObservableField.get()?.isEmpty() == true -> {
                 viewStateChanged(OmJoinViewState.ErrorMsg(message = "모델명을 선택하세요."))
                 false
             }
@@ -141,7 +144,7 @@ class OmJoinViewModel @Inject constructor(
 //                        }
 //                    }
 
-//해쉬맵 형태로 가지고 올때 피요함
+//해쉬맵 형태로 가지고 올때 필요함
 //fun HashMap<String, String>.toOwnerInfo(): OwnerInfo =
 //    OwnerInfo(
 //        carNumber = getValue("carNumber"),

@@ -3,7 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="viewModel"
+            type="com.mod_int.carwash.ui.owner_member.om_state.OmOrderStateViewModel" />
     </data>
 
     <FrameLayout
@@ -82,7 +84,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
                             android:layout_marginStart="26sp"
-                            android:text="2022.02.02"
+                            android:text="@{viewModel.date}"
                             android:textSize="16sp"
                             android:textStyle="bold"
                             android:textColor="@color/dgray" />
@@ -429,12 +431,12 @@
                                 android:textStyle="bold" />
 
                             <TextView
-                                android:id="@+id/tv_phone_number_owner"
+                                style="@style/Widget.AppCompat.Button.Borderless"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_height="25sp"
                                 android:layout_gravity="center_vertical"
                                 android:layout_marginStart="5sp"
-                                android:text="010-1234-1234"
+                                android:onClick="@{()->viewModel.washerMemberPhoneNr()}"
                                 android:textColor="@color/dgray"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
@@ -461,11 +463,12 @@
                                 android:textSize="16sp"
                                 android:textStyle="bold"
                                 android:textColor="@color/dgray" />
-                            <Spinner
+                            <androidx.appcompat.widget.AppCompatSpinner
                                 android:id="@+id/washingPoint"
                                 android:layout_width="120sp"
                                 android:layout_height="40dp"
                                 android:paddingTop="5sp"
+                                android:popupBackground="@drawable/layout_box"
                                 android:background="@drawable/layout_box_stroke"
                                 android:textSize="20sp"
                                 android:textStyle="bold"
@@ -491,11 +494,12 @@
                                 android:textSize="16sp"
                                 android:textStyle="bold"
                                 android:textColor="@color/dgray" />
-                            <Spinner
+                            <androidx.appcompat.widget.AppCompatSpinner
                                 android:id="@+id/pickupPoint"
                                 android:layout_width="120sp"
                                 android:layout_height="40dp"
                                 android:paddingTop="5sp"
+                                android:popupBackground="@drawable/layout_box"
                                 android:background="@drawable/layout_box_stroke"
                                 android:textSize="20sp"
                                 android:textStyle="bold"
@@ -524,6 +528,7 @@
                             android:textColor="@color/white"
                             android:layout_weight="1"
                             android:text="확인하기"
+                            android:onClick="@{()->viewModel.routeHistory()}"
                             android:background="@drawable/button_action_lorange"
                             android:textSize="18sp"
                             android:textStyle="bold" />
