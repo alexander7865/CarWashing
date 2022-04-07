@@ -312,7 +312,7 @@
                     </LinearLayout>
                     <Space
                         android:layout_width="match_parent"
-                        android:layout_height="20sp">
+                        android:layout_height="35sp">
                     </Space>
 
                     <LinearLayout
@@ -372,27 +372,6 @@
                                 android:text="C"
                                 android:textColor="@color/dgray"
                                 android:textSize="26sp" />
-                        </LinearLayout>
-
-                        <Space
-                            android:layout_width="match_parent"
-                            android:layout_height="10sp"></Space>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_vertical"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:elevation="3dp"
-                                android:text="픽업/탁송하고 수익을 얻어보세요!"
-                                android:textColor="@color/dgray"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
-
                         </LinearLayout>
 
                         <Space

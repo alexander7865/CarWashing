@@ -2,5 +2,8 @@ package com.mod_int.carwash.ui.washer_member.wm_price
 
 import com.mod_int.carwash.base.ViewState
 
-class WmRegistrationPriceViewState : ViewState {
+sealed class WmRegistrationPriceViewState : ViewState {
+    object PriceInfoSave : WmRegistrationPriceViewState()
+    data class ErrorMsg(val message: String) : WmRegistrationPriceViewState()
+    data class EnableInput(val isEnable : Boolean) : WmRegistrationPriceViewState()
 }

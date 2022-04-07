@@ -38,20 +38,8 @@ class OmHomeFragment : BaseFragment<FragmentOmHomeBinding>(R.layout.fragment_om_
 
     private fun onChangedHomeViewState(viewState: ViewState){
         when(viewState) {
-            is OmHomeViewState.ChangeDate -> {
-
-            }
-
-            is OmHomeViewState.ChangePhoneNr -> {
-
-            }
-
-            is OmHomeViewState.ChangeCarInfo -> {
-
-            }
-
-            is OmHomeViewState.ChangeCarLocation -> {
-
+            is OmHomeViewState.ChangeInfo -> {
+                omHomeViewModel.omHomeInfo()
             }
 
             is OmHomeViewState.RouteOmJoin -> {

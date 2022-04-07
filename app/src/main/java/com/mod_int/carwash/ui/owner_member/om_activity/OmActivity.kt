@@ -75,6 +75,7 @@ class OmActivity : BaseActivity<ActivityOmBinding>(R.layout.activity_om) {
     }
 
     private fun onChangedOmViewState(viewState: OmViewState) {
+
     }
 
     companion object {
@@ -90,7 +91,6 @@ class FragmentPagerAdapter(
     FragmentStateAdapter(fragmentActivity) {
     override fun getItemCount() = fragmentList.size
     override fun createFragment(position: Int) = fragmentList[position]
-
 }
 
 

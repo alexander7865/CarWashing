@@ -125,6 +125,8 @@ class OmJoinFragment : BaseFragment<FragmentOmJoinBinding>(R.layout.fragment_om_
     private fun enableSetting(isEnable: Boolean) {
         with(binding){
             etCarNum.isEnabled = isEnable
+            spCarBrand.isEnabled = isEnable
+            spCarModel.isEnabled = isEnable
             tvCarKinds.isEnabled = isEnable
             tvCarSize.isEnabled = isEnable
             etCarCol.isEnabled = isEnable

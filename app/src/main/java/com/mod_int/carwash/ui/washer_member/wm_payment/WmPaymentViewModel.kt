@@ -11,4 +11,9 @@ class WmPaymentViewModel @Inject constructor(
     app: Application,
     private val firebaseRepository: FirebaseRepository
 ) : BaseViewModel(app) {
+
+
+    fun routeBackStep() {
+        viewStateChanged(WmPaymentViewState.RouteBackStep)
+    }
 }

@@ -271,7 +271,7 @@
 
                     <Space
                         android:layout_width="match_parent"
-                        android:layout_height="20sp"></Space>
+                        android:layout_height="35sp"></Space>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -331,28 +331,6 @@
                                 android:textColor="@color/dgray"
                                 android:textSize="26sp" />
                         </LinearLayout>
-
-                        <Space
-                            android:layout_width="match_parent"
-                            android:layout_height="10sp"></Space>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_vertical"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:elevation="3dp"
-                                android:text="픽업세차하고 여유를 즐기세요!"
-                                android:textColor="@color/dgray"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
-
-                        </LinearLayout>
-
                         <Space
                             android:layout_width="match_parent"
                             android:layout_height="10sp"></Space>

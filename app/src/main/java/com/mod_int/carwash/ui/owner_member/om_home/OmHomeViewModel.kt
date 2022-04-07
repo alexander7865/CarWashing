@@ -48,6 +48,8 @@ class OmHomeViewModel @Inject constructor(
                                         "${(document.get("carSize") as String?).orEmpty()} " +
                                         (document.get("carColor") as String?).orEmpty()
                             )
+                            viewStateChanged(OmHomeViewState.ChangeInfo)
+
                         }
                     }
                 }

@@ -21,13 +21,12 @@ class OmJoinViewModel @Inject constructor(
     val inputCarModelObservableField = ObservableField("")
     val inputCarColor = MutableLiveData("")
 
-
     fun omSaveInfo() {
         ioScope {
             val carNumInputCheck = async { carNumInputCheck() }
             val carBrandInputCheck = async { carBrandInputCheck() }
             val carModelInputCheck = async { carModelInputCheck() }
-            val carColInputCheck = async { etCarColInputCheck() }
+            val carColInputCheck = async { carColInputCheck() }
             checkInfo(
                 carNumInputCheck.await(),
                 carBrandInputCheck.await(),
@@ -63,8 +62,10 @@ class OmJoinViewModel @Inject constructor(
         carModelInputCheck: Boolean,
         carColInputCheck: Boolean
     ): OwnerInfo? {
-        return if (carNumInputCheck && carBrandInputCheck && carModelInputCheck &&
-            carColInputCheck
+        return if (carNumInputCheck
+            && carBrandInputCheck
+            && carModelInputCheck
+            && carColInputCheck
         ) {
             OwnerInfo(
                 inputCarNumber.value!!,
@@ -108,7 +109,7 @@ class OmJoinViewModel @Inject constructor(
         }
     }
 
-    private fun etCarColInputCheck(): Boolean {
+    private fun carColInputCheck(): Boolean {
         return when {
             inputCarColor.value?.isEmpty() == true -> {
                 viewStateChanged(OmJoinViewState.ErrorMsg(message = "차량색상을 입력하세요"))

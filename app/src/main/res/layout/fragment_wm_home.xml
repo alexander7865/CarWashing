@@ -202,16 +202,15 @@
                                     android:background="@drawable/schedule_send"/>
 
                                 <!--  커스텀 스피너는 코드상으로 구현해야함-->
-                                <Spinner
+                                <androidx.appcompat.widget.AppCompatSpinner
                                     android:id="@+id/workSetting"
                                     android:layout_width="wrap_content"
                                     android:layout_height="40dp"
                                     android:layout_marginTop="3sp"
                                     android:gravity="center_horizontal"
+                                    android:popupBackground="@drawable/layout_box"
                                     android:background="@drawable/custom_background_spinner_white"
-                                    android:textSize="20sp"
-                                    android:textStyle="bold"
-                                    android:textColor="@color/dgray" />
+                                    android:textSize="18sp"/>
 
 
                             </LinearLayout>
@@ -314,7 +313,7 @@
                     </LinearLayout>
                     <Space
                         android:layout_width="match_parent"
-                        android:layout_height="20sp">
+                        android:layout_height="35sp">
                     </Space>
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -374,28 +373,6 @@
                                 android:textColor="@color/dgray"
                                 android:textSize="26sp" />
                         </LinearLayout>
-
-                        <Space
-                            android:layout_width="match_parent"
-                            android:layout_height="10sp"></Space>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_vertical"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:elevation="3dp"
-                                android:text="오늘도 수고해주세요!"
-                                android:textColor="@color/dgray"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
-
-                        </LinearLayout>
-
                         <Space
                             android:layout_width="match_parent"
                             android:layout_height="10sp"></Space>

@@ -3,7 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="viewModel"
+            type="com.mod_int.carwash.ui.washer_member.wm_registration.WmRegistrationViewModel" />
     </data>
 
     <FrameLayout
@@ -104,6 +106,7 @@
                                 android:layout_marginBottom="5sp"
                                 android:layout_weight="1"
                                 android:ellipsize="end"
+                                android:text="@={viewModel.wmAccountName}"
                                 android:hint="홍길동"
                                 android:maxLength="8"
                                 android:maxLines="1"
@@ -128,9 +131,10 @@
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
 
-                            <Spinner
+                            <androidx.appcompat.widget.AppCompatSpinner
                                 android:id="@+id/bank_name"
                                 android:background="@drawable/layout_box_stroke"
+                                android:popupBackground="@drawable/layout_box"
                                 android:layout_width="match_parent"
                                 android:layout_height="40sp"
                                 android:paddingTop="5sp"
@@ -171,7 +175,7 @@
                                 android:layout_weight="1"
                                 android:ellipsize="end"
                                 android:hint="0000000000000"
-                                android:maxLength="8"
+                                android:text="@={viewModel.wmAccountNr}"
                                 android:maxLines="1"
                                 android:textSize="16sp"
                                 android:inputType="number"
@@ -183,6 +187,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="20sp"></Space>
 
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -193,12 +198,11 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="26sp"
-                                android:text="010-1234-1234"
+                                android:text="@={viewModel.wmPhoneNr}"
                                 android:textColor="@color/dgray"
                                 android:textSize="18sp"
                                 android:textStyle="bold" />
                         </LinearLayout>
-
 
                         <Space
                             android:layout_width="match_parent"
@@ -375,9 +379,14 @@
 
                         <TextView
                             android:layout_width="match_parent"
-                            android:layout_height="50dp"
+                            android:layout_height="60dp"
+                            android:paddingTop="5sp"
+                            android:paddingBottom="5sp"
+                            android:paddingStart="15sp"
+                            android:paddingEnd="15sp"
                             android:layout_marginStart="26sp"
-                            android:layout_marginEnd="26sp">
+                            android:layout_marginEnd="26sp"
+                            android:text="@={viewModel.wmLocation}">
                         </TextView>
 
                         <Space
@@ -413,6 +422,7 @@
                                 android:layout_weight="1"
                                 android:background="@drawable/button_action_lorange"
                                 android:text="등록하기"
+                                android:onClick="@{()->viewModel.saveInfoWasher()}"
                                 android:textColor="@color/white"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />

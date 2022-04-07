@@ -49,6 +49,7 @@
         <entry key="app/src/main/res/drawable/recyclerview_radius_washer_pickup.xml" value="0.1775" />
         <entry key="app/src/main/res/drawable/search_icon.xml" value="0.1655" />
         <entry key="app/src/main/res/drawable/tab_select.xml" value="0.1765" />
+        <entry key="app/src/main/res/drawable/weather_cloud.xml" value="0.1855" />
         <entry key="app/src/main/res/drawable/weather_sunny.xml" value="0.1855" />
         <entry key="app/src/main/res/drawable/workspace_premium.xml" value="0.1825" />
         <entry key="app/src/main/res/layout-w1240dp/activity_login.xml" value="0.335" />
@@ -139,7 +140,7 @@
         <entry key="app/src/main/res/layout/fragment_wm_order_list.xml" value="0.18703703703703703" />
         <entry key="app/src/main/res/layout/fragment_wm_order_status.xml" value="0.18703703703703703" />
         <entry key="app/src/main/res/layout/fragment_wm_payment.xml" value="0.18703703703703703" />
-        <entry key="app/src/main/res/layout/fragment_wm_registration.xml" value="0.18703703703703703" />
+        <entry key="app/src/main/res/layout/fragment_wm_registration.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_wm_registration_price.xml" value="0.18703703703703703" />
         <entry key="app/src/main/res/layout/item_history.xml" value="0.275" />
         <entry key="app/src/main/res/layout/item_list.xml" value="0.335" />

@@ -28,8 +28,7 @@ class OmOrderStateFragment : BaseFragment<FragmentOmOrderStatusBinding>(
         initUi()
         initViewModel()
 
-        //상황 데이터 받는내용 코팅해야함 (데이터 받는 방법 스터디해야함)
-        //커스텀 파일로 변경해야함
+        //상황 데이터 받는내용 코팅해야함 (데이터 받는 방법 스터디예정)
     }
 
     private fun initUi() {

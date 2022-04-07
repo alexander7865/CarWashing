@@ -4,7 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="40sp"
     android:gravity="center_vertical"
+    android:layout_gravity="center_horizontal"
     android:paddingStart="20dp"
     android:paddingBottom="5sp"
-    android:textSize="16sp">
+    android:textSize="16sp"
+    android:textStyle="normal">
 </TextView>
