@@ -44,8 +44,8 @@ class OmFindWasherFragment :
 
     private fun onChangedOmFindWasherViewState(viewState: OmFindWasherViewState) {
         when (viewState) {
-            is OmFindWasherViewState.GetWasherMember -> {
-                findAdapter.addAll(viewState.list)
+            is OmFindWasherViewState.GetWasherInfo -> {
+                findAdapter.addAll(viewState.wmInfo)
             }
         }
     }

@@ -1,20 +1,17 @@
 package com.mod_int.carwash.ui.owner_member.om_join
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
-import android.view.Gravity
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.Toast
 import androidx.fragment.app.viewModels
 import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseFragment
 import com.mod_int.carwash.databinding.FragmentOmJoinBinding
 import com.mod_int.carwash.ext.showToast
-import com.mod_int.carwash.ui.owner_member.om_activity.OmActivity
+import com.mod_int.carwash.ui.map.OmMapFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -55,7 +52,17 @@ class OmJoinFragment : BaseFragment<FragmentOmJoinBinding>(R.layout.fragment_om_
             is OmJoinViewState.BackStep -> {
                 requireActivity().onBackPressed()
             }
+
+            is OmJoinViewState.RouteCarLocation -> {
+                routeOmMapFragment()
+            }
         }
+    }
+
+    private fun routeOmMapFragment(){
+        parentFragmentManager.beginTransaction().add(R.id.container_om_map, OmMapFragment())
+            .addToBackStack("OmMapFragment")
+            .commit()
     }
 
     //스피너 브랜드셀렉

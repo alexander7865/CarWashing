@@ -119,7 +119,7 @@ fun FirebaseRepository.createTypeDB(
                     callback(it.isSuccessful)
                 }
 
-            // HasMap 형태로 데이터를 보여주기위한 방법 최초 데이터만 사용이 가능함
+            // HashMap 형태로 데이터를 보여주기위한 방법 최초 데이터만 사용이 가능함
 //            getFirebaseFireStore().collection("WasherMember").document("User")
 //                .set(emptyMap<String, WasherInfo>(), SetOptions.merge())
 //                .addOnCompleteListener {

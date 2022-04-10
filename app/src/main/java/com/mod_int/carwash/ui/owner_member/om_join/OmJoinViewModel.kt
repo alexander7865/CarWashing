@@ -44,12 +44,15 @@ class OmJoinViewModel @Inject constructor(
                         } else {
                             viewStateChanged(OmJoinViewState.ErrorMsg(message = "정보를 모두 입력하세요"))
 
-
                         }
                     }
 
             }
         }
+    }
+
+    fun routeCarLocation(){
+        viewStateChanged(OmJoinViewState.RouteCarLocation)
     }
 
     fun routeBackStep() {

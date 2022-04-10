@@ -361,6 +361,7 @@
                                     android:layout_marginEnd="8sp"
                                     android:layout_marginStart="16sp"
                                     android:layout_gravity="center_vertical"
+                                    android:onClick="@{()->viewModel.routeCarLocation()}"
                                     android:background="@drawable/search_icon" />
                             </LinearLayout>
                         </LinearLayout>
