@@ -6,7 +6,6 @@
         <variable
             name="viewModel"
             type="com.mod_int.carwash.ui.washer_member.wm_home.WmHomeViewModel" />
-
     </data>
 
     <FrameLayout
@@ -233,8 +232,8 @@
                                     android:layout_height="55dp"
                                     android:layout_marginStart="16sp"
                                     android:textColor="@color/white"
-                                    android:text="픽업/탁송비용 정산하기"
-                                    android:onClick="@{() -> viewModel.routePayment()}"
+                                    android:text="세차비용 등록하기"
+                                    android:onClick="@{() -> viewModel.routePriceRegistration()}"
                                     android:backgroundTint="@color/aqua"
                                     android:textSize="16sp"
                                     android:textStyle="bold" />

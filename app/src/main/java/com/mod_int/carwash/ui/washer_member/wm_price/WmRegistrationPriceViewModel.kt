@@ -512,6 +512,10 @@ class WmRegistrationPriceViewModel @Inject constructor(
         }
     }
 
+    fun routeBackStep(){
+        viewStateChanged(WmRegistrationPriceViewState.RouteBackStep)
+    }
+
 
 
 

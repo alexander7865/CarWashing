@@ -1,5 +1,6 @@
 package com.mod_int.carwash.ui.owner_member.om_state
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color
 import android.net.Uri
@@ -23,6 +24,7 @@ class OmOrderStateFragment : BaseFragment<FragmentOmOrderStatusBinding>(
 ) {
     private val omOrderStateViewModel by viewModels<OmOrderStateViewModel>()
 
+    @SuppressLint("SimpleDateFormat")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initUi()
@@ -131,7 +133,6 @@ class OmOrderStateFragment : BaseFragment<FragmentOmOrderStatusBinding>(
     }
 
     private fun washerMemberPhoneNr() {
-        //워셔 전화번호로 input 해야함 (임시로 만들어둠)
         var intent = Intent(Intent.ACTION_DIAL)
         intent.data = Uri.parse("tel:01082277865")
         startActivity(intent)

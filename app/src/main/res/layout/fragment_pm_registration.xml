@@ -3,7 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="viewModel"
+            type="com.mod_int.carwash.ui.pickup_member.pm_registration.PmRegistrationViewModel" />
     </data>
 
     <FrameLayout
@@ -105,6 +107,7 @@
                                 android:layout_weight="1"
                                 android:ellipsize="end"
                                 android:hint="홍길동"
+                                android:text="@={viewModel.pmAccountName}"
                                 android:maxLength="8"
                                 android:maxLines="1"
                                 android:textSize="16sp"
@@ -128,9 +131,10 @@
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
 
-                            <Spinner
+                            <androidx.appcompat.widget.AppCompatSpinner
                                 android:id="@+id/bank_name_pickupManager"
                                 android:background="@drawable/layout_box_stroke"
+                                android:popupBackground="@drawable/layout_box"
                                 android:layout_width="match_parent"
                                 android:layout_height="40sp"
                                 android:paddingTop="5sp"
@@ -171,6 +175,7 @@
                                 android:layout_weight="1"
                                 android:ellipsize="end"
                                 android:hint="0000000000000"
+                                android:text="@={viewModel.pmAccountNr}"
                                 android:maxLength="8"
                                 android:maxLines="1"
                                 android:textSize="16sp"
@@ -192,7 +197,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="26sp"
-                                android:text="010-1234-1234"
+                                android:text="@={viewModel.pmPhoneNr}"
                                 android:textColor="@color/dgray"
                                 android:textSize="18sp"
                                 android:textStyle="bold" />
@@ -217,7 +222,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
                                 android:layout_marginStart="5sp"
-                                android:text="세차장 선택"
+                                android:text="내 위치등록"
                                 android:textColor="@color/dgray"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
@@ -246,6 +251,7 @@
                                     android:layout_marginStart="16sp"
                                     android:layout_marginEnd="16sp"
                                     android:layout_weight="1"
+                                    android:text="@={viewModel.pmLocation}"
                                     android:hint="탁송가능한 업체를 검색하세요"
                                     android:textColor="@color/dgray"
                                     android:textSize="14sp"
@@ -264,15 +270,12 @@
                             android:layout_width="match_parent"
                             android:layout_height="10sp"></Space>
 
-
-                        <!-- 이부분은 리사이클러뷰로 해서 주소로 서치 구현예정-->
-                        <ListView
+                        <TextView
                             android:layout_width="match_parent"
-                            android:layout_height="190dp"
+                            android:layout_height="80dp"
                             android:layout_marginStart="26sp"
                             android:layout_marginEnd="26sp">
-
-                        </ListView>
+                        </TextView>
 
                         <Space
                             android:layout_width="match_parent"
@@ -304,6 +307,7 @@
                                 android:layout_marginEnd="26sp"
                                 android:layout_weight="1"
                                 android:background="@drawable/button_action_lorange"
+                                android:onClick="@{()->viewModel.pmSaveInfo()}"
                                 android:text="등록하기"
                                 android:textColor="@color/white"
                                 android:textSize="16sp"

@@ -16,22 +16,27 @@ class PmSettlementRequestFragment : BaseFragment<FragmentPmSettlementRequestBind
     R.layout.fragment_pm_settlement_request) {
 
     private val pmSettlementRequestViewModel by viewModels<PmSettlementRequestViewModel>()
-    private lateinit var pmActivity: PmActivity
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        if(context is PmActivity) pmActivity = context
-
-    }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initViewModel()
 
-        with(binding){
-            btnBackToRegistrationPickupManager.setOnClickListener {
-                pmActivity.backStep()
+    }
+    private fun initUi(){
 
+    }
+    private fun initViewModel(){
+        binding.viewModel = pmSettlementRequestViewModel
+        pmSettlementRequestViewModel.viewStateLiveData.observe(viewLifecycleOwner){viewState->
+            (viewState as? PmSettlementRequestViewState)?.let {
+                onChangedPmSettlement(viewState)
+            }
+        }
+    }
+    private fun onChangedPmSettlement(viewState: PmSettlementRequestViewState){
+        when(viewState){
+            is PmSettlementRequestViewState.RouteBackStep->{
+                requireActivity().onBackPressed()
             }
         }
     }

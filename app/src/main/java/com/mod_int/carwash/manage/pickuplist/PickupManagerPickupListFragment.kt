@@ -20,33 +20,23 @@ class PickupManagerPickupListFragment : BaseFragment<FragmentPmPickupListBinding
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initUi()
-
-    }
-
-
-    private fun initUi() {
-
-        //새로고침 구현
         with(binding) {
-            pullToRefreshPickup.setOnRefreshListener {
-                pullToRefreshPickup.isRefreshing = false
-                pickupListAdapter.addAll(mockList)
-            }
-
             recyclerListPickupManager.adapter = pickupListAdapter
+            pickupListAdapter.addAll(mockList)
+
+
         }
 
-        //초기 리사이클러뷰 구현.
-        with(pickupListAdapter) {
-            addAll(mockList)
-            setItemClickListener {
-                orderCfmDialog()
+    }
 
-            }
+    //리사이클러뷰 문제 있음 현재 리스트상 3개를 보여줘야 하나
+    private fun initUi() {
+        pickupListAdapter.setItemClickListener {
+            orderCfmDialog()
         }
     }
 
-    //기능복사 했음 확인해야함
+    //기능복사 했음 확인해야함 픽업배송지도 추가해야함
     companion object {
 
         private val mockData = PickupList( //리사이클러뷰 초기값 설정
@@ -59,12 +49,12 @@ class PickupManagerPickupListFragment : BaseFragment<FragmentPmPickupListBinding
             carKindsOrderListWasher = "SUV",
             carColorOrderListWasher = "BLACK",
             carSizeOrderListWasher = "준중형",
-            ownerAddressOrderListWasher = "서울특별시 서초구 잠원동 10-7 101호",
+            ownerAddressOrderListWasher = "서울특별시 서초구 잠원동 10-7 101호 지하3층 LP37",
         )
 
         private val mockList = mutableListOf<PickupList>().apply {
-            for (i in 0..100) {
-                add(mockData.copy(namePickupManager = "홍길동 $i"))
+            for (i in 0..2) {
+                add(mockData.copy(namePickupManager = "1${i},000원"))
             }
         }
     }

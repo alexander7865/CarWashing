@@ -22,12 +22,10 @@ class WmRegistrationFragment : BaseFragment<FragmentWmRegistrationBinding>(
         super.onViewCreated(view, savedInstanceState)
         initUi()
         initViewModel()
-
     }
 
     private fun initUi(){
         bankSelect()
-
     }
     private fun initViewModel(){
         binding.viewModel = wmRegistrationViewModel
@@ -37,7 +35,6 @@ class WmRegistrationFragment : BaseFragment<FragmentWmRegistrationBinding>(
             }
         }
     }
-
     private fun onChangedWmViewState(viewState: WmRegistrationViewState){
         when (viewState){
             is WmRegistrationViewState.EnableInput ->{
@@ -45,11 +42,9 @@ class WmRegistrationFragment : BaseFragment<FragmentWmRegistrationBinding>(
             }
             is WmRegistrationViewState.Msg ->{
                 showToast(message = viewState.message)
-
             }
         }
     }
-
 
     private fun enableSetting(isEnable: Boolean) {
         with(binding) {

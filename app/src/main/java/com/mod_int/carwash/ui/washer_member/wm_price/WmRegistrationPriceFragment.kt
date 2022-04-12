@@ -45,6 +45,9 @@ class WmRegistrationPriceFragment : BaseFragment<FragmentWmRegistrationPriceBind
             is WmRegistrationPriceViewState.ErrorMsg -> {
                 showToast(message = viewState.message)
             }
+            is WmRegistrationPriceViewState.RouteBackStep -> {
+                requireActivity().onBackPressed()
+            }
         }
     }
 

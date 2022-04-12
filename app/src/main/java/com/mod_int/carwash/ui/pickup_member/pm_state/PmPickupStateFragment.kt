@@ -1,6 +1,5 @@
 package com.mod_int.carwash.ui.pickup_member.pm_state
 
-import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.net.Uri
@@ -12,8 +11,6 @@ import com.mod_int.carwash.CustomDialogListener
 import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseFragment
 import com.mod_int.carwash.databinding.FragmentPmPickupStatusBinding
-import com.mod_int.carwash.ui.pickup_member.pm_activity.PmActivity
-import com.mod_int.carwash.ui.pickup_member.pm_registration.PmRegistrationViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -21,30 +18,39 @@ class PmPickupStateFragment : BaseFragment<FragmentPmPickupStatusBinding>(
     R.layout.fragment_pm_pickup_status) {
 
     private val pmPickupStateViewModel by viewModels<PmPickupStateViewModel>()
-    private lateinit var pmActivity: PmActivity
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        if(context is PmActivity) pmActivity = context
-
-    }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        binding.btnBackToPickupList.setOnClickListener {
-            pmActivity.goListOrderPickup()
+        initUi()
+        initViewModel()
+    }
+    private fun initUi(){
+        orderState()
+        pmPickupStateViewModel.pickupStateInfo()
+        with(binding){
+            tvPhoneNumberOwnerManager.setOnClickListener {
+                callOwnerMember()
+            }
         }
-
-        binding.tvPhoneNumberPickupManager.setOnClickListener {
-            var intent = Intent(Intent.ACTION_DIAL)
-            intent.data = Uri.parse("tel:01082277865")
-            startActivity(intent)
+    }
+    private fun initViewModel(){
+        binding.viewModel = pmPickupStateViewModel
+        pmPickupStateViewModel.viewStateLiveData.observe(viewLifecycleOwner){viewState->
+            (viewState as? PmPickupStateViewState)?.let {
+                onChangedPickupStateViewState(viewState)
+            }
         }
+    }
+    private fun onChangedPickupStateViewState(viewState: PmPickupStateViewState){
+        when (viewState){
+            is PmPickupStateViewState.RouteOrderList-> {
+                requireActivity().onBackPressed()
+            }
+        }
+    }
 
+    private fun orderState(){
         with(binding) {
-
             btnPickUp.setOnClickListener {
                 val dialog = CustomDialogFragment.CustomDialogBuilder()
                     .setTitle("차량을 픽업 하셨나요?")
@@ -53,7 +59,6 @@ class PmPickupStateFragment : BaseFragment<FragmentPmPickupStatusBinding>(
                     .setYesBtn("픽업완료")
                     .setBtnClickListener(object : CustomDialogListener {
                         override fun onClickNegativeBtn() {
-
                         }
 
                         override fun onClickPositiveBtn() {
@@ -68,8 +73,6 @@ class PmPickupStateFragment : BaseFragment<FragmentPmPickupStatusBinding>(
                             btnPickUp.setTextColor(Color.parseColor("#FFA83E"))
                             btnPickUp.setTextSize(5, 2.7F)
                             btnPickUp.text = "픽업완료"
-//                        btnPickUp.text = formatType.format(getTime)
-//                        위 스트링값 변경시 현재시간으로도 표현가능함
                         }
                     })
                     .create()
@@ -98,8 +101,6 @@ class PmPickupStateFragment : BaseFragment<FragmentPmPickupStatusBinding>(
                             btnDeliver.setTextColor(Color.parseColor("#FFA83E"))
                             btnDeliver.setTextSize(5,2.7F)
                             btnDeliver.text = "탁송시작"
-//                        btnPickUp.text = formatType.format(getTime)
-//                        위 스트링값 변경시 현재시간으로도 표현가능함
                         }
                     })
                     .create()
@@ -126,16 +127,16 @@ class PmPickupStateFragment : BaseFragment<FragmentPmPickupStatusBinding>(
                             btnFinished.setTextSize(5,2.7F)
                             btnFinished.text = "탁송완료"
 
-                            //아래 기능 구현시 앱이 터지는 현상이 발생함
-//                            pickupManagerActivity.goBlankTipScreen()
-
-//                        btnPickUp.text = formatType.format(getTime)
-//                        위 스트링값 변경시 현재시간으로도 표현가능함
                         }
                     })
                     .create()
                 dialog.show(childFragmentManager, dialog.tag)
             }
         }
+    }
+    private fun callOwnerMember() {
+        var intent = Intent(Intent.ACTION_DIAL)
+        intent.data = Uri.parse("tel:01082277865")
+        startActivity(intent)
     }
 }

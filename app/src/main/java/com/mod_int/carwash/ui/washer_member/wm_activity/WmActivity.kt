@@ -43,7 +43,6 @@ class WmActivity : BaseActivity<ActivityWmBinding>(R.layout.activity_wm) {
         val list = listOf(
             WmHomeFragment(),
             WmRegistrationFragment(),
-            WmRegistrationPriceFragment(),
             WasherOrderListFragment(),
         )
 
@@ -61,9 +60,7 @@ class WmActivity : BaseActivity<ActivityWmBinding>(R.layout.activity_wm) {
         binding.viewModel= wmViewModel
         wmViewModel.viewStateLiveData.observe(this){viewState ->
             (viewState as? WmViewState)?.let {
-                onChangedWmState(
-                    viewState
-                )
+                onChangedWmState(viewState)
             }
         }
     }

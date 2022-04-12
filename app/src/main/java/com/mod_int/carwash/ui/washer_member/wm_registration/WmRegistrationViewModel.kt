@@ -23,7 +23,7 @@ class WmRegistrationViewModel @Inject constructor(
     val wmPhoneNr = MutableLiveData("010-1111-1111")
     val wmLocation = MutableLiveData("서울시 논현동 111-11 1층 주차장")
 
-    fun saveInfoWasher() {
+    fun wmSaveInfo() {
         ioScope {
             val wmAccountNameCheck = async { wmAccountNameCheck() }
             val wmBankNameCheck = async { wmBankNameCheck() }
@@ -36,11 +36,11 @@ class WmRegistrationViewModel @Inject constructor(
                 wmAccountNrCheck.await(),
                 wmPhoneNrCheck.await(),
                 wmLocationCheck.await(),
-            )?.let { washerInfo ->
+            )?.let { wmInfo ->
                 val email = firebaseRepository.getFirebaseAuth().currentUser!!.email
                 firebaseRepository.getFirebaseFireStore().collection("WasherMember")
                     .document("$email")
-                    .set(washerInfo, SetOptions.merge()).addOnCompleteListener {
+                    .set(wmInfo, SetOptions.merge()).addOnCompleteListener {
                         if (it.isSuccessful) {
                             viewStateChanged(WmRegistrationViewState.EnableInput(false))
                             viewStateChanged(WmRegistrationViewState.WmSaveInfo)
@@ -62,11 +62,11 @@ class WmRegistrationViewModel @Inject constructor(
         wmAccountNrCheck: Boolean,
         wmPhoneNrCheck: Boolean,
         wmLocationCheck: Boolean,
-    ): WasherInfo? {
+    ): WmInfo? {
         return if (wmAccountNameCheck && wmBankNameCheck && wmAccountNrCheck
             && wmPhoneNrCheck && wmLocationCheck
         ) {
-            WasherInfo(
+            WmInfo(
                 wmAccountName.value!!,
                 wmBankName.get()!!,
                 wmAccountNr.value!!,
@@ -139,7 +139,7 @@ class WmRegistrationViewModel @Inject constructor(
         }
     }
 
-    data class WasherInfo(
+    data class WmInfo(
         var accountName: String = "",
         var bankName: String = "",
         var accountNr: String = "",

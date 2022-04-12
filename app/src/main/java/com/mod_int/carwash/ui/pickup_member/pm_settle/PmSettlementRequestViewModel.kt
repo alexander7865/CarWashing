@@ -11,4 +11,8 @@ class PmSettlementRequestViewModel @Inject constructor(
     app: Application,
     private val firebaseRepository: FirebaseRepository
 ) : BaseViewModel(app) {
+
+    fun routeBackStep(){
+        viewStateChanged(PmSettlementRequestViewState.RouteBackStep)
+    }
 }

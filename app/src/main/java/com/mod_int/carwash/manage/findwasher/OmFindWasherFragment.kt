@@ -6,8 +6,8 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.fragment.app.viewModels
-import com.mod_int.carwash.CustomDialogOrderFragment
-import com.mod_int.carwash.CustomDialogOrderListener
+import com.mod_int.carwash.ui.dialog.CustomDialogOrderFragment
+import com.mod_int.carwash.ui.dialog.CustomDialogOrderListener
 import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseFragment
 import com.mod_int.carwash.databinding.FragmentOmFindWasherBinding

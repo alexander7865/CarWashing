@@ -84,7 +84,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
                             android:layout_marginStart="26sp"
-                            android:text="@{viewModel.date}"
+                            android:text="@{viewModel.omDate}"
                             android:textSize="16sp"
                             android:textStyle="bold"
                             android:textColor="@color/dgray" />
@@ -326,13 +326,13 @@
                             android:layout_marginStart="26sp"
                             android:layout_marginEnd="26sp"
                             android:gravity="center_horizontal"
-                            android:text="세차비용 결제는 아래 계좌로 송금 해주세요!"
+                            android:text="세차비용은 아래 계좌 또는\n 픽업기사님에게 직접 결제하여 주세요!"
                             android:textSize="14sp"
                             android:textColor="@color/dgray" />
                     </LinearLayout>
                     <Space
                         android:layout_width="match_parent"
-                        android:layout_height="20sp">
+                        android:layout_height="10sp">
                     </Space>
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -444,7 +444,7 @@
                     </LinearLayout>
                     <Space
                         android:layout_width="match_parent"
-                        android:layout_height="20sp">
+                        android:layout_height="10sp">
                     </Space>
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -508,7 +508,7 @@
                     </LinearLayout>
                     <Space
                         android:layout_width="match_parent"
-                        android:layout_height="20sp">
+                        android:layout_height="15sp">
                     </Space>
 
 
