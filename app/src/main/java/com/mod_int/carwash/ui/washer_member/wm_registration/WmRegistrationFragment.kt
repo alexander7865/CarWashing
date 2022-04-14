@@ -3,9 +3,11 @@ package com.mod_int.carwash.ui.washer_member.wm_registration
 import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.CompoundButton
 import androidx.fragment.app.viewModels
 import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseFragment
@@ -26,7 +28,13 @@ class WmRegistrationFragment : BaseFragment<FragmentWmRegistrationBinding>(
 
     private fun initUi(){
         bankSelect()
+        with(binding){
+            pickupWashing.setOnCheckedChangeListener(checkBoxListener)
+            handWashing.setOnCheckedChangeListener(checkBoxListener)
+            tripWashing.setOnCheckedChangeListener(checkBoxListener)
+        }
     }
+
     private fun initViewModel(){
         binding.viewModel = wmRegistrationViewModel
         wmRegistrationViewModel.viewStateLiveData.observe(viewLifecycleOwner){viewState ->
@@ -35,12 +43,13 @@ class WmRegistrationFragment : BaseFragment<FragmentWmRegistrationBinding>(
             }
         }
     }
+
     private fun onChangedWmViewState(viewState: WmRegistrationViewState){
         when (viewState){
-            is WmRegistrationViewState.EnableInput ->{
+            is WmRegistrationViewState.EnableInput -> {
                 enableSetting(viewState.isEnable)
             }
-            is WmRegistrationViewState.Msg ->{
+            is WmRegistrationViewState.Msg -> {
                 showToast(message = viewState.message)
             }
         }
@@ -51,6 +60,9 @@ class WmRegistrationFragment : BaseFragment<FragmentWmRegistrationBinding>(
             accountName.isEnabled = isEnable
             bankName.isEnabled = isEnable
             accountNumber.isEnabled = isEnable
+            pickupWashing.isEnabled = isEnable
+            handWashing.isEnabled = isEnable
+            tripWashing.isEnabled = isEnable
         }
     }
 
@@ -81,6 +93,19 @@ class WmRegistrationFragment : BaseFragment<FragmentWmRegistrationBinding>(
                     view!!.setBackgroundColor(Color.TRANSPARENT)
                 }
             }
+        }
+    }
+
+    //체크박스 리스너 구현 체크박스 클릭시 값을 저장해야합니다
+    private val checkBoxListener = CompoundButton.OnCheckedChangeListener { checkBtn, isChecked ->
+        if (isChecked){
+            when(checkBtn.id){
+                R.id.pickupWashing -> {}
+                R.id.handWashing -> {}
+                R.id.tripWashing -> {}
+            }
+        }else{
+
         }
     }
 }

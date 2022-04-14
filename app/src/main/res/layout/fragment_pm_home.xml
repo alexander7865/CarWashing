@@ -262,7 +262,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
                             android:layout_marginStart="5sp"
-                            android:text="납품 작업장"
+                            android:text="내 위치"
                             android:textSize="16sp"
                             android:textStyle="bold"
                             android:textColor="@color/dgray" />
@@ -306,7 +306,7 @@
                                 android:layout_marginTop="3dp"
                                 android:layout_marginBottom="3dp"
                                 android:layout_weight="1"
-                                android:hint="서울시특별시 강남구 카우세차장"
+                                android:hint="서울시특별시 강남구 논현동 111-111"
                                 android:textSize="14sp"
                                 android:textStyle="bold"
                                 android:textColor="@color/dgray" />

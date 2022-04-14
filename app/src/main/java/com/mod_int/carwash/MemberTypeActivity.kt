@@ -19,7 +19,7 @@ class MemberTypeActivity : BaseActivity<ActivityMemberTypeBinding>(R.layout.acti
         }
 
         binding.goWasher.setOnClickListener {
-            val intent = Intent(this, MapActivity::class.java)
+            val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
             overridePendingTransition(0, 0)
         }

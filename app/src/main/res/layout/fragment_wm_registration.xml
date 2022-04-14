@@ -232,6 +232,7 @@
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
                                 <CheckBox
+                                    android:id="@+id/pickupWashing"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:textColor="@color/dgray"
@@ -240,6 +241,7 @@
                                     android:textSize="15sp"
                                     android:textStyle="bold" />
                                 <CheckBox
+                                    android:id="@+id/handWashing"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="16sp"
@@ -248,6 +250,7 @@
                                     android:textSize="15sp"
                                     android:textStyle="bold" />
                                 <CheckBox
+                                    android:id="@+id/tripWashing"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="16sp"

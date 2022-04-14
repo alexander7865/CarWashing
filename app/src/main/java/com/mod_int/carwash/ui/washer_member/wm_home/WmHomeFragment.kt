@@ -55,7 +55,7 @@ class WmHomeFragment : BaseFragment<FragmentWmHomeBinding>(R.layout.fragment_wm_
         }
     }
 
-    //스피너
+    //스피너 휴가중으로 선택되면 안보이게됨
     private fun workSelect() {
         val brand = resources.getStringArray(R.array.workSettingSelect)
         val brandAdapter = ArrayAdapter(

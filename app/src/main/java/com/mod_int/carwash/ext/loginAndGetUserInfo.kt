@@ -85,7 +85,7 @@ fun FirebaseRepository.createUserDB(
     callback: (isSuccess: Boolean) -> Unit
 ) {
     val user = User(
-        email, "010xxxxxxxx", type
+        email, "010-1111-1111", type
     )
     //회원가입 생성
     getFirebaseFireStore().collection(email).document("User").set(user)
@@ -100,7 +100,7 @@ fun FirebaseRepository.createTypeDB(
     callback: (isSuccess: Boolean) -> Unit
 ) {
     val user = User(
-        email, "010xxxxxxxx", type
+        email, "010-1111-1111", type
     )
 
     when (type) {
@@ -119,7 +119,7 @@ fun FirebaseRepository.createTypeDB(
                     callback(it.isSuccessful)
                 }
 
-            // HashMap 형태로 데이터를 보여주기위한 방법 최초 데이터만 사용이 가능함
+            // HasMap 형태로 데이터를 보여주기위한 방법 최초 데이터만 사용이 가능함
 //            getFirebaseFireStore().collection("WasherMember").document("User")
 //                .set(emptyMap<String, WasherInfo>(), SetOptions.merge())
 //                .addOnCompleteListener {
