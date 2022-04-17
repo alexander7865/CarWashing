@@ -16,40 +16,40 @@ class OmManagementHistoryViewModel
     private val firebaseRepository: FirebaseRepository) :
     BaseViewModel(app){
 
-        fun getFinishedOrder() {
-            //테스트 코드임 바꿔야합니다.
-//            ioScope {
-//                val user = firebaseRepository.getFirebaseAuth().currentUser!!.email
-//                firebaseRepository.getFirebaseFireStore().collection("OwnerMember")
-//                    .document("$user")
-//                    .get()
-//                    .addOnSuccessListener {document ->
-//                        if(document .exists()) {
-//                            val list = HistoryInfo(
-//                            date = "2022워 2월 2일",
-//                            washType = document.get("phoneNumber") as String,
-//                            carInfo = "${document.get("carNumber") as String} " +
-//                                    "${document.get("carBrand") as String} " +
-//                                    "${document.get("carModel") as String} " +
-//                                    "${document.get("carKinds") as String} " +
-//                                    "${document.get("carSize") as String} " +
-//                                    "${document.get("carColor") as String} "
-//                            )
-//                            val finishedList = mutableListOf<HistoryInfo>().apply {
-//                                add(list)
-//                            }
-//                            if (!finishedList.isNullOrEmpty()) {
-//                                viewStateChanged(
-//                                    OmManagementHistoryViewState.GetFinishedOrder(
-//                                        finishedList
-//                                    )
-//                                )
-//                            }
-//                            Log.d("리스트값", finishedList.toString())
-//                        }
-//                    }
-//
-//            }
-        }
 
+    //파이어스토어에서 컬렉션 이하의 모든값을 가지고 오는 테스트 성공함, 체크함수 만들어서 최종 히스토리코드 및 데이터 바꿔야함
+    fun getFinishedOrder() {
+        firebaseRepository.getFirebaseFireStore().collection("WasherMember")
+            .addSnapshotListener { querySnapshot, _ ->
+                for (snapshot in querySnapshot!!.documents){
+                    val list = HistoryInfo(
+                        date = "2022년 02월 02일",
+                        washType = snapshot.get("email") as String,
+                        carInfo = snapshot.get("wmPhoneNr") as String,
+                    )
+                    val historyInfo = mutableListOf<HistoryInfo>().apply {
+                        add(list)
+                    }
+                    viewStateChanged(OmManagementHistoryViewState.GetHistoryOrder(historyInfo))
+                }
+            }
+
+    }
+
+    private fun checkInfo(){
+
+    }
+
+    private fun dateCheck(){
+
+    }
+
+    private fun washTypeCheck(){
+
+    }
+
+    private fun carInfoCheck(){
+
+    }
 }
+

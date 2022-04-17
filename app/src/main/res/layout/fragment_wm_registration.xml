@@ -260,8 +260,24 @@
                                     android:textSize="15sp"
                                     android:textStyle="bold" />
                         </LinearLayout>
-
-
+                        <TextView
+                            android:id="@+id/hidden1"
+                            android:text="@={viewModel.wmCheck1}"
+                            android:visibility="gone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"/>
+                        <TextView
+                            android:id="@+id/hidden2"
+                            android:text="@={viewModel.wmCheck2}"
+                            android:visibility="gone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"/>
+                        <TextView
+                            android:id="@+id/hidden3"
+                            android:text="@={viewModel.wmCheck3}"
+                            android:visibility="gone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"/>
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"

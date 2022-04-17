@@ -25,10 +25,29 @@ class OmFindWasherFragment :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        washingTypeSpinner()
         initUi()
         initViewModel()
+        washingTypeSpinner()
+    }
 
+    private fun initUi() {
+        with(binding) {
+            findWasherRecycler.adapter = findAdapter
+        }
+        //초기 리사이클러뷰 구현.
+        with(findAdapter) {
+            setItemClickListener { item, clickType ->
+                when (clickType) {
+                    is ClickType.Expand -> {
+                        toggleExpand(item)
+                    }
+
+                    is ClickType.Route -> {
+                        orderDialog()
+                    }
+                }
+            }
+        }
     }
 
     private fun initViewModel() {
@@ -49,28 +68,6 @@ class OmFindWasherFragment :
             }
         }
     }
-
-    private fun initUi() {
-        with(binding) {
-            findWasherRecycler.adapter = findAdapter
-        }
-
-        //초기 리사이클러뷰 구현.
-        with(findAdapter) {
-            setItemClickListener { item, clickType ->
-                when (clickType) {
-                    is ClickType.Expand -> {
-                        toggleExpand(item)
-                    }
-
-                    is ClickType.Route -> {
-                        orderDialog()
-                    }
-                }
-            }
-        }
-    }
-
 
     //커스텀 다이얼로그 만들었습니다.
     private fun orderDialog() {

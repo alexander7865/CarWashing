@@ -25,6 +25,15 @@ class OmManagementHistoryFragment : BaseFragment<FragmentOmManagementHistoryBind
         initViewModel()
     }
 
+    private fun initUi() {
+        with(binding) {
+            recyclerHistory.adapter = historyAdapter
+            historyAdapter.setItemClickListener {
+                orderCfmDialog()
+            }
+        }
+    }
+
     private fun initViewModel() {
         omManagementHistoryViewModel.getFinishedOrder()
         omManagementHistoryViewModel.viewStateLiveData.observe(viewLifecycleOwner) { viewState ->
@@ -38,22 +47,12 @@ class OmManagementHistoryFragment : BaseFragment<FragmentOmManagementHistoryBind
 
     private fun onChangedFinishedOrderViewState(viewState: OmManagementHistoryViewState){
         when (viewState) {
-            is OmManagementHistoryViewState.GetFinishedOrder -> {
+            is OmManagementHistoryViewState.GetHistoryOrder -> {
                 historyAdapter.addAll(viewState.list)
 
             }
         }
     }
-
-    private fun initUi() {
-        with(binding) {
-            recyclerHistory.adapter = historyAdapter
-            historyAdapter.setItemClickListener {
-                orderCfmDialog()
-            }
-        }
-    }
-
 
     //커스텀 다이얼로그
     private fun orderCfmDialog() {

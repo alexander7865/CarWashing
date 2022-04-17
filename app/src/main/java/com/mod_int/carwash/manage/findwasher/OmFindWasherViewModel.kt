@@ -47,7 +47,4 @@ class OmFindWasherViewModel
     }
 }
 
-sealed class OmFindWasherViewState : ViewState {
-    data class GetWasherMember(val list: List<WasherInfo>) : OmFindWasherViewState()
-}
 

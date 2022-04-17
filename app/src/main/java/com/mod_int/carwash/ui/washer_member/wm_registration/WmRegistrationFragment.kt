@@ -28,10 +28,11 @@ class WmRegistrationFragment : BaseFragment<FragmentWmRegistrationBinding>(
 
     private fun initUi(){
         bankSelect()
-        with(binding){
-            pickupWashing.setOnCheckedChangeListener(checkBoxListener)
-            handWashing.setOnCheckedChangeListener(checkBoxListener)
-            tripWashing.setOnCheckedChangeListener(checkBoxListener)
+        with(binding) {
+            pickupWashing.setOnCheckedChangeListener(CheckBoxListener())
+            handWashing.setOnCheckedChangeListener(CheckBoxListener())
+            tripWashing.setOnCheckedChangeListener(CheckBoxListener())
+
         }
     }
 
@@ -96,16 +97,22 @@ class WmRegistrationFragment : BaseFragment<FragmentWmRegistrationBinding>(
         }
     }
 
-    //체크박스 리스너 구현 체크박스 클릭시 값을 저장해야합니다
-    private val checkBoxListener = CompoundButton.OnCheckedChangeListener { checkBtn, isChecked ->
-        if (isChecked){
-            when(checkBtn.id){
-                R.id.pickupWashing -> {}
-                R.id.handWashing -> {}
-                R.id.tripWashing -> {}
-            }
-        }else{
 
+    inner class CheckBoxListener : CompoundButton.OnCheckedChangeListener {
+        override fun onCheckedChanged(buttonView: CompoundButton?, isChecked: Boolean) {
+            when (buttonView?.id){
+                R.id.pickupWashing ->
+                    if (isChecked) wmRegistrationViewModel.wmCheck1.set("픽업손세차")
+                    else wmRegistrationViewModel.wmCheck1.set("")
+
+                R.id.handWashing ->
+                    if (isChecked) wmRegistrationViewModel.wmCheck2.set("손세차예약")
+                    else wmRegistrationViewModel.wmCheck2.set("")
+
+                R.id.tripWashing ->
+                    if (isChecked) wmRegistrationViewModel.wmCheck3.set("출장손세차")
+                    else wmRegistrationViewModel.wmCheck3.set("")
+            }
         }
     }
 }
