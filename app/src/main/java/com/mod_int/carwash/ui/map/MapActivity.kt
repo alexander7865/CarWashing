@@ -108,8 +108,8 @@ class MapActivity : BaseActivity<ActivityMapBinding>(R.layout.activity_map) {
             hasPermission(Manifest.permission.ACCESS_FINE_LOCATION)
 
         if (permissionApproved) {
-            binding.mapview.currentLocationTrackingMode =
-                MapView.CurrentLocationTrackingMode.TrackingModeOnWithoutHeading
+//            binding.mapview.currentLocationTrackingMode =
+//                MapView.CurrentLocationTrackingMode.TrackingModeOnWithoutHeading
         } else {
             val provideRationale = shouldShowRequestPermissionRationale(
                 Manifest.permission.ACCESS_FINE_LOCATION,
