@@ -16,10 +16,13 @@ import com.mod_int.carwash.databinding.FragmentOmJoinBinding
 import com.mod_int.carwash.ext.showToast
 import com.mod_int.carwash.ui.owner_member.om_activity.OmActivity
 import dagger.hilt.android.AndroidEntryPoint
+import net.daum.mf.map.api.MapView
 
 @AndroidEntryPoint
 class OmJoinFragment : BaseFragment<FragmentOmJoinBinding>(R.layout.fragment_om_join){
     private val omJoinViewModel by viewModels<OmJoinViewModel>()
+
+    private lateinit var mapView : MapView
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -30,6 +33,8 @@ class OmJoinFragment : BaseFragment<FragmentOmJoinBinding>(R.layout.fragment_om_
     private fun initUi() {
         brandSelect()
         modelSelect()
+        mapView = MapView(requireActivity())
+        binding.containerMap.addView(mapView)
     }
 
     private fun initViewModel(){

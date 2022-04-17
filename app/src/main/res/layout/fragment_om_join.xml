@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.mod_int.carwash.ui.owner_member.om_join.OmJoinViewModel" />
@@ -422,10 +423,11 @@
                             android:layout_width="match_parent"
                             android:layout_height="40sp" />
 
-                        <net.daum.mf.map.api.MapView
-                            android:id="@+id/mapVIew"
+                        <LinearLayout
+                            android:id="@+id/container_map"
                             android:layout_width="match_parent"
-                            android:layout_height="300dp" />
+                            android:layout_height="300dp"
+                            android:orientation="vertical" />
                     </LinearLayout>
                 </LinearLayout>
             </ScrollView>
