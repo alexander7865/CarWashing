@@ -36,7 +36,13 @@ class OmJoinFragment : BaseFragment<FragmentOmJoinBinding>(R.layout.fragment_om_
 
     private lateinit var mapView: MapView
 
-    private val gpsTracker = GpsTracker(context = requireContext())
+    private lateinit var gpsTracker : GpsTracker
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        gpsTracker = GpsTracker(context = requireContext())
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
