@@ -1,28 +1,36 @@
 package com.mod_int.carwash.ui.owner_member.om_join
 
+import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.Gravity
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseFragment
 import com.mod_int.carwash.databinding.FragmentOmJoinBinding
+import com.mod_int.carwash.ext.hasPermission
 import com.mod_int.carwash.ext.showToast
 import com.mod_int.carwash.ui.owner_member.om_activity.OmActivity
+import com.mod_int.carwash.ui.owner_member.om_activity.OmViewModel
+import com.mod_int.carwash.ui.owner_member.om_activity.OmViewState
 import dagger.hilt.android.AndroidEntryPoint
 import net.daum.mf.map.api.MapView
 
 @AndroidEntryPoint
-class OmJoinFragment : BaseFragment<FragmentOmJoinBinding>(R.layout.fragment_om_join){
+class OmJoinFragment : BaseFragment<FragmentOmJoinBinding>(R.layout.fragment_om_join) {
     private val omJoinViewModel by viewModels<OmJoinViewModel>()
 
-    private lateinit var mapView : MapView
+    private val omViewModel by activityViewModels<OmViewModel>()
+
+    private lateinit var mapView: MapView
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -35,19 +43,73 @@ class OmJoinFragment : BaseFragment<FragmentOmJoinBinding>(R.layout.fragment_om_
         modelSelect()
         mapView = MapView(requireActivity())
         binding.containerMap.addView(mapView)
+        locationRequest()
     }
 
-    private fun initViewModel(){
-        binding.viewModel = omJoinViewModel
-        omJoinViewModel.viewStateLiveData.observe(viewLifecycleOwner){ viewState ->
-            (viewState as? OmJoinViewState)?.let{
-                onChangedJoinViewState(
-                    viewState)
+    private fun getCurrentLocation() {
+
+    }
+
+    private fun locationRequest() {
+        val permissionApproved =
+            requireActivity().hasPermission(Manifest.permission.ACCESS_FINE_LOCATION)
+
+        if (permissionApproved) {
+            getCurrentLocation()
+        } else {
+            val provideRationale = shouldShowRequestPermissionRationale(
+                Manifest.permission.ACCESS_FINE_LOCATION,
+            )
+            if (provideRationale) {
+                initUi()
+            } else {
+                requireActivity().requestPermissions(
+                    arrayOf(
+                        Manifest.permission.ACCESS_FINE_LOCATION
+                    ),
+                    REQUEST_FINE_LOCATION_PERMISSIONS_REQUEST_CODE
+                )
             }
         }
     }
 
-    private fun  onChangedJoinViewState(viewState: OmJoinViewState){
+    companion object {
+        const val REQUEST_FINE_LOCATION_PERMISSIONS_REQUEST_CODE = 34
+    }
+
+
+    private fun initViewModel() {
+        binding.viewModel = omJoinViewModel
+        omJoinViewModel.viewStateLiveData.observe(viewLifecycleOwner) { viewState ->
+            (viewState as? OmJoinViewState)?.let {
+                onChangedJoinViewState(
+                    viewState
+                )
+            }
+        }
+
+        omViewModel.viewStateLiveData.observe(viewLifecycleOwner) { viewState ->
+            (viewState as? OmViewState)?.let {
+                onChangedOmViewState(
+                    viewState
+                )
+            }
+        }
+    }
+
+    private fun onChangedOmViewState(viewState: OmViewState) {
+        when (viewState) {
+            is OmViewState.PermissionGrant -> {
+                showToast(message = "권한 OK")
+                mapView.currentLocationTrackingMode =
+                    MapView.CurrentLocationTrackingMode.TrackingModeOnWithoutHeading
+
+            }
+        }
+    }
+
+
+    private fun onChangedJoinViewState(viewState: OmJoinViewState) {
         when (viewState) {
             is OmJoinViewState.ErrorMsg -> {
                 showToast(message = viewState.message)
@@ -128,7 +190,7 @@ class OmJoinFragment : BaseFragment<FragmentOmJoinBinding>(R.layout.fragment_om_
     }
 
     private fun enableSetting(isEnable: Boolean) {
-        with(binding){
+        with(binding) {
             etCarNum.isEnabled = isEnable
             spCarBrand.isEnabled = isEnable
             spCarModel.isEnabled = isEnable

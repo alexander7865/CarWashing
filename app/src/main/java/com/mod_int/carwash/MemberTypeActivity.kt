@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import com.mod_int.carwash.base.BaseActivity
 import com.mod_int.carwash.databinding.ActivityMemberTypeBinding
-import com.mod_int.carwash.ui.map.MapActivity
 import com.mod_int.carwash.ui.register.RegisterActivity
 
 class MemberTypeActivity : BaseActivity<ActivityMemberTypeBinding>(R.layout.activity_member_type) {

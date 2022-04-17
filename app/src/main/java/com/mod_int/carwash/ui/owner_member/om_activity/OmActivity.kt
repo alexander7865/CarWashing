@@ -1,7 +1,11 @@
 package com.mod_int.carwash.ui.owner_member.om_activity
 
 import android.annotation.SuppressLint
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
+import android.provider.Settings
 import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
@@ -9,6 +13,7 @@ import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import com.mod_int.carwash.BuildConfig
 import com.mod_int.carwash.CustomDialogFragment
 import com.mod_int.carwash.CustomDialogListener
 import com.mod_int.carwash.R
@@ -16,6 +21,7 @@ import com.mod_int.carwash.base.BaseActivity
 import com.mod_int.carwash.base.ViewState
 import com.mod_int.carwash.databinding.ActivityOmBinding
 import com.mod_int.carwash.databinding.FragmentWmPaymentBindingImpl
+import com.mod_int.carwash.ext.showToast
 import com.mod_int.carwash.ui.blank.OmBlankFragment
 import com.mod_int.carwash.ui.owner_member.om_join.OmJoinFragment
 import com.mod_int.carwash.ui.owner_member.om_state.OmOrderStateFragment
@@ -76,6 +82,54 @@ class OmActivity : BaseActivity<ActivityOmBinding>(R.layout.activity_om) {
 
     private fun onChangedOmViewState(viewState: OmViewState) {
 
+    }
+
+    /**
+     * GPS 권한 결과에 대한 처리.
+     */
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+
+        if (requestCode == OmJoinFragment.REQUEST_FINE_LOCATION_PERMISSIONS_REQUEST_CODE) {
+
+            when {
+
+                /**
+                 * GPS 권한 x
+                 */
+                grantResults.isEmpty() -> {
+                    showToast(message = "권한이 없습니다.")
+                }
+
+                /**
+                 * GPS 권한 o
+                 */
+                grantResults[0] == PackageManager.PERMISSION_GRANTED -> {
+//                    showToast(message = "권한이 허용되었습니다.")
+                    omViewModel.permissionGrant()
+                }
+
+                /**
+                 * GPS 권한 시스템 실행.
+                 */
+                else -> {
+                    val intent = Intent()
+                    intent.action = Settings.ACTION_APPLICATION_DETAILS_SETTINGS
+                    val uri = Uri.fromParts(
+                        "package",
+                        BuildConfig.APPLICATION_ID,
+                        null
+                    )
+                    intent.data = uri
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                    startActivity(intent)
+                }
+            }
+        }
     }
 
     companion object {

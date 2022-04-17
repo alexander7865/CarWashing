@@ -23,6 +23,10 @@ class OmViewModel @Inject constructor(
     private val firebaseRepository: FirebaseRepository,
 ) : BaseViewModel(app) {
 
+    fun permissionGrant(){
+        viewStateChanged(OmViewState.PermissionGrant)
+    }
+
 }
 
 
