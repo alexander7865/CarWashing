@@ -65,7 +65,9 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
             }
 
             is LoginViewState.RouteOwnerMember -> {
-                startActivity(Intent(this@LoginActivity, OmActivity::class.java))
+                startActivity(Intent(this@LoginActivity, OmActivity::class.java).apply {
+                    addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                })
             }
 
             is LoginViewState.RouteWasherMember -> {

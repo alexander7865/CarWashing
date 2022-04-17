@@ -2,24 +2,18 @@ package com.mod_int.carwash.ui.owner_member.om_join
 
 import android.Manifest
 import android.annotation.SuppressLint
-import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
-import android.view.Gravity
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
-import com.mod_int.carwash.App
 import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseFragment
 import com.mod_int.carwash.databinding.FragmentOmJoinBinding
 import com.mod_int.carwash.ext.hasPermission
 import com.mod_int.carwash.ext.showToast
-import com.mod_int.carwash.ui.owner_member.om_activity.OmActivity
 import com.mod_int.carwash.ui.owner_member.om_activity.OmViewModel
 import com.mod_int.carwash.ui.owner_member.om_activity.OmViewState
 import com.mod_int.carwash.util.GpsTracker
@@ -62,10 +56,11 @@ class OmJoinFragment : BaseFragment<FragmentOmJoinBinding>(R.layout.fragment_om_
         when (val result = gpsTracker.getLocation()) {
             is Result.Success -> {
                 result.data.addOnCompleteListener {
+                    val location = it.result
                     mapView.setMapCenterPoint(
                         MapPoint.mapPointWithGeoCoord(
-                            it.result.latitude,
-                            it.result.longitude
+                            location.latitude,
+                            location.longitude
                         ), true
                     )
                 }

@@ -43,6 +43,7 @@
         <activity
             android:name=".ui.owner_member.om_activity.OmActivity"
             android:exported="false"
+            android:launchMode="singleTask"
             android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".ui.washer_member.wm_activity.WmActivity"
