@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
+import com.mod_int.carwash.App
 import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseFragment
 import com.mod_int.carwash.databinding.FragmentOmJoinBinding
@@ -21,7 +22,10 @@ import com.mod_int.carwash.ext.showToast
 import com.mod_int.carwash.ui.owner_member.om_activity.OmActivity
 import com.mod_int.carwash.ui.owner_member.om_activity.OmViewModel
 import com.mod_int.carwash.ui.owner_member.om_activity.OmViewState
+import com.mod_int.carwash.util.GpsTracker
+import com.mod_int.carwash.util.Result
 import dagger.hilt.android.AndroidEntryPoint
+import net.daum.mf.map.api.MapPoint
 import net.daum.mf.map.api.MapView
 
 @AndroidEntryPoint
@@ -31,6 +35,8 @@ class OmJoinFragment : BaseFragment<FragmentOmJoinBinding>(R.layout.fragment_om_
     private val omViewModel by activityViewModels<OmViewModel>()
 
     private lateinit var mapView: MapView
+
+    private val gpsTracker = GpsTracker(application = App())
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -47,7 +53,22 @@ class OmJoinFragment : BaseFragment<FragmentOmJoinBinding>(R.layout.fragment_om_
     }
 
     private fun getCurrentLocation() {
+        when (val result = gpsTracker.getLocation()) {
+            is Result.Success -> {
+                result.data.addOnCompleteListener {
+                    mapView.setMapCenterPoint(
+                        MapPoint.mapPointWithGeoCoord(
+                            it.result.latitude,
+                            it.result.longitude
+                        ), true
+                    )
+                }
+            }
 
+            is Result.Error -> {
+
+            }
+        }
     }
 
     private fun locationRequest() {
@@ -101,9 +122,7 @@ class OmJoinFragment : BaseFragment<FragmentOmJoinBinding>(R.layout.fragment_om_
         when (viewState) {
             is OmViewState.PermissionGrant -> {
                 showToast(message = "권한 OK")
-                mapView.currentLocationTrackingMode =
-                    MapView.CurrentLocationTrackingMode.TrackingModeOnWithoutHeading
-
+                getCurrentLocation()
             }
         }
     }
