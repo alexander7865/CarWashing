@@ -36,7 +36,7 @@ class OmJoinFragment : BaseFragment<FragmentOmJoinBinding>(R.layout.fragment_om_
 
     private lateinit var mapView: MapView
 
-    private val gpsTracker = GpsTracker(application = App())
+    private val gpsTracker = GpsTracker(context = requireContext())
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -63,10 +63,11 @@ class OmJoinFragment : BaseFragment<FragmentOmJoinBinding>(R.layout.fragment_om_
                         ), true
                     )
                 }
+                showToast("현재위치 가져오기 성공.")
             }
 
             is Result.Error -> {
-
+                showToast("현재위치 가져오기 실패.")
             }
         }
     }
