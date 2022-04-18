@@ -38,6 +38,7 @@
         <entry key="app/src/main/res/drawable/layout_box_color_stroke.xml" value="0.1765" />
         <entry key="app/src/main/res/drawable/layout_box_radius.xml" value="0.1825" />
         <entry key="app/src/main/res/drawable/layout_box_radius_stroke.xml" value="0.1855" />
+        <entry key="app/src/main/res/drawable/layout_box_radius_stroke_wt.xml" value="0.179" />
         <entry key="app/src/main/res/drawable/layout_box_spinner.xml" value="0.1775" />
         <entry key="app/src/main/res/drawable/layout_box_stroke.xml" value="0.1825" />
         <entry key="app/src/main/res/drawable/layout_box_stroke_recycler.xml" value="0.1825" />
@@ -90,8 +91,8 @@
         <entry key="app/src/main/res/layout/fragment_management_history_owner.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_om_blank.xml" value="0.18703703703703703" />
         <entry key="app/src/main/res/layout/fragment_om_find_washer.xml" value="0.125" />
-        <entry key="app/src/main/res/layout/fragment_om_home.xml" value="0.13850415512465375" />
-        <entry key="app/src/main/res/layout/fragment_om_join.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/fragment_om_home.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/fragment_om_join.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_om_management_history.xml" value="0.18703703703703703" />
         <entry key="app/src/main/res/layout/fragment_om_map.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_om_order_status.xml" value="0.335" />
@@ -122,7 +123,7 @@
         <entry key="app/src/main/res/layout/fragment_pm_pickup_list.xml" value="0.18703703703703703" />
         <entry key="app/src/main/res/layout/fragment_pm_pickup_status.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_pm_price_status.xml" value="0.28425925925925927" />
-        <entry key="app/src/main/res/layout/fragment_pm_registration.xml" value="0.18703703703703703" />
+        <entry key="app/src/main/res/layout/fragment_pm_registration.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_pm_settlement_request.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_price_status_pickup_manager.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_registration_pickup_manager.xml" value="0.2111111111111111" />
@@ -143,11 +144,12 @@
         <entry key="app/src/main/res/layout/fragment_wm_order_list.xml" value="0.18703703703703703" />
         <entry key="app/src/main/res/layout/fragment_wm_order_status.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_wm_payment.xml" value="0.165" />
-        <entry key="app/src/main/res/layout/fragment_wm_registration.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_wm_registration.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_wm_registration_price.xml" value="0.18703703703703703" />
         <entry key="app/src/main/res/layout/item_history.xml" value="0.275" />
         <entry key="app/src/main/res/layout/item_list.xml" value="0.335" />
         <entry key="app/src/main/res/layout/item_model.xml" value="0.275" />
+        <entry key="app/src/main/res/layout/item_om_banner.xml" value="0.31197916666666664" />
         <entry key="app/src/main/res/layout/item_pickup.xml" value="0.25" />
       </map>
     </option>

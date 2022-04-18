@@ -108,10 +108,10 @@
                             <EditText
                                 android:id="@+id/etCarNum"
                                 android:layout_width="wrap_content"
-                                android:layout_height="40sp"
-                                android:layout_marginTop="5sp"
+                                android:layout_height="50sp"
+                                android:layout_marginTop="3sp"
+                                android:layout_marginBottom="3sp"
                                 android:layout_marginEnd="26sp"
-                                android:layout_marginBottom="5sp"
                                 android:layout_weight="1"
                                 android:background="@drawable/layout_box_stroke"
                                 android:ellipsize="end"
@@ -146,10 +146,10 @@
                             <androidx.appcompat.widget.AppCompatSpinner
                                 android:id="@+id/spCarBrand"
                                 android:layout_width="match_parent"
-                                android:layout_height="40sp"
-                                android:layout_marginTop="5sp"
+                                android:layout_height="50sp"
+                                android:layout_marginTop="3sp"
                                 android:layout_marginEnd="26sp"
-                                android:layout_marginBottom="5sp"
+                                android:layout_marginBottom="3sp"
                                 android:layout_weight="1"
                                 android:background="@drawable/layout_box_stroke"
                                 android:paddingTop="5sp"
@@ -176,10 +176,10 @@
                             <androidx.appcompat.widget.AppCompatSpinner
                                 android:id="@+id/spCarModel"
                                 android:layout_width="match_parent"
-                                android:layout_height="40sp"
-                                android:layout_marginTop="5sp"
+                                android:layout_height="50sp"
+                                android:layout_marginTop="3sp"
                                 android:layout_marginEnd="26sp"
-                                android:layout_marginBottom="5sp"
+                                android:layout_marginBottom="3sp"
                                 android:layout_weight="1"
                                 android:background="@drawable/layout_box_stroke"
                                 android:paddingTop="5sp"
@@ -206,10 +206,10 @@
                             <TextView
                                 android:id="@+id/tvCarKinds"
                                 android:layout_width="match_parent"
-                                android:layout_height="40sp"
-                                android:layout_marginTop="5sp"
+                                android:layout_height="50sp"
+                                android:layout_marginTop="3sp"
                                 android:layout_marginEnd="26sp"
-                                android:layout_marginBottom="5sp"
+                                android:layout_marginBottom="3sp"
                                 android:layout_weight="1"
                                 android:background="@drawable/layout_box_color_stroke"
                                 android:gravity="center_vertical"
@@ -237,14 +237,43 @@
                             <TextView
                                 android:id="@+id/tvCarSize"
                                 android:layout_width="match_parent"
-                                android:layout_height="40sp"
-                                android:layout_marginTop="5sp"
+                                android:layout_height="50sp"
+                                android:layout_marginTop="3sp"
                                 android:layout_marginEnd="26sp"
-                                android:layout_marginBottom="5sp"
+                                android:layout_marginBottom="3sp"
                                 android:layout_weight="1"
                                 android:background="@drawable/layout_box_color_stroke"
                                 android:gravity="center_vertical"
                                 android:hint="준중형"
+                                android:paddingStart="20sp"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="26sp"
+                                android:text="원사지"
+                                android:textColor="@color/dgray"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvOrigin"
+                                android:layout_width="match_parent"
+                                android:layout_height="50sp"
+                                android:layout_marginTop="3sp"
+                                android:layout_marginEnd="26sp"
+                                android:layout_marginBottom="3sp"
+                                android:layout_weight="1"
+                                android:background="@drawable/layout_box_color_stroke"
+                                android:gravity="center_vertical"
+                                android:hint="물건너온 차량"
                                 android:paddingStart="20sp"
                                 android:textSize="16sp" />
 
@@ -268,10 +297,10 @@
                             <EditText
                                 android:id="@+id/etCarCol"
                                 android:layout_width="match_parent"
-                                android:layout_height="40sp"
-                                android:layout_marginTop="5sp"
+                                android:layout_height="50sp"
+                                android:layout_marginTop="3sp"
                                 android:layout_marginEnd="26sp"
-                                android:layout_marginBottom="5sp"
+                                android:layout_marginBottom="3sp"
                                 android:layout_weight="1"
                                 android:background="@drawable/layout_box_stroke"
                                 android:ellipsize="end"
@@ -289,7 +318,8 @@
 
                         <Space
                             android:layout_width="match_parent"
-                            android:layout_height="20sp"></Space>
+                            android:layout_height="20sp">
+                        </Space>
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -309,7 +339,8 @@
 
                         <Space
                             android:layout_width="match_parent"
-                            android:layout_height="20sp"></Space>
+                            android:layout_height="20sp">
+                        </Space>
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -335,15 +366,16 @@
 
                         <Space
                             android:layout_width="match_parent"
-                            android:layout_height="10sp"></Space>
+                            android:layout_height="10sp">
+                        </Space>
 
                         <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="60sp"
-                            android:layout_marginStart="26sp"
                             android:layout_marginTop="5sp"
+                            android:layout_width="match_parent"
+                            android:layout_height="50sp"
+                            android:layout_marginStart="26sp"
                             android:layout_marginEnd="26sp"
-                            android:background="@drawable/layout_box_radius_stroke"
+                            android:background="@drawable/layout_box_stroke"
                             android:orientation="vertical">
 
                             <LinearLayout
@@ -351,25 +383,59 @@
                                 android:layout_height="match_parent"
                                 android:orientation="horizontal">
 
-                                <Space
-                                    android:layout_width="wrap_content"
+                                <TextView
+                                    android:id="@+id/delivery_location"
+                                    android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:layout_weight="1"></Space>
-
+                                    android:gravity="center_vertical"
+                                    android:layout_marginStart="20sp"
+                                    android:layout_marginEnd="16sp"
+                                    android:layout_weight="1"
+                                    android:hint="주소를 검색하시라요"
+                                    android:textColor="@color/dgray"
+                                    android:textSize="16sp"/>
                                 <ImageView
-                                    android:id="@+id/btnCarLocation"
-                                    android:layout_width="47sp"
-                                    android:layout_height="47sp"
+                                    android:layout_width="35sp"
+                                    android:layout_height="35sp"
                                     android:layout_gravity="center_vertical"
-                                    android:layout_marginStart="16sp"
-                                    android:layout_marginEnd="8sp"
+                                    android:layout_marginEnd="10sp"
                                     android:background="@drawable/search_icon" />
+                            </LinearLayout>
+                        </LinearLayout>
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="6sp">
+                        </Space>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="26sp"
+                            android:layout_marginEnd="26sp"
+                            android:orientation="vertical">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal">
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50sp"
+                                    android:background="@drawable/layout_box_stroke"
+                                    android:paddingStart="20sp"
+                                    android:paddingEnd="20sp"
+                                    android:layout_weight="1"
+                                    android:ellipsize="end"
+                                    android:hint="상세주소를 입력하시라요"
+                                    android:maxLines="1"
+                                    android:textSize="16sp"
+                                    android:inputType="text"
+                                    android:imeOptions="actionNext"/>
                             </LinearLayout>
                         </LinearLayout>
 
                         <Space
                             android:layout_width="match_parent"
-                            android:layout_height="10sp"></Space>
+                            android:layout_height="10sp">
+                        </Space>
 
                         <TextView
                             android:id="@+id/carLocation"
@@ -378,11 +444,13 @@
                             android:layout_marginStart="26sp"
                             android:layout_marginEnd="26sp"
                             android:hint="차량 위치를 등록하세요!"
-                            android:padding="10sp"></TextView>
+                            android:padding="10sp">
+                        </TextView>
 
                         <Space
                             android:layout_width="match_parent"
-                            android:layout_height="10sp"></Space>
+                            android:layout_height="10sp">
+                        </Space>
 
                         <LinearLayout
                             android:layout_width="match_parent"

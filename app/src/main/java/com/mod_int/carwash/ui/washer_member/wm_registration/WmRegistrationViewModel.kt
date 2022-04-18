@@ -28,7 +28,7 @@ class WmRegistrationViewModel @Inject constructor(
     val wmAccountNr = MutableLiveData("")
     val wmPhoneNr = MutableLiveData("010-1111-1111")
     val wmLocation = MutableLiveData("서울시 논현동 111-11 1층 주차장")
-    val wmCheck1 = ObservableField("")
+    val wmCheck1 = ObservableField("픽업손세차")
     val wmCheck2 = ObservableField("")
     val wmCheck3 = ObservableField("")
 

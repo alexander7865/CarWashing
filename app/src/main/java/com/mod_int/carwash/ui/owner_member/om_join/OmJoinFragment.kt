@@ -25,13 +25,10 @@ import net.daum.mf.map.api.MapView
 @AndroidEntryPoint
 class OmJoinFragment : BaseFragment<FragmentOmJoinBinding>(R.layout.fragment_om_join) {
     private val omJoinViewModel by viewModels<OmJoinViewModel>()
-
     private val omViewModel by activityViewModels<OmViewModel>()
 
     private lateinit var mapView: MapView
-
     private lateinit var gpsTracker : GpsTracker
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -120,16 +117,6 @@ class OmJoinFragment : BaseFragment<FragmentOmJoinBinding>(R.layout.fragment_om_
         }
     }
 
-    private fun onChangedOmViewState(viewState: OmViewState) {
-        when (viewState) {
-            is OmViewState.PermissionGrant -> {
-                showToast(message = "권한 OK")
-                getCurrentLocation()
-            }
-        }
-    }
-
-
     private fun onChangedJoinViewState(viewState: OmJoinViewState) {
         when (viewState) {
             is OmJoinViewState.ErrorMsg -> {
@@ -145,6 +132,16 @@ class OmJoinFragment : BaseFragment<FragmentOmJoinBinding>(R.layout.fragment_om_
             }
         }
     }
+
+    private fun onChangedOmViewState(viewState: OmViewState) {
+        when (viewState) {
+            is OmViewState.PermissionGrant -> {
+                showToast(message = "권한 OK")
+                getCurrentLocation()
+            }
+        }
+    }
+
 
     //스피너 브랜드셀렉
     private fun brandSelect() {

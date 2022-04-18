@@ -15,14 +15,16 @@ class OmHomeViewModel @Inject constructor(
     private val firebaseRepository: FirebaseRepository,
 ) : BaseViewModel(app) {
 
-    val nowDate = ObservableField("") //날짜는 꼭 들어오는 값입니다.
+    val nowDate1 = ObservableField("") //날짜는 꼭 들어오는 값입니다.
+    val nowDate2 = ObservableField("") //날짜는 꼭 들어오는 값입니다.
     val phoneNr = ObservableField("") //폰넘버는 꼭 들어오는 값입니다.
     val myCar = ObservableField("미등록")
     val myLocation = ObservableField("미등록")
     private val current: LocalDateTime = LocalDateTime.now()
 
     fun omHomeInfo() {
-        nowDate.set("${current.year}년 ${current.monthValue}월 ${current.dayOfMonth}일")
+        nowDate1.set("${current.year}년 ${current.monthValue}월 ${current.dayOfMonth}일")
+        nowDate2.set("${current.year}. ${current.monthValue}.${current.dayOfMonth}")
         phoneNr.set("010-1111-1111")
         myLocation.set("서울시 강남구 논현동 111-11 지하주차장")
         carInfoCheck()
@@ -37,7 +39,6 @@ class OmHomeViewModel @Inject constructor(
                 .addOnSuccessListener { document ->
                     return@addOnSuccessListener when {
                         (myCar.get().isNullOrEmpty()) -> {
-
 
                         }else -> {
                             myCar.set(

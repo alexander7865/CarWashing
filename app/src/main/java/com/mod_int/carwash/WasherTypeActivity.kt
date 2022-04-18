@@ -15,7 +15,6 @@ class WasherTypeActivity : BaseActivity<ActivityWasherTypeBinding>(R.layout.acti
             intent.putExtra(RegisterActivity.KEY_TYPE, "washerMember")
             startActivity(intent)
             overridePendingTransition(0, 0)
-
         }
 
         binding.pickupWasher.setOnClickListener {
@@ -23,7 +22,6 @@ class WasherTypeActivity : BaseActivity<ActivityWasherTypeBinding>(R.layout.acti
             intent.putExtra(RegisterActivity.KEY_TYPE, "pickupMember")
             startActivity(intent)
             overridePendingTransition(0, 0)
-
         }
 
         binding.btnCancelWasherType.setOnClickListener {
