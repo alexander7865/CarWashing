@@ -399,12 +399,19 @@
                                 android:background="@drawable/arrow_right_alt" />
                         </LinearLayout>
                     </LinearLayout>
-
                     <Space
                         android:layout_width="match_parent"
                         android:layout_height="40sp"
                         android:orientation="vertical"></Space>
-
+                    <androidx.viewpager2.widget.ViewPager2
+                        android:id="@+id/omBanner"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:background="@color/aqua"/>
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="40sp"
+                        android:orientation="vertical"></Space>
                 </LinearLayout>
             </ScrollView>
         </LinearLayout>

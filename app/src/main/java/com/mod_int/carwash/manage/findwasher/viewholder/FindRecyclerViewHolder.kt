@@ -18,13 +18,15 @@ class FindRecyclerViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(
     fun bind(item: WasherInfo, itemClickListener: (item : WasherInfo, clickType: ClickType) -> Unit) {
         binding?.let {
             with(it){
-                nameWasher.text = item.name
+                companyLocation.text = item.companyLocation
+                companyName.text = item.companyName
                 countOrder.text = item.count
                 pointWasher.text = item.point
                 deliPriceWasher.text = item.deliPrice
                 policyPriceWasher.text = item.policyPrice
-                locationWasher.text = item.location
-                washingType.text = item.washingType
+                washingType1.text = item.washingType1
+                washingType2.text = item.washingType2
+                washingType3.text = item.washingType3
                 inWashingCountryOfCar.text = item.inWashingCountryOfCar
                 outWashingCountryOfCar.text = item.outWashingCountryOfCar
                 inOutWashingCountryOfCar.text = item.inOutWashingCountryOfCar

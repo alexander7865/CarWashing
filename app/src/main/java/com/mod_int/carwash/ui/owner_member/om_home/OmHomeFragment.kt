@@ -5,6 +5,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
+import androidx.viewpager2.widget.ViewPager2
 import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseFragment
 import com.mod_int.carwash.base.ViewState
@@ -15,6 +16,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class OmHomeFragment : BaseFragment<FragmentOmHomeBinding>(R.layout.fragment_om_home) {
     private val omHomeViewModel by viewModels<OmHomeViewModel>()
+    private val omBannerAdapter = OmBannerPagerAdapter()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -24,6 +26,15 @@ class OmHomeFragment : BaseFragment<FragmentOmHomeBinding>(R.layout.fragment_om_
 
     private fun initUi(){
         omHomeViewModel.omHomeInfo()
+        with(binding) {
+            omBanner.apply {
+
+                // 뷰페이저2 구현안됨 화면 확인해야함 터지는 문제 발생함
+//                adapter = omBannerAdapter
+                orientation = ViewPager2.ORIENTATION_HORIZONTAL
+
+            }
+        }
     }
 
     private fun initViewModel(){
@@ -38,12 +49,17 @@ class OmHomeFragment : BaseFragment<FragmentOmHomeBinding>(R.layout.fragment_om_
 
     private fun onChangedHomeViewState(viewState: ViewState){
         when(viewState) {
+
             is OmHomeViewState.ChangeInfo -> {
                 omHomeViewModel.omHomeInfo()
             }
 
             is OmHomeViewState.RouteOmJoin -> {
                 routeOmJoinFragment()
+            }
+
+            is OmHomeViewState.GetBannerList -> {
+                omBannerAdapter.addAll(viewState.list)
             }
 
             is OmHomeViewState.RouteWebViewSuggestOm1 -> {

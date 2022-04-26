@@ -222,7 +222,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
                                 android:layout_marginStart="5sp"
-                                android:text="내 위치등록"
+                                android:text="세차장 선택"
                                 android:textColor="@color/dgray"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />

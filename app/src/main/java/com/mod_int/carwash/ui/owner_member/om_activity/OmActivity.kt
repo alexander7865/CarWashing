@@ -136,6 +136,7 @@ class FragmentPagerAdapter(
     FragmentStateAdapter(fragmentActivity) {
     override fun getItemCount() = fragmentList.size
     override fun createFragment(position: Int) = fragmentList[position]
+
 }
 
 

@@ -112,13 +112,13 @@ class CustomDialogOrderFragment : DialogFragment() {
     }
 
     private fun orderType1() {
-        val time = resources.getStringArray(R.array.orderType1)
-        val timeAdapter = ArrayAdapter (requireContext(),
-            R.layout.custom_find_spinner, time)
+        val type1 = resources.getStringArray(R.array.orderType1)
+        val type1Adapter = ArrayAdapter (requireContext(),
+            R.layout.custom_find_spinner, type1)
 
         with(binding){
-            timeSelect.adapter = timeAdapter
-            timeSelect.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            orderType1.adapter = type1Adapter
+            orderType1.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
                 override fun onItemSelected(
                     parent: AdapterView<*>?,
                     view: View?,
@@ -136,13 +136,13 @@ class CustomDialogOrderFragment : DialogFragment() {
     }
 
     private fun orderType2() {
-        val time = resources.getStringArray(R.array.orderType2)
-        val timeAdapter = ArrayAdapter (requireContext(),
-            R.layout.custom_find_spinner, time)
+        val type2 = resources.getStringArray(R.array.orderType2)
+        val type2Adapter = ArrayAdapter (requireContext(),
+            R.layout.custom_find_spinner, type2)
 
         with(binding){
-            timeSelect.adapter = timeAdapter
-            timeSelect.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            orderType2.adapter = type2Adapter
+            orderType2.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
                 override fun onItemSelected(
                     parent: AdapterView<*>?,
                     view: View?,

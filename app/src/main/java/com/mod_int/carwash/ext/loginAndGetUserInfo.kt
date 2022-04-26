@@ -2,8 +2,11 @@ package com.mod_int.carwash.ext
 
 
 import android.util.Log
+import com.google.firebase.firestore.FieldValue
+import com.google.firebase.firestore.SetOptions
 import com.mod_int.carwash.data.repo.FirebaseRepository
 import com.mod_int.carwash.model.User
+import com.mod_int.carwash.model.WasherInfo
 
 fun FirebaseRepository.loginAndGetUserInfo(
     email: String,
@@ -28,6 +31,7 @@ fun FirebaseRepository.loginUser(
         .addOnCompleteListener {
             callback(it.isSuccessful)
         }
+
 }
 
 
@@ -120,19 +124,19 @@ fun FirebaseRepository.createTypeDB(
                 }
 
             // HasMap 형태로 데이터를 보여주기위한 방법 최초 데이터만 사용이 가능함
-//            getFirebaseFireStore().collection("WasherMember").document("User")
-//                .set(emptyMap<String, WasherInfo>(), SetOptions.merge())
-//                .addOnCompleteListener {
-//                    if (it.isSuccessful) {
-//                        getFirebaseFireStore().collection("WasherMember").document("User").update(
-//                            "list", FieldValue.arrayUnion(WasherInfo().copy(id = id))
-//                        ).addOnCompleteListener {
-//                            callback(it.isSuccessful)
-//                        }
-//                    } else {
-//                        callback(false)
-//                    }
-//                }
+            getFirebaseFireStore().collection("WasherMember").document("User")
+                .set(emptyMap<String, WasherInfo>(), SetOptions.merge())
+                .addOnCompleteListener {
+                    if (it.isSuccessful) {
+                        getFirebaseFireStore().collection("WasherMember").document("User").update(
+                            "WmInfo", FieldValue.arrayUnion(WasherInfo())
+                        ).addOnCompleteListener {
+                            callback(it.isSuccessful)
+                        }
+                    } else {
+                        callback(false)
+                    }
+                }
         }
 
         "pickupMember" -> {

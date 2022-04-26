@@ -5,14 +5,15 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class WasherInfo(
-    var id : String = "",
-    var name: String = "",
+    var companyLocation : String = "",
+    var companyName: String = "",
     var count: String = "",
     var point: String = "",
     var deliPrice: String = "",
     var policyPrice: String = "",
-    var location: String = "",
-    var washingType: String = "",
+    var washingType1: String = "",
+    var washingType2: String = "",
+    var washingType3: String = "",
     var inWashingCountryOfCar: String = "",
     var outWashingCountryOfCar: String = "",
     var inOutWashingCountryOfCar: String = "",
@@ -32,14 +33,15 @@ data class WasherInfo(
 
 fun HashMap<String, String>.toWasherInfo(): WasherInfo =
     WasherInfo(
-        id = getValue("id"),
-        name = getValue("name"),
+        companyLocation = getValue("companyLocation"),
+        companyName = getValue("companyName"),
         count = getValue("count"),
         point = getValue("point"),
         deliPrice = getValue("deliPrice"),
         policyPrice = getValue("policyPrice"),
-        location = getValue("location"),
-        washingType = getValue("washingType"),
+        washingType1 = getValue("washingType1"),
+        washingType2 = getValue("washingType2"),
+        washingType3 = getValue("washingType3"),
         inWashingCountryOfCar = getValue("inWashingCountryOfCar"),
         outWashingCountryOfCar = getValue("outWashingCountryOfCar"),
         inOutWashingCountryOfCar = getValue("inOutWashingCountryOfCar"),

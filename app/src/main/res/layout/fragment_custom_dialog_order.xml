@@ -107,7 +107,7 @@
                         android:layout_height="match_parent"
                         android:orientation="vertical">
                         <Spinner
-                            android:id="@+id/orderType"
+                            android:id="@+id/orderType1"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@drawable/custom_background_spinner_white"

@@ -52,7 +52,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
             }
 
             is LoginViewState.Cancel -> {
-//                onBackPressed()
+                onBackPressed()
                 overridePendingTransition(0, 0) //애니메이션 효과없에기
             }
 

@@ -1,11 +1,10 @@
 package com.mod_int.carwash.manage.history.adapter
 
-import android.icu.text.Transliterator
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.mod_int.carwash.CustomDialogFragment
-import com.mod_int.carwash.model.HistoryInfo
 import com.mod_int.carwash.manage.history.viewholder.HistoryRecyclerViewHolder
+import com.mod_int.carwash.model.HistoryInfo
 
 class HistoryRecyclerAdapter : RecyclerView.Adapter<HistoryRecyclerViewHolder>(){
 

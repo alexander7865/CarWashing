@@ -6,7 +6,7 @@
     </data>
 
     <FrameLayout
-        android:id="@+id/omBanner"
+        android:id="@+id/omBannerItem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white">
@@ -25,6 +25,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/omBannerDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="2022.03.03"
@@ -37,12 +38,14 @@
                     android:layout_weight="1"></Space>
 
                 <ImageView
+                    android:id="@+id/omBannerWeather"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10sp"
                     android:background="@drawable/weather_sunny" />
 
                 <TextView
+                    android:id="@+id/omBannerTemp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="15sp"
@@ -87,6 +90,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/tvOmSuggestion1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10sp"
@@ -97,6 +101,7 @@
                     android:textColor="@color/dgray"/>
 
                 <ImageView
+                    android:id="@+id/omBannerSuggestionRoute1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/arrow_right_alt" />
@@ -121,6 +126,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/tvOmSuggestion2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10sp"
@@ -131,6 +137,7 @@
                     android:textColor="@color/dgray"/>
 
                 <ImageView
+                    android:id="@+id/omBannerSuggestionRoute2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/arrow_right_alt" />

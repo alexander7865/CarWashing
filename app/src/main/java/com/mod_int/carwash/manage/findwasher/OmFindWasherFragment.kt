@@ -1,5 +1,6 @@
 package com.mod_int.carwash.manage.findwasher
 
+import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
@@ -19,7 +20,6 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class OmFindWasherFragment :
     BaseFragment<FragmentOmFindWasherBinding>(R.layout.fragment_om_find_washer) {
-
     private val omFindWasherViewModel by viewModels<OmFindWasherViewModel>()
     private val findAdapter = FindRecyclerAdapter()
 
@@ -31,9 +31,7 @@ class OmFindWasherFragment :
     }
 
     private fun initUi() {
-        with(binding) {
-            findWasherRecycler.adapter = findAdapter
-        }
+        binding.findWasherRecycler.adapter = findAdapter
         //초기 리사이클러뷰 구현.
         with(findAdapter) {
             setItemClickListener { item, clickType ->
@@ -54,13 +52,12 @@ class OmFindWasherFragment :
         omFindWasherViewModel.getWasherMember()
         omFindWasherViewModel.viewStateLiveData.observe(viewLifecycleOwner) { viewState ->
             (viewState as? OmFindWasherViewState)?.let {
-                onChangedOmFindWasherViewState(
-                    viewState
-                )
+                onChangedOmFindWasherViewState(viewState)
             }
         }
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun onChangedOmFindWasherViewState(viewState: OmFindWasherViewState) {
         when (viewState) {
             is OmFindWasherViewState.GetWasherMember -> {

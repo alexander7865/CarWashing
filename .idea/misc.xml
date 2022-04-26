@@ -48,6 +48,8 @@
         <entry key="app/src/main/res/drawable/my_location.xml" value="0.1655" />
         <entry key="app/src/main/res/drawable/recycler_bubble.xml" value="0.1825" />
         <entry key="app/src/main/res/drawable/recyclerview_radius.xml" value="0.1825" />
+        <entry key="app/src/main/res/drawable/recyclerview_radius_type2.xml" value="0.2215" />
+        <entry key="app/src/main/res/drawable/recyclerview_radius_type3.xml" value="0.2215" />
         <entry key="app/src/main/res/drawable/recyclerview_radius_washer_pickup.xml" value="0.1775" />
         <entry key="app/src/main/res/drawable/search_icon.xml" value="0.1655" />
         <entry key="app/src/main/res/drawable/tab_select.xml" value="0.1765" />
@@ -91,7 +93,7 @@
         <entry key="app/src/main/res/layout/fragment_management_history_owner.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_om_blank.xml" value="0.18703703703703703" />
         <entry key="app/src/main/res/layout/fragment_om_find_washer.xml" value="0.125" />
-        <entry key="app/src/main/res/layout/fragment_om_home.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/fragment_om_home.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_om_join.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_om_management_history.xml" value="0.18703703703703703" />
         <entry key="app/src/main/res/layout/fragment_om_map.xml" value="0.165" />
@@ -149,7 +151,8 @@
         <entry key="app/src/main/res/layout/item_history.xml" value="0.275" />
         <entry key="app/src/main/res/layout/item_list.xml" value="0.335" />
         <entry key="app/src/main/res/layout/item_model.xml" value="0.275" />
-        <entry key="app/src/main/res/layout/item_om_banner.xml" value="0.31197916666666664" />
+        <entry key="app/src/main/res/layout/item_om_banner.xml" value="0.2997032640949555" />
+        <entry key="app/src/main/res/layout/item_om_banner1.xml" value="0.31197916666666664" />
         <entry key="app/src/main/res/layout/item_pickup.xml" value="0.25" />
       </map>
     </option>

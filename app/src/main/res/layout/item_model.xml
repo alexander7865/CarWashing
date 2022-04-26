@@ -3,6 +3,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
+        <variable
+            name="viewmodel"
+            type="com.mod_int.carwash.manage.findwasher.OmFindWasherViewModel" />
 
     </data>
 
@@ -29,12 +32,12 @@
                     android:layout_marginTop="16sp"
                     android:orientation="horizontal">
                     <TextView
-                        android:id="@+id/name_washer"
+                        android:id="@+id/companyLocation"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16sp"
                         android:layout_weight="1"
-                        android:text="서울특별시 논현동 111-111"
+                        android:text="서울특별시 강남구 논현동 111-11"
                         android:ellipsize="end"
                         android:maxLines="1"
                         android:textSize="16sp"
@@ -42,13 +45,13 @@
                         android:textStyle="bold"/>
 
                     <TextView
-                        android:id="@+id/locationWasher"
+                        android:id="@+id/companyName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16sp"
                         android:layout_marginEnd="16sp"
                         android:gravity="end"
-                        android:text="*****손세차장"
+                        android:text="세차장명"
                         android:textColor="@color/dgray"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -59,7 +62,7 @@
                     android:orientation="horizontal">
                     <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
+                        android:layout_height="110dp"
                         android:gravity="center_vertical"
                         android:layout_weight="1"
                         android:orientation="vertical">
@@ -67,7 +70,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="16sp"
-                            android:layout_marginTop="5sp"
                             android:orientation="horizontal">
                             <TextView
                                 android:layout_width="wrap_content"
@@ -162,19 +164,45 @@
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
                         <TextView
-                            android:id="@+id/washingType"
-                            android:layout_width="match_parent"
-                            android:layout_height="35sp"
+                            android:id="@+id/washingType1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="30sp"
+                            android:layout_marginTop="5sp"
                             android:drawableStart="@drawable/recycler_bubble"
-                            android:layout_marginTop="45sp"
                             android:paddingStart="10sp"
                             android:paddingEnd="14sp"
-                            android:background="@drawable/recyclerview_radius"
+                            android:background="@drawable/recyclerview_radius_type1"
                             android:gravity="center"
                             android:text="픽업손세차"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"/>
+                        <TextView
+                            android:id="@+id/washingType2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="30sp"
+                            android:layout_marginTop="5sp"
+                            android:drawableStart="@drawable/recycler_bubble"
+                            android:paddingStart="10sp"
+                            android:paddingEnd="14sp"
+                            android:background="@drawable/recyclerview_radius_type2"
+                            android:gravity="center"
+                            android:text="손세차예약"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"/>
+                        <TextView
+                            android:id="@+id/washingType3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="30sp"
+                            android:layout_marginTop="5sp"
+                            android:drawableStart="@drawable/recycler_bubble"
+                            android:paddingStart="10sp"
+                            android:paddingEnd="14sp"
+                            android:background="@drawable/recyclerview_radius_type3"
+                            android:gravity="center"
+                            android:text="출장손세차"
                             android:textColor="@color/white"
                             android:textStyle="bold"/>
                     </LinearLayout>

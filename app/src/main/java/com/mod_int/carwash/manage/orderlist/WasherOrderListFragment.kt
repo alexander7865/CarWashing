@@ -29,23 +29,17 @@ class WasherOrderListFragment : BaseFragment<FragmentWmOrderListBinding>(
 
         //새로고침 구현
         with(binding) {
-            pullToRefreshOrd.setOnRefreshListener {
-                pullToRefreshOrd.isRefreshing = false
-                orderListAdapter.addAll(mockList)
-            }
-
             recyclerOrderListWasher.adapter = orderListAdapter
         }
 
         //초기 리사이클러뷰 구현.
         with(orderListAdapter) {
-            addAll(com.mod_int.carwash.manage.orderlist.WasherOrderListFragment.mockList)
+            addAll(mockList)
             setItemClickListener {
                 orderCfmDialog()
             }
         }
     }
-
 
     companion object {
 
@@ -63,7 +57,7 @@ class WasherOrderListFragment : BaseFragment<FragmentWmOrderListBinding>(
         )
 
         private val mockList = mutableListOf<OrderList>().apply {
-            for (i in 0..100) {
+            for (i in 0..3) {
                 add(mockData.copy(namePickupManager = "홍길동 $i"))
             }
         }

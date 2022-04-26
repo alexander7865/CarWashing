@@ -28,8 +28,8 @@ class FindRecyclerAdapter : RecyclerView.Adapter<FindRecyclerViewHolder>(), Filt
     override fun getItemCount(): Int  = filteredList.size
 
     @SuppressLint("NotifyDataSetChanged")
-    fun addAll(listF: List<WasherInfo>) {
-        filteredList.addAll(listF)
+    fun addAll(list: List<WasherInfo>) {
+        filteredList.addAll(list)
         notifyDataSetChanged()
     }
 
@@ -58,7 +58,7 @@ class FindRecyclerAdapter : RecyclerView.Adapter<FindRecyclerViewHolder>(), Filt
                 }else {  //로그테스트결과 item.washingType , charString 데이터 검색이 안됩니다.
                     val filteringList = ArrayList<WasherInfo>()
                     for (item in unFilteredList) {
-                        if (item.washingType == charString) filteringList.add(item)
+                        if (item.washingType1 == charString) filteringList.add(item)
 
                     }
                     filteringList
