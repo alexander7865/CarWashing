@@ -13,7 +13,7 @@ import javax.inject.Inject
 @HiltViewModel
 class OmHomeViewModel @Inject constructor(
     app: Application,
-    private val firebaseRepository: FirebaseRepository,
+    private val firebaseRepository: FirebaseRepository
 ) : BaseViewModel(app) {
 
     val nowDate1 = ObservableField("") //날짜는 꼭 들어오는 값입니다.

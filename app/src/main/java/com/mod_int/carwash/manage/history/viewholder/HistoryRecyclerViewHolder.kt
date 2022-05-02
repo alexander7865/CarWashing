@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.mod_int.carwash.CustomDialogFragment
+import com.mod_int.carwash.ui.dialog.CustomDialogFragment
 import com.mod_int.carwash.R
 import com.mod_int.carwash.databinding.ItemHistoryBinding
 import com.mod_int.carwash.model.HistoryInfo

@@ -64,6 +64,7 @@ class WmRegistrationFragment : BaseFragment<FragmentWmRegistrationBinding>(
             pickupWashing.isEnabled = isEnable
             handWashing.isEnabled = isEnable
             tripWashing.isEnabled = isEnable
+            wmCompanyName.isEnabled = isEnable
         }
     }
 
@@ -102,15 +103,15 @@ class WmRegistrationFragment : BaseFragment<FragmentWmRegistrationBinding>(
         override fun onCheckedChanged(buttonView: CompoundButton?, isChecked: Boolean) {
             when (buttonView?.id){
                 R.id.pickupWashing ->
-                    if (isChecked) wmRegistrationViewModel.wmCheck1.set("픽업손세차")
+                    if (isChecked) wmRegistrationViewModel.wmCheck1.set(" 픽업손세차 ")
                     else wmRegistrationViewModel.wmCheck1.set("")
 
                 R.id.handWashing ->
-                    if (isChecked) wmRegistrationViewModel.wmCheck2.set("손세차예약")
+                    if (isChecked) wmRegistrationViewModel.wmCheck2.set(" 손세차예약 ")
                     else wmRegistrationViewModel.wmCheck2.set("")
 
                 R.id.tripWashing ->
-                    if (isChecked) wmRegistrationViewModel.wmCheck3.set("출장손세차")
+                    if (isChecked) wmRegistrationViewModel.wmCheck3.set(" 출장손세차 ")
                     else wmRegistrationViewModel.wmCheck3.set("")
             }
         }

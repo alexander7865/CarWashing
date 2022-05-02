@@ -20,7 +20,7 @@ class OmJoinViewModel @Inject constructor(
     val inputCarBrandObservableField = ObservableField("")
     val inputCarModelObservableField = ObservableField("")
     val inputCarColor = MutableLiveData("")
-    val inputCompanyName = MutableLiveData("")
+    val inputDetailLocation = MutableLiveData("")
 
     fun omSaveInfo() {
         ioScope {
@@ -28,13 +28,13 @@ class OmJoinViewModel @Inject constructor(
             val carBrandInputCheck = async { carBrandInputCheck() }
             val carModelInputCheck = async { carModelInputCheck() }
             val carColInputCheck = async { carColInputCheck() }
-            val companyNameCheck = async { companyNameCheck() }
+            val carDetailLocation = async { carDetailLocationCheck() }
             checkInfo(
                 carNumInputCheck.await(),
                 carBrandInputCheck.await(),
                 carModelInputCheck.await(),
                 carColInputCheck.await(),
-                companyNameCheck.await(),
+                carDetailLocation.await(),
             )?.let { ownerInfo ->
                 val email = firebaseRepository.getFirebaseAuth().currentUser!!.email
                 firebaseRepository.getFirebaseFireStore().collection("OwnerMember")
@@ -77,16 +77,16 @@ class OmJoinViewModel @Inject constructor(
                 inputCarBrandObservableField.get()!!,
                 inputCarModelObservableField.get()!!,
                 inputCarColor.value!!,
-                inputCompanyName.value!!,
+                inputDetailLocation.value!!,
             )
         } else {
             null
         }
     }
 
-    private fun companyNameCheck(): Boolean {
+    private fun carDetailLocationCheck(): Boolean {
         return when {
-            inputCompanyName.value?.isEmpty() == true -> {
+            inputDetailLocation.value?.isEmpty() == true -> {
                 viewStateChanged(OmJoinViewState.ErrorMsg(message = "상호명을 입력하세요."))
                 false
             }
@@ -139,7 +139,7 @@ class OmJoinViewModel @Inject constructor(
         var carBrand: String = "",
         var carModel: String = "",
         var carColor: String = "",
-        var companyName: String = "",
+        var carDetailLocation: String = "",
     )
 }
 

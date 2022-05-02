@@ -258,13 +258,13 @@
                                 android:layout_width="100dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="26sp"
-                                android:text="원사지"
+                                android:text="원산지"
                                 android:textColor="@color/dgray"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
 
                             <TextView
-                                android:id="@+id/tvOrigin"
+                                android:id="@+id/carOrigin"
                                 android:layout_width="match_parent"
                                 android:layout_height="50sp"
                                 android:layout_marginTop="3sp"
@@ -417,7 +417,7 @@
                                 android:layout_height="match_parent"
                                 android:orientation="horizontal">
                                 <EditText
-                                    android:id="@+id/etCompanyName"
+                                    android:id="@+id/etDetailLocation"
                                     android:layout_width="match_parent"
                                     android:layout_height="50sp"
                                     android:background="@drawable/layout_box_stroke"
@@ -425,8 +425,8 @@
                                     android:paddingEnd="20sp"
                                     android:layout_weight="1"
                                     android:ellipsize="end"
-                                    android:text="@={viewModel.inputCompanyName}"
-                                    android:hint="상호명을 입력하시라요"
+                                    android:text="@={viewModel.inputDetailLocation}"
+                                    android:hint="디테일 주소를 입력하세요"
                                     android:maxLines="1"
                                     android:textSize="16sp"
                                     android:inputType="text"

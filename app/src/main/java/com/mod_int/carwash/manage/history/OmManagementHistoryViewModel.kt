@@ -18,10 +18,11 @@ class OmManagementHistoryViewModel
 
 
     //파이어스토어에서 컬렉션 이하의 모든값을 가지고 오는 테스트 성공함, 체크함수 만들어서 최종 히스토리코드 및 데이터 바꿔야함
+    //최종 세차가 끝나고나서 생성되는 데이터 입니다. 현재는 임의로 만들었습니다.
     fun getFinishedOrder() {
         firebaseRepository.getFirebaseFireStore().collection("OwnerMember")
             .addSnapshotListener { querySnapshot, _ ->
-                for (snapshot in querySnapshot!!.documents){
+                for (snapshot in querySnapshot!!.documentChanges){
                     val list = HistoryInfo(
                         date = "2022년 02월 02일",
                         washType = "내부 + 외부세차(외제차)",

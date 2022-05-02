@@ -1,21 +1,17 @@
 package com.mod_int.carwash.ui.washer_member.wm_state
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
-import com.mod_int.carwash.CustomDialogFragment
-import com.mod_int.carwash.CustomDialogListener
+import com.mod_int.carwash.ui.dialog.CustomDialogFragment
+import com.mod_int.carwash.ui.dialog.CustomDialogListener
 import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseFragment
 import com.mod_int.carwash.databinding.FragmentWmOrderStatusBinding
-import com.mod_int.carwash.ui.owner_member.om_state.OmOrderStateViewState
-import com.mod_int.carwash.ui.washer_member.wm_activity.WmActivity
-import com.mod_int.carwash.ui.washer_member.wm_home.WmHomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

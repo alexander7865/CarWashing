@@ -216,7 +216,7 @@ class OmJoinFragment : BaseFragment<FragmentOmJoinBinding>(R.layout.fragment_om_
             tvCarSize.isEnabled = isEnable
             etCarCol.isEnabled = isEnable
             carLocation.isEnabled = isEnable
-            etCompanyName.isEnabled =isEnable
+            etDetailLocation.isEnabled =isEnable
         }
     }
 }

@@ -22,13 +22,13 @@ import javax.inject.Inject
 class WmRegistrationViewModel @Inject constructor(
     app: Application,
     private val firebaseRepository: FirebaseRepository
-) : BaseViewModel(app) {
+    ) : BaseViewModel(app) {
     val wmAccountName = MutableLiveData("")
     val wmBankName = ObservableField("")
     val wmAccountNr = MutableLiveData("")
-    val wmPhoneNr = MutableLiveData("010-1111-1111")
     val wmLocation = MutableLiveData("서울시 논현동 111-11 1층 주차장")
-    val wmCheck1 = ObservableField("픽업손세차")
+    val wmCompanyName = MutableLiveData("")
+    val wmCheck1 = ObservableField("")
     val wmCheck2 = ObservableField("")
     val wmCheck3 = ObservableField("")
 
@@ -37,8 +37,8 @@ class WmRegistrationViewModel @Inject constructor(
             val wmAccountNameCheck = async {wmAccountNameCheck()}
             val wmBankNameCheck = async {wmBankNameCheck()}
             val wmAccountNrCheck = async {wmAccountNrCheck()}
-            val wmPhoneNrCheck = async {wmPhoneNrCheck()}
             val wmLocationCheck = async {wmLocationCheck()}
+            val wmCompanyNameCheck = async {wmCompanyNameCheck()}
             val wmCheck1Click = async {wmCheck1()}
             val wmCheck2Click = async {wmCheck2()}
             val wmCheck3Click = async {wmCheck3()}
@@ -46,8 +46,8 @@ class WmRegistrationViewModel @Inject constructor(
                 wmAccountNameCheck.await(),
                 wmBankNameCheck.await(),
                 wmAccountNrCheck.await(),
-                wmPhoneNrCheck.await(),
                 wmLocationCheck.await(),
+                wmCompanyNameCheck.await(),
                 wmCheck1Click.await(),
                 wmCheck2Click.await(),
                 wmCheck3Click.await(),
@@ -77,22 +77,22 @@ class WmRegistrationViewModel @Inject constructor(
         wmAccountNameCheck: Boolean,
         wmBankNameCheck: Boolean,
         wmAccountNrCheck: Boolean,
-        wmPhoneNrCheck: Boolean,
         wmLocationCheck: Boolean,
+        wmCompanyNameCheck: Boolean,
         wmCheck1Click : Boolean,
         wmCheck2Click : Boolean,
         wmCheck3Click : Boolean,
 
     ): WmInfo? {
         return if (wmAccountNameCheck && wmBankNameCheck && wmAccountNrCheck
-            && wmPhoneNrCheck && wmLocationCheck && (wmCheck1Click || wmCheck2Click || wmCheck3Click)
+            && wmLocationCheck && wmCompanyNameCheck && (wmCheck1Click || wmCheck2Click || wmCheck3Click)
         ) {
             WmInfo(
                 wmAccountName.value!!,
                 wmBankName.get()!!,
                 wmAccountNr.value!!,
-                wmPhoneNr.value!!,
                 wmLocation.value!!,
+                wmCompanyName.value!!,
                 wmCheck1.get()!!,
                 wmCheck2.get()!!,
                 wmCheck3.get()!!,
@@ -141,10 +141,10 @@ class WmRegistrationViewModel @Inject constructor(
         }
     }
 
-    //기존에 가입된 폰넘버 가지고 오면됨
-    private fun wmPhoneNrCheck(): Boolean {
+
+    private fun wmLocationCheck(): Boolean {
         return when {
-            wmPhoneNr.value?.isEmpty() == true -> {
+            wmLocation.value?.isEmpty() == true -> {
                 viewStateChanged(WmRegistrationViewState.Msg(message = "정보를 모두 입력하세요!"))
                 false
             }
@@ -154,9 +154,9 @@ class WmRegistrationViewModel @Inject constructor(
         }
     }
 
-    private fun wmLocationCheck(): Boolean {
+    private fun wmCompanyNameCheck(): Boolean {
         return when {
-            wmLocation.value?.isEmpty() == true -> {
+            wmCompanyName.value?.isEmpty() == true -> {
                 viewStateChanged(WmRegistrationViewState.Msg(message = "정보를 모두 입력하세요!"))
                 false
             }
@@ -200,14 +200,16 @@ class WmRegistrationViewModel @Inject constructor(
 
 
     data class WmInfo(
-        var accountName: String = "",
-        var bankName: String = "",
-        var accountNr: String = "",
-        var wmPhoneNr: String = "",
+        var wmAccountName: String = "",
+        var wmBankName: String = "",
+        var wmAccountNr: String = "",
         var wmLocation: String = "",
+        var wmCompanyName: String = "",
         var wmCheck1: String = "",
         var wmCheck2: String = "",
         var wmCheck3: String = "",
+        var wmCount :String = "",
+        var wmPoint : String ="",
 
     )
 }

@@ -2,8 +2,8 @@ package com.mod_int.carwash.manage.pickuplist
 
 import android.os.Bundle
 import android.view.View
-import com.mod_int.carwash.CustomDialogFragment
-import com.mod_int.carwash.CustomDialogListener
+import com.mod_int.carwash.ui.dialog.CustomDialogFragment
+import com.mod_int.carwash.ui.dialog.CustomDialogListener
 import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseFragment
 import com.mod_int.carwash.databinding.FragmentPmPickupListBinding
@@ -40,7 +40,7 @@ class PickupManagerPickupListFragment : BaseFragment<FragmentPmPickupListBinding
     companion object {
 
         private val mockData = PickupList( //리사이클러뷰 초기값 설정
-            datePicupListWasher = "2022.02.02",
+            datePickupListWasher = "2022.02.02",
             namePickupManager = "픽업매니저 성함",
             washTypeOrderListWasher = "내부/외부 세차(외제차)",
             carNumberOrderListWasher = "123허1234",

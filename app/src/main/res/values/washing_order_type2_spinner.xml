@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="orderType2">
+        <item>선택안함</item>
         <item>광택</item>
-        <item>코팅</item>
         <item>등등</item>
     </string-array>
 </resources>

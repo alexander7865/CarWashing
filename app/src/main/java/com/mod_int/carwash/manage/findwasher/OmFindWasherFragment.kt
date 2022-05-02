@@ -7,14 +7,17 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.fragment.app.viewModels
-import com.mod_int.carwash.ui.dialog.CustomDialogOrderFragment
-import com.mod_int.carwash.ui.dialog.CustomDialogOrderListener
 import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseFragment
 import com.mod_int.carwash.databinding.FragmentOmFindWasherBinding
-import com.mod_int.carwash.ui.owner_member.om_state.OmOrderStateFragment
 import com.mod_int.carwash.manage.findwasher.adapter.ClickType
 import com.mod_int.carwash.manage.findwasher.adapter.FindRecyclerAdapter
+import com.mod_int.carwash.ui.dialog.CustomDialogOrderFragment
+import com.mod_int.carwash.ui.dialog.CustomDialogOrderListener
+import com.mod_int.carwash.ui.dialog.WmPriceDialogFragment
+import com.mod_int.carwash.ui.dialog.WmPriceDialogListener
+import com.mod_int.carwash.ui.owner_member.om_price.OmPriceStateFragment
+import com.mod_int.carwash.ui.owner_member.om_state.OmOrderStateFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -43,6 +46,11 @@ class OmFindWasherFragment :
                     is ClickType.Route -> {
                         orderDialog()
                     }
+
+                    is ClickType.RoutePriceState -> {
+                        priceDialog()
+
+                    }
                 }
             }
         }
@@ -69,15 +77,12 @@ class OmFindWasherFragment :
     //커스텀 다이얼로그 만들었습니다.
     private fun orderDialog() {
         val dialog = CustomDialogOrderFragment.CustomDialogOrderBuilder()
-            .setTitle("세차작업을 의뢰하시겠습니까?")
-            .setRequest("")
             .setNoBtn("아니요")
             .setYesBtn("세차의뢰")
             .setBtnClickListener(object : CustomDialogOrderListener {
                 override fun onClickNegativeBtn() {
 
                 }
-
                 override fun onClickPositiveBtn() {
                     requireActivity().supportFragmentManager.beginTransaction()
                         .add(R.id.container_owner_find_washer, OmOrderStateFragment())
@@ -86,6 +91,18 @@ class OmFindWasherFragment :
             })
             .create()
         dialog.show(childFragmentManager, dialog.tag)
+    }
+
+    //업체별 단가표를 구현해야 합니다. 어떻게 할까요? 이것저것 해봤는데 잘 안되네요
+    private fun priceDialog() {
+        val priceDialog = WmPriceDialogFragment.WmPriceDialogBuilder()
+            .setBtnClickListener(object : WmPriceDialogListener {
+                override fun onClickNegativeBtn() {
+
+                }
+            })
+            .create()
+        priceDialog.show(childFragmentManager, priceDialog.tag)
     }
 
 
@@ -106,20 +123,16 @@ class OmFindWasherFragment :
                 ) {
                     when (position) {
                         0 -> {
-                            findAdapter.filter.filter("픽업손세차")
-
+                            findAdapter.filter.filter(" 픽업손세차 ")
                         }
                         1 -> {
-                            findAdapter.filter.filter("손세차예약")
-
+                            findAdapter.filter.filter(" 손세차예약 ")
                         }
                         2 -> {
-                            findAdapter.filter.filter("출장손세차")
-
+                            findAdapter.filter.filter(" 출장손세차 ")
                         }
                     }
                 }
-
                 override fun onNothingSelected(parent: AdapterView<*>?) {
                     view!!.setBackgroundColor(Color.TRANSPARENT)
                 }

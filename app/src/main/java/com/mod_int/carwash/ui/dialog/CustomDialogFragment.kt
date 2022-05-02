@@ -1,4 +1,4 @@
-package com.mod_int.carwash
+package com.mod_int.carwash.ui.dialog
 
 import android.content.Context
 import android.graphics.Color

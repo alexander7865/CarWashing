@@ -5,7 +5,7 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class PickupList (
-    val datePicupListWasher : String,
+    val datePickupListWasher : String,
     val namePickupManager : String,
     val washTypeOrderListWasher : String,
     val carNumberOrderListWasher : String,

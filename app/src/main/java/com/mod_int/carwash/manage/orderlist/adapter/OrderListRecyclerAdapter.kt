@@ -3,7 +3,7 @@ package com.mod_int.carwash.manage.orderlist.adapter
 import android.annotation.SuppressLint
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.mod_int.carwash.CustomDialogFragment
+import com.mod_int.carwash.ui.dialog.CustomDialogFragment
 import com.mod_int.carwash.model.OrderList
 import com.mod_int.carwash.manage.orderlist.viewholder.OrderListRecyclerViewHolder
 

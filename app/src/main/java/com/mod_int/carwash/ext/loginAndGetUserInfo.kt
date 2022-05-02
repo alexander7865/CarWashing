@@ -2,11 +2,9 @@ package com.mod_int.carwash.ext
 
 
 import android.util.Log
-import com.google.firebase.firestore.FieldValue
-import com.google.firebase.firestore.SetOptions
 import com.mod_int.carwash.data.repo.FirebaseRepository
+import com.mod_int.carwash.model.PriceList
 import com.mod_int.carwash.model.User
-import com.mod_int.carwash.model.WasherInfo
 
 fun FirebaseRepository.loginAndGetUserInfo(
     email: String,
@@ -35,6 +33,7 @@ fun FirebaseRepository.loginUser(
 }
 
 
+
 fun FirebaseRepository.getUserInfo(
     callback: (user: User?) -> Unit
 ) {
@@ -49,6 +48,7 @@ fun FirebaseRepository.getUserInfo(
             }
     } ?: callback(null)
 }
+
 
 
 fun FirebaseRepository.checkRegister(
@@ -82,7 +82,6 @@ fun FirebaseRepository.registerUser(
     }
 }
 
-
 fun FirebaseRepository.createUserDB(
     email: String,
     type: String,
@@ -106,7 +105,6 @@ fun FirebaseRepository.createTypeDB(
     val user = User(
         email, "010-1111-1111", type
     )
-
     when (type) {
         "ownerMember" -> {
             Log.d("회원타입", type)
@@ -124,19 +122,19 @@ fun FirebaseRepository.createTypeDB(
                 }
 
             // HasMap 형태로 데이터를 보여주기위한 방법 최초 데이터만 사용이 가능함
-            getFirebaseFireStore().collection("WasherMember").document("User")
-                .set(emptyMap<String, WasherInfo>(), SetOptions.merge())
-                .addOnCompleteListener {
-                    if (it.isSuccessful) {
-                        getFirebaseFireStore().collection("WasherMember").document("User").update(
-                            "WmInfo", FieldValue.arrayUnion(WasherInfo())
-                        ).addOnCompleteListener {
-                            callback(it.isSuccessful)
-                        }
-                    } else {
-                        callback(false)
-                    }
-                }
+//            getFirebaseFireStore().collection("WasherMember").document("User")
+//                .set(emptyMap<String, WasherInfo>(), SetOptions.merge())
+//                .addOnCompleteListener {
+//                    if (it.isSuccessful) {
+//                        getFirebaseFireStore().collection("WasherMember").document("User").update(
+//                            "WmInfo", FieldValue.arrayUnion(WasherInfo())
+//                        ).addOnCompleteListener {
+//                            callback(it.isSuccessful)
+//                        }
+//                    } else {
+//                        callback(false)
+//                    }
+//                }
         }
 
         "pickupMember" -> {
@@ -147,4 +145,25 @@ fun FirebaseRepository.createTypeDB(
         }
         else -> callback(false)
     }
+}
+
+fun FirebaseRepository.washingPriceList(
+    email: String,
+    callback: (priceList: PriceList?) -> Unit
+){
+    getFirebaseFireStore().collection("WasherMember").document(email).get()
+        .addOnCompleteListener {
+            if (it.isSuccessful) {
+                callback(it.result.toObject(PriceList::class.java))
+            } else {
+                callback(null)
+            }
+        }
+
+}
+
+fun FirebaseRepository.playCheck(
+
+) {
+
 }

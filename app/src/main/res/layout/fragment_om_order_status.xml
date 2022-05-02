@@ -463,16 +463,17 @@
                                 android:textSize="16sp"
                                 android:textStyle="bold"
                                 android:textColor="@color/dgray" />
+
                             <androidx.appcompat.widget.AppCompatSpinner
                                 android:id="@+id/washingPoint"
                                 android:layout_width="120sp"
                                 android:layout_height="40dp"
+                                android:background="@drawable/layout_box_stroke"
                                 android:paddingTop="5sp"
                                 android:popupBackground="@drawable/layout_box"
-                                android:background="@drawable/layout_box_stroke"
+                                android:textColor="@color/dgray"
                                 android:textSize="20sp"
-                                android:textStyle="bold"
-                                android:textColor="@color/dgray" />
+                                android:textStyle="bold" />
                         </LinearLayout>
                     </LinearLayout>
 
