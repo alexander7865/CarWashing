@@ -42,14 +42,14 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="4dp"
                     android:background="@drawable/content_paste_search"/>
                 <Spinner
                     android:id="@+id/searchSpinner"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="13sp"
-                    android:paddingTop="6sp"
                     android:gravity="center_vertical"
                     android:layout_gravity="center_vertical"
                     android:background="@drawable/custom_background_spinner_white"
@@ -58,7 +58,7 @@
             </LinearLayout>
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="15sp">
+                android:layout_height="5sp">
             </Space>
 
             <androidx.recyclerview.widget.RecyclerView

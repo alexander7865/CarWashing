@@ -3,7 +3,6 @@
     <array name="array_pm">
         <item>픽업 홈</item>
         <item>정보등록</item>
-        <item>단가현황</item>
-        <item>작업현황</item>
+        <item>픽업현황</item>
     </array>
 </resources>

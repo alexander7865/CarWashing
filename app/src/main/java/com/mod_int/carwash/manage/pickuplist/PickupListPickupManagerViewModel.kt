@@ -8,10 +8,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class PickupListPickupManagerViewModel
-@Inject constructor(app: Application, private val firebaseRepository: FirebaseRepository) :
+@Inject constructor(
+    app: Application,
+    private val firebaseRepository: FirebaseRepository) :
     BaseViewModel(app) {
-
-
-
-
 }

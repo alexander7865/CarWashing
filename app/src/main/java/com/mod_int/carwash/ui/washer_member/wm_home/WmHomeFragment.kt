@@ -12,6 +12,7 @@ import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseFragment
 import com.mod_int.carwash.databinding.FragmentWmHomeBinding
 import com.mod_int.carwash.ui.washer_member.wm_payment.WmPaymentFragment
+import com.mod_int.carwash.ui.washer_member.wm_price.WmRegistrationPriceFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -35,16 +36,14 @@ class WmHomeFragment : BaseFragment<FragmentWmHomeBinding>(R.layout.fragment_wm_
         binding.viewModel = wmHomeViewModel
         wmHomeViewModel.viewStateLiveData.observe(viewLifecycleOwner) { viewState ->
             (viewState as? WmHomeViewState)?.let {
-                onChangedWmHomeViewState(
-                    viewState
-                )
+                onChangedWmHomeViewState(viewState)
             }
         }
     }
 
     private fun onChangedWmHomeViewState(viewState: WmHomeViewState) {
         when (viewState) {
-            is WmHomeViewState.RoutePayment -> {
+            is WmHomeViewState.RoutePriceRegistration -> {
                 routePayment()
             }
             is WmHomeViewState.RouteWebViewSuggestWm1 -> {
@@ -56,7 +55,7 @@ class WmHomeFragment : BaseFragment<FragmentWmHomeBinding>(R.layout.fragment_wm_
         }
     }
 
-    //스피너
+    //스피너 휴가중으로 선택되면 안보이게됨
     private fun workSelect() {
         val brand = resources.getStringArray(R.array.workSettingSelect)
         val brandAdapter = ArrayAdapter(
@@ -84,8 +83,8 @@ class WmHomeFragment : BaseFragment<FragmentWmHomeBinding>(R.layout.fragment_wm_
     }
 
     private fun routePayment() {
-        parentFragmentManager.beginTransaction().add(R.id.container_wm_home, WmPaymentFragment())
-            .addToBackStack("WmPaymentFragment")
+        parentFragmentManager.beginTransaction().add(R.id.container_wm_home, WmRegistrationPriceFragment())
+            .addToBackStack("WmRegistrationPriceFragment")
             .commit()
     }
 

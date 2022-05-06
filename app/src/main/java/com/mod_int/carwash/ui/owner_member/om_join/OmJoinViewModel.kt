@@ -20,6 +20,7 @@ class OmJoinViewModel @Inject constructor(
     val inputCarBrandObservableField = ObservableField("")
     val inputCarModelObservableField = ObservableField("")
     val inputCarColor = MutableLiveData("")
+    val inputDetailLocation = MutableLiveData("")
 
     fun omSaveInfo() {
         ioScope {
@@ -27,11 +28,13 @@ class OmJoinViewModel @Inject constructor(
             val carBrandInputCheck = async { carBrandInputCheck() }
             val carModelInputCheck = async { carModelInputCheck() }
             val carColInputCheck = async { carColInputCheck() }
+            val carDetailLocation = async { carDetailLocationCheck() }
             checkInfo(
                 carNumInputCheck.await(),
                 carBrandInputCheck.await(),
                 carModelInputCheck.await(),
                 carColInputCheck.await(),
+                carDetailLocation.await(),
             )?.let { ownerInfo ->
                 val email = firebaseRepository.getFirebaseAuth().currentUser!!.email
                 firebaseRepository.getFirebaseFireStore().collection("OwnerMember")
@@ -60,24 +63,36 @@ class OmJoinViewModel @Inject constructor(
         carNumInputCheck: Boolean,
         carBrandInputCheck: Boolean,
         carModelInputCheck: Boolean,
-        carColInputCheck: Boolean
+        carColInputCheck: Boolean,
+        companyNameCheck: Boolean,
     ): OwnerInfo? {
         return if (carNumInputCheck
             && carBrandInputCheck
             && carModelInputCheck
             && carColInputCheck
+            && companyNameCheck
         ) {
             OwnerInfo(
                 inputCarNumber.value!!,
                 inputCarBrandObservableField.get()!!,
                 inputCarModelObservableField.get()!!,
-                inputCarColor.value!!
+                inputCarColor.value!!,
+                inputDetailLocation.value!!,
             )
         } else {
             null
         }
     }
 
+    private fun carDetailLocationCheck(): Boolean {
+        return when {
+            inputDetailLocation.value?.isEmpty() == true -> {
+                viewStateChanged(OmJoinViewState.ErrorMsg(message = "상호명을 입력하세요."))
+                false
+            }
+            else -> true
+        }
+    }
 
     private fun carNumInputCheck(): Boolean {
         return when {
@@ -124,6 +139,7 @@ class OmJoinViewModel @Inject constructor(
         var carBrand: String = "",
         var carModel: String = "",
         var carColor: String = "",
+        var carDetailLocation: String = "",
     )
 }
 

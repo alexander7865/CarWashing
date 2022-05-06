@@ -29,14 +29,24 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="40dp"
                     android:layout_marginStart="26sp"
                     android:gravity="center_vertical"
-                    android:text="작업단가 확인"
+                    android:layout_weight="1"
+                    android:text="세차비용 등록"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:textColor="@color/dgray" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/Btn_back_to_registration"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="26sp"
+                    android:onClick="@{()->viewModel.routeBackStep()}"
+                    android:background="@drawable/button_cancel"
+                    tools:ignore="SpeakableTextPresentCheck" />
             </LinearLayout>
             <Space
                 android:layout_width="match_parent"
@@ -896,7 +906,7 @@
                                 android:layout_weight="1"
                                 android:layout_marginEnd="26sp"
                                 android:ellipsize="end"
-                                android:hint="2000"
+                                android:hint="8000"
                                 android:text="@={viewModel.deliveryCost}"
                                 android:inputType="number"
                                 android:maxLength="5"
@@ -953,7 +963,7 @@
                                 android:layout_weight="1"
                                 android:layout_marginEnd="26sp"
                                 android:ellipsize="end"
-                                android:hint="10000"
+                                android:hint="20000"
                                 android:text="@={viewModel.polishCost}"
                                 android:inputType="number"
                                 android:maxLength="5"

@@ -2,7 +2,7 @@ package com.mod_int.carwash.manage.pickuplist.adapter
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.mod_int.carwash.CustomDialogFragment
+import com.mod_int.carwash.ui.dialog.CustomDialogFragment
 import com.mod_int.carwash.model.PickupList
 import com.mod_int.carwash.manage.pickuplist.viewholder.PickupListRecyclerViewHolder
 

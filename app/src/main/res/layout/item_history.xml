@@ -65,7 +65,7 @@
                             <TextView
                                 android:id="@+id/carInfo"
                                 android:layout_width="match_parent"
-                                android:layout_height="55sp"
+                                android:layout_height="wrap_content"
                                 android:layout_marginTop="5sp"
                                 android:text="00허0000 벤츠 GLC220 SUV 준중형 BLACK"
                                 android:textSize="16sp"/>

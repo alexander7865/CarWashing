@@ -3,6 +3,7 @@ package com.mod_int.carwash.ext
 
 import android.util.Log
 import com.mod_int.carwash.data.repo.FirebaseRepository
+import com.mod_int.carwash.model.PriceList
 import com.mod_int.carwash.model.User
 
 fun FirebaseRepository.loginAndGetUserInfo(
@@ -28,7 +29,9 @@ fun FirebaseRepository.loginUser(
         .addOnCompleteListener {
             callback(it.isSuccessful)
         }
+
 }
+
 
 
 fun FirebaseRepository.getUserInfo(
@@ -45,6 +48,7 @@ fun FirebaseRepository.getUserInfo(
             }
     } ?: callback(null)
 }
+
 
 
 fun FirebaseRepository.checkRegister(
@@ -78,14 +82,13 @@ fun FirebaseRepository.registerUser(
     }
 }
 
-
 fun FirebaseRepository.createUserDB(
     email: String,
     type: String,
     callback: (isSuccess: Boolean) -> Unit
 ) {
     val user = User(
-        email, "010xxxxxxxx", type
+        email, "010-1111-1111", type
     )
     //회원가입 생성
     getFirebaseFireStore().collection(email).document("User").set(user)
@@ -100,9 +103,8 @@ fun FirebaseRepository.createTypeDB(
     callback: (isSuccess: Boolean) -> Unit
 ) {
     val user = User(
-        email, "010xxxxxxxx", type
+        email, "010-1111-1111", type
     )
-
     when (type) {
         "ownerMember" -> {
             Log.d("회원타입", type)
@@ -125,7 +127,7 @@ fun FirebaseRepository.createTypeDB(
 //                .addOnCompleteListener {
 //                    if (it.isSuccessful) {
 //                        getFirebaseFireStore().collection("WasherMember").document("User").update(
-//                            "list", FieldValue.arrayUnion(WasherInfo().copy(id = id))
+//                            "WmInfo", FieldValue.arrayUnion(WasherInfo())
 //                        ).addOnCompleteListener {
 //                            callback(it.isSuccessful)
 //                        }
@@ -143,4 +145,25 @@ fun FirebaseRepository.createTypeDB(
         }
         else -> callback(false)
     }
+}
+
+fun FirebaseRepository.washingPriceList(
+    email: String,
+    callback: (priceList: PriceList?) -> Unit
+){
+    getFirebaseFireStore().collection("WasherMember").document(email).get()
+        .addOnCompleteListener {
+            if (it.isSuccessful) {
+                callback(it.result.toObject(PriceList::class.java))
+            } else {
+                callback(null)
+            }
+        }
+
+}
+
+fun FirebaseRepository.playCheck(
+
+) {
+
 }

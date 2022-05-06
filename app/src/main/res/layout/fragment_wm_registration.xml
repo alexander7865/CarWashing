@@ -96,14 +96,14 @@
                             <EditText
                                 android:id="@+id/account_name"
                                 android:layout_width="wrap_content"
-                                android:layout_height="40sp"
+                                android:layout_height="50sp"
                                 android:background="@drawable/layout_box_stroke"
                                 android:paddingTop="5sp"
                                 android:paddingBottom="5sp"
                                 android:paddingStart="20sp"
                                 android:layout_marginEnd="26sp"
-                                android:layout_marginTop="5sp"
-                                android:layout_marginBottom="5sp"
+                                android:layout_marginTop="3sp"
+                                android:layout_marginBottom="3sp"
                                 android:layout_weight="1"
                                 android:ellipsize="end"
                                 android:text="@={viewModel.wmAccountName}"
@@ -136,11 +136,11 @@
                                 android:background="@drawable/layout_box_stroke"
                                 android:popupBackground="@drawable/layout_box"
                                 android:layout_width="match_parent"
-                                android:layout_height="40sp"
+                                android:layout_height="50sp"
                                 android:paddingTop="5sp"
                                 android:layout_marginEnd="26sp"
-                                android:layout_marginTop="5sp"
-                                android:layout_marginBottom="5sp"
+                                android:layout_marginTop="3sp"
+                                android:layout_marginBottom="3sp"
                                 android:layout_weight="1"
                                 android:textSize="16sp"/>
 
@@ -164,14 +164,14 @@
                             <EditText
                                 android:id="@+id/account_number"
                                 android:layout_width="wrap_content"
-                                android:layout_height="40sp"
+                                android:layout_height="50sp"
                                 android:background="@drawable/layout_box_stroke"
                                 android:paddingTop="5sp"
                                 android:paddingBottom="5sp"
                                 android:paddingStart="20sp"
                                 android:layout_marginEnd="26sp"
-                                android:layout_marginTop="5sp"
-                                android:layout_marginBottom="5sp"
+                                android:layout_marginTop="3sp"
+                                android:layout_marginBottom="3sp"
                                 android:layout_weight="1"
                                 android:ellipsize="end"
                                 android:hint="0000000000000"
@@ -198,7 +198,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="26sp"
-                                android:text="@={viewModel.wmPhoneNr}"
+                                android:text="010-1111-1111"
                                 android:textColor="@color/dgray"
                                 android:textSize="18sp"
                                 android:textStyle="bold" />
@@ -218,7 +218,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
                                 android:layout_marginStart="26sp"
-                                android:text="세차 TYPE 을 선택하세요! ( 중복선택 가능 )"
+                                android:text="가능한 세차 TYPE 을 선택하세요! ( 중복가능 )"
                                 android:textColor="@color/dgray"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
@@ -230,85 +230,56 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
                             android:orientation="horizontal">
-                                <CheckBox
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textColor="@color/dgray"
-                                    android:layout_marginStart="20sp"
-                                    android:text="픽업손세차"
-                                    android:textSize="15sp"
-                                    android:textStyle="bold" />
-                                <CheckBox
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="16sp"
-                                    android:textColor="@color/dgray"
-                                    android:text="손세차예약"
-                                    android:textSize="15sp"
-                                    android:textStyle="bold" />
-                                <CheckBox
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="16sp"
-                                    android:layout_marginEnd="26sp"
-                                    android:textColor="@color/dgray"
-                                    android:text="출장손세차"
-                                    android:textSize="15sp"
-                                    android:textStyle="bold" />
-                        </LinearLayout>
-
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:visibility="gone"
-                            android:orientation="horizontal">
-
-                            <TextView
+                            <androidx.appcompat.widget.AppCompatCheckBox
+                                android:id="@+id/pickupWashing"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
-                                android:layout_marginStart="26sp"
-                                android:text="픽업/탁송 인원 :"
                                 android:textColor="@color/dgray"
-                                android:textSize="16sp"
+                                android:layout_marginStart="20sp"
+                                android:text="픽업손세차"
+                                android:textSize="15sp"
                                 android:textStyle="bold" />
-                            <TextView
-                                android:id="@+id/tv_pickupManager_num"
-                                android:layout_width="35dp"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
-                                android:gravity="end"
-                                android:text="1"
-                                android:textColor="@color/dgray"
-                                android:textSize="20sp" />
-                            <TextView
+                            <androidx.appcompat.widget.AppCompatCheckBox
+                                android:id="@+id/handWashing"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
-                                android:layout_marginStart="5sp"
-                                android:layout_weight="1"
-                                android:text="명"
+                                android:layout_marginStart="16sp"
                                 android:textColor="@color/dgray"
-                                android:textSize="20sp" />
-
-                            <androidx.appcompat.widget.AppCompatButton
-                                android:id="@+id/btn_pickupManager_minus"
-                                style="@style/Widget.AppCompat.Button.Borderless"
-                                android:layout_width="45dp"
-                                android:layout_height="45dp"
-                                android:layout_marginStart="10sp"
-                                android:background="@drawable/button_keyboard_arrow_down"/>
-                            <androidx.appcompat.widget.AppCompatButton
-                                android:id="@+id/btn_pickupManager_plus"
-                                style="@style/Widget.AppCompat.Button.Borderless"
-                                android:layout_width="45dp"
-                                android:layout_height="45dp"
+                                android:text="손세차예약"
+                                android:textSize="15sp"
+                                android:textStyle="bold" />
+                            <androidx.appcompat.widget.AppCompatCheckBox
+                                android:id="@+id/tripWashing"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="16sp"
                                 android:layout_marginEnd="26sp"
-                                android:background="@drawable/button_keyboard_arrow_up"/>
+                                android:textColor="@color/dgray"
+                                android:text="출장손세차"
+                                android:textSize="15sp"
+                                android:textStyle="bold" />
 
                         </LinearLayout>
+                        <TextView
+                            android:id="@+id/hidden1"
+                            android:text="@={viewModel.wmCheck1}"
+                            android:visibility="gone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"/>
+                        <TextView
+                            android:id="@+id/hidden2"
+                            android:text="@={viewModel.wmCheck2}"
+                            android:visibility="gone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"/>
+                        <TextView
+                            android:id="@+id/hidden3"
+                            android:text="@={viewModel.wmCheck3}"
+                            android:visibility="gone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"/>
                         <Space
                             android:layout_width="match_parent"
                             android:layout_height="20sp">
@@ -336,13 +307,12 @@
                         </LinearLayout>
 
                         <LinearLayout
-                            android:elevation="3sp"
                             android:layout_marginTop="5sp"
                             android:layout_width="match_parent"
-                            android:layout_height="60sp"
+                            android:layout_height="50sp"
                             android:layout_marginStart="26sp"
                             android:layout_marginEnd="26sp"
-                            android:background="@drawable/layout_box_radius"
+                            android:background="@drawable/layout_box_stroke"
                             android:orientation="vertical">
 
                             <LinearLayout
@@ -351,24 +321,53 @@
                                 android:orientation="horizontal">
 
                                 <TextView
-                                    android:id="@+id/washing_location"
-                                    android:layout_width="400sp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:layout_marginStart="16sp"
+                                    android:id="@+id/delivery_location"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center_vertical"
+                                    android:layout_marginStart="20sp"
                                     android:layout_marginEnd="16sp"
                                     android:layout_weight="1"
-                                    android:hint="주소를 검색하세요"
+                                    android:hint="주소를 검색하시라요"
                                     android:textColor="@color/dgray"
-                                    android:textSize="14sp"
-                                    android:textStyle="bold" />
-
+                                    android:textSize="16sp"/>
                                 <ImageView
-                                    android:layout_width="47sp"
-                                    android:layout_height="47sp"
+                                    android:layout_width="35sp"
+                                    android:layout_height="35sp"
                                     android:layout_gravity="center_vertical"
-                                    android:layout_marginEnd="5sp"
+                                    android:layout_marginEnd="10sp"
                                     android:background="@drawable/search_icon" />
+                            </LinearLayout>
+                        </LinearLayout>
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="6sp">
+                        </Space>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="26sp"
+                            android:layout_marginEnd="26sp"
+                            android:orientation="vertical">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal">
+                                <EditText
+                                    android:id="@+id/wmCompanyName"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50sp"
+                                    android:background="@drawable/layout_box_stroke"
+                                    android:paddingStart="20sp"
+                                    android:paddingEnd="20sp"
+                                    android:layout_weight="1"
+                                    android:ellipsize="end"
+                                    android:text="@={viewModel.wmCompanyName}"
+                                    android:hint="상호를 입력하시라요"
+                                    android:maxLines="1"
+                                    android:textSize="16sp"
+                                    android:inputType="text"
+                                    android:imeOptions="actionNext"/>
                             </LinearLayout>
                         </LinearLayout>
 
@@ -422,7 +421,7 @@
                                 android:layout_weight="1"
                                 android:background="@drawable/button_action_lorange"
                                 android:text="등록하기"
-                                android:onClick="@{()->viewModel.saveInfoWasher()}"
+                                android:onClick="@{()->viewModel.wmSaveInfo()}"
                                 android:textColor="@color/white"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />

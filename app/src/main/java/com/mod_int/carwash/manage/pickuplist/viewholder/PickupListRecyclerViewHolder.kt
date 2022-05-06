@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.mod_int.carwash.CustomDialogFragment
+import com.mod_int.carwash.ui.dialog.CustomDialogFragment
 import com.mod_int.carwash.R
 import com.mod_int.carwash.databinding.ItemPickupBinding
 import com.mod_int.carwash.model.PickupList
@@ -17,7 +17,7 @@ class PickupListRecyclerViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(
     fun bind(item: PickupList, itemClickListener: (Button : CustomDialogFragment) -> Unit) {
         binding?.let {
             with(it){
-                datePickupListWasher.text = item.datePicupListWasher
+                datePickupListWasher.text = item.datePickupListWasher
                 namePickupManager.text = item.namePickupManager
                 washTypeOrderListWasher.text = item.washTypeOrderListWasher
                 carNumberOrderListWasher.text = item.carNumberOrderListWasher

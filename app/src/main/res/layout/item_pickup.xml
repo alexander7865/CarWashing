@@ -62,7 +62,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginEnd="10sp"
                                 android:textColor="@color/aqua"
-                                android:text="의뢰확인"
+                                android:text="8,000원"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
 
@@ -151,21 +151,79 @@
                                 android:textSize="14sp"
                                 android:textStyle="bold"/>
                         </LinearLayout>
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="5sp">
+
+                        </Space>
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:id="@+id/owner_address_orderList_washer"
+                            android:orientation="vertical">
+                            <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="10sp"
-                                android:layout_marginTop="5sp"
-                                android:text="서울특별시 서초구 잠원동 10-7 101호"
-                                android:textColor="@color/dgray"
-                                android:textSize="14sp"
-                                android:textStyle="bold" />
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical">
+                                <TextView
+                                    android:layout_width="75sp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="10sp"
+                                    android:text="픽업/탁송지"
+                                    android:textColor="@color/dgray"
+                                    android:textStyle="bold"/>
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/arrow_right_alt"/>
+                                <TextView
+                                    android:id="@+id/owner_address_orderList_washer"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50sp"
+                                    android:layout_marginStart="5sp"
+                                    android:layout_marginEnd="10sp"
+                                    android:padding="2sp"
+                                    android:gravity="center_vertical"
+                                    android:maxLines="2"
+                                    android:ellipsize="end"
+                                    android:text="서울특별시 논현동 111-111 1층 논현1동 논현세차장"
+                                    android:textColor="@color/dgray"
+                                    android:textSize="14sp" />
+                            </LinearLayout>
+                            <Space
+                                android:layout_width="match_parent"
+                                android:layout_height="5sp">
+                            </Space>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical">
+                                <TextView
+                                    android:layout_width="75sp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="10sp"
+                                    android:text="차량 입고지"
+                                    android:textColor="@color/dgray"
+                                    android:textStyle="bold"/>
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/arrow_right_alt"/>
+                                <TextView
+                                    android:id="@+id/washer_address_orderList_washer"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50sp"
+                                    android:layout_marginStart="5sp"
+                                    android:layout_marginEnd="10sp"
+                                    android:padding="2sp"
+                                    android:gravity="center_vertical"
+                                    android:maxLines="2"
+                                    android:ellipsize="end"
+                                    android:text="서울특별시 논현동 111-111 1층 논현1동 논현세차장"
+                                    android:textColor="@color/dgray"
+                                    android:textSize="14sp" />
+                            </LinearLayout>
 
                         </LinearLayout>
                         <LinearLayout
@@ -180,7 +238,7 @@
                                 android:layout_height="50dp"
                                 android:layout_marginStart="10sp"
                                 android:textColor="@color/white"
-                                android:text="픽업의뢰 확인하기"
+                                android:text="픽업하러 가기"
                                 android:backgroundTint="@color/aqua"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
@@ -196,7 +254,7 @@
                                 android:paddingEnd="16sp"
                                 android:background="@drawable/recyclerview_radius_washer_pickup"
                                 android:gravity="center"
-                                android:text="픽업완료"
+                                android:text="픽업대기"
                                 android:textSize="16sp"
                                 android:textColor="@color/white"
                                 android:textStyle="bold"/>

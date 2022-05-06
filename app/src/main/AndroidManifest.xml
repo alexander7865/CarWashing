@@ -3,6 +3,8 @@
     package="com.mod_int.carwash">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:name=".App"
@@ -13,11 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CarWash"
         android:usesCleartextTraffic="true">
+
         <activity
             android:name=".WasherTypeActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.pickup_member.pm_activity.PmActivity"
             android:exported="false" />
         <activity
             android:name=".MemberTypeActivity"
@@ -28,6 +28,9 @@
         <activity
             android:name=".ui.login.LoginActivity"
             android:exported="false" />
+        <activity
+            android:name=".ui.map.MapActivity"
+            android:exported="false"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -40,11 +43,22 @@
         <activity
             android:name=".ui.owner_member.om_activity.OmActivity"
             android:exported="false"
+            android:launchMode="singleTask"
             android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".ui.washer_member.wm_activity.WmActivity"
             android:exported="false"
+            android:launchMode="singleTask"
             android:windowSoftInputMode="adjustPan" />
-    </application>
+        <activity
+            android:name=".ui.pickup_member.pm_activity.PmActivity"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustPan"/>
 
+        <meta-data
+            android:name="com.kakao.sdk.AppKey"
+            android:value="bef881c0d29d395aff2ca4d9b2dcdd1d" />
+
+    </application>
 </manifest>

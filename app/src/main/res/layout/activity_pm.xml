@@ -16,9 +16,9 @@
         android:layout_height="match_parent"
         tools:context=".ui.pickup_member.pm_activity.PmActivity">
 
-        <FrameLayout
-            android:id="@+id/pickupManager_frag"
-            android:layout_width="match_parent"
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPager"
+            android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintBottom_toTopOf="@+id/tabLayout"
             app:layout_constraintEnd_toEndOf="parent"
@@ -26,11 +26,11 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.tabs.TabLayout
-            android:background="@drawable/bottomnavi_box"
             android:id="@+id/tabLayout"
             android:layout_width="0dp"
             android:layout_height="70dp"
             android:elevation="10dp"
+            android:background="@drawable/bottomnavi_box"
             app:tabIndicatorHeight="0dp"
             app:tabTextAppearance="@style/TabText"
             app:tabRippleColor="@color/white"
@@ -40,29 +40,6 @@
             app:tabIndicatorGravity="top"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <com.google.android.material.tabs.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="50sp"
-                android:text="픽업 홈" />
-
-            <com.google.android.material.tabs.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="정보등록" />
-
-            <com.google.android.material.tabs.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="단가현황" />
-
-            <com.google.android.material.tabs.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="작업현황" />
-
-        </com.google.android.material.tabs.TabLayout>
+            app:layout_constraintStart_toStartOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

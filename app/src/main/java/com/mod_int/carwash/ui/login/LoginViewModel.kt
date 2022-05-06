@@ -37,7 +37,6 @@ class LoginViewModel @Inject constructor(
                             "washerMember" -> {
                                 viewStateChanged(LoginViewState.RouteWasherMember)
                             }
-
                             "pickupMember" -> {
                                 viewStateChanged(LoginViewState.RoutePickupMember)
                             }
@@ -63,7 +62,10 @@ class LoginViewModel @Inject constructor(
         checkPassword: Boolean,
     ): Person? {
         return if (checkEmail && checkPassword) {
-            Person(inputEmailLiveData.value!!, inputPasswordLiveData.value!!)
+            Person(
+                inputEmailLiveData.value!!,
+                inputPasswordLiveData.value!!
+            )
 
         } else {
             null

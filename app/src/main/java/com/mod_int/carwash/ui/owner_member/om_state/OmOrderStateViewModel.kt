@@ -15,7 +15,7 @@ class OmOrderStateViewModel @Inject constructor(
     app: Application,
     private val firebaseRepository: FirebaseRepository
 ) : BaseViewModel(app) {
-    val date = ObservableField("")
+    val omDate = ObservableField("")
     val washingType = MutableLiveData("")
     val washingPrice = MutableLiveData("")
     val pickupDeliveryPrice = MutableLiveData("")
@@ -32,7 +32,7 @@ class OmOrderStateViewModel @Inject constructor(
     private val current: LocalDateTime = LocalDateTime.now()
 
     fun orderStateInfo(){
-        date.set("${current.year}년 ${current.monthValue}월 ${current.dayOfMonth}일")
+        omDate.set("${current.year}년 ${current.monthValue}월 ${current.dayOfMonth}일")
 
     }
 

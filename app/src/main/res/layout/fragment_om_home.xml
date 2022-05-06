@@ -7,7 +7,6 @@
         <variable
             name="viewModel"
             type="com.mod_int.carwash.ui.owner_member.om_home.OmHomeViewModel" />
-
     </data>
 
     <FrameLayout
@@ -124,7 +123,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="16sp"
-                                    android:text="@{viewModel.nowDate}"
+                                    android:text="@{viewModel.nowDate1}"
                                     android:textColor="@color/dgray"
                                     android:textSize="18sp"
                                     android:textStyle="bold" />
@@ -272,7 +271,6 @@
                     <Space
                         android:layout_width="match_parent"
                         android:layout_height="35sp"></Space>
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -290,8 +288,8 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:text="@{viewModel.nowDate2}"
                                 android:textColor="@color/dgray"
-                                android:text="2022.02.02"
                                 android:textSize="26sp" />
 
                             <Space
@@ -401,12 +399,19 @@
                                 android:background="@drawable/arrow_right_alt" />
                         </LinearLayout>
                     </LinearLayout>
-
                     <Space
                         android:layout_width="match_parent"
                         android:layout_height="40sp"
                         android:orientation="vertical"></Space>
-
+                    <androidx.viewpager2.widget.ViewPager2
+                        android:id="@+id/omBanner"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:background="@color/aqua"/>
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="40sp"
+                        android:orientation="vertical"></Space>
                 </LinearLayout>
             </ScrollView>
         </LinearLayout>

@@ -32,8 +32,9 @@ class WmHomeViewModel @Inject constructor(
 
     }
 
-    fun routePayment(){
-        viewStateChanged(WmHomeViewState.RoutePayment)
+
+    fun routePriceRegistration(){
+        viewStateChanged(WmHomeViewState.RoutePriceRegistration)
     }
 
     fun routeWebViewSuggestWm1(){

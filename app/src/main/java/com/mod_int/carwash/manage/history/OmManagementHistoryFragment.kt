@@ -3,12 +3,13 @@ package com.mod_int.carwash.manage.history
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
-import com.mod_int.carwash.CustomDialogFragment
-import com.mod_int.carwash.CustomDialogListener
+import com.mod_int.carwash.ui.dialog.CustomDialogFragment
+import com.mod_int.carwash.ui.dialog.CustomDialogListener
 import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseFragment
 import com.mod_int.carwash.databinding.FragmentOmManagementHistoryBinding
 import com.mod_int.carwash.manage.history.adapter.HistoryRecyclerAdapter
+import com.mod_int.carwash.model.HistoryInfo
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -25,6 +26,15 @@ class OmManagementHistoryFragment : BaseFragment<FragmentOmManagementHistoryBind
         initViewModel()
     }
 
+    private fun initUi() {
+        with(binding) {
+            recyclerHistory.adapter = historyAdapter
+            historyAdapter.setItemClickListener {
+                orderCfmDialog()
+            }
+        }
+    }
+
     private fun initViewModel() {
         omManagementHistoryViewModel.getFinishedOrder()
         omManagementHistoryViewModel.viewStateLiveData.observe(viewLifecycleOwner) { viewState ->
@@ -38,22 +48,12 @@ class OmManagementHistoryFragment : BaseFragment<FragmentOmManagementHistoryBind
 
     private fun onChangedFinishedOrderViewState(viewState: OmManagementHistoryViewState){
         when (viewState) {
-            is OmManagementHistoryViewState.GetFinishedOrder -> {
+            is OmManagementHistoryViewState.GetHistoryOrder -> {
                 historyAdapter.addAll(viewState.list)
 
             }
         }
     }
-
-    private fun initUi() {
-        with(binding) {
-            recyclerHistory.adapter = historyAdapter
-            historyAdapter.setItemClickListener {
-                orderCfmDialog()
-            }
-        }
-    }
-
 
     //커스텀 다이얼로그
     private fun orderCfmDialog() {
@@ -67,7 +67,7 @@ class OmManagementHistoryFragment : BaseFragment<FragmentOmManagementHistoryBind
 
                 }
 
-                //삭제를 구현했으나 position 값을 못 넣네요 ㅋㅋㅋ
+                //삭제를 구현했으나 position 값을 못 넣네요 그냥 터져버리네요 일단 0으로 넣어놨습니다ㅋㅋㅋ
                 override fun onClickPositiveBtn() {
                     historyAdapter.removeItem()
                     binding.recyclerHistory.adapter = historyAdapter

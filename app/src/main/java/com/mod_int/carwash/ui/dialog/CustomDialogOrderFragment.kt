@@ -1,4 +1,4 @@
-package com.mod_int.carwash
+package com.mod_int.carwash.ui.dialog
 
 import android.content.Context
 import android.graphics.Color
@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.fragment.app.DialogFragment
+import com.mod_int.carwash.R
 import com.mod_int.carwash.databinding.FragmentCustomDialogOrderBinding
 import com.mod_int.carwash.ui.owner_member.om_activity.OmActivity
 
@@ -67,6 +68,8 @@ class CustomDialogOrderFragment : DialogFragment() {
         dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         with(binding){
             timeSelect()
+            orderType1()
+            orderType2()
             title1.text = binding.title1.text
             tvRequest.text = binding.tvRequest.text
             tvNo.text = noBtn
@@ -87,11 +90,59 @@ class CustomDialogOrderFragment : DialogFragment() {
     private fun timeSelect() {
         val time = resources.getStringArray(R.array.timeSelect)
         val timeAdapter = ArrayAdapter (requireContext(),
-            R.layout.custom_find_spinner, time)
+            R.layout.custom_order_spinner, time)
 
         with(binding){
             timeSelect.adapter = timeAdapter
             timeSelect.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+                override fun onItemSelected(
+                    parent: AdapterView<*>?,
+                    view: View?,
+                    position: Int,
+                    id: Long
+                ) {
+
+                }
+
+                override fun onNothingSelected(parent: AdapterView<*>?) {
+                    view!!.setBackgroundColor(Color.TRANSPARENT)
+                }
+            }
+        }
+    }
+
+    private fun orderType1() {
+        val type1 = resources.getStringArray(R.array.orderType1)
+        val type1Adapter = ArrayAdapter (requireContext(),
+            R.layout.custom_order_spinner, type1)
+
+        with(binding){
+            orderType1.adapter = type1Adapter
+            orderType1.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+                override fun onItemSelected(
+                    parent: AdapterView<*>?,
+                    view: View?,
+                    position: Int,
+                    id: Long
+                ) {
+
+                }
+
+                override fun onNothingSelected(parent: AdapterView<*>?) {
+                    view!!.setBackgroundColor(Color.TRANSPARENT)
+                }
+            }
+        }
+    }
+
+    private fun orderType2() {
+        val type2 = resources.getStringArray(R.array.orderType2)
+        val type2Adapter = ArrayAdapter (requireContext(),
+            R.layout.custom_order_spinner, type2)
+
+        with(binding){
+            orderType2.adapter = type2Adapter
+            orderType2.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
                 override fun onItemSelected(
                     parent: AdapterView<*>?,
                     view: View?,
