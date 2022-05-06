@@ -1,12 +1,12 @@
 package com.mod_int.carwash.manage.findwasher
 
 import android.app.Application
+import android.util.Log
 import androidx.databinding.ObservableField
 import com.mod_int.carwash.base.BaseViewModel
 import com.mod_int.carwash.data.repo.FirebaseRepository
 import com.mod_int.carwash.ext.ioScope
-import com.mod_int.carwash.ext.washingPriceList
-import com.mod_int.carwash.model.PriceList
+import com.mod_int.carwash.model.PriceItem
 import com.mod_int.carwash.model.WasherInfo
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -15,16 +15,16 @@ import javax.inject.Inject
 class OmFindWasherViewModel @Inject constructor(
     app: Application,
     private val firebaseRepository: FirebaseRepository
-    ) : BaseViewModel(app) {
+) : BaseViewModel(app) {
 
-//    var wmLocation = ObservableField("")
+    //    var wmLocation = ObservableField("")
 //    var wmCompanyName = ObservableField("")
 //    var wmCount= ObservableField("")
 //    var wmPoint= ObservableField("")
 //    var deliveryCost= ObservableField("")
 //    var polishCost= ObservableField("")
 //    var washerIntroduce= ObservableField("")
-      var inOutsideWashingForeignCarL = ObservableField("미등록")
+    var inOutsideWashingForeignCarL = ObservableField("미등록")
 
 
     // 체크하여 비어있지 않았을때만 구현되도록 수정
@@ -38,13 +38,34 @@ class OmFindWasherViewModel @Inject constructor(
             firebaseRepository.getFirebaseFireStore()
                 .collection("WasherMember")
                 .addSnapshotListener { querySnapshot, _ ->
-                    for(info in querySnapshot!!.documentChanges){
+                    for (info in querySnapshot!!.documentChanges) {
                         var document = info.document.toObject(WasherInfo::class.java)
                         val washerInfo = mutableListOf<WasherInfo>().apply { add(document) }
                         viewStateChanged(OmFindWasherViewState.GetWasherMember(washerInfo))
                     }
                 }
 
+        }
+    }
+
+    fun getWasher(item: String) {
+        ioScope {
+            firebaseRepository.getFirebaseFireStore().collection("WasherMember")
+                .addSnapshotListener { querySnapshot, _ ->
+
+                    val priceList = mutableListOf<PriceItem>()
+
+                    for (info in querySnapshot!!.documentChanges) {
+                        var document = info.document.toObject(PriceItem::class.java)
+                        priceList.add(document)
+
+                    }
+                    val getPriceItem = priceList.firstOrNull { it.wmCompanyName == item }
+
+                    getPriceItem?.let { item ->
+                        viewStateChanged(OmFindWasherViewState.GetPriceItem(item))
+                    }
+                }
         }
     }
 

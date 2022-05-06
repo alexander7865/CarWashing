@@ -3,6 +3,7 @@ package com.mod_int.carwash.manage.findwasher
 import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -12,11 +13,11 @@ import com.mod_int.carwash.base.BaseFragment
 import com.mod_int.carwash.databinding.FragmentOmFindWasherBinding
 import com.mod_int.carwash.manage.findwasher.adapter.ClickType
 import com.mod_int.carwash.manage.findwasher.adapter.FindRecyclerAdapter
+import com.mod_int.carwash.model.PriceItem
 import com.mod_int.carwash.ui.dialog.CustomDialogOrderFragment
 import com.mod_int.carwash.ui.dialog.CustomDialogOrderListener
 import com.mod_int.carwash.ui.dialog.WmPriceDialogFragment
 import com.mod_int.carwash.ui.dialog.WmPriceDialogListener
-import com.mod_int.carwash.ui.owner_member.om_price.OmPriceStateFragment
 import com.mod_int.carwash.ui.owner_member.om_state.OmOrderStateFragment
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -48,8 +49,7 @@ class OmFindWasherFragment :
                     }
 
                     is ClickType.RoutePriceState -> {
-                        priceDialog()
-
+                        omFindWasherViewModel.getWasher(item.wmCompanyName)
                     }
                 }
             }
@@ -71,6 +71,10 @@ class OmFindWasherFragment :
             is OmFindWasherViewState.GetWasherMember -> {
                 findAdapter.addAll(viewState.list)
             }
+
+            is OmFindWasherViewState.GetPriceItem -> {
+                priceDialog(viewState.item)
+            }
         }
     }
 
@@ -83,6 +87,7 @@ class OmFindWasherFragment :
                 override fun onClickNegativeBtn() {
 
                 }
+
                 override fun onClickPositiveBtn() {
                     requireActivity().supportFragmentManager.beginTransaction()
                         .add(R.id.container_owner_find_washer, OmOrderStateFragment())
@@ -93,14 +98,17 @@ class OmFindWasherFragment :
         dialog.show(childFragmentManager, dialog.tag)
     }
 
-    //업체별 단가표를 구현해야 합니다. 어떻게 할까요? 이것저것 해봤는데 잘 안되네요
-    private fun priceDialog() {
-        val priceDialog = WmPriceDialogFragment.WmPriceDialogBuilder()
-            .setBtnClickListener(object : WmPriceDialogListener {
-                override fun onClickNegativeBtn() {
+    private val wmPriceDialogCallbackListener = object : WmPriceDialogListener {
+        override fun onClickNegativeBtn() {
+            Log.d("결과", "눌림")
+        }
+    }
 
-                }
-            })
+    //업체별 단가표를 구현해야 합니다. 어떻게 할까요? 이것저것 해봤는데 잘 안되네요
+    private fun priceDialog(item: PriceItem) {
+        val priceDialog = WmPriceDialogFragment.WmPriceDialogBuilder()
+            .setBtnClickListener(wmPriceDialogCallbackListener)
+            .setPriceItem(item)
             .create()
         priceDialog.show(childFragmentManager, priceDialog.tag)
     }
@@ -109,12 +117,14 @@ class OmFindWasherFragment :
     //타입별로 필터링 구현했습니다 데이터 연결이후 문제가 생깁니다.
     private fun washingTypeSpinner() {
         val data = resources.getStringArray(R.array.washingType)
-        val spinnerAdapter = ArrayAdapter (requireContext(),
-            R.layout.custom_find_spinner, data)
+        val spinnerAdapter = ArrayAdapter(
+            requireContext(),
+            R.layout.custom_find_spinner, data
+        )
 
-        with(binding){
+        with(binding) {
             searchSpinner.adapter = spinnerAdapter
-            searchSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            searchSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(
                     parent: AdapterView<*>?,
                     view: View?,
@@ -133,6 +143,7 @@ class OmFindWasherFragment :
                         }
                     }
                 }
+
                 override fun onNothingSelected(parent: AdapterView<*>?) {
                     view!!.setBackgroundColor(Color.TRANSPARENT)
                 }

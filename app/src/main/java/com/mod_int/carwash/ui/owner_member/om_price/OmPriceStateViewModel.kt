@@ -1,22 +1,10 @@
 package com.mod_int.carwash.ui.owner_member.om_price
 
 import android.app.Application
-import android.util.Log
-import androidx.databinding.DataBindingUtil
 import androidx.databinding.ObservableField
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewModelScope
 import com.mod_int.carwash.base.BaseViewModel
 import com.mod_int.carwash.data.repo.FirebaseRepository
-import com.mod_int.carwash.databinding.ItemModelBinding
 import com.mod_int.carwash.ext.ioScope
-import com.mod_int.carwash.manage.findwasher.OmFindWasherViewModel
-import com.mod_int.carwash.manage.findwasher.OmFindWasherViewState
-import com.mod_int.carwash.manage.findwasher.adapter.FindRecyclerAdapter
-import com.mod_int.carwash.model.PriceList
-import com.mod_int.carwash.model.WasherInfo
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

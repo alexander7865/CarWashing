@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
+        <variable
+            name="priceItem"
+            type="com.mod_int.carwash.model.PriceItem" />
     </data>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.dialog.WmPriceDialogFragment">
+
         <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -18,25 +22,28 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
+
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="20sp">
-                </Space>
+                    android:layout_height="20sp"></Space>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="26sp"
                         android:layout_weight="1"
-                        android:text="업체명 or 이메일주소"
+                        android:text="@{priceItem.wmCompanyName}"
                         android:textColor="@color/dgray"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -52,231 +59,250 @@
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="20sp">
-                </Space>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_horizontal"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:layout_width="180sp"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:text="내부세차(국산차)"
-                            android:textStyle="bold"
-                            android:textColor="@color/dgray"
-                            android:textSize="14sp"/>
-                        <TextView
-                            android:layout_width="180sp"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:text="내부세차(외제차)"
-                            android:textStyle="bold"
-                            android:textColor="@color/dgray"
-                            android:textSize="14sp"/>
-                    </LinearLayout>
-                </LinearLayout>
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="5sp">
-                </Space>
+                    android:layout_height="20sp"></Space>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
                         android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="180sp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:text="내부세차(국산차)"
+                            android:textColor="@color/dgray"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="180sp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:text="내부세차(외제차)"
+                            android:textColor="@color/dgray"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="5sp"></Space>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal">
+
                         <TextView
                             android:layout_width="90sp"
                             android:layout_height="wrap_content"
                             android:gravity="center_horizontal"
                             android:text="소형차"
-                            android:textSize="14sp"/>
+                            android:textSize="14sp" />
+
                         <TextView
                             android:id="@+id/inside_korea_XS"
                             android:layout_width="90sp"
                             android:layout_height="wrap_content"
                             android:gravity="center_horizontal"
-                            android:textSize="14sp"
-                            android:text="10000"  />
+                            android:text="10000"
+                            android:textSize="14sp" />
+
                         <TextView
                             android:layout_width="90sp"
                             android:layout_height="wrap_content"
                             android:gravity="center_horizontal"
                             android:text="소형차"
-                            android:textSize="14sp"/>
+                            android:textSize="14sp" />
 
                         <TextView
                             android:id="@+id/inside_foreign_XS"
                             android:layout_width="90sp"
                             android:layout_height="wrap_content"
                             android:gravity="center_horizontal"
-                            android:textSize="14sp"
-                            android:text="10000" />
+                            android:text="10000"
+                            android:textSize="14sp" />
                     </LinearLayout>
                 </LinearLayout>
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="5sp">
-                </Space>
+                    android:layout_height="5sp"></Space>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
                         android:orientation="horizontal">
+
                         <TextView
                             android:layout_width="90sp"
                             android:layout_height="wrap_content"
                             android:gravity="center_horizontal"
                             android:text="준중형차"
-                            android:textSize="14sp"/>
+                            android:textSize="14sp" />
 
                         <TextView
                             android:id="@+id/inside_korea_S"
                             android:layout_width="90sp"
                             android:layout_height="wrap_content"
                             android:gravity="center_horizontal"
-                            android:textSize="14sp"
-                            android:text="10000" />
+                            android:text="10000"
+                            android:textSize="14sp" />
+
                         <TextView
                             android:layout_width="90sp"
                             android:layout_height="wrap_content"
                             android:gravity="center_horizontal"
                             android:text="준중형차"
-                            android:textSize="14sp"/>
+                            android:textSize="14sp" />
 
                         <TextView
                             android:id="@+id/inside_foreign_S"
                             android:layout_width="90sp"
                             android:layout_height="wrap_content"
                             android:gravity="center_horizontal"
-                            android:textSize="14sp"
-                            android:text="10000"/>
+                            android:text="10000"
+                            android:textSize="14sp" />
                     </LinearLayout>
                 </LinearLayout>
+
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="5sp">
-                </Space>
+                    android:layout_height="5sp"></Space>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
                         android:orientation="horizontal">
+
                         <TextView
                             android:layout_width="90sp"
                             android:layout_height="wrap_content"
                             android:gravity="center_horizontal"
                             android:text="중형차"
-                            android:textSize="14sp"/>
+                            android:textSize="14sp" />
 
                         <TextView
                             android:id="@+id/inside_korea_M"
                             android:layout_width="90sp"
                             android:layout_height="wrap_content"
-                            android:textSize="14sp"
                             android:gravity="center_horizontal"
-                            android:text="10000" />
+                            android:text="10000"
+                            android:textSize="14sp" />
+
                         <TextView
                             android:layout_width="90sp"
                             android:layout_height="wrap_content"
                             android:gravity="center_horizontal"
                             android:text="중형차"
-                            android:textSize="14sp"/>
+                            android:textSize="14sp" />
 
                         <TextView
                             android:id="@+id/inside_foreign_M"
                             android:layout_width="90sp"
                             android:layout_height="wrap_content"
-                            android:textSize="14sp"
                             android:gravity="center_horizontal"
-                            android:text="10000"/>
+                            android:text="10000"
+                            android:textSize="14sp" />
                     </LinearLayout>
                 </LinearLayout>
+
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="5sp">
-                </Space>
+                    android:layout_height="5sp"></Space>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
                         android:orientation="horizontal">
+
                         <TextView
                             android:layout_width="90sp"
                             android:layout_height="wrap_content"
                             android:gravity="center_horizontal"
                             android:text="대형차"
-                            android:textSize="14sp"/>
+                            android:textSize="14sp" />
 
                         <TextView
                             android:id="@+id/inside_korea_L"
                             android:layout_width="90sp"
                             android:layout_height="wrap_content"
-                            android:textSize="14sp"
                             android:gravity="center_horizontal"
-                            android:text="10000"  />
+                            android:text="10000"
+                            android:textSize="14sp" />
+
                         <TextView
                             android:layout_width="90sp"
                             android:layout_height="wrap_content"
                             android:gravity="center_horizontal"
                             android:text="대형차"
-                            android:textSize="14sp"/>
+                            android:textSize="14sp" />
 
                         <TextView
                             android:id="@+id/inside_foreign_L"
                             android:layout_width="90sp"
                             android:layout_height="wrap_content"
-                            android:textSize="14sp"
                             android:gravity="center_horizontal"
-                            android:text="10000" />
+                            android:text="10000"
+                            android:textSize="14sp" />
                     </LinearLayout>
                 </LinearLayout>
+
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="20sp">
-                </Space>
+                    android:layout_height="20sp"></Space>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
                         android:orientation="horizontal">
+
                         <TextView
                             android:layout_width="180sp"
                             android:layout_height="wrap_content"
                             android:gravity="center_horizontal"
                             android:text="외부세차(국산차)"
                             android:textColor="@color/dgray"
-                            android:textStyle="bold"
-                            android:textSize="14sp"/>
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
 
                         <TextView
                             android:layout_width="180sp"
@@ -288,447 +314,482 @@
                             android:textStyle="bold" />
                     </LinearLayout>
                 </LinearLayout>
+
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="5sp">
-                </Space>
+                    android:layout_height="5sp"></Space>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
                         android:orientation="horizontal">
+
                         <TextView
                             android:layout_width="90sp"
                             android:layout_height="wrap_content"
                             android:gravity="center_horizontal"
                             android:text="소형차"
-                            android:textSize="14sp"/>
+                            android:textSize="14sp" />
 
                         <TextView
                             android:id="@+id/outside_korea_XS"
                             android:layout_width="90sp"
                             android:layout_height="wrap_content"
-                            android:textSize="14sp"
                             android:gravity="center_horizontal"
-                            android:text="10000" />
+                            android:text="10000"
+                            android:textSize="14sp" />
+
                         <TextView
                             android:layout_width="90sp"
                             android:layout_height="wrap_content"
                             android:gravity="center_horizontal"
                             android:text="소형차"
-                            android:textSize="14sp"/>
+                            android:textSize="14sp" />
 
                         <TextView
                             android:id="@+id/outside_foreign_XS"
                             android:layout_width="90sp"
                             android:layout_height="wrap_content"
-                            android:textSize="14sp"
                             android:gravity="center_horizontal"
-                            android:text="10000" />
+                            android:text="10000"
+                            android:textSize="14sp" />
                     </LinearLayout>
                 </LinearLayout>
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="5sp">
-                </Space>
+                    android:layout_height="5sp"></Space>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
                         android:orientation="horizontal">
+
                         <TextView
                             android:layout_width="90sp"
                             android:layout_height="wrap_content"
                             android:gravity="center_horizontal"
                             android:text="준중형차"
-                            android:textSize="14sp"/>
+                            android:textSize="14sp" />
 
                         <TextView
                             android:id="@+id/outside_korea_S"
                             android:layout_width="90sp"
                             android:layout_height="wrap_content"
-                            android:textSize="14sp"
                             android:gravity="center_horizontal"
-                            android:text="10000"  />
+                            android:text="10000"
+                            android:textSize="14sp" />
+
                         <TextView
                             android:layout_width="90sp"
                             android:layout_height="wrap_content"
                             android:gravity="center_horizontal"
                             android:text="준중형차"
-                            android:textSize="14sp"/>
+                            android:textSize="14sp" />
 
                         <TextView
                             android:id="@+id/outside_foreign_S"
                             android:layout_width="90sp"
                             android:layout_height="wrap_content"
-                            android:textSize="14sp"
                             android:gravity="center_horizontal"
-                            android:text="10000"/>
+                            android:text="10000"
+                            android:textSize="14sp" />
                     </LinearLayout>
                 </LinearLayout>
+
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="5sp">
-                </Space>
+                    android:layout_height="5sp"></Space>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
                         android:orientation="horizontal">
+
                         <TextView
                             android:layout_width="90sp"
                             android:layout_height="wrap_content"
                             android:gravity="center_horizontal"
                             android:text="중형차"
-                            android:textSize="14sp"/>
+                            android:textSize="14sp" />
 
                         <TextView
                             android:id="@+id/outside_korea_M"
                             android:layout_width="90sp"
                             android:layout_height="wrap_content"
-                            android:textSize="14sp"
                             android:gravity="center_horizontal"
-                            android:text="10000" />
+                            android:text="10000"
+                            android:textSize="14sp" />
+
                         <TextView
                             android:layout_width="90sp"
                             android:layout_height="wrap_content"
                             android:gravity="center_horizontal"
                             android:text="중형차"
-                            android:textSize="14sp"/>
+                            android:textSize="14sp" />
 
                         <TextView
                             android:id="@+id/outside_foreign_M"
                             android:layout_width="90sp"
                             android:layout_height="wrap_content"
-                            android:textSize="14sp"
                             android:gravity="center_horizontal"
-                            android:text="10000" />
+                            android:text="10000"
+                            android:textSize="14sp" />
                     </LinearLayout>
                 </LinearLayout>
+
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="5sp">
-                </Space>
+                    android:layout_height="5sp"></Space>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
                         android:orientation="horizontal">
+
                         <TextView
                             android:layout_width="90sp"
                             android:layout_height="wrap_content"
                             android:gravity="center_horizontal"
                             android:text="대형차"
-                            android:textSize="14sp"/>
+                            android:textSize="14sp" />
 
                         <TextView
                             android:id="@+id/outside_korea_L"
                             android:layout_width="90sp"
                             android:layout_height="wrap_content"
-                            android:textSize="14sp"
                             android:gravity="center_horizontal"
-                            android:text="10000"  />
+                            android:text="10000"
+                            android:textSize="14sp" />
+
                         <TextView
                             android:layout_width="90sp"
                             android:layout_height="wrap_content"
                             android:gravity="center_horizontal"
                             android:text="대형차"
-                            android:textSize="14sp"/>
+                            android:textSize="14sp" />
 
                         <TextView
                             android:id="@+id/outside_foreign_L"
                             android:layout_width="90sp"
                             android:layout_height="wrap_content"
-                            android:textSize="14sp"
                             android:gravity="center_horizontal"
-                            android:text="10000"/>
+                            android:text="10000"
+                            android:textSize="14sp" />
                     </LinearLayout>
                 </LinearLayout>
+
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="20sp">
-                </Space>
+                    android:layout_height="20sp"></Space>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
                         android:orientation="horizontal">
+
                         <TextView
                             android:layout_width="180sp"
                             android:layout_height="wrap_content"
                             android:gravity="center_horizontal"
                             android:text="내부+외부세차(국산차)"
                             android:textColor="@color/dgray"
-                            android:textStyle="bold"
-                            android:textSize="14sp"/>
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
                         <TextView
                             android:layout_width="180sp"
                             android:layout_height="wrap_content"
                             android:gravity="center_horizontal"
                             android:text="내부+외부세차(외제차)"
                             android:textColor="@color/dgray"
-                            android:textStyle="bold"
-                            android:textSize="14sp"/>
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
                     </LinearLayout>
                 </LinearLayout>
+
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="5sp">
-                </Space>
+                    android:layout_height="5sp"></Space>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
                         android:orientation="horizontal">
+
                         <TextView
                             android:layout_width="90sp"
                             android:layout_height="wrap_content"
                             android:gravity="center_horizontal"
                             android:text="소형차"
-                            android:textSize="14sp"/>
+                            android:textSize="14sp" />
 
                         <TextView
                             android:id="@+id/inOutside_korea_XS"
                             android:layout_width="90sp"
                             android:layout_height="wrap_content"
-                            android:textSize="14sp"
                             android:gravity="center_horizontal"
-                            android:text="10000"  />
+                            android:text="10000"
+                            android:textSize="14sp" />
+
                         <TextView
                             android:layout_width="90sp"
                             android:layout_height="wrap_content"
                             android:gravity="center_horizontal"
                             android:text="소형차"
-                            android:textSize="14sp"/>
+                            android:textSize="14sp" />
 
                         <TextView
                             android:id="@+id/inOutside_foreign_XS"
                             android:layout_width="90sp"
                             android:layout_height="wrap_content"
-                            android:textSize="14sp"
                             android:gravity="center_horizontal"
-                            android:text="10000"/>
+                            android:text="10000"
+                            android:textSize="14sp" />
                     </LinearLayout>
                 </LinearLayout>
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="5sp">
-                </Space>
+                    android:layout_height="5sp"></Space>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
                         android:orientation="horizontal">
+
                         <TextView
                             android:layout_width="90sp"
                             android:layout_height="wrap_content"
                             android:gravity="center_horizontal"
                             android:text="준중형차"
-                            android:textSize="14sp"/>
+                            android:textSize="14sp" />
 
                         <TextView
                             android:id="@+id/inOutside_korea_S"
                             android:layout_width="90sp"
                             android:layout_height="wrap_content"
-                            android:textSize="14sp"
                             android:gravity="center_horizontal"
-                            android:text="10000"  />
+                            android:text="10000"
+                            android:textSize="14sp" />
+
                         <TextView
                             android:layout_width="90sp"
                             android:layout_height="wrap_content"
                             android:gravity="center_horizontal"
                             android:text="준중형차"
-                            android:textSize="14sp"/>
+                            android:textSize="14sp" />
 
                         <TextView
                             android:id="@+id/inOutside_foreign_S"
                             android:layout_width="90sp"
                             android:layout_height="wrap_content"
-                            android:textSize="14sp"
                             android:gravity="center_horizontal"
-                            android:text="10000" />
+                            android:text="10000"
+                            android:textSize="14sp" />
                     </LinearLayout>
                 </LinearLayout>
+
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="5sp">
-                </Space>
+                    android:layout_height="5sp"></Space>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
                         android:orientation="horizontal">
+
                         <TextView
                             android:layout_width="90sp"
                             android:layout_height="wrap_content"
                             android:gravity="center_horizontal"
                             android:text="중형차"
-                            android:textSize="14sp"/>
+                            android:textSize="14sp" />
 
                         <TextView
                             android:id="@+id/inOutside_korea_M"
                             android:layout_width="90sp"
                             android:layout_height="wrap_content"
-                            android:textSize="14sp"
                             android:gravity="center_horizontal"
-                            android:text="10000"  />
+                            android:text="10000"
+                            android:textSize="14sp" />
+
                         <TextView
                             android:layout_width="90sp"
                             android:layout_height="wrap_content"
                             android:gravity="center_horizontal"
                             android:text="중형차"
-                            android:textSize="14sp"/>
+                            android:textSize="14sp" />
 
                         <TextView
                             android:id="@+id/inOutside_foreign_M"
                             android:layout_width="90sp"
                             android:layout_height="wrap_content"
-                            android:textSize="14sp"
                             android:gravity="center_horizontal"
-                            android:text="10000" />
+                            android:text="10000"
+                            android:textSize="14sp" />
                     </LinearLayout>
                 </LinearLayout>
+
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="5sp">
-                </Space>
+                    android:layout_height="5sp"></Space>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
                         android:orientation="horizontal">
+
                         <TextView
                             android:layout_width="90sp"
                             android:layout_height="wrap_content"
                             android:gravity="center_horizontal"
                             android:text="대형차"
-                            android:textSize="14sp"/>
+                            android:textSize="14sp" />
 
                         <TextView
                             android:id="@+id/inOutside_korea_L"
                             android:layout_width="90sp"
                             android:layout_height="wrap_content"
-                            android:textSize="14sp"
                             android:gravity="center_horizontal"
-                            android:text="10000" />
+                            android:text="10000"
+                            android:textSize="14sp" />
+
                         <TextView
                             android:layout_width="90sp"
                             android:layout_height="wrap_content"
                             android:gravity="center_horizontal"
                             android:text="대형차"
-                            android:textSize="14sp"/>
+                            android:textSize="14sp" />
 
                         <TextView
                             android:id="@+id/inOutside_foreign_L"
                             android:layout_width="90sp"
                             android:layout_height="wrap_content"
-                            android:textSize="14sp"
                             android:gravity="center_horizontal"
-                            android:text="40000" />
+                            android:text="40000"
+                            android:textSize="14sp" />
                     </LinearLayout>
                 </LinearLayout>
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="20sp">
-                </Space>
+                    android:layout_height="20sp"></Space>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
                         android:orientation="horizontal">
+
                         <TextView
                             android:layout_width="180sp"
                             android:layout_height="wrap_content"
                             android:gravity="center_horizontal"
-                            android:textColor="@color/dgray"
                             android:text="작업시간"
-                            android:textStyle="bold"
-                            android:textSize="14sp"/>
+                            android:textColor="@color/dgray"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
                         <TextView
                             android:layout_width="180sp"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/dgray"
                             android:gravity="center_horizontal"
                             android:text="기타비용"
-                            android:textStyle="bold"
-                            android:textSize="14sp"/>
+                            android:textColor="@color/dgray"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
                     </LinearLayout>
                 </LinearLayout>
+
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="5sp">
-                </Space>
+                    android:layout_height="5sp"></Space>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
                         android:orientation="horizontal">
+
                         <TextView
                             android:layout_width="90sp"
                             android:layout_height="wrap_content"
                             android:gravity="center_horizontal"
                             android:text="내부"
-                            android:textSize="14sp"/>
+                            android:textSize="14sp" />
 
                         <TextView
                             android:id="@+id/inside_time"
                             android:layout_width="90sp"
                             android:layout_height="wrap_content"
-                            android:textSize="14sp"
                             android:gravity="center_horizontal"
-                            android:text="20분" />
+                            android:text="20분"
+                            android:textSize="14sp" />
 
                         <TextView
                             android:layout_width="90sp"
@@ -743,95 +804,102 @@
                             android:layout_height="wrap_content"
                             android:gravity="center_horizontal"
                             android:text="8000"
-                            android:textSize="14sp"/>
+                            android:textSize="14sp" />
                     </LinearLayout>
                 </LinearLayout>
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="5sp">
-                </Space>
+                    android:layout_height="5sp"></Space>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
                         android:orientation="horizontal">
+
                         <TextView
                             android:layout_width="90sp"
                             android:layout_height="wrap_content"
                             android:gravity="center_horizontal"
                             android:text="외부"
-                            android:textSize="14sp"/>
+                            android:textSize="14sp" />
 
                         <TextView
                             android:id="@+id/outside_time"
                             android:layout_width="90sp"
                             android:layout_height="wrap_content"
-                            android:textSize="14sp"
                             android:gravity="center_horizontal"
-                            android:text="20분" />
+                            android:text="20분"
+                            android:textSize="14sp" />
 
                         <TextView
                             android:layout_width="90sp"
                             android:layout_height="wrap_content"
                             android:gravity="center_horizontal"
                             android:text="광택"
-                            android:textSize="14sp"/>
+                            android:textSize="14sp" />
 
                         <TextView
                             android:id="@+id/polish_cost"
                             android:layout_width="90sp"
                             android:layout_height="wrap_content"
-                            android:textSize="14sp"
                             android:gravity="center_horizontal"
-                            android:text="20000" />
+                            android:text="20000"
+                            android:textSize="14sp" />
                     </LinearLayout>
                 </LinearLayout>
+
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="5sp">
-                </Space>
+                    android:layout_height="5sp"></Space>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
                         android:orientation="horizontal">
+
                         <TextView
                             android:layout_width="90sp"
                             android:layout_height="wrap_content"
                             android:gravity="center_horizontal"
                             android:text="내부+외부"
-                            android:textSize="14sp"/>
+                            android:textSize="14sp" />
 
                         <TextView
                             android:id="@+id/inOutside_time"
                             android:layout_width="90sp"
                             android:layout_height="wrap_content"
-                            android:textSize="14sp"
                             android:gravity="center_horizontal"
-                            android:text="30분" />
+                            android:text="30분"
+                            android:textSize="14sp" />
+
                         <TextView
                             android:layout_width="90sp"
                             android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"/>
+                            android:gravity="center_horizontal" />
+
                         <TextView
                             android:layout_width="90sp"
                             android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"/>
+                            android:gravity="center_horizontal" />
                     </LinearLayout>
                 </LinearLayout>
+
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="25sp">
-                </Space>
+                    android:layout_height="25sp"></Space>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
     </FrameLayout>

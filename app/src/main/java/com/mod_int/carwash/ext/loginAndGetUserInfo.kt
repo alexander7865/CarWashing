@@ -3,7 +3,7 @@ package com.mod_int.carwash.ext
 
 import android.util.Log
 import com.mod_int.carwash.data.repo.FirebaseRepository
-import com.mod_int.carwash.model.PriceList
+import com.mod_int.carwash.model.PriceItem
 import com.mod_int.carwash.model.User
 
 fun FirebaseRepository.loginAndGetUserInfo(
@@ -149,12 +149,12 @@ fun FirebaseRepository.createTypeDB(
 
 fun FirebaseRepository.washingPriceList(
     email: String,
-    callback: (priceList: PriceList?) -> Unit
+    callback: (priceItem: PriceItem?) -> Unit
 ){
     getFirebaseFireStore().collection("WasherMember").document(email).get()
         .addOnCompleteListener {
             if (it.isSuccessful) {
-                callback(it.result.toObject(PriceList::class.java))
+                callback(it.result.toObject(PriceItem::class.java))
             } else {
                 callback(null)
             }

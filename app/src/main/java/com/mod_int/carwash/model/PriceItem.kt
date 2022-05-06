@@ -5,7 +5,8 @@ import kotlinx.android.parcel.Parcelize
 
 
 @Parcelize
-data class PriceList (
+data class PriceItem (
+    var wmCompanyName : String = "",
     var insideWashingKoreaCarXS: String = "",
     var insideWashingKoreaCarS: String = "",
     var insideWashingKoreaCarM: String = "",
