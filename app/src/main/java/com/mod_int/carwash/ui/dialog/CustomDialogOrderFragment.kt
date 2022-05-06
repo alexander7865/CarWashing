@@ -90,7 +90,7 @@ class CustomDialogOrderFragment : DialogFragment() {
     private fun timeSelect() {
         val time = resources.getStringArray(R.array.timeSelect)
         val timeAdapter = ArrayAdapter (requireContext(),
-            R.layout.custom_find_spinner, time)
+            R.layout.custom_order_spinner, time)
 
         with(binding){
             timeSelect.adapter = timeAdapter
@@ -114,7 +114,7 @@ class CustomDialogOrderFragment : DialogFragment() {
     private fun orderType1() {
         val type1 = resources.getStringArray(R.array.orderType1)
         val type1Adapter = ArrayAdapter (requireContext(),
-            R.layout.custom_find_spinner, type1)
+            R.layout.custom_order_spinner, type1)
 
         with(binding){
             orderType1.adapter = type1Adapter
@@ -138,7 +138,7 @@ class CustomDialogOrderFragment : DialogFragment() {
     private fun orderType2() {
         val type2 = resources.getStringArray(R.array.orderType2)
         val type2Adapter = ArrayAdapter (requireContext(),
-            R.layout.custom_find_spinner, type2)
+            R.layout.custom_order_spinner, type2)
 
         with(binding){
             orderType2.adapter = type2Adapter

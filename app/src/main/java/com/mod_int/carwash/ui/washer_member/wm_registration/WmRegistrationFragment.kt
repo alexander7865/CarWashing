@@ -102,13 +102,27 @@ class WmRegistrationFragment : BaseFragment<FragmentWmRegistrationBinding>(
     inner class CheckBoxListener : CompoundButton.OnCheckedChangeListener {
         override fun onCheckedChanged(buttonView: CompoundButton?, isChecked: Boolean) {
             when (buttonView?.id){
-                R.id.pickupWashing ->
-                    if (isChecked) wmRegistrationViewModel.wmCheck1.set(" 픽업손세차 ")
-                    else wmRegistrationViewModel.wmCheck1.set("")
+                R.id.pickupWashing -> {
+                    if (isChecked) {
+                        wmRegistrationViewModel.wmCheck1.set(" 픽업손세차 ")
+                        binding.handWashing.isChecked = true
+                    } else {
+                        wmRegistrationViewModel.wmCheck1.set("")
+                        binding.handWashing.isChecked = false
+                    }
+                }
 
-                R.id.handWashing ->
-                    if (isChecked) wmRegistrationViewModel.wmCheck2.set(" 손세차예약 ")
-                    else wmRegistrationViewModel.wmCheck2.set("")
+
+                R.id.handWashing -> {
+                    if (isChecked) {
+                        wmRegistrationViewModel.wmCheck2.set(" 손세차예약 ")
+                        binding.pickupWashing.isChecked = true
+                    } else {
+                        wmRegistrationViewModel.wmCheck2.set("")
+                        binding.pickupWashing.isChecked = false
+                    }
+                }
+
 
                 R.id.tripWashing ->
                     if (isChecked) wmRegistrationViewModel.wmCheck3.set(" 출장손세차 ")

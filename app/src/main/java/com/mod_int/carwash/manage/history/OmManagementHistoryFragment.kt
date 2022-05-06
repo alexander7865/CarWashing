@@ -9,6 +9,7 @@ import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseFragment
 import com.mod_int.carwash.databinding.FragmentOmManagementHistoryBinding
 import com.mod_int.carwash.manage.history.adapter.HistoryRecyclerAdapter
+import com.mod_int.carwash.model.HistoryInfo
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -66,7 +67,7 @@ class OmManagementHistoryFragment : BaseFragment<FragmentOmManagementHistoryBind
 
                 }
 
-                //삭제를 구현했으나 position 값을 못 넣네요 ㅋㅋㅋ
+                //삭제를 구현했으나 position 값을 못 넣네요 그냥 터져버리네요 일단 0으로 넣어놨습니다ㅋㅋㅋ
                 override fun onClickPositiveBtn() {
                     historyAdapter.removeItem()
                     binding.recyclerHistory.adapter = historyAdapter

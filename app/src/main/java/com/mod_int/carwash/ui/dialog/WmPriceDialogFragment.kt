@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import com.mod_int.carwash.databinding.FragmentWmPriceDialogBinding
 import com.mod_int.carwash.manage.findwasher.OmFindWasherViewModel
@@ -17,6 +18,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class WmPriceDialogFragment : DialogFragment(){
+    private val omFindWasherViewModel by activityViewModels<OmFindWasherViewModel>()
     lateinit var binding : FragmentWmPriceDialogBinding
     lateinit var omActivity: OmActivity
     var noBtn : String? = null

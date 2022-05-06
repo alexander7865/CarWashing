@@ -1,5 +1,6 @@
 package com.mod_int.carwash.manage.findwasher.viewholder
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.view.isVisible
@@ -17,15 +18,14 @@ class FindRecyclerViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(
 
     private val binding = DataBindingUtil.bind<ItemModelBinding>(itemView)
 
+    @SuppressLint("SetTextI18n")
     fun bind(item: WasherInfo, itemClickListener: (item : WasherInfo, clickType: ClickType) -> Unit) {
         binding?.let {
             with(it){
                 companyLocation.text = item.wmLocation
                 companyName.text = item.wmCompanyName
-                countOrder.text = item.wmCount
-                pointWasher.text = item.wmPoint
-                deliPriceWasher.text = item.deliveryCost
-                policyPriceWasher.text = item.polishCost
+                countOrder.text = "${item.wmCount} 건"
+                pointWasher.text = "${ item.wmPoint } 점"
                 washingType1.text = item.wmCheck1
                 washingType2.text = item.wmCheck2
                 washingType3.text = item.wmCheck3

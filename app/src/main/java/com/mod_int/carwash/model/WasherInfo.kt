@@ -9,8 +9,6 @@ data class WasherInfo(
     var wmCompanyName : String = "",
     var wmCount: String = "",
     var wmPoint: String = "",
-    var deliveryCost: String = "",
-    var polishCost: String = "",
     var wmCheck1: String = "",
     var wmCheck2: String = "",
     var wmCheck3: String = "",

@@ -33,6 +33,7 @@ class OmFindWasherViewModel @Inject constructor(
         //파이어스토어의 필드값명과 데이터클레스의 필드값명과 일치하면 데이터를 쉽게 가지고 올수 있음 쿼리를 사용하면 실시간으로 업데이트됨
         //문제는 필드값이 바뀌면 기존에 있던 리스트가 바뀌고 새로운 리스트로 변경되어야하나 기존리스트 + 새로운리스트가 함께나옴 해결방법은?
         //워셔의 정보가 전부 입력되지 않았을시에 아래 함수를 발동시키지 않게하고 싶은데 잘 안되네요
+        //다이얼로그 창에 해당업체의 비용이 나오게 구현하고 싶은데 어떻게 해야 하는데 잘안되네요
         ioScope {
             firebaseRepository.getFirebaseFireStore()
                 .collection("WasherMember")
@@ -47,30 +48,6 @@ class OmFindWasherViewModel @Inject constructor(
         }
     }
 
-    //다이얼로그 창에 등록되게 하고 싶은데 어떻게 해야 하는데 잘안되네요
-    fun getWashingPrice(){
-        ioScope {
-            firebaseRepository.getFirebaseFireStore()
-                .collection("WasherMember")
-                .addSnapshotListener { querySnapshot, _ ->
-                    for(info in querySnapshot!!.documentChanges){
-                        inOutsideWashingForeignCarL.set(info.document.get("inOutsideWashingForeignCarL") as String)
-                        viewStateChanged(OmFindWasherViewState.GetWashingPrice)
-
-                    }
-                }
-
-        }
-
-
-        ioScope {
-            firebaseRepository.washingPriceList(
-               inOutsideWashingForeignCarL.get().toString()
-            ) {
-
-            }
-        }
-    }
 
     //아래코드는 USER 로부터 데이터를 입력 받았을시만 체크가 가능함
 //    private fun wmDataInfoCheck(
@@ -171,7 +148,7 @@ class OmFindWasherViewModel @Inject constructor(
 //    }
 
 
-    // hashMap 형태로 가지고오는 패턴
+    // hashMap 형태로 가지고오는 패턴 오더 진행시 해쉬맵으로 바꾸고 지우고 할것임
     //        ioScope {
 //            firebaseRepository.getFirebaseFireStore().collection("WasherMember")
 //                .document("User")

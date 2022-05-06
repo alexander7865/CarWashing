@@ -742,7 +742,7 @@
                             android:layout_width="90sp"
                             android:layout_height="wrap_content"
                             android:gravity="center_horizontal"
-                            android:text="7000"
+                            android:text="8000"
                             android:textSize="14sp"/>
                     </LinearLayout>
                 </LinearLayout>
@@ -788,7 +788,7 @@
                             android:layout_height="wrap_content"
                             android:textSize="14sp"
                             android:gravity="center_horizontal"
-                            android:text="10000" />
+                            android:text="20000" />
                     </LinearLayout>
                 </LinearLayout>
                 <Space

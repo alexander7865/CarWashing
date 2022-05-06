@@ -18,6 +18,7 @@ class FindRecyclerAdapter : RecyclerView.Adapter<FindRecyclerViewHolder>(), Filt
     private var filteredList = washerList
 
 
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FindRecyclerViewHolder =
         FindRecyclerViewHolder(parent)
 
@@ -50,23 +51,23 @@ class FindRecyclerAdapter : RecyclerView.Adapter<FindRecyclerViewHolder>(), Filt
         return object : Filter(){
             override fun performFiltering(constraint: CharSequence?): FilterResults {
                 val charString = constraint.toString()
-                Log.d("테스트", charString)
+                Log.d("테스트", charString) //여기까지는 데이터를 받아왔음 이후 데이터가 안들어가지네요
                 filteredList = if (charString.isEmpty()) {
                     unFilteredList
-                    //전에는 구동이 되었으나 지금은 안되네요
-                    //로그테스트결과 item.wmCheck1 , charString 데이터가 안넘어옵니다 여기서 문제가 발생한듯 합니다.
-                    
+
                 }else {
                     val filteringList = ArrayList<WasherInfo>()
                     for (item in unFilteredList) {
                         if (item.wmCheck1 == charString) filteringList.add(item)
                     }
+                    //전에는 구동이 되었으나 데이터와 리사이클러뷰를 연결시키고 나서는 작동이 안됩니다.
+                    //로그테스트결과 item.wmCheck1 , charString 데이터가 안넘어옵니다 여기서 문제가 발생한듯 합니다.
                     filteringList
                 }
+
                 val filterResults = FilterResults()
                 filterResults.values = filteredList
                 return filterResults
-
             }
 
             override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
