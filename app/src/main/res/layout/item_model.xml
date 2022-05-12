@@ -153,9 +153,9 @@
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/recyclerview_radius_type1"
                                 android:gravity="center"
-                                android:paddingTop="3sp"
-                                android:paddingBottom="3sp"
-                                android:text=" 픽업손세차 "
+                                android:paddingTop="4sp"
+                                android:paddingBottom="4sp"
+                                android:text="  픽업손세차  "
                                 android:textColor="@color/white"
                                 android:textStyle="bold" />
 
@@ -165,9 +165,9 @@
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/recyclerview_radius_type2"
                                 android:gravity="center"
-                                android:paddingTop="3sp"
-                                android:paddingBottom="3sp"
-                                android:text=" 손세차예약 "
+                                android:paddingTop="4sp"
+                                android:paddingBottom="4sp"
+                                android:text="  손세차예약  "
                                 android:textColor="@color/white"
                                 android:textStyle="bold" />
 
@@ -177,9 +177,9 @@
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/recyclerview_radius_type3"
                                 android:gravity="center"
-                                android:paddingTop="3sp"
-                                android:paddingBottom="3sp"
-                                android:text=" 출장손세차 "
+                                android:paddingTop="4sp"
+                                android:paddingBottom="4sp"
+                                android:text="  출장손세차  "
                                 android:textColor="@color/white"
                                 android:textStyle="bold" />
                             <TextView

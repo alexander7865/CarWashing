@@ -18,21 +18,10 @@ class OmFindWasherViewModel @Inject constructor(
 ) : BaseViewModel(app) {
 
     //    var wmLocation = ObservableField("")
-//    var wmCompanyName = ObservableField("")
-//    var wmCount= ObservableField("")
-//    var wmPoint= ObservableField("")
-//    var deliveryCost= ObservableField("")
-//    var polishCost= ObservableField("")
-//    var washerIntroduce= ObservableField("")
-    var inOutsideWashingForeignCarL = ObservableField("미등록")
-
-
     // 체크하여 비어있지 않았을때만 구현되도록 수정
     fun getWasherMember() {
 
-        //파이어스토어의 필드값명과 데이터클레스의 필드값명과 일치하면 데이터를 쉽게 가지고 올수 있음 쿼리를 사용하면 실시간으로 업데이트됨
-        //문제는 필드값이 바뀌면 기존에 있던 리스트가 바뀌고 새로운 리스트로 변경되어야하나 기존리스트 + 새로운리스트가 함께나옴 해결방법은?
-        //워셔의 정보가 전부 입력되지 않았을시에 아래 함수를 발동시키지 않게하고 싶은데 잘 안되네요
+
         //다이얼로그 창에 해당업체의 비용이 나오게 구현하고 싶은데 어떻게 해야 하는데 잘안되네요
         ioScope {
             firebaseRepository.getFirebaseFireStore()

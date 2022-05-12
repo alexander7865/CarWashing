@@ -133,13 +133,13 @@ class OmFindWasherFragment :
                 ) {
                     when (position) {
                         0 -> {
-                            findAdapter.filter.filter(" 픽업손세차 ")
+                            findAdapter.filter.filter("픽업손세차")
                         }
                         1 -> {
-                            findAdapter.filter.filter(" 손세차예약 ")
+                            findAdapter.filter.filter("손세차예약")
                         }
                         2 -> {
-                            findAdapter.filter.filter(" 출장손세차 ")
+                            findAdapter.filter.filter("출장손세차")
                         }
                     }
                 }

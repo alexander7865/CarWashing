@@ -46,6 +46,9 @@
         <entry key="app/src/main/res/drawable/my_location.xml" value="0.1655" />
         <entry key="app/src/main/res/drawable/recycler_bubble.xml" value="0.1825" />
         <entry key="app/src/main/res/drawable/recyclerview_radius.xml" value="0.1825" />
+        <entry key="app/src/main/res/drawable/recyclerview_radius_type1.xml" value="0.2" />
+        <entry key="app/src/main/res/drawable/recyclerview_radius_type2.xml" value="0.2" />
+        <entry key="app/src/main/res/drawable/recyclerview_radius_type3.xml" value="0.2" />
         <entry key="app/src/main/res/drawable/recyclerview_radius_washer_pickup.xml" value="0.1775" />
         <entry key="app/src/main/res/drawable/search_icon.xml" value="0.1655" />
         <entry key="app/src/main/res/drawable/tab_select.xml" value="0.1765" />
@@ -71,6 +74,7 @@
         <entry key="app/src/main/res/layout/activity_welcome.xml" value="0.31197916666666664" />
         <entry key="app/src/main/res/layout/activity_wm.xml" value="0.335" />
         <entry key="app/src/main/res/layout/custom_find_spinner.xml" value="0.19074074074074074" />
+        <entry key="app/src/main/res/layout/custom_order_spinner.xml" value="0.31197916666666664" />
         <entry key="app/src/main/res/layout/custom_owner_spinner.xml" value="0.19074074074074074" />
         <entry key="app/src/main/res/layout/custom_spinner.xml" value="0.1609375" />
         <entry key="app/src/main/res/layout/custom_washer_spinner.xml" value="0.19074074074074074" />
@@ -146,6 +150,7 @@
         <entry key="app/src/main/res/layout/item_history.xml" value="0.275" />
         <entry key="app/src/main/res/layout/item_list.xml" value="0.335" />
         <entry key="app/src/main/res/layout/item_model.xml" value="0.275" />
+        <entry key="app/src/main/res/layout/item_om_banner.xml" value="0.31197916666666664" />
         <entry key="app/src/main/res/layout/item_pickup.xml" value="0.25" />
       </map>
     </option>
