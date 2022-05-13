@@ -17,7 +17,6 @@ class OmFindWasherViewModel @Inject constructor(
     private val firebaseRepository: FirebaseRepository
 ) : BaseViewModel(app) {
 
-    //    var wmLocation = ObservableField("")
     // 체크하여 비어있지 않았을때만 구현되도록 수정
     fun getWasherMember() {
 
@@ -27,11 +26,15 @@ class OmFindWasherViewModel @Inject constructor(
             firebaseRepository.getFirebaseFireStore()
                 .collection("WasherMember")
                 .addSnapshotListener { querySnapshot, _ ->
+
+                    val washerInfo = mutableListOf<WasherInfo>()
+
                     for (info in querySnapshot!!.documentChanges) {
                         var document = info.document.toObject(WasherInfo::class.java)
-                        val washerInfo = mutableListOf<WasherInfo>().apply { add(document) }
-                        viewStateChanged(OmFindWasherViewState.GetWasherMember(washerInfo))
+                        washerInfo.add(document)
+
                     }
+                    viewStateChanged(OmFindWasherViewState.GetWasherMember(washerInfo))
                 }
 
         }

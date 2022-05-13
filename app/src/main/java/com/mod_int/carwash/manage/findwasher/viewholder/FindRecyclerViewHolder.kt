@@ -23,7 +23,7 @@ class FindRecyclerViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(
         binding?.let {
             with(it){
                 companyLocation.text = item.wmLocation
-                companyName.text = item.wmCompanyName
+                wmCompanyName.text = item.wmCompanyName
                 countOrder.text = "${item.wmCount} 건"
                 pointWasher.text = "${ item.wmPoint } 점"
                 washingType1.text = item.wmCheck1

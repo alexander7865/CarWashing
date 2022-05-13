@@ -146,7 +146,7 @@
         <entry key="app/src/main/res/layout/fragment_wm_payment.xml" value="0.18703703703703703" />
         <entry key="app/src/main/res/layout/fragment_wm_price_dialog.xml" value="0.29030797101449274" />
         <entry key="app/src/main/res/layout/fragment_wm_registration.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_wm_registration_price.xml" value="0.18703703703703703" />
+        <entry key="app/src/main/res/layout/fragment_wm_registration_price.xml" value="0.25" />
         <entry key="app/src/main/res/layout/item_history.xml" value="0.275" />
         <entry key="app/src/main/res/layout/item_list.xml" value="0.335" />
         <entry key="app/src/main/res/layout/item_model.xml" value="0.275" />

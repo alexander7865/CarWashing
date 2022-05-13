@@ -34,7 +34,7 @@
                     android:layout_marginStart="26sp"
                     android:gravity="center_vertical"
                     android:layout_weight="1"
-                    android:text="세차비용 등록"
+                    android:text="세차비용 가이드"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:textColor="@color/dgray" />
@@ -74,29 +74,15 @@
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
                             <TextView
-                                android:layout_width="170sp"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="26sp"
-                                android:text="내부세차(국산차)"
-                                android:textStyle="bold"
-                                android:textColor="@color/dgray"
-                                android:textSize="16sp"/>
-                            <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="25sp"
-                                android:layout_marginEnd="26sp"
-                                android:text="내부세차(외제차)"
+                                android:layout_marginStart="26sp"
+                                android:text="내부세차"
                                 android:textStyle="bold"
                                 android:textColor="@color/dgray"
                                 android:textSize="16sp"/>
                         </LinearLayout>
                     </LinearLayout>
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="5sp">
-                    </Space>
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -106,53 +92,81 @@
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
                             <TextView
-                                android:layout_width="90sp"
+                                android:layout_width="70sp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="26sp"
+                                android:text="경차"
+                                android:textSize="16sp"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="소형차"
+                                android:text="(1,000cc 미만)"
                                 android:textSize="16sp"/>
 
                             <EditText
-                                android:id="@+id/inside_korea_XS"
+                                android:id="@+id/in1"
                                 android:layout_width="65sp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
+                                android:gravity="end"
                                 android:ellipsize="end"
                                 android:hint="10000"
-                                android:text="@={viewModel.insideWashingKoreaCarXS}"
+                                android:text="@={viewModel.insideWashingCarXS1}"
                                 android:inputType="numberDecimal"
                                 android:maxLength="5"
                                 android:maxLines="1"
                                 tools:ignore="TouchTargetSizeCheck" />
                             <TextView
-                                android:layout_width="90sp"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="32sp"
-                                android:layout_weight="1"
+                                android:layout_marginStart="5sp"
+                                android:layout_marginEnd="26sp"
+                                android:text="원"
+                                android:textSize="16sp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="70sp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="26sp"
                                 android:text="소형차"
                                 android:textSize="16sp"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="(1,600cc 미만)"
+                                android:textSize="16sp"/>
 
                             <EditText
-                                android:id="@+id/inside_foreign_XS"
+                                android:id="@+id/in2"
                                 android:layout_width="65sp"
                                 android:layout_height="wrap_content"
-                                android:layout_marginEnd="26sp"
-                                android:layout_weight="1"
+                                android:gravity="end"
                                 android:ellipsize="end"
                                 android:hint="10000"
-                                android:text="@={viewModel.insideWashingForeignCarXS}"
-                                android:inputType="number"
+                                android:text="@={viewModel.insideWashingCarS2}"
+                                android:inputType="numberDecimal"
                                 android:maxLength="5"
                                 android:maxLines="1"
                                 tools:ignore="TouchTargetSizeCheck" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="5sp"
+                                android:layout_marginEnd="26sp"
+                                android:text="원"
+                                android:textSize="16sp"/>
                         </LinearLayout>
                     </LinearLayout>
-
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="5sp">
-                    </Space>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -162,108 +176,39 @@
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
                             <TextView
-                                android:layout_width="90sp"
+                                android:layout_width="70sp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:layout_marginStart="26sp"
-                                android:text="준중형차"
-                                android:textSize="16sp"/>
-
-                            <EditText
-                                android:id="@+id/inside_korea_S"
-                                android:layout_width="65sp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:ellipsize="end"
-                                android:hint="10000"
-                                android:text="@={viewModel.insideWashingKoreaCarS}"
-                                android:inputType="number"
-                                android:maxLength="5"
-                                android:maxLines="1"
-                                tools:ignore="TouchTargetSizeCheck" />
-                            <TextView
-                                android:layout_width="90sp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:layout_marginStart="32sp"
-                                android:text="준중형차"
-                                android:textSize="16sp"/>
-
-                            <EditText
-                                android:id="@+id/inside_foreign_S"
-                                android:layout_width="65sp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:layout_marginEnd="26sp"
-                                android:ellipsize="end"
-                                android:hint="10000"
-                                android:text="@={viewModel.insideWashingForeignCarS}"
-                                android:inputType="number"
-                                android:maxLength="5"
-                                android:maxLines="1"
-                                tools:ignore="TouchTargetSizeCheck" />
-                        </LinearLayout>
-                    </LinearLayout>
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="5sp">
-                    </Space>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-                            <TextView
-                                android:layout_width="90sp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
                                 android:layout_marginStart="26sp"
                                 android:text="중형차"
                                 android:textSize="16sp"/>
-
-                            <EditText
-                                android:id="@+id/inside_korea_M"
-                                android:layout_width="65sp"
+                            <TextView
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:text="(2,000cc 미만)"
+                                android:textSize="16sp"/>
+
+                            <EditText
+                                android:id="@+id/in3"
+                                android:layout_width="65sp"
+                                android:layout_height="wrap_content"
+                                android:gravity="end"
                                 android:ellipsize="end"
                                 android:hint="10000"
-                                android:text="@={viewModel.insideWashingKoreaCarM}"
-                                android:inputType="number"
+                                android:text="@={viewModel.insideWashingCarM3}"
+                                android:inputType="numberDecimal"
                                 android:maxLength="5"
                                 android:maxLines="1"
                                 tools:ignore="TouchTargetSizeCheck" />
                             <TextView
-                                android:layout_width="90sp"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:layout_marginStart="32sp"
-                                android:text="중형차"
-                                android:textSize="16sp"/>
-
-                            <EditText
-                                android:id="@+id/inside_foreign_M"
-                                android:layout_width="65sp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
+                                android:layout_marginStart="5sp"
                                 android:layout_marginEnd="26sp"
-                                android:ellipsize="end"
-                                android:hint="10000"
-                                android:text="@={viewModel.insideWashingForeignCarM}"
-                                android:inputType="number"
-                                android:maxLength="5"
-                                android:maxLines="1"
-                                tools:ignore="TouchTargetSizeCheck" />
+                                android:text="원"
+                                android:textSize="16sp"/>
                         </LinearLayout>
                     </LinearLayout>
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="5sp">
-                    </Space>
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -273,46 +218,79 @@
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
                             <TextView
-                                android:layout_width="90sp"
+                                android:layout_width="70sp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
                                 android:layout_marginStart="26sp"
                                 android:text="대형차"
                                 android:textSize="16sp"/>
-
-                            <EditText
-                                android:id="@+id/inside_korea_L"
-                                android:layout_width="65sp"
+                            <TextView
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:text="(2,000cc 이상)"
+                                android:textSize="16sp"/>
+
+                            <EditText
+                                android:id="@+id/in4"
+                                android:layout_width="65sp"
+                                android:layout_height="wrap_content"
+                                android:gravity="end"
                                 android:ellipsize="end"
                                 android:hint="10000"
-                                android:text="@={viewModel.insideWashingKoreaCarL}"
-                                android:inputType="number"
+                                android:text="@={viewModel.insideWashingCarL4}"
+                                android:inputType="numberDecimal"
                                 android:maxLength="5"
                                 android:maxLines="1"
                                 tools:ignore="TouchTargetSizeCheck" />
                             <TextView
-                                android:layout_width="90sp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="5sp"
+                                android:layout_marginEnd="26sp"
+                                android:text="원"
+                                android:textSize="16sp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="120sp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="26sp"
+                                android:text="작업시간"
+                                android:textSize="16sp"/>
+                            <TextView
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:layout_marginStart="32sp"
-                                android:text="대형차"
+                                android:text=""
                                 android:textSize="16sp"/>
 
                             <EditText
-                                android:id="@+id/inside_foreign_L"
+                                android:id="@+id/time1"
                                 android:layout_width="65sp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:layout_marginEnd="26sp"
+                                android:gravity="end"
                                 android:ellipsize="end"
                                 android:hint="10000"
-                                android:text="@={viewModel.insideWashingForeignCarL}"
-                                android:inputType="number"
+                                android:text="@={viewModel.insideWashingTime1}"
+                                android:inputType="numberDecimal"
                                 android:maxLength="5"
                                 android:maxLines="1"
                                 tools:ignore="TouchTargetSizeCheck" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="5sp"
+                                android:layout_marginEnd="26sp"
+                                android:text="분"
+                                android:textSize="16sp"/>
                         </LinearLayout>
                     </LinearLayout>
                     <Space
@@ -329,30 +307,57 @@
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
                             <TextView
-                                android:layout_width="170sp"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="26sp"
-                                android:text="외부세차(국산차)"
+                                android:text="외부세차"
                                 android:textColor="@color/dgray"
                                 android:textStyle="bold"
                                 android:textSize="16sp"/>
-
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="70sp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="26sp"
+                                android:text="경차"
+                                android:textSize="16sp"/>
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="25sp"
+                                android:layout_weight="1"
+                                android:text="(1,000cc 미만)"
+                                android:textSize="16sp"/>
+
+                            <EditText
+                                android:id="@+id/out1"
+                                android:layout_width="65sp"
+                                android:layout_height="wrap_content"
+                                android:gravity="end"
+                                android:ellipsize="end"
+                                android:hint="10000"
+                                android:text="@={viewModel.outsideWashingCarXS1}"
+                                android:inputType="numberDecimal"
+                                android:maxLength="5"
+                                android:maxLines="1"
+                                tools:ignore="TouchTargetSizeCheck" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="5sp"
                                 android:layout_marginEnd="26sp"
-                                android:text="외부세차(외제차)"
-                                android:textColor="@color/dgray"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
+                                android:text="원"
+                                android:textSize="16sp"/>
                         </LinearLayout>
                     </LinearLayout>
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="5sp">
-                    </Space>
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -362,53 +367,39 @@
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
                             <TextView
-                                android:layout_width="90sp"
+                                android:layout_width="70sp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
                                 android:layout_marginStart="26sp"
                                 android:text="소형차"
                                 android:textSize="16sp"/>
-
-                            <EditText
-                                android:id="@+id/outside_korea_XS"
-                                android:layout_width="65sp"
+                            <TextView
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:text="(1,600cc 미만)"
+                                android:textSize="16sp"/>
+
+                            <EditText
+                                android:id="@+id/out2"
+                                android:layout_width="65sp"
+                                android:layout_height="wrap_content"
+                                android:gravity="end"
                                 android:ellipsize="end"
                                 android:hint="10000"
-                                android:text="@={viewModel.outsideWashingKoreaCarXS}"
-                                android:inputType="number"
+                                android:text="@={viewModel.outsideWashingCarS2}"
+                                android:inputType="numberDecimal"
                                 android:maxLength="5"
                                 android:maxLines="1"
                                 tools:ignore="TouchTargetSizeCheck" />
                             <TextView
-                                android:layout_width="90sp"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:layout_marginStart="32sp"
-                                android:text="소형차"
-                                android:textSize="16sp"/>
-
-                            <EditText
-                                android:id="@+id/outside_foreign_XS"
-                                android:layout_width="65sp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
+                                android:layout_marginStart="5sp"
                                 android:layout_marginEnd="26sp"
-                                android:ellipsize="end"
-                                android:hint="10000"
-                                android:text="@={viewModel.outsideWashingForeignCarXS}"
-                                android:inputType="number"
-                                android:maxLength="5"
-                                android:maxLines="1"
-                                tools:ignore="TouchTargetSizeCheck" />
+                                android:text="원"
+                                android:textSize="16sp"/>
                         </LinearLayout>
                     </LinearLayout>
-
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="5sp">
-                    </Space>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -418,108 +409,39 @@
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
                             <TextView
-                                android:layout_width="90sp"
+                                android:layout_width="70sp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:layout_marginStart="26sp"
-                                android:text="준중형차"
-                                android:textSize="16sp"/>
-
-                            <EditText
-                                android:id="@+id/outside_korea_S"
-                                android:layout_width="65sp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:ellipsize="end"
-                                android:hint="10000"
-                                android:text="@={viewModel.outsideWashingKoreaCarS}"
-                                android:inputType="number"
-                                android:maxLength="5"
-                                android:maxLines="1"
-                                tools:ignore="TouchTargetSizeCheck" />
-                            <TextView
-                                android:layout_width="90sp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:layout_marginStart="32sp"
-                                android:text="준중형차"
-                                android:textSize="16sp"/>
-
-                            <EditText
-                                android:id="@+id/outside_foreign_S"
-                                android:layout_width="65sp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:layout_marginEnd="26sp"
-                                android:ellipsize="end"
-                                android:hint="10000"
-                                android:text="@={viewModel.outsideWashingForeignCarS}"
-                                android:inputType="number"
-                                android:maxLength="5"
-                                android:maxLines="1"
-                                tools:ignore="TouchTargetSizeCheck" />
-                        </LinearLayout>
-                    </LinearLayout>
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="5sp">
-                    </Space>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-                            <TextView
-                                android:layout_width="90sp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
                                 android:layout_marginStart="26sp"
                                 android:text="중형차"
                                 android:textSize="16sp"/>
-
-                            <EditText
-                                android:id="@+id/outside_korea_M"
-                                android:layout_width="65sp"
+                            <TextView
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:text="(2,000cc 미만)"
+                                android:textSize="16sp"/>
+
+                            <EditText
+                                android:id="@+id/out3"
+                                android:layout_width="65sp"
+                                android:layout_height="wrap_content"
+                                android:gravity="end"
                                 android:ellipsize="end"
                                 android:hint="10000"
-                                android:text="@={viewModel.outsideWashingKoreaCarM}"
-                                android:inputType="number"
+                                android:text="@={viewModel.outsideWashingCarM3}"
+                                android:inputType="numberDecimal"
                                 android:maxLength="5"
                                 android:maxLines="1"
                                 tools:ignore="TouchTargetSizeCheck" />
                             <TextView
-                                android:layout_width="90sp"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:layout_marginStart="32sp"
-                                android:text="중형차"
-                                android:textSize="16sp"/>
-
-                            <EditText
-                                android:id="@+id/outside_foreign_M"
-                                android:layout_width="65sp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
+                                android:layout_marginStart="5sp"
                                 android:layout_marginEnd="26sp"
-                                android:ellipsize="end"
-                                android:hint="10000"
-                                android:text="@={viewModel.outsideWashingForeignCarM}"
-                                android:inputType="number"
-                                android:maxLength="5"
-                                android:maxLines="1"
-                                tools:ignore="TouchTargetSizeCheck" />
+                                android:text="원"
+                                android:textSize="16sp"/>
                         </LinearLayout>
                     </LinearLayout>
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="5sp">
-                    </Space>
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -529,46 +451,79 @@
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
                             <TextView
-                                android:layout_width="90sp"
+                                android:layout_width="70sp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
                                 android:layout_marginStart="26sp"
                                 android:text="대형차"
                                 android:textSize="16sp"/>
-
-                            <EditText
-                                android:id="@+id/outside_korea_L"
-                                android:layout_width="65sp"
+                            <TextView
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:text="(2,000cc 이상)"
+                                android:textSize="16sp"/>
+
+                            <EditText
+                                android:id="@+id/out4"
+                                android:layout_width="65sp"
+                                android:layout_height="wrap_content"
+                                android:gravity="end"
                                 android:ellipsize="end"
                                 android:hint="10000"
-                                android:text="@={viewModel.outsideWashingKoreaCarL}"
-                                android:inputType="number"
+                                android:text="@={viewModel.outsideWashingCarL4}"
+                                android:inputType="numberDecimal"
                                 android:maxLength="5"
                                 android:maxLines="1"
                                 tools:ignore="TouchTargetSizeCheck" />
                             <TextView
-                                android:layout_width="90sp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="5sp"
+                                android:layout_marginEnd="26sp"
+                                android:text="원"
+                                android:textSize="16sp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="120sp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="26sp"
+                                android:text="작업시간"
+                                android:textSize="16sp"/>
+                            <TextView
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:layout_marginStart="32sp"
-                                android:text="대형차"
+                                android:text=""
                                 android:textSize="16sp"/>
 
                             <EditText
-                                android:id="@+id/outside_foreign_L"
+                                android:id="@+id/time2"
                                 android:layout_width="65sp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:layout_marginEnd="26sp"
+                                android:gravity="end"
                                 android:ellipsize="end"
                                 android:hint="10000"
-                                android:text="@={viewModel.outsideWashingForeignCarL}"
-                                android:inputType="number"
+                                android:text="@={viewModel.outsideWashingTime2}"
+                                android:inputType="numberDecimal"
                                 android:maxLength="5"
                                 android:maxLines="1"
                                 tools:ignore="TouchTargetSizeCheck" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="5sp"
+                                android:layout_marginEnd="26sp"
+                                android:text="분"
+                                android:textSize="16sp"/>
                         </LinearLayout>
                     </LinearLayout>
                     <Space
@@ -584,29 +539,57 @@
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
                             <TextView
-                                android:layout_width="170sp"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="26sp"
-                                android:text="내부+외부세차(국산차)"
+                                android:text="내부+외부세차"
                                 android:textColor="@color/dgray"
                                 android:textStyle="bold"
+                                android:textSize="16sp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="70sp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="26sp"
+                                android:text="경차"
                                 android:textSize="16sp"/>
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="25sp"
+                                android:layout_weight="1"
+                                android:text="(1,000cc 미만)"
+                                android:textSize="16sp"/>
+
+                            <EditText
+                                android:id="@+id/inout1"
+                                android:layout_width="65sp"
+                                android:layout_height="wrap_content"
+                                android:gravity="end"
+                                android:ellipsize="end"
+                                android:hint="10000"
+                                android:text="@={viewModel.inOutsideWashingCarXS1}"
+                                android:inputType="numberDecimal"
+                                android:maxLength="5"
+                                android:maxLines="1"
+                                tools:ignore="TouchTargetSizeCheck" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="5sp"
                                 android:layout_marginEnd="26sp"
-                                android:text="내부+외부세차(외제차)"
-                                android:textColor="@color/dgray"
-                                android:textStyle="bold"
+                                android:text="원"
                                 android:textSize="16sp"/>
                         </LinearLayout>
                     </LinearLayout>
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="5sp">
-                    </Space>
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -616,53 +599,39 @@
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
                             <TextView
-                                android:layout_width="90sp"
+                                android:layout_width="70sp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
                                 android:layout_marginStart="26sp"
                                 android:text="소형차"
                                 android:textSize="16sp"/>
-
-                            <EditText
-                                android:id="@+id/inOutside_korea_XS"
-                                android:layout_width="65sp"
+                            <TextView
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:text="(1,600cc 미만)"
+                                android:textSize="16sp"/>
+
+                            <EditText
+                                android:id="@+id/inout2"
+                                android:layout_width="65sp"
+                                android:layout_height="wrap_content"
+                                android:gravity="end"
                                 android:ellipsize="end"
                                 android:hint="10000"
-                                android:text="@={viewModel.inOutsideWashingKoreaCarXS}"
-                                android:inputType="number"
+                                android:text="@={viewModel.inOutsideWashingCarS2}"
+                                android:inputType="numberDecimal"
                                 android:maxLength="5"
                                 android:maxLines="1"
                                 tools:ignore="TouchTargetSizeCheck" />
                             <TextView
-                                android:layout_width="90sp"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:layout_marginStart="32sp"
-                                android:text="소형차"
-                                android:textSize="16sp"/>
-
-                            <EditText
-                                android:id="@+id/inOutside_foreign_XS"
-                                android:layout_width="65sp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
+                                android:layout_marginStart="5sp"
                                 android:layout_marginEnd="26sp"
-                                android:ellipsize="end"
-                                android:hint="10000"
-                                android:text="@={viewModel.inOutsideWashingForeignCarXS}"
-                                android:inputType="number"
-                                android:maxLength="5"
-                                android:maxLines="1"
-                                tools:ignore="TouchTargetSizeCheck" />
+                                android:text="원"
+                                android:textSize="16sp"/>
                         </LinearLayout>
                     </LinearLayout>
-
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="5sp">
-                    </Space>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -672,108 +641,39 @@
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
                             <TextView
-                                android:layout_width="90sp"
+                                android:layout_width="70sp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:layout_marginStart="26sp"
-                                android:text="준중형차"
-                                android:textSize="16sp"/>
-
-                            <EditText
-                                android:id="@+id/inOutside_korea_S"
-                                android:layout_width="65sp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:ellipsize="end"
-                                android:hint="10000"
-                                android:text="@={viewModel.inOutsideWashingKoreaCarS}"
-                                android:inputType="number"
-                                android:maxLength="5"
-                                android:maxLines="1"
-                                tools:ignore="TouchTargetSizeCheck" />
-                            <TextView
-                                android:layout_width="90sp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:layout_marginStart="32sp"
-                                android:text="준중형차"
-                                android:textSize="16sp"/>
-
-                            <EditText
-                                android:id="@+id/inOutside_foreign_S"
-                                android:layout_width="65sp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:layout_marginEnd="26sp"
-                                android:ellipsize="end"
-                                android:hint="10000"
-                                android:text="@={viewModel.inOutsideWashingForeignCarS}"
-                                android:inputType="number"
-                                android:maxLength="5"
-                                android:maxLines="1"
-                                tools:ignore="TouchTargetSizeCheck" />
-                        </LinearLayout>
-                    </LinearLayout>
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="5sp">
-                    </Space>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-                            <TextView
-                                android:layout_width="90sp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
                                 android:layout_marginStart="26sp"
                                 android:text="중형차"
                                 android:textSize="16sp"/>
-
-                            <EditText
-                                android:id="@+id/inOutside_korea_M"
-                                android:layout_width="65sp"
+                            <TextView
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:text="(2,000cc 미만)"
+                                android:textSize="16sp"/>
+
+                            <EditText
+                                android:id="@+id/inout3"
+                                android:layout_width="65sp"
+                                android:layout_height="wrap_content"
+                                android:gravity="end"
                                 android:ellipsize="end"
                                 android:hint="10000"
-                                android:text="@={viewModel.inOutsideWashingKoreaCarM}"
-                                android:inputType="number"
+                                android:text="@={viewModel.inOutsideWashingCarM3}"
+                                android:inputType="numberDecimal"
                                 android:maxLength="5"
                                 android:maxLines="1"
                                 tools:ignore="TouchTargetSizeCheck" />
                             <TextView
-                                android:layout_width="90sp"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:layout_marginStart="32sp"
-                                android:text="중형차"
-                                android:textSize="16sp"/>
-
-                            <EditText
-                                android:id="@+id/inOutside_foreign_M"
-                                android:layout_width="65sp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
+                                android:layout_marginStart="5sp"
                                 android:layout_marginEnd="26sp"
-                                android:ellipsize="end"
-                                android:hint="10000"
-                                android:text="@={viewModel.inOutsideWashingForeignCarM}"
-                                android:inputType="number"
-                                android:maxLength="5"
-                                android:maxLines="1"
-                                tools:ignore="TouchTargetSizeCheck" />
+                                android:text="원"
+                                android:textSize="16sp"/>
                         </LinearLayout>
                     </LinearLayout>
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="5sp">
-                    </Space>
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -783,49 +683,81 @@
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
                             <TextView
-                                android:layout_width="90sp"
+                                android:layout_width="70sp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
                                 android:layout_marginStart="26sp"
                                 android:text="대형차"
                                 android:textSize="16sp"/>
-
-                            <EditText
-                                android:id="@+id/inOutside_korea_L"
-                                android:layout_width="65sp"
+                            <TextView
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:text="(2,000cc 이상)"
+                                android:textSize="16sp"/>
+
+                            <EditText
+                                android:id="@+id/inout4"
+                                android:layout_width="65sp"
+                                android:layout_height="wrap_content"
+                                android:gravity="end"
                                 android:ellipsize="end"
                                 android:hint="10000"
-                                android:text="@={viewModel.inOutsideWashingKoreaCarL}"
-                                android:inputType="number"
+                                android:text="@={viewModel.inOutsideWashingCarL4}"
+                                android:inputType="numberDecimal"
                                 android:maxLength="5"
                                 android:maxLines="1"
                                 tools:ignore="TouchTargetSizeCheck" />
                             <TextView
-                                android:layout_width="90sp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="5sp"
+                                android:layout_marginEnd="26sp"
+                                android:text="원"
+                                android:textSize="16sp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="120sp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="26sp"
+                                android:text="작업시간"
+                                android:textSize="16sp"/>
+                            <TextView
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:layout_marginStart="32sp"
-                                android:text="대형차"
+                                android:text=""
                                 android:textSize="16sp"/>
 
                             <EditText
-                                android:id="@+id/inOutside_foreign_L"
+                                android:id="@+id/time3"
                                 android:layout_width="65sp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:layout_marginEnd="26sp"
+                                android:gravity="end"
                                 android:ellipsize="end"
                                 android:hint="10000"
-                                android:text="@={viewModel.inOutsideWashingForeignCarL}"
-                                android:inputType="number"
+                                android:text="@={viewModel.inOutsideWashingTime3}"
+                                android:inputType="numberDecimal"
                                 android:maxLength="5"
                                 android:maxLines="1"
                                 tools:ignore="TouchTargetSizeCheck" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="5sp"
+                                android:layout_marginEnd="26sp"
+                                android:text="분"
+                                android:textSize="16sp"/>
                         </LinearLayout>
                     </LinearLayout>
-
                     <Space
                         android:layout_width="match_parent"
                         android:layout_height="20sp">
@@ -839,181 +771,72 @@
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
                             <TextView
-                                android:layout_width="170sp"
+                                android:layout_width="120sp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="26sp"
                                 android:textColor="@color/dgray"
-                                android:text="작업시간 입력"
+                                android:text="외제차 추가비용"
                                 android:textStyle="bold"
                                 android:textSize="16sp"/>
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textColor="@color/dgray"
-                                android:layout_marginStart="25sp"
+                                android:layout_weight="1"
+                                android:text=""
+                                android:textSize="16sp"/>
+
+                            <EditText
+                                android:id="@+id/addCost"
+                                android:layout_width="65sp"
+                                android:layout_height="wrap_content"
+                                android:gravity="end"
+                                android:ellipsize="end"
+                                android:hint="10000"
+                                android:text="@={viewModel.addCost}"
+                                android:inputType="numberDecimal"
+                                android:maxLength="5"
+                                android:maxLines="1"
+                                tools:ignore="TouchTargetSizeCheck" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="5sp"
                                 android:layout_marginEnd="26sp"
-                                android:text="기타비용 입력"
-                                android:textStyle="bold"
+                                android:text="원"
                                 android:textSize="16sp"/>
                         </LinearLayout>
                     </LinearLayout>
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="5sp">
-                    </Space>
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical">
-                        <LinearLayout
+                        <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-                            <TextView
-                                android:layout_width="90sp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:layout_marginStart="26sp"
-                                android:text="내부"
-                                android:textSize="16sp"/>
-
-                            <EditText
-                                android:id="@+id/inside_time"
-                                android:layout_width="65sp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:ellipsize="end"
-                                android:hint="20분"
-                                android:text="@={viewModel.insideWashingTime}"
-                                android:inputType="datetime"
-                                android:maxLength="5"
-                                android:maxLines="1"
-                                tools:ignore="TouchTargetSizeCheck" />
-
-                            <TextView
-                                android:layout_width="90sp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:layout_marginStart="32sp"
-                                android:text="픽업/탁송"
-                                android:textSize="16sp" />
-
-                            <EditText
-                                android:id="@+id/delivery_cost"
-                                android:layout_width="65sp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:layout_marginEnd="26sp"
-                                android:ellipsize="end"
-                                android:hint="8000"
-                                android:text="@={viewModel.deliveryCost}"
-                                android:inputType="number"
-                                android:maxLength="5"
-                                android:maxLines="1"
-                                tools:ignore="TouchTargetSizeCheck" />
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="5sp">
-                    </Space>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
-                        <LinearLayout
+                            android:layout_marginStart="26sp"
+                            android:layout_marginEnd="26sp"
+                            android:layout_weight="1"
+                            android:text="예) 외제차 추가비용 2000원 설정시 아래와 같습니다"
+                            android:textSize="14sp"
+                            android:textColor="@color/blue"/>
+                        <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-                            <TextView
-                                android:layout_width="90sp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:layout_marginStart="26sp"
-                                android:text="외부"
-                                android:textSize="16sp"/>
-
-                            <EditText
-                                android:id="@+id/outside_time"
-                                android:layout_width="65sp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:ellipsize="end"
-                                android:hint="20분"
-                                android:text="@={viewModel.outsideWashingTime}"
-                                android:inputType="datetime"
-                                android:maxLength="5"
-                                android:maxLines="1"
-                                tools:ignore="TouchTargetSizeCheck" />
-
-                            <TextView
-                                android:layout_width="90sp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:layout_marginStart="32sp"
-                                android:text="광택"
-                                android:textSize="16sp"/>
-
-                            <EditText
-                                android:id="@+id/polish_cost"
-                                android:layout_width="65sp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:layout_marginEnd="26sp"
-                                android:ellipsize="end"
-                                android:hint="20000"
-                                android:text="@={viewModel.polishCost}"
-                                android:inputType="number"
-                                android:maxLength="5"
-                                android:maxLines="1"
-                                tools:ignore="TouchTargetSizeCheck" />
-                        </LinearLayout>
-                    </LinearLayout>
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="5sp">
-                    </Space>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
-                        <LinearLayout
+                            android:layout_marginStart="26sp"
+                            android:layout_marginEnd="26sp"
+                            android:layout_weight="1"
+                            android:text="예) 외제차 추가비용 2000원 설정시 아래와 같습니다"
+                            android:textSize="14sp"
+                            android:textColor="@color/blue"/>
+                        <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-                            <TextView
-                                android:layout_width="90sp"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="26sp"
-                                android:layout_weight="1"
-                                android:text="내부+외부"
-                                android:textSize="16sp"/>
-
-                            <EditText
-                                android:id="@+id/inOutside_time"
-                                android:layout_width="65sp"
-                                android:layout_height="wrap_content"
-                                android:ellipsize="end"
-                                android:layout_weight="1"
-                                android:hint="30분"
-                                android:text="@={viewModel.inOutsideWashingTime}"
-                                android:inputType="datetime"
-                                android:maxLength="5"
-                                android:maxLines="1"
-                                tools:ignore="TouchTargetSizeCheck" />
-                            <TextView
-                                android:layout_width="90sp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:layout_marginStart="32sp"/>
-                            <TextView
-                                android:layout_width="65sp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:layout_marginEnd="26sp"/>
-                        </LinearLayout>
+                            android:layout_marginStart="26sp"
+                            android:layout_marginEnd="26sp"
+                            android:layout_weight="1"
+                            android:text="예) 외제차 추가비용 2000원 설정시 아래와 같습니다"
+                            android:textSize="14sp"
+                            android:textColor="@color/blue"/>
                     </LinearLayout>
                     <Space
                         android:layout_width="match_parent"
@@ -1034,7 +857,7 @@
                             android:textSize="16sp"/>
 
                         <EditText
-                            android:id="@+id/washer_introduce"
+                            android:id="@+id/intro"
                             android:layout_width="match_parent"
                             android:layout_height="100dp"
                             android:layout_marginStart="26sp"
@@ -1044,14 +867,11 @@
                             android:padding="10sp"
                             android:gravity="left"
                             android:maxLength="96"
-                            android:text="@={viewModel.washerIntroduce}"
+                            android:text="@={viewModel.washerIntroduce1}"
                             android:textSize="14sp"
                             android:textStyle="bold"
                             tools:ignore="SpeakableTextPresentCheck" />
-
-
                     </LinearLayout>
-
                     <Space
                         android:layout_width="match_parent"
                         android:layout_height="30sp">

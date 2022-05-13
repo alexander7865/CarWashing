@@ -3,6 +3,7 @@ package com.mod_int.carwash.manage.history.adapter
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firestore.admin.v1.Index
 import com.mod_int.carwash.manage.history.OmManagementHistoryViewModel
 import com.mod_int.carwash.ui.dialog.CustomDialogFragment
 import com.mod_int.carwash.manage.history.viewholder.HistoryRecyclerViewHolder
@@ -18,7 +19,6 @@ class HistoryRecyclerAdapter : RecyclerView.Adapter<HistoryRecyclerViewHolder>()
 
     override fun onBindViewHolder(holder: HistoryRecyclerViewHolder, position: Int) {
         holder.bind(historyList[position], itemClickListener)
-
 
     }
 

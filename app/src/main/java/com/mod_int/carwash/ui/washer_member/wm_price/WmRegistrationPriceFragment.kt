@@ -54,36 +54,27 @@ class WmRegistrationPriceFragment : BaseFragment<FragmentWmRegistrationPriceBind
 
     private fun enableSetting(isEnable: Boolean) {
         with(binding) {
-            insideKoreaXS.isEnabled = isEnable
-            insideKoreaS.isEnabled = isEnable
-            insideKoreaM.isEnabled = isEnable
-            insideKoreaL.isEnabled = isEnable
-            outsideKoreaXS.isEnabled = isEnable
-            outsideKoreaS.isEnabled = isEnable
-            outsideKoreaM.isEnabled = isEnable
-            outsideKoreaL.isEnabled = isEnable
-            inOutsideKoreaXS.isEnabled = isEnable
-            inOutsideKoreaS.isEnabled = isEnable
-            inOutsideKoreaM.isEnabled = isEnable
-            inOutsideKoreaL.isEnabled = isEnable
-            insideForeignXS.isEnabled = isEnable
-            insideForeignS.isEnabled = isEnable
-            insideForeignM.isEnabled = isEnable
-            insideForeignL.isEnabled = isEnable
-            outsideForeignXS.isEnabled = isEnable
-            outsideForeignS.isEnabled = isEnable
-            outsideForeignM.isEnabled = isEnable
-            outsideForeignL.isEnabled = isEnable
-            inOutsideForeignXS.isEnabled = isEnable
-            inOutsideForeignS.isEnabled = isEnable
-            inOutsideForeignM.isEnabled = isEnable
-            inOutsideForeignL.isEnabled = isEnable
-            insideTime.isEnabled = isEnable
-            outsideTime.isEnabled = isEnable
-            inOutsideTime.isEnabled = isEnable
-            deliveryCost.isEnabled = isEnable
-            polishCost.isEnabled = isEnable
-            washerIntroduce.isEnabled = isEnable
+            in1.isEnabled = isEnable
+            in2.isEnabled = isEnable
+            in3.isEnabled = isEnable
+            in4.isEnabled = isEnable
+            time1.isEnabled = isEnable
+            out1.isEnabled = isEnable
+            out2.isEnabled = isEnable
+            out3.isEnabled = isEnable
+            out4.isEnabled = isEnable
+            inout1.isEnabled = isEnable
+            inout2.isEnabled = isEnable
+            inout3.isEnabled = isEnable
+            inout4.isEnabled = isEnable
+            time2.isEnabled = isEnable
+            inout1.isEnabled = isEnable
+            inout2.isEnabled = isEnable
+            inout3.isEnabled = isEnable
+            inout4.isEnabled = isEnable
+            time3.isEnabled = isEnable
+            addCost.isEnabled = isEnable
+            intro.isEnabled = isEnable
         }
     }
 }

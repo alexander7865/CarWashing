@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -64,6 +65,15 @@ class WmPriceDialogFragment : DialogFragment() {
         binding = FragmentWmPriceDialogBinding.inflate(inflater, container, false)
         val view = binding.root
         isCancelable = false
+
+
+        var count1 = item.addCost.toInt()
+
+        binding.inOutsideAddCost.text = "${count1+count1}"
+
+        Log.d("값", "${count1+count1}")
+
+
         dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         with(binding) {
             priceItem = item

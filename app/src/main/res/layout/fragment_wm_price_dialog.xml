@@ -64,34 +64,47 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginStart="26sp"
+                    android:layout_marginEnd="26sp"
+                    android:gravity="center_horizontal"
                     android:orientation="vertical">
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="250sp"
                         android:layout_height="wrap_content"
-                        android:gravity="center_horizontal"
                         android:orientation="horizontal">
-
                         <TextView
-                            android:layout_width="180sp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:text="내부세차(국산차)"
+                            android:text="내부세차"
                             android:textColor="@color/dgray"
                             android:textSize="14sp"
                             android:textStyle="bold" />
-
                         <TextView
-                            android:layout_width="180sp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:text="내부세차(외제차)"
+                            android:layout_marginStart="10sp"
+                            android:text="(외제차  + "
+                            android:textColor="@color/dgray"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@{priceItem.addCost}"
+                            android:textColor="@color/dgray"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="2sp"
+                            android:text="원)"
                             android:textColor="@color/dgray"
                             android:textSize="14sp"
                             android:textStyle="bold" />
                     </LinearLayout>
                 </LinearLayout>
-
                 <Space
                     android:layout_width="match_parent"
                     android:layout_height="5sp"></Space>
@@ -99,6 +112,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginStart="26sp"
+                    android:layout_marginEnd="26sp"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -108,34 +123,73 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:layout_width="90sp"
+                            android:layout_width="60sp"
                             android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
+                            android:text="경차"
+                            android:textSize="14sp" />
+                        <TextView
+                            android:layout_width="100sp"
+                            android:layout_height="wrap_content"
+                            android:text="(1,000cc 미만)"
+                            android:textSize="14sp" />
+                        <TextView
+                            android:layout_width="50sp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20sp"
+                            android:gravity="end"
+                            android:text="@{priceItem.insideWashingCarXS}"
+                            android:textSize="14sp" />
+                        <TextView
+                            android:layout_width="15sp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5sp"
+                            android:text="원"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="5sp"></Space>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="26sp"
+                    android:layout_marginEnd="26sp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="60sp"
+                            android:layout_height="wrap_content"
                             android:text="소형차"
                             android:textSize="14sp" />
-
                         <TextView
-                            android:id="@+id/inside_korea_XS"
-                            android:layout_width="90sp"
+                            android:layout_width="100sp"
                             android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:text="10000"
+                            android:text="(1,600cc 미만)"
+                            android:textSize="14sp" />
+                        <TextView
+                            android:layout_width="50sp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20sp"
+                            android:gravity="end"
+                            android:text="@{priceItem.insideWashingCarS}"
+                            android:textSize="14sp" />
+                        <TextView
+                            android:layout_width="15sp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5sp"
+                            android:text="원"
                             android:textSize="14sp" />
 
-                        <TextView
-                            android:layout_width="90sp"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:text="소형차"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/inside_foreign_XS"
-                            android:layout_width="90sp"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:text="10000"
-                            android:textSize="14sp" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -146,6 +200,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginStart="26sp"
+                    android:layout_marginEnd="26sp"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -155,81 +211,29 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:layout_width="90sp"
+                            android:layout_width="60sp"
                             android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:text="준중형차"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/inside_korea_S"
-                            android:layout_width="90sp"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:text="10000"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:layout_width="90sp"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:text="준중형차"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/inside_foreign_S"
-                            android:layout_width="90sp"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:text="10000"
-                            android:textSize="14sp" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="5sp"></Space>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_horizontal"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="90sp"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
                             android:text="중형차"
                             android:textSize="14sp" />
-
                         <TextView
-                            android:id="@+id/inside_korea_M"
-                            android:layout_width="90sp"
+                            android:layout_width="100sp"
                             android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:text="10000"
+                            android:text="(2,000cc 미만)"
+                            android:textSize="14sp" />
+                        <TextView
+                            android:layout_width="50sp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20sp"
+                            android:gravity="end"
+                            android:text="@{priceItem.insideWashingCarM}"
+                            android:textSize="14sp" />
+                        <TextView
+                            android:layout_width="15sp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5sp"
+                            android:text="원"
                             android:textSize="14sp" />
 
-                        <TextView
-                            android:layout_width="90sp"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:text="중형차"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/inside_foreign_M"
-                            android:layout_width="90sp"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:text="10000"
-                            android:textSize="14sp" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -240,6 +244,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginStart="26sp"
+                    android:layout_marginEnd="26sp"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -249,33 +255,65 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:layout_width="90sp"
+                            android:layout_width="60sp"
                             android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
                             android:text="대형차"
                             android:textSize="14sp" />
+                        <TextView
+                            android:layout_width="100sp"
+                            android:layout_height="wrap_content"
+                            android:text="(2,000cc 이상)"
+                            android:textSize="14sp" />
+                        <TextView
+                            android:layout_width="50sp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20sp"
+                            android:gravity="end"
+                            android:text="@{priceItem.insideWashingCarL}"
+                            android:textSize="14sp" />
+                        <TextView
+                            android:layout_width="15sp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5sp"
+                            android:text="원"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                </LinearLayout>
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="5sp"></Space>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="26sp"
+                    android:layout_marginEnd="26sp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/inside_korea_L"
-                            android:layout_width="90sp"
+                            android:layout_width="160sp"
                             android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:text="10000"
+                            android:text="예상 작업시간"
                             android:textSize="14sp" />
 
                         <TextView
-                            android:layout_width="90sp"
+                            android:layout_width="50sp"
                             android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:text="대형차"
+                            android:layout_marginStart="20sp"
+                            android:gravity="end"
+                            android:text="@{priceItem.insideWashingTime}"
                             android:textSize="14sp" />
-
                         <TextView
-                            android:id="@+id/inside_foreign_L"
-                            android:layout_width="90sp"
+                            android:layout_width="15sp"
                             android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:text="10000"
+                            android:layout_marginStart="5sp"
+                            android:text="분"
                             android:textSize="14sp" />
                     </LinearLayout>
                 </LinearLayout>
@@ -287,28 +325,42 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginStart="26sp"
+                    android:layout_marginEnd="26sp"
+                    android:gravity="center_horizontal"
                     android:orientation="vertical">
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="250sp"
                         android:layout_height="wrap_content"
-                        android:gravity="center_horizontal"
                         android:orientation="horizontal">
-
                         <TextView
-                            android:layout_width="180sp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:text="외부세차(국산차)"
+                            android:text="외부세차"
                             android:textColor="@color/dgray"
                             android:textSize="14sp"
                             android:textStyle="bold" />
-
                         <TextView
-                            android:layout_width="180sp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:text="외부세차(외제차)"
+                            android:layout_marginStart="10sp"
+                            android:text="(외제차  + "
+                            android:textColor="@color/dgray"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@{priceItem.addCost}"
+                            android:textColor="@color/dgray"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="2sp"
+                            android:text="원)"
                             android:textColor="@color/dgray"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -322,6 +374,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginStart="26sp"
+                    android:layout_marginEnd="26sp"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -331,34 +385,73 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:layout_width="90sp"
+                            android:layout_width="60sp"
                             android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
+                            android:text="경차"
+                            android:textSize="14sp" />
+                        <TextView
+                            android:layout_width="100sp"
+                            android:layout_height="wrap_content"
+                            android:text="(1,000cc 미만)"
+                            android:textSize="14sp" />
+                        <TextView
+                            android:layout_width="50sp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20sp"
+                            android:gravity="end"
+                            android:text="@{priceItem.outsideWashingCarXS}"
+                            android:textSize="14sp" />
+                        <TextView
+                            android:layout_width="15sp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5sp"
+                            android:text="원"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="5sp"></Space>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="26sp"
+                    android:layout_marginEnd="26sp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="60sp"
+                            android:layout_height="wrap_content"
                             android:text="소형차"
                             android:textSize="14sp" />
-
                         <TextView
-                            android:id="@+id/outside_korea_XS"
-                            android:layout_width="90sp"
+                            android:layout_width="100sp"
                             android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:text="10000"
+                            android:text="(1,600cc 미만)"
+                            android:textSize="14sp" />
+                        <TextView
+                            android:layout_width="50sp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20sp"
+                            android:gravity="end"
+                            android:text="@{priceItem.outsideWashingCarS}"
+                            android:textSize="14sp" />
+                        <TextView
+                            android:layout_width="15sp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5sp"
+                            android:text="원"
                             android:textSize="14sp" />
 
-                        <TextView
-                            android:layout_width="90sp"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:text="소형차"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/outside_foreign_XS"
-                            android:layout_width="90sp"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:text="10000"
-                            android:textSize="14sp" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -369,6 +462,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginStart="26sp"
+                    android:layout_marginEnd="26sp"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -378,81 +473,29 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:layout_width="90sp"
+                            android:layout_width="60sp"
                             android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:text="준중형차"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/outside_korea_S"
-                            android:layout_width="90sp"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:text="10000"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:layout_width="90sp"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:text="준중형차"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/outside_foreign_S"
-                            android:layout_width="90sp"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:text="10000"
-                            android:textSize="14sp" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="5sp"></Space>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_horizontal"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="90sp"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
                             android:text="중형차"
                             android:textSize="14sp" />
-
                         <TextView
-                            android:id="@+id/outside_korea_M"
-                            android:layout_width="90sp"
+                            android:layout_width="100sp"
                             android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:text="10000"
+                            android:text="(2,000cc 미만)"
+                            android:textSize="14sp" />
+                        <TextView
+                            android:layout_width="50sp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20sp"
+                            android:gravity="end"
+                            android:text="@{priceItem.outsideWashingCarM}"
+                            android:textSize="14sp" />
+                        <TextView
+                            android:layout_width="15sp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5sp"
+                            android:text="원"
                             android:textSize="14sp" />
 
-                        <TextView
-                            android:layout_width="90sp"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:text="중형차"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/outside_foreign_M"
-                            android:layout_width="90sp"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:text="10000"
-                            android:textSize="14sp" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -463,6 +506,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginStart="26sp"
+                    android:layout_marginEnd="26sp"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -472,33 +517,65 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:layout_width="90sp"
+                            android:layout_width="60sp"
                             android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
                             android:text="대형차"
                             android:textSize="14sp" />
+                        <TextView
+                            android:layout_width="100sp"
+                            android:layout_height="wrap_content"
+                            android:text="(2,000cc 이상)"
+                            android:textSize="14sp" />
+                        <TextView
+                            android:layout_width="50sp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20sp"
+                            android:gravity="end"
+                            android:text="@{priceItem.outsideWashingCarL}"
+                            android:textSize="14sp" />
+                        <TextView
+                            android:layout_width="15sp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5sp"
+                            android:text="원"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                </LinearLayout>
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="5sp"></Space>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="26sp"
+                    android:layout_marginEnd="26sp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/outside_korea_L"
-                            android:layout_width="90sp"
+                            android:layout_width="160sp"
                             android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:text="10000"
+                            android:text="예상 작업시간"
                             android:textSize="14sp" />
 
                         <TextView
-                            android:layout_width="90sp"
+                            android:layout_width="50sp"
                             android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:text="대형차"
+                            android:layout_marginStart="20sp"
+                            android:gravity="end"
+                            android:text="@{priceItem.outsideWashingTime}"
                             android:textSize="14sp" />
-
                         <TextView
-                            android:id="@+id/outside_foreign_L"
-                            android:layout_width="90sp"
+                            android:layout_width="15sp"
                             android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:text="10000"
+                            android:layout_marginStart="5sp"
+                            android:text="분"
                             android:textSize="14sp" />
                     </LinearLayout>
                 </LinearLayout>
@@ -510,28 +587,42 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginStart="26sp"
+                    android:layout_marginEnd="26sp"
+                    android:gravity="center_horizontal"
                     android:orientation="vertical">
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="250sp"
                         android:layout_height="wrap_content"
-                        android:gravity="center_horizontal"
                         android:orientation="horizontal">
-
                         <TextView
-                            android:layout_width="180sp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:text="내부+외부세차(국산차)"
+                            android:text="내부+외부세차"
                             android:textColor="@color/dgray"
                             android:textSize="14sp"
                             android:textStyle="bold" />
-
                         <TextView
-                            android:layout_width="180sp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:text="내부+외부세차(외제차)"
+                            android:layout_marginStart="10sp"
+                            android:text="(외제차  + "
+                            android:textColor="@color/dgray"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:id="@+id/inOutsideAddCost"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/dgray"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="2sp"
+                            android:text="원)"
                             android:textColor="@color/dgray"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -545,6 +636,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginStart="26sp"
+                    android:layout_marginEnd="26sp"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -554,34 +647,73 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:layout_width="90sp"
+                            android:layout_width="60sp"
                             android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
+                            android:text="경차"
+                            android:textSize="14sp" />
+                        <TextView
+                            android:layout_width="100sp"
+                            android:layout_height="wrap_content"
+                            android:text="(1,000cc 미만)"
+                            android:textSize="14sp" />
+                        <TextView
+                            android:layout_width="50sp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20sp"
+                            android:gravity="end"
+                            android:text="@{priceItem.inOutsideWashingCarXS}"
+                            android:textSize="14sp" />
+                        <TextView
+                            android:layout_width="15sp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5sp"
+                            android:text="원"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="5sp"></Space>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="26sp"
+                    android:layout_marginEnd="26sp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="60sp"
+                            android:layout_height="wrap_content"
                             android:text="소형차"
                             android:textSize="14sp" />
-
                         <TextView
-                            android:id="@+id/inOutside_korea_XS"
-                            android:layout_width="90sp"
+                            android:layout_width="100sp"
                             android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:text="10000"
+                            android:text="(1,600cc 미만)"
+                            android:textSize="14sp" />
+                        <TextView
+                            android:layout_width="50sp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20sp"
+                            android:gravity="end"
+                            android:text="@{priceItem.inOutsideWashingCarS}"
+                            android:textSize="14sp" />
+                        <TextView
+                            android:layout_width="15sp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5sp"
+                            android:text="원"
                             android:textSize="14sp" />
 
-                        <TextView
-                            android:layout_width="90sp"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:text="소형차"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/inOutside_foreign_XS"
-                            android:layout_width="90sp"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:text="10000"
-                            android:textSize="14sp" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -592,6 +724,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginStart="26sp"
+                    android:layout_marginEnd="26sp"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -601,81 +735,29 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:layout_width="90sp"
+                            android:layout_width="60sp"
                             android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:text="준중형차"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/inOutside_korea_S"
-                            android:layout_width="90sp"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:text="10000"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:layout_width="90sp"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:text="준중형차"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/inOutside_foreign_S"
-                            android:layout_width="90sp"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:text="10000"
-                            android:textSize="14sp" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="5sp"></Space>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_horizontal"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="90sp"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
                             android:text="중형차"
                             android:textSize="14sp" />
-
                         <TextView
-                            android:id="@+id/inOutside_korea_M"
-                            android:layout_width="90sp"
+                            android:layout_width="100sp"
                             android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:text="10000"
+                            android:text="(2,000cc 미만)"
+                            android:textSize="14sp" />
+                        <TextView
+                            android:layout_width="50sp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20sp"
+                            android:gravity="end"
+                            android:text="@{priceItem.inOutsideWashingCarM}"
+                            android:textSize="14sp" />
+                        <TextView
+                            android:layout_width="15sp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5sp"
+                            android:text="원"
                             android:textSize="14sp" />
 
-                        <TextView
-                            android:layout_width="90sp"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:text="중형차"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/inOutside_foreign_M"
-                            android:layout_width="90sp"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:text="10000"
-                            android:textSize="14sp" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -686,6 +768,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginStart="26sp"
+                    android:layout_marginEnd="26sp"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -695,33 +779,65 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:layout_width="90sp"
+                            android:layout_width="60sp"
                             android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
                             android:text="대형차"
                             android:textSize="14sp" />
+                        <TextView
+                            android:layout_width="100sp"
+                            android:layout_height="wrap_content"
+                            android:text="(2,000cc 이상)"
+                            android:textSize="14sp" />
+                        <TextView
+                            android:layout_width="50sp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20sp"
+                            android:gravity="end"
+                            android:text="@{priceItem.inOutsideWashingCarL}"
+                            android:textSize="14sp" />
+                        <TextView
+                            android:layout_width="15sp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5sp"
+                            android:text="원"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                </LinearLayout>
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="5sp"></Space>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="26sp"
+                    android:layout_marginEnd="26sp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/inOutside_korea_L"
-                            android:layout_width="90sp"
+                            android:layout_width="160sp"
                             android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:text="10000"
+                            android:text="예상 작업시간"
                             android:textSize="14sp" />
 
                         <TextView
-                            android:layout_width="90sp"
+                            android:layout_width="50sp"
                             android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:text="대형차"
+                            android:layout_marginStart="20sp"
+                            android:gravity="end"
+                            android:text="@{priceItem.inOutsideWashingTime}"
                             android:textSize="14sp" />
-
                         <TextView
-                            android:id="@+id/inOutside_foreign_L"
-                            android:layout_width="90sp"
+                            android:layout_width="15sp"
                             android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:text="40000"
+                            android:layout_marginStart="5sp"
+                            android:text="분"
                             android:textSize="14sp" />
                     </LinearLayout>
                 </LinearLayout>
@@ -733,6 +849,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginStart="26sp"
+                    android:layout_marginEnd="26sp"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -742,158 +860,26 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:layout_width="180sp"
+                            android:layout_width="160sp"
                             android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:text="작업시간"
-                            android:textColor="@color/dgray"
+                            android:text="픽업 / 탁송비용"
                             android:textSize="14sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="180sp"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:text="기타비용"
                             android:textColor="@color/dgray"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="5sp"></Space>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_horizontal"
-                        android:orientation="horizontal">
+                            android:textStyle="bold"/>
 
                         <TextView
-                            android:layout_width="90sp"
+                            android:layout_width="50sp"
                             android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:text="내부"
+                            android:layout_marginStart="20sp"
+                            android:gravity="end"
+                            android:text="@{priceItem.pickupDeliveryCost}"
                             android:textSize="14sp" />
-
                         <TextView
-                            android:id="@+id/inside_time"
-                            android:layout_width="90sp"
+                            android:layout_width="15sp"
                             android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:text="20분"
+                            android:layout_marginStart="5sp"
+                            android:text="원"
                             android:textSize="14sp" />
-
-                        <TextView
-                            android:layout_width="90sp"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:text="픽업/탁송"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/deliveryCost"
-                            android:layout_width="90sp"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:text="8000"
-                            android:textSize="14sp" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="5sp"></Space>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_horizontal"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="90sp"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:text="외부"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/outside_time"
-                            android:layout_width="90sp"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:text="20분"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:layout_width="90sp"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:text="광택"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/polish_cost"
-                            android:layout_width="90sp"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:text="20000"
-                            android:textSize="14sp" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="5sp"></Space>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_horizontal"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="90sp"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:text="내부+외부"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/inOutside_time"
-                            android:layout_width="90sp"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:text="30분"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:layout_width="90sp"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_horizontal" />
-
-                        <TextView
-                            android:layout_width="90sp"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_horizontal" />
                     </LinearLayout>
                 </LinearLayout>
 

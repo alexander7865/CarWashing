@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="120dp"
             android:gravity="center_horizontal"
-            android:text="365일 24시간 언제 어디서나\n픽업 손세차 플랫폼"
+            android:text="365일 24시간 언제 어디서나\n손세차 예약은 '카우'"
             android:textColor="@color/dgray"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"

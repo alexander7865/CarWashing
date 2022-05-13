@@ -104,7 +104,7 @@ class WmRegistrationFragment : BaseFragment<FragmentWmRegistrationBinding>(
             when (buttonView?.id){
                 R.id.pickupWashing -> {
                     if (isChecked) {
-                        wmRegistrationViewModel.wmCheck1.set(" 픽업손세차 ")
+                        wmRegistrationViewModel.wmCheck1.set("  픽업손세차  ")
                         binding.handWashing.isChecked = true
                     } else {
                         wmRegistrationViewModel.wmCheck1.set("")
@@ -115,7 +115,7 @@ class WmRegistrationFragment : BaseFragment<FragmentWmRegistrationBinding>(
 
                 R.id.handWashing -> {
                     if (isChecked) {
-                        wmRegistrationViewModel.wmCheck2.set(" 손세차예약 ")
+                        wmRegistrationViewModel.wmCheck2.set("  손세차예약  ")
                         binding.pickupWashing.isChecked = true
                     } else {
                         wmRegistrationViewModel.wmCheck2.set("")
@@ -125,7 +125,7 @@ class WmRegistrationFragment : BaseFragment<FragmentWmRegistrationBinding>(
 
 
                 R.id.tripWashing ->
-                    if (isChecked) wmRegistrationViewModel.wmCheck3.set(" 출장손세차 ")
+                    if (isChecked) wmRegistrationViewModel.wmCheck3.set("  출장손세차  ")
                     else wmRegistrationViewModel.wmCheck3.set("")
             }
         }

@@ -22,101 +22,62 @@ class WmRegistrationPriceViewModel @Inject constructor(
     app: Application,
     private val firebaseRepository: FirebaseRepository
 ) : BaseViewModel(app) {
-    val insideWashingKoreaCarXS = ObservableField("")
-    val insideWashingKoreaCarS = ObservableField("")
-    val insideWashingKoreaCarM = ObservableField("")
-    val insideWashingKoreaCarL = ObservableField("")
-    val outsideWashingKoreaCarXS = ObservableField("")
-    val outsideWashingKoreaCarS = ObservableField("")
-    val outsideWashingKoreaCarM = ObservableField("")
-    val outsideWashingKoreaCarL = ObservableField("")
-    val inOutsideWashingKoreaCarXS = ObservableField("")
-    val inOutsideWashingKoreaCarS = ObservableField("")
-    val inOutsideWashingKoreaCarM = ObservableField("")
-    val inOutsideWashingKoreaCarL = ObservableField("")
-    val insideWashingForeignCarXS = ObservableField("")
-    val insideWashingForeignCarS = ObservableField("")
-    val insideWashingForeignCarM = ObservableField("")
-    val insideWashingForeignCarL = ObservableField("")
-    val outsideWashingForeignCarXS = ObservableField("")
-    val outsideWashingForeignCarS = ObservableField("")
-    val outsideWashingForeignCarM = ObservableField("")
-    val outsideWashingForeignCarL = ObservableField("")
-    val inOutsideWashingForeignCarXS = ObservableField("")
-    val inOutsideWashingForeignCarS = ObservableField("")
-    val inOutsideWashingForeignCarM = ObservableField("")
-    val inOutsideWashingForeignCarL = ObservableField("")
-    val insideWashingTime = ObservableField("")
-    val outsideWashingTime = ObservableField("")
-    val inOutsideWashingTime = ObservableField("")
-    val deliveryCost = ObservableField("")
-    val polishCost = ObservableField("")
-    val washerIntroduce = ObservableField("")
+    val insideWashingCarXS1 = ObservableField("")
+    val insideWashingCarS2 = ObservableField("")
+    val insideWashingCarM3 = ObservableField("")
+    val insideWashingCarL4 = ObservableField("")
+    val outsideWashingCarXS1 = ObservableField("")
+    val outsideWashingCarS2 = ObservableField("")
+    val outsideWashingCarM3 = ObservableField("")
+    val outsideWashingCarL4 = ObservableField("")
+    val inOutsideWashingCarXS1 = ObservableField("")
+    val inOutsideWashingCarS2 = ObservableField("")
+    val inOutsideWashingCarM3 = ObservableField("")
+    val inOutsideWashingCarL4 = ObservableField("")
+    val insideWashingTime1 = ObservableField("")
+    val outsideWashingTime2 = ObservableField("")
+    val inOutsideWashingTime3 = ObservableField("")
+    val addCost = ObservableField("")
+    val washerIntroduce1 = ObservableField("")
 
     fun washerPriceInfo() {
         ioScope {
-            val insideWashingKoreaCarXSCheck = async { insideWashingKoreaCarXSCheck() }
-            val insideWashingKoreaCarSCheck = async { insideWashingKoreaCarSCheck() }
-            val insideWashingKoreaCarMCheck = async { insideWashingKoreaCarMCheck() }
-            val insideWashingKoreaCarLCheck = async { insideWashingKoreaCarLCheck() }
-            val outsideWashingKoreaCarXSCheck = async { outsideWashingKoreaCarXSCheck() }
-            val outsideWashingKoreaCarSCheck = async { outsideWashingKoreaCarSCheck() }
-            val outsideWashingKoreaCarMCheck = async { outsideWashingKoreaCarMCheck() }
-            val outsideWashingKoreaCarLCheck = async { outsideWashingKoreaCarLCheck() }
-            val inOutsideWashingKoreaCarXSCheck = async { inOutsideWashingKoreaCarXSCheck() }
-            val inOutsideWashingKoreaCarSCheck = async { inOutsideWashingKoreaCarSCheck() }
-            val inOutsideWashingKoreaCarMCheck = async { inOutsideWashingKoreaCarMCheck() }
-            val inOutsideWashingKoreaCarLCheck = async { inOutsideWashingKoreaCarLCheck() }
-            val insideWashingForeignCarXSCheck = async { insideWashingForeignCarXSCheck() }
-            val insideWashingForeignCarSCheck = async { insideWashingForeignCarSCheck() }
-            val insideWashingForeignCarMCheck = async { insideWashingForeignCarMCheck() }
-            val insideWashingForeignCarLCheck = async { insideWashingForeignCarLCheck() }
-            val outsideWashingForeignCarXSCheck = async { outsideWashingForeignCarXSCheck() }
-            val outsideWashingForeignCarSCheck = async { outsideWashingForeignCarSCheck() }
-            val outsideWashingForeignCarMCheck = async { outsideWashingForeignCarMCheck() }
-            val outsideWashingForeignCarLCheck = async { outsideWashingForeignCarLCheck() }
-            val inOutsideWashingForeignCarXSCheck = async { inOutsideWashingForeignCarXSCheck() }
-            val inOutsideWashingForeignCarSCheck = async { inOutsideWashingForeignCarSCheck() }
-            val inOutsideWashingForeignCarMCheck = async { inOutsideWashingForeignCarMCheck() }
-            val inOutsideWashingForeignCarLCheck = async { inOutsideWashingForeignCarLCheck() }
+            val insideWashingCarXSCheck = async { insideWashingCarXSCheck() }
+            val insideWashingCarSCheck = async { insideWashingCarSCheck() }
+            val insideWashingCarMCheck = async { insideWashingCarMCheck() }
+            val insideWashingCarLCheck = async { insideWashingCarLCheck() }
+            val outsideWashingCarXSCheck = async { outsideWashingCarXSCheck() }
+            val outsideWashingCarSCheck = async { outsideWashingCarSCheck() }
+            val outsideWashingCarMCheck = async { outsideWashingCarMCheck() }
+            val outsideWashingCarLCheck = async { outsideWashingCarLCheck() }
+            val inOutsideWashingCarXSCheck = async { inOutsideWashingCarXSCheck() }
+            val inOutsideWashingCarSCheck = async { inOutsideWashingCarSCheck() }
+            val inOutsideWashingCarMCheck = async { inOutsideWashingCarMCheck() }
+            val inOutsideWashingCarLCheck = async { inOutsideWashingCarLCheck() }
             val insideWashingTimeCheck = async { insideWashingTimeCheck() }
             val outsideWashingTimeCheck = async { outsideWashingTimeCheck() }
             val inOutsideWashingTimeCheck = async { inOutsideWashingTimeCheck() }
-            val deliveryCostCheck = async { deliveryCostCheck() }
-            val polishCostCheck = async { polishCostCheck() }
+            val pickupDeliveryCostCheck = async { pickupDeliveryCostCheck() }
             val washerIntroduceCheck = async { washerIntroduceCheck() }
             checkPrice(
-                insideWashingKoreaCarXSCheck.await(),
-                insideWashingKoreaCarSCheck.await(),
-                insideWashingKoreaCarMCheck.await(),
-                insideWashingKoreaCarLCheck.await(),
-                outsideWashingKoreaCarXSCheck.await(),
-                outsideWashingKoreaCarSCheck.await(),
-                outsideWashingKoreaCarMCheck.await(),
-                outsideWashingKoreaCarLCheck.await(),
-                inOutsideWashingKoreaCarXSCheck.await(),
-                inOutsideWashingKoreaCarSCheck.await(),
-                inOutsideWashingKoreaCarMCheck.await(),
-                inOutsideWashingKoreaCarLCheck.await(),
-                insideWashingForeignCarXSCheck.await(),
-                insideWashingForeignCarSCheck.await(),
-                insideWashingForeignCarMCheck.await(),
-                insideWashingForeignCarLCheck.await(),
-                outsideWashingForeignCarXSCheck.await(),
-                outsideWashingForeignCarSCheck.await(),
-                outsideWashingForeignCarMCheck.await(),
-                outsideWashingForeignCarLCheck.await(),
-                inOutsideWashingForeignCarXSCheck.await(),
-                inOutsideWashingForeignCarSCheck.await(),
-                inOutsideWashingForeignCarMCheck.await(),
-                inOutsideWashingForeignCarLCheck.await(),
+                insideWashingCarXSCheck.await(),
+                insideWashingCarSCheck.await(),
+                insideWashingCarMCheck.await(),
+                insideWashingCarLCheck.await(),
+                outsideWashingCarXSCheck.await(),
+                outsideWashingCarSCheck.await(),
+                outsideWashingCarMCheck.await(),
+                outsideWashingCarLCheck.await(),
+                inOutsideWashingCarXSCheck.await(),
+                inOutsideWashingCarSCheck.await(),
+                inOutsideWashingCarMCheck.await(),
+                inOutsideWashingCarLCheck.await(),
                 insideWashingTimeCheck.await(),
                 outsideWashingTimeCheck.await(),
                 inOutsideWashingTimeCheck.await(),
-                deliveryCostCheck.await(),
-                polishCostCheck.await(),
-                washerIntroduceCheck.await(),
-                )?.let { priceInfo ->
+                pickupDeliveryCostCheck.await(),
+                washerIntroduceCheck.await()
+            )?.let { priceInfo ->
                 val email = firebaseRepository.getFirebaseAuth().currentUser!!.email
                 firebaseRepository.getFirebaseFireStore().collection("WasherMember")
                     .document("$email")
@@ -137,317 +98,170 @@ class WmRegistrationPriceViewModel @Inject constructor(
     }
 
     private fun checkPrice(
-        insideWashingKoreaCarXSCheck: Boolean,
-        insideWashingKoreaCarSCheck: Boolean,
-        insideWashingKoreaCarMCheck: Boolean,
-        insideWashingKoreaCarLCheck: Boolean,
-        outsideWashingKoreaCarXSCheck: Boolean,
-        outsideWashingKoreaCarSCheck: Boolean,
-        outsideWashingKoreaCarMCheck: Boolean,
-        outsideWashingKoreaCarLCheck: Boolean,
-        inOutsideWashingKoreaCarXSCheck: Boolean,
-        inOutsideWashingKoreaCarSCheck: Boolean,
-        inOutsideWashingKoreaCarMCheck: Boolean,
-        inOutsideWashingKoreaCarLCheck: Boolean,
-        insideWashingForeignCarXSCheck: Boolean,
-        insideWashingForeignCarSCheck: Boolean,
-        insideWashingForeignCarMCheck: Boolean,
-        insideWashingForeignCarLCheck: Boolean,
-        outsideWashingForeignCarXSCheck: Boolean,
-        outsideWashingForeignCarSCheck: Boolean,
-        outsideWashingForeignCarMCheck: Boolean,
-        outsideWashingForeignCarLCheck: Boolean,
-        inOutsideWashingForeignCarXSCheck: Boolean,
-        inOutsideWashingForeignCarSCheck: Boolean,
-        inOutsideWashingForeignCarMCheck: Boolean,
-        inOutsideWashingForeignCarLCheck: Boolean,
+        insideWashingCarXSCheck: Boolean,
+        insideWashingCarSCheck: Boolean,
+        insideWashingCarMCheck: Boolean,
+        insideWashingCarLCheck: Boolean,
+        outsideWashingCarXSCheck: Boolean,
+        outsideWashingCarSCheck: Boolean,
+        outsideWashingCarMCheck: Boolean,
+        outsideWashingCarLCheck: Boolean,
+        inOutsideWashingCarXSCheck: Boolean,
+        inOutsideWashingCarSCheck: Boolean,
+        inOutsideWashingCarMCheck: Boolean,
+        inOutsideWashingCarLCheck: Boolean,
         insideWashingTimeCheck: Boolean,
         outsideWashingTimeCheck: Boolean,
         inOutsideWashingTimeCheck: Boolean,
-        deliveryCostCheck: Boolean,
-        polishCostCheck: Boolean,
+        addCostCheck: Boolean,
         washerIntroduceCheck: Boolean
 
     ): PriceInfo? {
         return if (
-            insideWashingKoreaCarXSCheck
-            && insideWashingKoreaCarSCheck
-            && insideWashingKoreaCarMCheck
-            && insideWashingKoreaCarLCheck
-            && outsideWashingKoreaCarXSCheck
-            && outsideWashingKoreaCarSCheck
-            && outsideWashingKoreaCarMCheck
-            && outsideWashingKoreaCarLCheck
-            && inOutsideWashingKoreaCarXSCheck
-            && inOutsideWashingKoreaCarSCheck
-            && inOutsideWashingKoreaCarMCheck
-            && inOutsideWashingKoreaCarLCheck
-            && insideWashingForeignCarXSCheck
-            && insideWashingForeignCarSCheck
-            && insideWashingForeignCarMCheck
-            && insideWashingForeignCarLCheck
-            && outsideWashingForeignCarXSCheck
-            && outsideWashingForeignCarSCheck
-            && outsideWashingForeignCarMCheck
-            && outsideWashingForeignCarLCheck
-            && inOutsideWashingForeignCarXSCheck
-            && inOutsideWashingForeignCarSCheck
-            && inOutsideWashingForeignCarMCheck
-            && inOutsideWashingForeignCarLCheck
+            insideWashingCarXSCheck
+            && insideWashingCarSCheck
+            && insideWashingCarMCheck
+            && insideWashingCarLCheck
+            && outsideWashingCarXSCheck
+            && outsideWashingCarSCheck
+            && outsideWashingCarMCheck
+            && outsideWashingCarLCheck
+            && inOutsideWashingCarXSCheck
+            && inOutsideWashingCarSCheck
+            && inOutsideWashingCarMCheck
+            && inOutsideWashingCarLCheck
             && insideWashingTimeCheck
             && outsideWashingTimeCheck
             && inOutsideWashingTimeCheck
-            && deliveryCostCheck
-            && polishCostCheck
+            && addCostCheck
             && washerIntroduceCheck
         ) {
             PriceInfo(
-                insideWashingKoreaCarXS.get()!!,
-                insideWashingKoreaCarS.get()!!,
-                insideWashingKoreaCarM.get()!!,
-                insideWashingKoreaCarL.get()!!,
-                outsideWashingKoreaCarXS.get()!!,
-                outsideWashingKoreaCarS.get()!!,
-                outsideWashingKoreaCarM.get()!!,
-                outsideWashingKoreaCarL.get()!!,
-                inOutsideWashingKoreaCarXS.get()!!,
-                inOutsideWashingKoreaCarS.get()!!,
-                inOutsideWashingKoreaCarM.get()!!,
-                inOutsideWashingKoreaCarL.get()!!,
-                insideWashingForeignCarXS.get()!!,
-                insideWashingForeignCarS.get()!!,
-                insideWashingForeignCarM.get()!!,
-                insideWashingForeignCarL.get()!!,
-                outsideWashingForeignCarXS.get()!!,
-                outsideWashingForeignCarS.get()!!,
-                outsideWashingForeignCarM.get()!!,
-                outsideWashingForeignCarL.get()!!,
-                inOutsideWashingForeignCarXS.get()!!,
-                inOutsideWashingForeignCarS.get()!!,
-                inOutsideWashingForeignCarM.get()!!,
-                inOutsideWashingForeignCarL.get()!!,
-                insideWashingTime.get()!!,
-                outsideWashingTime.get()!!,
-                inOutsideWashingTime.get()!!,
-                deliveryCost.get()!!,
-                polishCost.get()!!,
-                washerIntroduce.get()!!,
+                insideWashingCarXS1.get()!!,
+                insideWashingCarS2.get()!!,
+                insideWashingCarM3.get()!!,
+                insideWashingCarL4.get()!!,
+                outsideWashingCarXS1.get()!!,
+                outsideWashingCarS2.get()!!,
+                outsideWashingCarM3.get()!!,
+                outsideWashingCarL4.get()!!,
+                inOutsideWashingCarXS1.get()!!,
+                inOutsideWashingCarS2.get()!!,
+                inOutsideWashingCarM3.get()!!,
+                inOutsideWashingCarL4.get()!!,
+                insideWashingTime1.get()!!,
+                outsideWashingTime2.get()!!,
+                inOutsideWashingTime3.get()!!,
+                addCost.get()!!,
+                washerIntroduce1.get()!!,
             )
         } else {
             null
         }
     }
 
-    private fun insideWashingKoreaCarXSCheck(): Boolean {
+    private fun insideWashingCarXSCheck(): Boolean {
         return when {
-            insideWashingKoreaCarXS.get()?.isEmpty() == true -> {
+            insideWashingCarXS1.get()?.isEmpty() == true -> {
                 false
             }
             else -> true
         }
     }
 
-    private fun insideWashingKoreaCarSCheck(): Boolean {
+    private fun insideWashingCarSCheck(): Boolean {
         return when {
-            insideWashingKoreaCarS.get()?.isEmpty() == true -> {
+            insideWashingCarS2.get()?.isEmpty() == true -> {
                 false
             }
             else -> true
         }
     }
 
-    private fun insideWashingKoreaCarMCheck(): Boolean {
+    private fun insideWashingCarMCheck(): Boolean {
         return when {
-            insideWashingKoreaCarM.get()?.isEmpty() == true -> {
+            insideWashingCarM3.get()?.isEmpty() == true -> {
                 false
             }
             else -> true
         }
     }
 
-    private fun insideWashingKoreaCarLCheck(): Boolean {
+    private fun insideWashingCarLCheck(): Boolean {
         return when {
-            insideWashingKoreaCarL.get()?.isEmpty() == true -> {
+            insideWashingCarL4.get()?.isEmpty() == true -> {
                 false
             }
             else -> true
         }
     }
 
-    private fun outsideWashingKoreaCarXSCheck(): Boolean {
+    private fun outsideWashingCarXSCheck(): Boolean {
         return when {
-            outsideWashingKoreaCarXS.get()?.isEmpty() == true -> {
+            outsideWashingCarXS1.get()?.isEmpty() == true -> {
                 false
             }
             else -> true
         }
     }
 
-    private fun outsideWashingKoreaCarSCheck(): Boolean {
+    private fun outsideWashingCarSCheck(): Boolean {
         return when {
-            outsideWashingKoreaCarS.get()?.isEmpty() == true -> {
+            outsideWashingCarS2.get()?.isEmpty() == true -> {
                 false
             }
             else -> true
         }
     }
 
-    private fun outsideWashingKoreaCarMCheck(): Boolean {
+    private fun outsideWashingCarMCheck(): Boolean {
         return when {
-            outsideWashingKoreaCarM.get()?.isEmpty() == true -> {
+            outsideWashingCarM3.get()?.isEmpty() == true -> {
                 false
             }
             else -> true
         }
     }
 
-    private fun outsideWashingKoreaCarLCheck(): Boolean {
+    private fun outsideWashingCarLCheck(): Boolean {
         return when {
-            outsideWashingKoreaCarL.get()?.isEmpty() == true -> {
+            outsideWashingCarL4.get()?.isEmpty() == true -> {
                 false
             }
             else -> true
         }
     }
 
-    private fun inOutsideWashingKoreaCarXSCheck(): Boolean {
+    private fun inOutsideWashingCarXSCheck(): Boolean {
         return when {
-            inOutsideWashingKoreaCarXS.get()?.isEmpty() == true -> {
+            inOutsideWashingCarXS1.get()?.isEmpty() == true -> {
                 false
             }
             else -> true
         }
     }
 
-    private fun inOutsideWashingKoreaCarSCheck(): Boolean {
+    private fun inOutsideWashingCarSCheck(): Boolean {
         return when {
-            inOutsideWashingKoreaCarS.get()?.isEmpty() == true -> {
+            inOutsideWashingCarS2.get()?.isEmpty() == true -> {
                 false
             }
             else -> true
         }
     }
 
-    private fun inOutsideWashingKoreaCarMCheck(): Boolean {
+    private fun inOutsideWashingCarMCheck(): Boolean {
         return when {
-            inOutsideWashingKoreaCarM.get()?.isEmpty() == true -> {
+            inOutsideWashingCarM3.get()?.isEmpty() == true -> {
                 false
             }
             else -> true
         }
     }
 
-    private fun inOutsideWashingKoreaCarLCheck(): Boolean {
+    private fun inOutsideWashingCarLCheck(): Boolean {
         return when {
-            inOutsideWashingKoreaCarL.get()?.isEmpty() == true -> {
-                false
-            }
-            else -> true
-        }
-    }
-
-    private fun insideWashingForeignCarXSCheck(): Boolean {
-        return when {
-            insideWashingForeignCarXS.get()?.isEmpty() == true -> {
-                false
-            }
-            else -> true
-        }
-    }
-
-    private fun insideWashingForeignCarSCheck(): Boolean {
-        return when {
-            insideWashingForeignCarS.get()?.isEmpty() == true -> {
-                false
-            }
-            else -> true
-        }
-    }
-
-    private fun insideWashingForeignCarMCheck(): Boolean {
-        return when {
-            insideWashingForeignCarM.get()?.isEmpty() == true -> {
-                false
-            }
-            else -> true
-        }
-    }
-
-    private fun insideWashingForeignCarLCheck(): Boolean {
-        return when {
-            insideWashingForeignCarL.get()?.isEmpty() == true -> {
-                false
-            }
-            else -> true
-        }
-    }
-
-    private fun outsideWashingForeignCarXSCheck(): Boolean {
-        return when {
-            outsideWashingForeignCarXS.get()?.isEmpty() == true -> {
-                false
-            }
-            else -> true
-        }
-    }
-
-    private fun outsideWashingForeignCarSCheck(): Boolean {
-        return when {
-            outsideWashingForeignCarS.get()?.isEmpty() == true -> {
-                false
-            }
-            else -> true
-        }
-    }
-
-    private fun outsideWashingForeignCarMCheck(): Boolean {
-        return when {
-            outsideWashingForeignCarM.get()?.isEmpty() == true -> {
-                false
-            }
-            else -> true
-        }
-    }
-
-    private fun outsideWashingForeignCarLCheck(): Boolean {
-        return when {
-            outsideWashingForeignCarL.get()?.isEmpty() == true -> {
-                false
-            }
-            else -> true
-        }
-    }
-
-    private fun inOutsideWashingForeignCarXSCheck(): Boolean {
-        return when {
-            inOutsideWashingForeignCarXS.get()?.isEmpty() == true -> {
-                false
-            }
-            else -> true
-        }
-    }
-
-    private fun inOutsideWashingForeignCarSCheck(): Boolean {
-        return when {
-            inOutsideWashingForeignCarS.get()?.isEmpty() == true -> {
-                false
-            }
-            else -> true
-        }
-    }
-
-    private fun inOutsideWashingForeignCarMCheck(): Boolean {
-        return when {
-            inOutsideWashingForeignCarM.get()?.isEmpty() == true -> {
-                false
-            }
-            else -> true
-        }
-    }
-
-    private fun inOutsideWashingForeignCarLCheck(): Boolean {
-        return when {
-            inOutsideWashingForeignCarL.get()?.isEmpty() == true -> {
+            inOutsideWashingCarL4.get()?.isEmpty() == true -> {
                 false
             }
             else -> true
@@ -456,7 +270,7 @@ class WmRegistrationPriceViewModel @Inject constructor(
 
     private fun insideWashingTimeCheck(): Boolean {
         return when {
-            insideWashingTime.get()?.isEmpty() == true -> {
+            insideWashingTime1.get()?.isEmpty() == true -> {
                 false
             }
             else -> true
@@ -465,7 +279,7 @@ class WmRegistrationPriceViewModel @Inject constructor(
 
     private fun outsideWashingTimeCheck(): Boolean {
         return when {
-            outsideWashingTime.get()?.isEmpty() == true -> {
+            outsideWashingTime2.get()?.isEmpty() == true -> {
                 false
             }
             else -> true
@@ -474,29 +288,20 @@ class WmRegistrationPriceViewModel @Inject constructor(
 
     private fun inOutsideWashingTimeCheck(): Boolean {
         return when {
-            inOutsideWashingTime.get()?.isEmpty() == true -> {
+            inOutsideWashingTime3.get()?.isEmpty() == true -> {
                 false
             }
             else -> true
         }
     }
 
-    private fun deliveryCostCheck(): Boolean {
+    private fun pickupDeliveryCostCheck(): Boolean {
         return when {
-            deliveryCost.get()?.isEmpty() == true -> {
+            addCost.get()?.isEmpty() == true -> {
                 false
             }
-            (8000 > deliveryCost.get()!!.toInt()) -> {
+            (8000 > addCost.get()!!.toInt()) -> {
                 viewStateChanged(WmRegistrationPriceViewState.ErrorMsg(message = "픽업/탁송 비용은 8000원 이상 등록하세요"))
-                false
-            }
-            else -> true
-        }
-    }
-
-    private fun polishCostCheck(): Boolean {
-        return when {
-            polishCost.get()?.isEmpty() == true -> {
                 false
             }
             else -> true
@@ -505,7 +310,7 @@ class WmRegistrationPriceViewModel @Inject constructor(
 
     private fun washerIntroduceCheck(): Boolean {
         return when {
-            washerIntroduce.get()?.isEmpty() == true -> {
+            washerIntroduce1.get()?.isEmpty() == true -> {
                 false
             }
             else -> true
@@ -520,35 +325,22 @@ class WmRegistrationPriceViewModel @Inject constructor(
 
 
     data class PriceInfo(
-        var insideWashingKoreaCarXS: String = "",
-        var insideWashingKoreaCarS: String = "",
-        var insideWashingKoreaCarM: String = "",
-        var insideWashingKoreaCarL: String = "",
-        var outsideWashingKoreaCarXS: String = "",
-        var outsideWashingKoreaCarS: String = "",
-        var outsideWashingKoreaCarM: String = "",
-        var outsideWashingKoreaCarL: String = "",
-        var inOutsideWashingKoreaCarXS: String = "",
-        var inOutsideWashingKoreaCarS: String = "",
-        var inOutsideWashingKoreaCarM: String = "",
-        var inOutsideWashingKoreaCarL: String = "",
-        var insideWashingForeignCarXS: String = "",
-        var insideWashingForeignCarS: String = "",
-        var insideWashingForeignCarM: String = "",
-        var insideWashingForeignCarL: String = "",
-        var outsideWashingForeignCarXS: String = "",
-        var outsideWashingForeignCarS: String = "",
-        var outsideWashingForeignCarM: String = "",
-        var outsideWashingForeignCarL: String = "",
-        var inOutsideWashingForeignCarXS: String = "",
-        var inOutsideWashingForeignCarS: String = "",
-        var inOutsideWashingForeignCarM: String = "",
-        var inOutsideWashingForeignCarL: String = "",
+        var insideWashingCarXS: String = "",
+        var insideWashingCarS: String = "",
+        var insideWashingCarM: String = "",
+        var insideWashingCarL: String = "",
+        var outsideWashingCarXS: String = "",
+        var outsideWashingCarS: String = "",
+        var outsideWashingCarM: String = "",
+        var outsideWashingCarL: String = "",
+        var inOutsideWashingCarXS: String = "",
+        var inOutsideWashingCarS: String = "",
+        var inOutsideWashingCarM: String = "",
+        var inOutsideWashingCarL: String = "",
         var insideWashingTime: String = "",
         var outsideWashingTime: String = "",
         var inOutsideWashingTime: String = "",
-        var deliveryCost: String = "",
-        var polishCost: String = "",
+        var addCost: String = "",
         var washerIntroduce: String = ""
     )
 }
