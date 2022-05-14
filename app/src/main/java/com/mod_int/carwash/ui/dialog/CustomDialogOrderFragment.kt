@@ -69,7 +69,7 @@ class CustomDialogOrderFragment : DialogFragment() {
         with(binding){
             timeSelect()
             orderType1()
-            orderType2()
+            
             title1.text = binding.title1.text
             tvRequest.text = binding.tvRequest.text
             tvNo.text = noBtn
@@ -135,29 +135,29 @@ class CustomDialogOrderFragment : DialogFragment() {
         }
     }
 
-    private fun orderType2() {
-        val type2 = resources.getStringArray(R.array.orderType2)
-        val type2Adapter = ArrayAdapter (requireContext(),
-            R.layout.custom_order_spinner, type2)
-
-        with(binding){
-            orderType2.adapter = type2Adapter
-            orderType2.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
-                override fun onItemSelected(
-                    parent: AdapterView<*>?,
-                    view: View?,
-                    position: Int,
-                    id: Long
-                ) {
-
-                }
-
-                override fun onNothingSelected(parent: AdapterView<*>?) {
-                    view!!.setBackgroundColor(Color.TRANSPARENT)
-                }
-            }
-        }
-    }
+//    private fun orderType2() {
+//        val type2 = resources.getStringArray(R.array.orderType2)
+//        val type2Adapter = ArrayAdapter (requireContext(),
+//            R.layout.custom_order_spinner, type2)
+//
+//        with(binding){
+//            orderType2.adapter = type2Adapter
+//            orderType2.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+//                override fun onItemSelected(
+//                    parent: AdapterView<*>?,
+//                    view: View?,
+//                    position: Int,
+//                    id: Long
+//                ) {
+//
+//                }
+//
+//                override fun onNothingSelected(parent: AdapterView<*>?) {
+//                    view!!.setBackgroundColor(Color.TRANSPARENT)
+//                }
+//            }
+//        }
+//    }
 }
 
 interface CustomDialogOrderListener {
