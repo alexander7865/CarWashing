@@ -20,7 +20,6 @@ class OmFindWasherViewModel @Inject constructor(
     // 체크하여 비어있지 않았을때만 구현되도록 수정
     fun getWasherMember() {
 
-
         //다이얼로그 창에 해당업체의 비용이 나오게 구현하고 싶은데 어떻게 해야 하는데 잘안되네요
         ioScope {
             firebaseRepository.getFirebaseFireStore()

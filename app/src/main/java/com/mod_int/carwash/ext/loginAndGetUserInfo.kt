@@ -146,24 +146,3 @@ fun FirebaseRepository.createTypeDB(
         else -> callback(false)
     }
 }
-
-fun FirebaseRepository.washingPriceList(
-    email: String,
-    callback: (priceItem: PriceItem?) -> Unit
-){
-    getFirebaseFireStore().collection("WasherMember").document(email).get()
-        .addOnCompleteListener {
-            if (it.isSuccessful) {
-                callback(it.result.toObject(PriceItem::class.java))
-            } else {
-                callback(null)
-            }
-        }
-
-}
-
-fun FirebaseRepository.playCheck(
-
-) {
-
-}

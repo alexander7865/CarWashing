@@ -16,6 +16,7 @@ import androidx.databinding.ObservableField
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.SetOptions
 import com.google.firestore.v1.StructuredQuery
 import com.mod_int.carwash.R
@@ -212,6 +213,7 @@ class CustomDialogOrderViewModel @Inject constructor(
         }
     }
 
+    //해쉬맵 형태로 저장되게 해야함 잘안되네요 ㅠㅠ
     fun saveOmInfo(){
         ioScope {
             val data = OrderOmInfo(
@@ -227,34 +229,50 @@ class CustomDialogOrderViewModel @Inject constructor(
                 .set(data, SetOptions.merge())
                 .addOnCompleteListener {
                     if(it.isSuccessful){
-                        Log.d("가지고온값", "$data")
+                        firebaseRepository.getFirebaseFireStore().collection("OwnerMember")
+                            .document("$email")
+                            .set(emptyMap<String, OrderOmInfo>(), SetOptions.merge())
+                            .addOnCompleteListener {
+                                if (it.isSuccessful){
+                                    firebaseRepository.getFirebaseFireStore()
+                                        .collection("OwnerMember")
+                                        .document("$email")
+                                        .update("OrderList", FieldValue.arrayUnion(data))
+                                        .addOnCompleteListener {
 
+                                        }
+
+                                }
+                            }
+                        Log.d("가지고온값", "$data")
                     }
                 }
 
         }
     }
 
-//    private fun checkInfo(
-//        timeCheck: Boolean,
-//        typeCheck: Boolean,
-//        amountCheck: Boolean,
-//        orderMsgCheck: Boolean,
-//
-//    ): OrderOmInfo? {
-//        return if (timeCheck && typeCheck && amountCheck && orderMsgCheck
-//        ) {
-//            OrderOmInfo(
-//                time.get()!!,
-//                type.get()!!,
-//                amount.get()!!,
-//                orderMsg.get()!!,
-//            )
-//
-//        } else {
-//            null
-//        }
-//    }
+    private fun checkInfo(
+        orderDateCheck: Boolean,
+        timeCheck: Boolean,
+        typeCheck: Boolean,
+        amountCheck: Boolean,
+        orderMsgCheck: Boolean,
+
+    ): OrderOmInfo? {
+        return if (orderDateCheck && timeCheck && typeCheck && amountCheck && orderMsgCheck
+        ) {
+            OrderOmInfo(
+                orderDate.get()!!,
+                time.get()!!,
+                type.get()!!,
+                amount.get()!!,
+                orderMsg.get()!!,
+            )
+
+        } else {
+            null
+        }
+    }
 
     private fun orderDate(): Boolean {
         return when {
@@ -315,7 +333,7 @@ class CustomDialogOrderViewModel @Inject constructor(
 }
 
 sealed class CustomDialogOrderViewState : ViewState {
-    data class SaveOmInfo (val item : List<OrderOmInfo>) : CustomDialogOrderViewState()
+    object SaveOmInfo : CustomDialogOrderViewState()
 }
 
 data class OrderOmInfo(
@@ -326,3 +344,10 @@ data class OrderOmInfo(
     var orderMassage : String = "",
 
 )
+fun HashMap<String, String>.toOrderOmInfo(): OrderOmInfo =
+    OrderOmInfo(
+        orderDate = getValue("orderDate"),
+        orderReservationTime = getValue("orderReservationTime"),
+        orderType = getValue("orderType"),
+        orderAmount = getValue("orderAmount"),
+        orderMassage = getValue("orderMassage"),)

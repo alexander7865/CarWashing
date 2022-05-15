@@ -154,23 +154,6 @@ class OmJoinViewModel @Inject constructor(
 }
 
 
-//                    //HashMap 형태 아닌 다른 방법 저장
-//                    fireStore?.collection("OwnerMember")?.document("$email"
-//                    )?.set(ownerInfo, SetOptions.merge())?.addOnCompleteListener {
-//                        if (it.isSuccessful) {
-//                            enableSetting(false)
-//                            val toastCenter =
-//                                Toast.makeText(ownerActivity, "정보가 저장되었습니다", Toast.LENGTH_SHORT)
-//                            toastCenter.setGravity(Gravity.CENTER, Gravity.CENTER_HORIZONTAL, 0)
-//                            toastCenter.show()
-//                        } else {
-//                            val toastCenter =
-//                                Toast.makeText(ownerActivity, "정보가 저장되지 않았습니다", Toast.LENGTH_SHORT)
-//                            toastCenter.setGravity(Gravity.CENTER, Gravity.CENTER_HORIZONTAL, 0)
-//                            toastCenter.show()
-//                        }
-//                    }
-
 //해쉬맵 형태로 가지고 올때 필요함
 //fun HashMap<String, String>.toOwnerInfo(): OwnerInfo =
 //    OwnerInfo(
