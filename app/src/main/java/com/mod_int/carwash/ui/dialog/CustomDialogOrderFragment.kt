@@ -92,6 +92,7 @@ class CustomDialogOrderFragment : DialogFragment() {
             }
             tvYes.text = yesBtn
             tvYes.setOnClickListener {
+                customDialogOrderViewModel.saveOmInfo()
                 listener?.onClickPositiveBtn()
                 dismiss()
             }
@@ -115,7 +116,6 @@ class CustomDialogOrderFragment : DialogFragment() {
     private fun onChangedCustomDialogOrderViewState(viewState: CustomDialogOrderViewState){
         when(viewState){
             is CustomDialogOrderViewState.SaveOmInfo -> {
-                customDialogOrderViewModel.saveOmInfo()
 
             }
         }
@@ -189,12 +189,13 @@ class CustomDialogOrderViewModel @Inject constructor(
 ) : BaseViewModel(app){
 
     private val current: LocalDateTime = LocalDateTime.now()
-    var orderDate = ObservableField("${current.year}년 ${current.monthValue}월 ${current.dayOfMonth}일")
     var carSize = ObservableField("")
+    var orderDate = ObservableField("${current.year}년 ${current.monthValue}월 ${current.dayOfMonth}일")
     var time = ObservableField("")
     var type = ObservableField("")
     var amount = ObservableField("")
     var orderMsg = ObservableField("")
+
 
     fun getCarInfo(){
         ioScope {
@@ -213,7 +214,7 @@ class CustomDialogOrderViewModel @Inject constructor(
         }
     }
 
-    //해쉬맵 형태로 저장되게 해야함 잘안되네요 ㅠㅠ
+    //해쉬맵으로 저장을 해야 하는데 데이터구조를 잘 못 만든거 같습니다.
     fun saveOmInfo(){
         ioScope {
             val data = OrderOmInfo(
@@ -239,7 +240,7 @@ class CustomDialogOrderViewModel @Inject constructor(
                                         .document("$email")
                                         .update("OrderList", FieldValue.arrayUnion(data))
                                         .addOnCompleteListener {
-
+                                            viewStateChanged(CustomDialogOrderViewState.SaveOmInfo)
                                         }
 
                                 }
@@ -334,6 +335,7 @@ class CustomDialogOrderViewModel @Inject constructor(
 
 sealed class CustomDialogOrderViewState : ViewState {
     object SaveOmInfo : CustomDialogOrderViewState()
+
 }
 
 data class OrderOmInfo(
@@ -344,10 +346,3 @@ data class OrderOmInfo(
     var orderMassage : String = "",
 
 )
-fun HashMap<String, String>.toOrderOmInfo(): OrderOmInfo =
-    OrderOmInfo(
-        orderDate = getValue("orderDate"),
-        orderReservationTime = getValue("orderReservationTime"),
-        orderType = getValue("orderType"),
-        orderAmount = getValue("orderAmount"),
-        orderMassage = getValue("orderMassage"),)
