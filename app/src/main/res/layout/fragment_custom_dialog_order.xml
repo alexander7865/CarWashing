@@ -4,6 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+        <variable
+            name="viewModel"
+            type="com.mod_int.carwash.ui.dialog.CustomDialogOrderViewModel" />
     </data>
 
     <FrameLayout
@@ -17,11 +20,9 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
-
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-
                 <TextView
                     android:id="@+id/title1"
                     android:layout_width="match_parent"
@@ -50,8 +51,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:text="예약시간"
-                        android:textSize="16sp"
-                        android:textStyle="bold"/>
+                        android:textSize="14sp"/>
                     <androidx.appcompat.widget.AppCompatSpinner
                         android:id="@+id/timeSelect"
                         android:layout_width="140sp"
@@ -77,8 +77,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:text="의뢰타입"
-                        android:textSize="16sp"
-                        android:textStyle="bold"/>
+                        android:textSize="14sp"/>
                     <Spinner
                         android:id="@+id/orderType1"
                         android:layout_width="140sp"
@@ -104,15 +103,14 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:text="차량크기"
-                        android:textSize="16sp"
-                        android:textStyle="bold"/>
+                        android:textSize="14sp"/>
                     <TextView
                         android:id="@+id/orderType2"
                         android:layout_width="140sp"
                         android:layout_height="35sp"
                         android:layout_marginStart="20sp"
                         android:gravity="center"
-                        android:text="오너의 카사이즈값"
+                        android:text="@{viewModel.carSize}"
                         android:background="@drawable/layout_box_color_stroke"
                         android:popupBackground="@drawable/layout_box">
                     </TextView>
@@ -137,8 +135,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
                             android:text="총단가"
-                            android:textSize="16sp"
-                            android:textStyle="bold"/>
+                            android:textSize="14sp"/>
                         <TextView
                             android:id="@+id/orderType3"
                             android:layout_width="wrap_content"
@@ -146,8 +143,8 @@
                             android:layout_marginStart="20sp"
                             android:gravity="center_horizontal"
                             android:paddingTop="6sp"
-                            android:text="45,000"
-                            android:textSize="16sp"
+                            android:text="@{viewModel.amount}"
+                            android:textSize="14sp"
                             android:textStyle="bold"/>
                         <TextView
                             android:layout_width="wrap_content"
@@ -155,8 +152,7 @@
                             android:layout_marginStart="5sp"
                             android:paddingTop="6sp"
                             android:text="원"
-                            android:textSize="16sp"
-                            android:textStyle="bold"/>
+                            android:textSize="14sp"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -168,8 +164,7 @@
                     android:layout_marginTop="26sp"
                     android:layout_marginEnd="26sp"
                     android:text="요청사항을 입력하세요"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
+                    android:textSize="14sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
@@ -185,6 +180,7 @@
                     android:padding="10sp"
                     android:gravity="left"
                     android:maxLength="96"
+                    android:text="@{viewModel.orderMsg}"
                     android:textSize="14sp"
                     tools:ignore="SpeakableTextPresentCheck"
                     app:layout_constraintStart_toStartOf="parent"
@@ -201,7 +197,7 @@
                     app:layout_constraintBottom_toTopOf="@id/tv_no"
                     app:layout_constraintTop_toBottomOf="@id/tv_request" />
 
-                <androidx.appcompat.widget.AppCompatTextView
+                <TextView
                     android:id="@+id/tv_no"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -229,15 +225,16 @@
                     app:layout_constraintStart_toEndOf="@id/tv_no"
                     app:layout_constraintTop_toBottomOf="@id/view_middle" />
 
-                <androidx.appcompat.widget.AppCompatTextView
+                <TextView
                     android:id="@+id/tv_yes"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:paddingTop="12dp"
                     android:paddingBottom="15dp"
                     android:gravity="center"
-                    android:text="승인하기"
+                    android:onClick="@{()->viewModel.saveOmInfo()}"
                     android:textColor="@color/white"
+                    android:text="승인하기"
                     android:textSize="16dp"
                     android:textStyle="bold"
                     android:background="@color/aqua"

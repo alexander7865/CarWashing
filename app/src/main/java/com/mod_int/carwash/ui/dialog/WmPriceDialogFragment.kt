@@ -1,5 +1,6 @@
 package com.mod_int.carwash.ui.dialog
 
+import android.app.Application
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -11,16 +12,20 @@ import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
+import com.mod_int.carwash.base.BaseViewModel
+import com.mod_int.carwash.base.ViewState
+import com.mod_int.carwash.data.repo.FirebaseRepository
 import com.mod_int.carwash.databinding.FragmentWmPriceDialogBinding
 import com.mod_int.carwash.manage.findwasher.OmFindWasherViewModel
 import com.mod_int.carwash.manage.findwasher.adapter.FindRecyclerAdapter
 import com.mod_int.carwash.model.PriceItem
 import com.mod_int.carwash.ui.owner_member.om_activity.OmActivity
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class WmPriceDialogFragment : DialogFragment() {
-    private val omFindWasherViewModel by activityViewModels<OmFindWasherViewModel>()
+    private val wmPriceDialogViewModel by activityViewModels<WmPriceDialogViewModel>()
     lateinit var binding: FragmentWmPriceDialogBinding
     lateinit var omActivity: OmActivity
     var noBtn: String? = null
@@ -85,8 +90,34 @@ class WmPriceDialogFragment : DialogFragment() {
             return view
         }
     }
+    private fun initUi(){
+
+    }
+
+    private fun initViewModel(){
+        wmPriceDialogViewModel.viewStateLiveData.observe(viewLifecycleOwner){ viewState ->
+            (viewState as? WmPriceDialogViewState)?.let {
+                onChangedWmPriceDialogViewState(viewState)
+            }
+        }
+    }
+
+    private fun onChangedWmPriceDialogViewState(viewState: ViewState){
+
+    }
 }
 
 interface WmPriceDialogListener {
     fun onClickNegativeBtn()
+}
+
+class WmPriceDialogViewModel @Inject constructor(
+    app: Application,
+    private val firebaseRepository: FirebaseRepository
+) : BaseViewModel(app){
+
+}
+
+sealed class WmPriceDialogViewState : ViewState{
+
 }

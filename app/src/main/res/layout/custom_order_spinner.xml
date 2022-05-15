@@ -7,7 +7,5 @@
     android:paddingTop="10dp"
     android:paddingEnd="15dp"
     android:textSize="14sp"
-    android:textStyle="bold"
-    android:gravity="center_horizontal"
-    android:textColor="@color/dgray">
+    android:gravity="center_horizontal">
 </TextView>

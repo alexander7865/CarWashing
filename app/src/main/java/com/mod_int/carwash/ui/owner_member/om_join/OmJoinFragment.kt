@@ -32,7 +32,7 @@ class OmJoinFragment : BaseFragment<FragmentOmJoinBinding>(R.layout.fragment_om_
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        gpsTracker = GpsTracker(context = requireContext())
+//        gpsTracker = GpsTracker(context = requireContext())
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -44,9 +44,9 @@ class OmJoinFragment : BaseFragment<FragmentOmJoinBinding>(R.layout.fragment_om_
     private fun initUi() {
         brandSelect()
         modelSelect()
-        mapView = MapView(requireActivity())
-        binding.containerMap.addView(mapView)
-        locationRequest()
+//        mapView = MapView(requireActivity())
+//        binding.containerMap.addView(mapView)
+//        locationRequest()
     }
 
     private fun getCurrentLocation() {
@@ -164,7 +164,7 @@ class OmJoinFragment : BaseFragment<FragmentOmJoinBinding>(R.layout.fragment_om_
                 ) {
                     if (position > 0) {
                         val selected = brand[position]
-                        omJoinViewModel.inputCarBrandObservableField.set(selected)
+                        omJoinViewModel.inputCarBrand.set(selected)
                         showToast(message = "${brand[position]}가 선택되었습니다.")
                     }
                 }
@@ -195,7 +195,7 @@ class OmJoinFragment : BaseFragment<FragmentOmJoinBinding>(R.layout.fragment_om_
                 ) {
                     if (position > 0) {
                         var selected = model[position]
-                        omJoinViewModel.inputCarModelObservableField.set(selected)
+                        omJoinViewModel.inputCarModel.set(selected)
                         showToast(message = "${model[position]}가 선택되었습니다.")
                     }
                 }

@@ -7,7 +7,6 @@
         <variable
             name="viewModel"
             type="com.mod_int.carwash.ui.owner_member.om_join.OmJoinViewModel" />
-
     </data>
 
     <FrameLayout
@@ -108,7 +107,7 @@
                             <EditText
                                 android:id="@+id/etCarNum"
                                 android:layout_width="wrap_content"
-                                android:layout_height="50sp"
+                                android:layout_height="40sp"
                                 android:layout_marginTop="3sp"
                                 android:layout_marginBottom="3sp"
                                 android:layout_marginEnd="26sp"
@@ -146,7 +145,7 @@
                             <androidx.appcompat.widget.AppCompatSpinner
                                 android:id="@+id/spCarBrand"
                                 android:layout_width="match_parent"
-                                android:layout_height="50sp"
+                                android:layout_height="40sp"
                                 android:layout_marginTop="3sp"
                                 android:layout_marginEnd="26sp"
                                 android:layout_marginBottom="3sp"
@@ -176,7 +175,7 @@
                             <androidx.appcompat.widget.AppCompatSpinner
                                 android:id="@+id/spCarModel"
                                 android:layout_width="match_parent"
-                                android:layout_height="50sp"
+                                android:layout_height="40sp"
                                 android:layout_marginTop="3sp"
                                 android:layout_marginEnd="26sp"
                                 android:layout_marginBottom="3sp"
@@ -206,7 +205,7 @@
                             <TextView
                                 android:id="@+id/tvCarKinds"
                                 android:layout_width="match_parent"
-                                android:layout_height="50sp"
+                                android:layout_height="40sp"
                                 android:layout_marginTop="3sp"
                                 android:layout_marginEnd="26sp"
                                 android:layout_marginBottom="3sp"
@@ -214,6 +213,7 @@
                                 android:background="@drawable/layout_box_color_stroke"
                                 android:gravity="center_vertical"
                                 android:hint="SUV"
+                                android:text="@={viewModel.inputCarKinds}"
                                 android:paddingStart="20sp"
                                 android:textSize="16sp" />
 
@@ -237,7 +237,7 @@
                             <TextView
                                 android:id="@+id/tvCarSize"
                                 android:layout_width="match_parent"
-                                android:layout_height="50sp"
+                                android:layout_height="40sp"
                                 android:layout_marginTop="3sp"
                                 android:layout_marginEnd="26sp"
                                 android:layout_marginBottom="3sp"
@@ -245,6 +245,7 @@
                                 android:background="@drawable/layout_box_color_stroke"
                                 android:gravity="center_vertical"
                                 android:hint="준중형"
+                                android:text="@={viewModel.inputCarSize}"
                                 android:paddingStart="20sp"
                                 android:textSize="16sp" />
                         </LinearLayout>
@@ -266,7 +267,7 @@
                             <TextView
                                 android:id="@+id/carOrigin"
                                 android:layout_width="match_parent"
-                                android:layout_height="50sp"
+                                android:layout_height="40sp"
                                 android:layout_marginTop="3sp"
                                 android:layout_marginEnd="26sp"
                                 android:layout_marginBottom="3sp"
@@ -274,6 +275,7 @@
                                 android:background="@drawable/layout_box_color_stroke"
                                 android:gravity="center_vertical"
                                 android:hint="물건너온 차량"
+                                android:text="@={viewModel.inputCarOrigin}"
                                 android:paddingStart="20sp"
                                 android:textSize="16sp" />
 
@@ -297,7 +299,7 @@
                             <EditText
                                 android:id="@+id/etCarCol"
                                 android:layout_width="match_parent"
-                                android:layout_height="50sp"
+                                android:layout_height="40sp"
                                 android:layout_marginTop="3sp"
                                 android:layout_marginEnd="26sp"
                                 android:layout_marginBottom="3sp"

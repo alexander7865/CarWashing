@@ -81,7 +81,7 @@ class OmFindWasherFragment :
     //커스텀 다이얼로그 만들었습니다.
     private fun orderDialog() {
         val dialog = CustomDialogOrderFragment.CustomDialogOrderBuilder()
-            .setNoBtn("아니요")
+            .setNoBtn("나중에 할께요")
             .setYesBtn("세차의뢰")
             .setBtnClickListener(object : CustomDialogOrderListener {
                 override fun onClickNegativeBtn() {

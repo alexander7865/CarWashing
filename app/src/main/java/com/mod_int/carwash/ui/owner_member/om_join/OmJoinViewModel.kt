@@ -17,8 +17,11 @@ class OmJoinViewModel @Inject constructor(
     private val firebaseRepository: FirebaseRepository
 ) : BaseViewModel(app) {
     val inputCarNumber = MutableLiveData("")
-    val inputCarBrandObservableField = ObservableField("")
-    val inputCarModelObservableField = ObservableField("")
+    val inputCarBrand = ObservableField("")
+    val inputCarModel = ObservableField("")
+    val inputCarKinds = ObservableField("SUV")
+    val inputCarSize = ObservableField("중형차")
+    val inputCarOrigin = ObservableField("외제차")
     val inputCarColor = MutableLiveData("")
     val inputDetailLocation = MutableLiveData("")
 
@@ -47,7 +50,6 @@ class OmJoinViewModel @Inject constructor(
                         } else {
                             viewStateChanged(OmJoinViewState.ErrorMsg(message = "정보를 모두 입력하세요"))
 
-
                         }
                     }
 
@@ -64,18 +66,21 @@ class OmJoinViewModel @Inject constructor(
         carBrandInputCheck: Boolean,
         carModelInputCheck: Boolean,
         carColInputCheck: Boolean,
-        companyNameCheck: Boolean,
+        carDetailLocation: Boolean,
     ): OwnerInfo? {
         return if (carNumInputCheck
             && carBrandInputCheck
             && carModelInputCheck
             && carColInputCheck
-            && companyNameCheck
+            && carDetailLocation
         ) {
             OwnerInfo(
                 inputCarNumber.value!!,
-                inputCarBrandObservableField.get()!!,
-                inputCarModelObservableField.get()!!,
+                inputCarBrand.get()!!,
+                inputCarModel.get()!!,
+                inputCarKinds.get()!!,
+                inputCarSize.get()!!,
+                inputCarOrigin.get()!!,
                 inputCarColor.value!!,
                 inputDetailLocation.value!!,
             )
@@ -84,15 +89,7 @@ class OmJoinViewModel @Inject constructor(
         }
     }
 
-    private fun carDetailLocationCheck(): Boolean {
-        return when {
-            inputDetailLocation.value?.isEmpty() == true -> {
-                viewStateChanged(OmJoinViewState.ErrorMsg(message = "상호명을 입력하세요."))
-                false
-            }
-            else -> true
-        }
-    }
+
 
     private fun carNumInputCheck(): Boolean {
         return when {
@@ -106,7 +103,7 @@ class OmJoinViewModel @Inject constructor(
 
     private fun carBrandInputCheck(): Boolean {
         return when {
-            inputCarBrandObservableField.get()?.isEmpty() == true -> {
+            inputCarBrand.get()?.isEmpty() == true -> {
                 viewStateChanged(OmJoinViewState.ErrorMsg(message = "브랜드를 선택하세요."))
                 false
             }
@@ -116,7 +113,7 @@ class OmJoinViewModel @Inject constructor(
 
     private fun carModelInputCheck(): Boolean {
         return when {
-            inputCarModelObservableField.get()?.isEmpty() == true -> {
+            inputCarModel.get()?.isEmpty() == true -> {
                 viewStateChanged(OmJoinViewState.ErrorMsg(message = "모델명을 선택하세요."))
                 false
             }
@@ -134,10 +131,23 @@ class OmJoinViewModel @Inject constructor(
         }
     }
 
+    private fun carDetailLocationCheck(): Boolean {
+        return when {
+            inputDetailLocation.value?.isEmpty() == true -> {
+                viewStateChanged(OmJoinViewState.ErrorMsg(message = "상호명을 입력하세요."))
+                false
+            }
+            else -> true
+        }
+    }
+
     data class OwnerInfo(
         var carNumber: String = "",
         var carBrand: String = "",
         var carModel: String = "",
+        var carKinds: String = "",
+        var carSize: String = "",
+        var carOrigin: String = "",
         var carColor: String = "",
         var carDetailLocation: String = "",
     )

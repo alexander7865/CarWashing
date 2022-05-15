@@ -96,7 +96,7 @@
                             <EditText
                                 android:id="@+id/account_name_pickManager"
                                 android:layout_width="wrap_content"
-                                android:layout_height="50sp"
+                                android:layout_height="40sp"
                                 android:background="@drawable/layout_box_stroke"
                                 android:paddingTop="5sp"
                                 android:paddingBottom="5sp"
@@ -136,7 +136,7 @@
                                 android:background="@drawable/layout_box_stroke"
                                 android:popupBackground="@drawable/layout_box"
                                 android:layout_width="match_parent"
-                                android:layout_height="50sp"
+                                android:layout_height="40sp"
                                 android:paddingTop="5sp"
                                 android:layout_marginTop="3sp"
                                 android:layout_marginBottom="3sp"
@@ -164,7 +164,7 @@
                             <EditText
                                 android:id="@+id/account_number_pickupManager"
                                 android:layout_width="wrap_content"
-                                android:layout_height="50sp"
+                                android:layout_height="40sp"
                                 android:background="@drawable/layout_box_stroke"
                                 android:paddingTop="5sp"
                                 android:paddingBottom="5sp"
