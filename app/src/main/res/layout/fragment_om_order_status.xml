@@ -6,6 +6,9 @@
         <variable
             name="viewModel"
             type="com.mod_int.carwash.ui.owner_member.om_state.OmOrderStateViewModel" />
+        <variable
+            name="orderOmInfo"
+            type="com.mod_int.carwash.model.OrderOmInfo" />
     </data>
 
     <FrameLayout
@@ -113,11 +116,12 @@
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
                             <TextView
+                                android:id="@+id/type1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_gravity="center_vertical"
                                 android:layout_marginStart="5sp"
-                                android:text="내부+외부세차(외제차)"
+                                android:text="@{viewModel.washingType}"
                                 android:textColor="@color/dgray"
                                 android:textSize="16sp"/>
                         </LinearLayout>

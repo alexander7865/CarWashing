@@ -5,6 +5,7 @@ import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.os.Parcelable
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -25,6 +26,7 @@ import com.mod_int.carwash.base.ViewState
 import com.mod_int.carwash.data.repo.FirebaseRepository
 import com.mod_int.carwash.databinding.FragmentCustomDialogOrderBinding
 import com.mod_int.carwash.ext.ioScope
+import com.mod_int.carwash.model.OrderOmInfo
 import com.mod_int.carwash.ui.owner_member.om_activity.OmActivity
 import com.mod_int.carwash.ui.owner_member.om_state.OmOrderStateFragment
 import com.mod_int.carwash.ui.pickup_member.pm_registration.PmRegistrationViewModel
@@ -32,6 +34,7 @@ import com.mod_int.carwash.ui.pickup_member.pm_registration.PmRegistrationViewSt
 import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.async
+import kotlinx.parcelize.Parcelize
 import java.time.LocalDateTime
 import javax.inject.Inject
 
@@ -115,9 +118,8 @@ class CustomDialogOrderFragment : DialogFragment() {
 
     private fun onChangedCustomDialogOrderViewState(viewState: CustomDialogOrderViewState){
         when(viewState){
-            is CustomDialogOrderViewState.SaveOmInfo -> {
-
-            }
+//            is CustomDialogOrderViewState.SaveOmInfo -> {
+//            }
         }
     }
 
@@ -141,7 +143,6 @@ class CustomDialogOrderFragment : DialogFragment() {
                     Log.d("값", "$selectedTime")
 
                 }
-
                 override fun onNothingSelected(parent: AdapterView<*>?) {
                     view!!.setBackgroundColor(Color.TRANSPARENT)
                 }
@@ -166,8 +167,8 @@ class CustomDialogOrderFragment : DialogFragment() {
                     val selectedType = type1[position]
                     customDialogOrderViewModel.type.set(selectedType)
                     Log.d("값", "$selectedType")
-                }
 
+                }
                 override fun onNothingSelected(parent: AdapterView<*>?) {
                     view!!.setBackgroundColor(Color.TRANSPARENT)
                 }
@@ -249,6 +250,38 @@ class CustomDialogOrderViewModel @Inject constructor(
                     }
                 }
 
+        }
+    }
+
+    //람다연습중
+    val lamdaPractice : (String) -> Unit = {
+        when (carSize){
+            {"외제차"} -> {
+                when (type){
+                    {"경차"} -> {
+                    }
+                    {"소형차"} -> {
+                    }
+                    {"중형차"} -> {
+                    }
+                    {"대형차"} -> {
+                    }
+                }
+            }
+            {"국산차"} -> {
+                when (type){
+                    {"경차"} -> {
+                    }
+                    {"소형차"} -> {
+                    }
+                    {"중형차"} -> {
+                    }
+                    {"대형차"} -> {
+                    }
+                }
+            }else -> {
+
+            }
         }
     }
 
@@ -335,14 +368,8 @@ class CustomDialogOrderViewModel @Inject constructor(
 
 sealed class CustomDialogOrderViewState : ViewState {
     object SaveOmInfo : CustomDialogOrderViewState()
+    data class GetOmInfo(val info : List<OrderOmInfo>) : CustomDialogOrderViewState()
 
 }
 
-data class OrderOmInfo(
-    var orderDate : String = "",
-    var orderReservationTime : String = "",
-    var orderType : String = "",
-    var orderAmount : String = "",
-    var orderMassage : String = "",
 
-)

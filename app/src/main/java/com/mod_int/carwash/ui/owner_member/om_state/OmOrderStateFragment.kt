@@ -5,6 +5,7 @@ import android.content.Intent
 import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import androidx.fragment.app.viewModels
@@ -15,6 +16,8 @@ import com.mod_int.carwash.base.BaseFragment
 import com.mod_int.carwash.databinding.FragmentOmOrderStatusBinding
 import com.mod_int.carwash.ext.showSpinner
 import com.mod_int.carwash.ui.blank.OmBlankFragment
+import com.mod_int.carwash.ui.dialog.CustomDialogOrderViewModel
+import com.mod_int.carwash.ui.dialog.CustomDialogOrderViewState
 import com.mod_int.carwash.ui.owner_member.om_join.OmJoinFragment
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -23,6 +26,7 @@ class OmOrderStateFragment : BaseFragment<FragmentOmOrderStatusBinding>(
     R.layout.fragment_om_order_status
 ) {
     private val omOrderStateViewModel by viewModels<OmOrderStateViewModel>()
+    private val customDialogOrderViewModel by viewModels<CustomDialogOrderViewModel>()
 
     @SuppressLint("SimpleDateFormat")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -49,7 +53,14 @@ class OmOrderStateFragment : BaseFragment<FragmentOmOrderStatusBinding>(
                 )
             }
         }
+
+        customDialogOrderViewModel.viewStateLiveData.observe(viewLifecycleOwner) {viewState ->
+            (viewState as? CustomDialogOrderViewState)?.let {
+                onChangedOrderOmInfoViewState(viewState)
+            }
+        }
     }
+
 
     private fun onChangedOrderSateViewState(viewState: OmOrderStateViewState) {
         when (viewState) {
@@ -59,6 +70,15 @@ class OmOrderStateFragment : BaseFragment<FragmentOmOrderStatusBinding>(
 
             is OmOrderStateViewState.WasherMemberPhoneNr -> {
                 washerMemberPhoneNr()
+
+            }
+        }
+    }
+
+    private fun onChangedOrderOmInfoViewState(viewState: CustomDialogOrderViewState) {
+        when (viewState){
+            is CustomDialogOrderViewState.GetOmInfo -> {
+
 
             }
         }
