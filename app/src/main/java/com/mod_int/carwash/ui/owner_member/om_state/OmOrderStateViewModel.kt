@@ -20,8 +20,8 @@ class OmOrderStateViewModel @Inject constructor(
     private val firebaseRepository: FirebaseRepository
 ) : BaseViewModel(app) {
     var omDate = ObservableField("")
+    var carNumber = ObservableField("")
     var washingType = ObservableField("")
-    var washingPrice = ObservableField("")
     var pickupDeliveryPrice = ObservableField("")
     var totalPrice = ObservableField("")
     var orderStateMsg = ObservableField("")
@@ -35,8 +35,7 @@ class OmOrderStateViewModel @Inject constructor(
     var washingState4 = ObservableField("")
     private val current: LocalDateTime = LocalDateTime.now()
 
-    fun orderStateInfo(){
-        omDate.set("${current.year}년 ${current.monthValue}월 ${current.dayOfMonth}일")
+    fun orderStateInfo() {
 
 
         //오더현황에서 오너가 입력한 정보가 모두 넘어와야합니다. 어떻게 해야 맞는지요?
@@ -45,20 +44,30 @@ class OmOrderStateViewModel @Inject constructor(
             firebaseRepository.getFirebaseFireStore().collection("OwnerMember")
                 .document("$email")
                 .get()
-                .addOnSuccessListener{
+                .addOnSuccessListener {
+                    val orderDate = it.get("orderDate")
                     val ordType = it.get("orderType")
+                    val carInfo1 = it.get("carNumber")
+                    val carInfo2 = it.get("carBrand")
+                    val carInfo3 = it.get("carModel")
+                    val carInfo4 = it.get("carKinds")
+                    val carInfo5 = it.get("carColor")
+                    val carInfo6 = it.get("carSize")
+                    omDate.set("$orderDate")
                     washingType.set("$ordType")
+                    carNumber.set("$carInfo1 $carInfo2 $carInfo3 $carInfo4 $carInfo5 $carInfo6")
                     Log.d("오더현황", "orderStateInfo: $ordType")
                 }
 
         }
     }
 
+
     fun routeHistory() {
         viewStateChanged(OmOrderStateViewState.RouteHistory)
     }
 
-    fun washerMemberPhoneNr(){
+    fun washerMemberPhoneNr() {
         viewStateChanged(OmOrderStateViewState.WasherMemberPhoneNr)
     }
 

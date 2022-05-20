@@ -2,7 +2,6 @@
 <resources>
     <array name="array_om">
         <item>차주 홈</item>
-        <item>세차현황</item>
         <item>관리현황</item>
         <item>워셔찾기</item>
     </array>

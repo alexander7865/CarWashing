@@ -6,6 +6,7 @@
         <variable
             name="viewModel"
             type="com.mod_int.carwash.ui.owner_member.om_state.OmOrderStateViewModel" />
+
         <variable
             name="orderOmInfo"
             type="com.mod_int.carwash.model.OrderOmInfo" />
@@ -30,13 +31,14 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center_vertical"
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="26sp"
+                    android:layout_weight="1"
                     android:text="세차현황"
                     android:textSize="20dp"
                     android:textStyle="bold"
@@ -66,7 +68,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="26sp"
-                            android:text="000허0000 벤츠 GLC220 SUV BLACK"
+                            android:layout_marginEnd="26sp"
+                            android:text="@{viewModel.carNumber}"
                             android:textSize="16sp"
                             android:textStyle="bold"
                             android:textColor="@color/dgray" />
@@ -185,7 +188,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
                                 android:layout_marginStart="5sp"
-                                android:text="6000"
+                                android:text="8000"
                                 android:textSize="16sp"
                                 android:textColor="@color/dgray" />
                         </LinearLayout>
@@ -330,7 +333,7 @@
                             android:layout_marginStart="26sp"
                             android:layout_marginEnd="26sp"
                             android:gravity="center_horizontal"
-                            android:text="세차비용은 아래 계좌 또는\n 픽업기사님에게 직접 결제하여 주세요!"
+                            android:text="세차비용은 아래 계좌로 결제하여 주세요!"
                             android:textSize="14sp"
                             android:textColor="@color/dgray" />
                     </LinearLayout>

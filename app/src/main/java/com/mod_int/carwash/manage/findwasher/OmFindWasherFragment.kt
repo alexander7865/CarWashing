@@ -22,7 +22,6 @@ import dagger.hilt.android.AndroidEntryPoint
 class OmFindWasherFragment :
     BaseFragment<FragmentOmFindWasherBinding>(R.layout.fragment_om_find_washer) {
     private val omFindWasherViewModel by viewModels<OmFindWasherViewModel>()
-    private val customDialogOrderViewModel by viewModels<CustomDialogOrderViewModel>()
     private val findAdapter = FindRecyclerAdapter()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -102,7 +101,6 @@ class OmFindWasherFragment :
         }
     }
 
-    //업체별 단가표를 구현해야 합니다. 어떻게 할까요? 이것저것 해봤는데 잘 안되네요
     private fun priceDialog(item: PriceItem) {
         val priceDialog = WmPriceDialogFragment.WmPriceDialogBuilder()
             .setBtnClickListener(wmPriceDialogCallbackListener)
@@ -131,13 +129,13 @@ class OmFindWasherFragment :
                 ) {
                     when (position) {
                         0 -> {
-                            findAdapter.filter.filter("픽업손세차")
+                            findAdapter.filter.filter("  픽업손세차  ")
                         }
                         1 -> {
-                            findAdapter.filter.filter("손세차예약")
+                            findAdapter.filter.filter("  손세차예약  ")
                         }
                         2 -> {
-                            findAdapter.filter.filter("출장손세차")
+                            findAdapter.filter.filter("  출장손세차  ")
                         }
                     }
                 }

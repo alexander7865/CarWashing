@@ -26,7 +26,6 @@ class OmOrderStateFragment : BaseFragment<FragmentOmOrderStatusBinding>(
     R.layout.fragment_om_order_status
 ) {
     private val omOrderStateViewModel by viewModels<OmOrderStateViewModel>()
-    private val customDialogOrderViewModel by viewModels<CustomDialogOrderViewModel>()
 
     @SuppressLint("SimpleDateFormat")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -48,15 +47,7 @@ class OmOrderStateFragment : BaseFragment<FragmentOmOrderStatusBinding>(
         binding.viewModel = omOrderStateViewModel
         omOrderStateViewModel.viewStateLiveData.observe(viewLifecycleOwner) { viewState ->
             (viewState as? OmOrderStateViewState)?.let {
-                onChangedOrderSateViewState(
-                    viewState
-                )
-            }
-        }
-
-        customDialogOrderViewModel.viewStateLiveData.observe(viewLifecycleOwner) {viewState ->
-            (viewState as? CustomDialogOrderViewState)?.let {
-                onChangedOrderOmInfoViewState(viewState)
+                onChangedOrderSateViewState(viewState)
             }
         }
     }
@@ -70,19 +61,11 @@ class OmOrderStateFragment : BaseFragment<FragmentOmOrderStatusBinding>(
 
             is OmOrderStateViewState.WasherMemberPhoneNr -> {
                 washerMemberPhoneNr()
-
             }
+
         }
     }
 
-    private fun onChangedOrderOmInfoViewState(viewState: CustomDialogOrderViewState) {
-        when (viewState){
-            is CustomDialogOrderViewState.GetOmInfo -> {
-
-
-            }
-        }
-    }
 
 
     private fun pickupCfmDialog() {

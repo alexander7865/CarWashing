@@ -29,6 +29,8 @@ import com.mod_int.carwash.ext.ioScope
 import com.mod_int.carwash.model.OrderOmInfo
 import com.mod_int.carwash.ui.owner_member.om_activity.OmActivity
 import com.mod_int.carwash.ui.owner_member.om_state.OmOrderStateFragment
+import com.mod_int.carwash.ui.owner_member.om_state.OmOrderStateViewModel
+import com.mod_int.carwash.ui.owner_member.om_state.OmOrderStateViewState
 import com.mod_int.carwash.ui.pickup_member.pm_registration.PmRegistrationViewModel
 import com.mod_int.carwash.ui.pickup_member.pm_registration.PmRegistrationViewState
 import dagger.hilt.android.AndroidEntryPoint
@@ -104,7 +106,7 @@ class CustomDialogOrderFragment : DialogFragment() {
     }
 
     private fun initUi(){
-    customDialogOrderViewModel.getCarInfo()
+        customDialogOrderViewModel.getCarInfo()
     }
 
     private fun initViewModel(){
@@ -118,8 +120,9 @@ class CustomDialogOrderFragment : DialogFragment() {
 
     private fun onChangedCustomDialogOrderViewState(viewState: CustomDialogOrderViewState){
         when(viewState){
-//            is CustomDialogOrderViewState.SaveOmInfo -> {
-//            }
+            is CustomDialogOrderViewState.SaveOmInfo -> {
+
+            }
         }
     }
 
@@ -251,9 +254,10 @@ class CustomDialogOrderViewModel @Inject constructor(
                 }
 
         }
+
     }
 
-    //람다연습중
+    //람다연습중 입력된 값들을 가지고와서 해당 업체의 단가와 비교하여 단가가 책정되어야함 이럴경우 구현을 어떻게 해야하는지요?
     val lamdaPractice : (String) -> Unit = {
         when (carSize){
             {"외제차"} -> {
@@ -285,85 +289,85 @@ class CustomDialogOrderViewModel @Inject constructor(
         }
     }
 
-    private fun checkInfo(
-        orderDateCheck: Boolean,
-        timeCheck: Boolean,
-        typeCheck: Boolean,
-        amountCheck: Boolean,
-        orderMsgCheck: Boolean,
-
-    ): OrderOmInfo? {
-        return if (orderDateCheck && timeCheck && typeCheck && amountCheck && orderMsgCheck
-        ) {
-            OrderOmInfo(
-                orderDate.get()!!,
-                time.get()!!,
-                type.get()!!,
-                amount.get()!!,
-                orderMsg.get()!!,
-            )
-
-        } else {
-            null
-        }
-    }
-
-    private fun orderDate(): Boolean {
-        return when {
-            orderDate.get()?.isEmpty() == true -> {
-                viewStateChanged(PmRegistrationViewState.Msg(message = "정보를 모두 입력하세요!"))
-                false
-            }
-            else -> {
-                true
-            }
-        }
-    }
-
-    private fun timeCheck(): Boolean {
-        return when {
-            time.get()?.isEmpty() == true -> {
-                viewStateChanged(PmRegistrationViewState.Msg(message = "정보를 모두 입력하세요!"))
-                false
-            }
-            else -> {
-                true
-            }
-        }
-    }
-    private fun typeCheck(): Boolean {
-        return when {
-            type.get()?.isEmpty() == true -> {
-                viewStateChanged(PmRegistrationViewState.Msg(message = "정보를 모두 입력하세요!"))
-                false
-            }
-            else -> {
-                true
-            }
-        }
-    }
-    private fun amountCheck(): Boolean {
-        return when {
-            amount.get()?.isEmpty() == true -> {
-                viewStateChanged(PmRegistrationViewState.Msg(message = "정보를 모두 입력하세요!"))
-                false
-            }
-            else -> {
-                true
-            }
-        }
-    }
-    private fun orderMsgCheck(): Boolean {
-        return when {
-            orderMsg.get()?.isEmpty() == true -> {
-                viewStateChanged(PmRegistrationViewState.Msg(message = "정보를 모두 입력하세요!"))
-                false
-            }
-            else -> {
-                true
-            }
-        }
-    }
+//    private fun checkInfo(
+//        orderDateCheck: Boolean,
+//        timeCheck: Boolean,
+//        typeCheck: Boolean,
+//        amountCheck: Boolean,
+//        orderMsgCheck: Boolean,
+//
+//    ): OrderOmInfo? {
+//        return if (orderDateCheck && timeCheck && typeCheck && amountCheck && orderMsgCheck
+//        ) {
+//            OrderOmInfo(
+//                orderDate.get()!!,
+//                time.get()!!,
+//                type.get()!!,
+//                amount.get()!!,
+//                orderMsg.get()!!,
+//            )
+//
+//        } else {
+//            null
+//        }
+//    }
+//
+//    private fun orderDate(): Boolean {
+//        return when {
+//            orderDate.get()?.isEmpty() == true -> {
+//                viewStateChanged(PmRegistrationViewState.Msg(message = "정보를 모두 입력하세요!"))
+//                false
+//            }
+//            else -> {
+//                true
+//            }
+//        }
+//    }
+//
+//    private fun timeCheck(): Boolean {
+//        return when {
+//            time.get()?.isEmpty() == true -> {
+//                viewStateChanged(PmRegistrationViewState.Msg(message = "정보를 모두 입력하세요!"))
+//                false
+//            }
+//            else -> {
+//                true
+//            }
+//        }
+//    }
+//    private fun typeCheck(): Boolean {
+//        return when {
+//            type.get()?.isEmpty() == true -> {
+//                viewStateChanged(PmRegistrationViewState.Msg(message = "정보를 모두 입력하세요!"))
+//                false
+//            }
+//            else -> {
+//                true
+//            }
+//        }
+//    }
+//    private fun amountCheck(): Boolean {
+//        return when {
+//            amount.get()?.isEmpty() == true -> {
+//                viewStateChanged(PmRegistrationViewState.Msg(message = "정보를 모두 입력하세요!"))
+//                false
+//            }
+//            else -> {
+//                true
+//            }
+//        }
+//    }
+//    private fun orderMsgCheck(): Boolean {
+//        return when {
+//            orderMsg.get()?.isEmpty() == true -> {
+//                viewStateChanged(PmRegistrationViewState.Msg(message = "정보를 모두 입력하세요!"))
+//                false
+//            }
+//            else -> {
+//                true
+//            }
+//        }
+//    }
 }
 
 sealed class CustomDialogOrderViewState : ViewState {

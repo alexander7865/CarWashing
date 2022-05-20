@@ -18,6 +18,7 @@ import com.mod_int.carwash.databinding.ActivityOmBinding
 import com.mod_int.carwash.ext.showToast
 import com.mod_int.carwash.manage.findwasher.OmFindWasherFragment
 import com.mod_int.carwash.manage.history.OmManagementHistoryFragment
+import com.mod_int.carwash.ui.blank.OmBlankFragment
 import com.mod_int.carwash.ui.owner_member.om_home.OmHomeFragment
 import com.mod_int.carwash.ui.owner_member.om_join.OmJoinFragment
 import com.mod_int.carwash.ui.owner_member.om_state.OmOrderStateFragment
@@ -43,7 +44,6 @@ class OmActivity : BaseActivity<ActivityOmBinding>(R.layout.activity_om) {
     private fun initUi() {
         val list = listOf(
             OmHomeFragment(),
-            OmOrderStateFragment(),
             OmManagementHistoryFragment(),
             OmFindWasherFragment()
         )

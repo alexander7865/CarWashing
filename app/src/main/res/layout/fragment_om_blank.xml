@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
+        <variable
+            name="viewModel"
+            type="com.mod_int.carwash.ui.blank.OmBlankViewModel" />
     </data>
 
     <FrameLayout
@@ -34,10 +36,6 @@
                     android:textStyle="bold"
                     android:textColor="@color/dgray" />
             </LinearLayout>
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="15sp">
-            </Space>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -46,8 +44,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:text="세차중인 차량이 없습니다"
+                    android:text="세차중인 차량이 없어요"
                     android:textSize="24dp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
