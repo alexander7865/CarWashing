@@ -75,6 +75,8 @@ class CustomDialogOrderFragment : DialogFragment() {
             orderType1()
             initUi()
             initViewModel()
+            //화면이 늦게 뜨는 문제 해결했습니다.
+            customDialogOrderViewModel.getCarInfo()
 
             tvNo.text = noBtn
             tvNo.setOnClickListener {
@@ -110,7 +112,6 @@ class CustomDialogOrderFragment : DialogFragment() {
             is CustomDialogOrderViewState.SaveOmInfo -> {
 
             }
-
         }
     }
 
