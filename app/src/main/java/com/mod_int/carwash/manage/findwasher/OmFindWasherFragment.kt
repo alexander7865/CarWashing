@@ -15,6 +15,8 @@ import com.mod_int.carwash.manage.findwasher.adapter.ClickType
 import com.mod_int.carwash.manage.findwasher.adapter.FindRecyclerAdapter
 import com.mod_int.carwash.model.PriceItem
 import com.mod_int.carwash.ui.dialog.*
+import com.mod_int.carwash.ui.dialog.order.CustomDialogOrderFragment
+import com.mod_int.carwash.ui.dialog.order.CustomDialogOrderListener
 import com.mod_int.carwash.ui.owner_member.om_state.OmOrderStateFragment
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -42,7 +44,7 @@ class OmFindWasherFragment :
                     }
 
                     is ClickType.Route -> {
-                        orderDialog()
+                        orderDialog(item.wmCompanyName)
                     }
 
                     is ClickType.RoutePriceState -> {
@@ -76,10 +78,11 @@ class OmFindWasherFragment :
     }
 
     //커스텀 다이얼로그 만들었습니다.
-    private fun orderDialog() {
+    private fun orderDialog(companyName : String) {
         val dialog = CustomDialogOrderFragment.CustomDialogOrderBuilder()
             .setNoBtn("나중에 할께요")
             .setYesBtn("세차의뢰")
+            .setCompanyName(companyName)
             .setBtnClickListener(object : CustomDialogOrderListener {
                 override fun onClickNegativeBtn() {
 

@@ -6,13 +6,13 @@
     <data>
         <variable
             name="viewModel"
-            type="com.mod_int.carwash.ui.dialog.CustomDialogOrderViewModel" />
+            type="com.mod_int.carwash.ui.dialog.order.CustomDialogOrderViewModel" />
     </data>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.dialog.CustomDialogOrderFragment">
+        tools:context=".ui.dialog.order.CustomDialogOrderFragment">
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

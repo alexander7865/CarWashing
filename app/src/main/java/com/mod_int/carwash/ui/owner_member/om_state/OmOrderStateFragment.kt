@@ -5,20 +5,16 @@ import android.content.Intent
 import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import androidx.fragment.app.viewModels
-import com.mod_int.carwash.ui.dialog.CustomDialogFragment
-import com.mod_int.carwash.ui.dialog.CustomDialogListener
 import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseFragment
 import com.mod_int.carwash.databinding.FragmentOmOrderStatusBinding
 import com.mod_int.carwash.ext.showSpinner
 import com.mod_int.carwash.ui.blank.OmBlankFragment
-import com.mod_int.carwash.ui.dialog.CustomDialogOrderViewModel
-import com.mod_int.carwash.ui.dialog.CustomDialogOrderViewState
-import com.mod_int.carwash.ui.owner_member.om_join.OmJoinFragment
+import com.mod_int.carwash.ui.dialog.CustomDialogFragment
+import com.mod_int.carwash.ui.dialog.CustomDialogListener
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

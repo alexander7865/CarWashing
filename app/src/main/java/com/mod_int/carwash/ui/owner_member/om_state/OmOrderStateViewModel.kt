@@ -3,13 +3,9 @@ package com.mod_int.carwash.ui.owner_member.om_state
 import android.app.Application
 import android.util.Log
 import androidx.databinding.ObservableField
-import androidx.fragment.app.viewModels
 import com.mod_int.carwash.base.BaseViewModel
 import com.mod_int.carwash.data.repo.FirebaseRepository
 import com.mod_int.carwash.ext.ioScope
-import com.mod_int.carwash.model.OrderOmInfo
-import com.mod_int.carwash.ui.dialog.CustomDialogOrderViewModel
-import com.mod_int.carwash.ui.dialog.CustomDialogOrderViewState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import java.time.LocalDateTime
 import javax.inject.Inject
