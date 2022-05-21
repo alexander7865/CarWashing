@@ -9,6 +9,7 @@ data class OrderOmInfo(
     var orderReservationTime : String = "",
     var orderType : String = "",
     var orderAmount : String = "",
+    var pickupDeliCost : String = "",
     var orderMassage : String = "",
 ) : Parcelable
 

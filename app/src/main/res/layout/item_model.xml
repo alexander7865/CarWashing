@@ -84,8 +84,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:gravity="center_vertical"
-                                android:drawableStart="@drawable/recycler_bubble"
-                                android:text="  세차건수 _"
+                                android:text=" 세차건수 _"
                                 android:textColor="@color/dgray"
                                 android:textSize="14sp"
                                 android:textStyle="normal" />
@@ -99,12 +98,16 @@
                                 android:text=""
                                 android:textColor="@color/dgray"
                                 android:textSize="14sp" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:drawableStart="@drawable/recycler_bubble"/>
 
                             <TextView
                                 android:id="@+id/wmCompanyName"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text=""
+                                android:layout_marginStart="5sp"
                                 android:textColor="@color/dgray"
                                 android:textSize="14sp"
                                 android:textStyle="bold" />
@@ -122,8 +125,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:gravity="center_vertical"
-                                android:drawableStart="@drawable/ic_baseline_star_24"
-                                android:text="  세차실력 _"
+                                android:text=" 세차실력 _"
                                 android:textColor="@color/dgray"
                                 android:textSize="14sp"
                                 android:textStyle="normal" />
@@ -134,7 +136,6 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="5sp"
                                 android:layout_weight="1"
-                                android:text=""
                                 android:textColor="@color/dgray"
                                 android:textSize="14sp" />
                         </LinearLayout>

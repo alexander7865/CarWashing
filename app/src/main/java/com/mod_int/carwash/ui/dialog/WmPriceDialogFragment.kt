@@ -71,12 +71,8 @@ class WmPriceDialogFragment : DialogFragment() {
         val view = binding.root
         isCancelable = false
 
-
         var count1 = item.addCost.toInt()
         binding.inOutsideAddCost.text = "${count1+count1}"
-
-        Log.d("값", "${count1+count1}")
-
 
         dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         with(binding) {

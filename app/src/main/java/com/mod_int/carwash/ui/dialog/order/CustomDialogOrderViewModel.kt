@@ -27,11 +27,12 @@ class CustomDialogOrderViewModel @Inject constructor(
 
     var carSize = ObservableField("")
     var orderDate = ObservableField("${current.year}년 ${current.monthValue}월 ${current.dayOfMonth}일")
-    var time = ObservableField("")
-    var type = ObservableField("")
-    var amount = ObservableField("")
+    var ordTime = ObservableField("")
+    var ordType = ObservableField("")
+    var ordAmount = ObservableField("")
     var orderMsg = ObservableField("")
     var companyName = ObservableField("")
+    var pickupDeliCost = ObservableField("미설정")
 
     fun getCarInfo() {
         ioScope {
@@ -50,9 +51,10 @@ class CustomDialogOrderViewModel @Inject constructor(
         ioScope {
             val data = OrderOmInfo(
                 orderDate.get()!!,
-                time.get()!!,
-                type.get()!!,
-                amount.get()!!,
+                ordTime.get()!!,
+                ordType.get()!!,
+                ordAmount.get()!!,
+                pickupDeliCost.get()!!,
                 orderMsg.get()!!,
             )
             val email = firebaseRepository.getFirebaseAuth().currentUser!!.email
@@ -73,15 +75,11 @@ class CustomDialogOrderViewModel @Inject constructor(
                                         .addOnCompleteListener {
                                             viewStateChanged(CustomDialogOrderViewState.SaveOmInfo)
                                         }
-
                                 }
                             }
-                        Log.d("가지고온값", "$data")
                     }
                 }
-
         }
-
     }
 
 
@@ -91,6 +89,7 @@ class CustomDialogOrderViewModel @Inject constructor(
             }
         }
     }
+
 
     private fun getTotalPrice(documentSnapshot: DocumentSnapshot) {
 
@@ -109,42 +108,44 @@ class CustomDialogOrderViewModel @Inject constructor(
                     val getPriceItem =
                         priceList.firstOrNull { it.wmCompanyName == companyName.get() }
 
-                    when (type.get()) {
+                    pickupDeliCost.set("${getPriceItem?.pickupDeliveryCost}")
+
+                    when (ordType.get()) {
                         "내부+외부세차" -> {
                             if (carSize == "경차") {
                                 if (isForeignCar) {
-                                    amount.set((getPriceItem?.inOutsideWashingCarXS!!.toInt()
-                                            + getPriceItem?.addCost!!.toInt()
-                                            + getPriceItem?.addCost!!.toInt()).toString())
+                                    ordAmount.set((getPriceItem?.inOutsideWashingCarXS!!.toInt()
+                                            + getPriceItem.addCost.toInt()
+                                            + getPriceItem.addCost.toInt()).toString())
                                 } else {
-                                    amount.set(getPriceItem?.inOutsideWashingCarXS)
+                                    ordAmount.set(getPriceItem?.inOutsideWashingCarXS)
                                 }
                             }
                             if (carSize == "소형차") {
                                 if (isForeignCar) {
-                                    amount.set((getPriceItem?.inOutsideWashingCarS!!.toInt()
-                                            + getPriceItem?.addCost!!.toInt()
-                                            + getPriceItem?.addCost!!.toInt()).toString())
+                                    ordAmount.set((getPriceItem?.inOutsideWashingCarS!!.toInt()
+                                            + getPriceItem.addCost.toInt()
+                                            + getPriceItem.addCost.toInt()).toString())
                                 } else {
-                                    amount.set(getPriceItem?.inOutsideWashingCarS)
+                                    ordAmount.set(getPriceItem?.inOutsideWashingCarS)
                                 }
                             }
                             if (carSize == "중형차") {
                                 if (isForeignCar) {
-                                    amount.set((getPriceItem?.inOutsideWashingCarM!!.toInt()
-                                            + getPriceItem?.addCost!!.toInt()
-                                            + getPriceItem?.addCost!!.toInt()).toString())
+                                    ordAmount.set((getPriceItem?.inOutsideWashingCarM!!.toInt()
+                                            + getPriceItem.addCost.toInt()
+                                            + getPriceItem.addCost.toInt()).toString())
                                 } else {
-                                    amount.set(getPriceItem?.inOutsideWashingCarM)
+                                    ordAmount.set(getPriceItem?.inOutsideWashingCarM)
                                 }
                             }
                             if (carSize == "대형차") {
                                 if (isForeignCar) {
-                                    amount.set((getPriceItem?.inOutsideWashingCarL!!.toInt()
-                                            + getPriceItem?.addCost!!.toInt()
-                                            + getPriceItem?.addCost!!.toInt()).toString())
+                                    ordAmount.set((getPriceItem?.inOutsideWashingCarL!!.toInt()
+                                            + getPriceItem.addCost.toInt()
+                                            + getPriceItem.addCost.toInt()).toString())
                                 } else {
-                                    amount.set(getPriceItem?.inOutsideWashingCarL)
+                                    ordAmount.set(getPriceItem?.inOutsideWashingCarL)
                                 }
                             }
                         }
@@ -152,34 +153,34 @@ class CustomDialogOrderViewModel @Inject constructor(
                         "외부세차" -> {
                             if (carSize == "경차") {
                                 if (isForeignCar) {
-                                    amount.set((getPriceItem?.outsideWashingCarXS!!.toInt()
-                                            + getPriceItem?.addCost!!.toInt()).toString())
+                                    ordAmount.set((getPriceItem?.outsideWashingCarXS!!.toInt()
+                                            + getPriceItem.addCost.toInt()).toString())
                                 } else {
-                                    amount.set(getPriceItem?.outsideWashingCarXS)
+                                    ordAmount.set(getPriceItem?.outsideWashingCarXS)
                                 }
                             }
                             if (carSize == "소형차") {
                                 if (isForeignCar) {
-                                    amount.set((getPriceItem?.outsideWashingCarS!!.toInt()
-                                            + getPriceItem?.addCost!!.toInt()).toString())
+                                    ordAmount.set((getPriceItem?.outsideWashingCarS!!.toInt()
+                                            + getPriceItem.addCost.toInt()).toString())
                                 } else {
-                                    amount.set(getPriceItem?.outsideWashingCarS)
+                                    ordAmount.set(getPriceItem?.outsideWashingCarS)
                                 }
                             }
                             if (carSize == "중형차") {
                                 if (isForeignCar) {
-                                    amount.set((getPriceItem?.outsideWashingCarM!!.toInt()
-                                            + getPriceItem?.addCost!!.toInt()).toString())
+                                    ordAmount.set((getPriceItem?.outsideWashingCarM!!.toInt()
+                                            + getPriceItem.addCost.toInt()).toString())
                                 } else {
-                                    amount.set(getPriceItem?.outsideWashingCarM)
+                                    ordAmount.set(getPriceItem?.outsideWashingCarM)
                                 }
                             }
                             if (carSize == "대형차") {
                                 if (isForeignCar) {
-                                    amount.set((getPriceItem?.outsideWashingCarL!!.toInt()
-                                            + getPriceItem?.addCost!!.toInt()).toString())
+                                    ordAmount.set((getPriceItem?.outsideWashingCarL!!.toInt()
+                                            + getPriceItem.addCost.toInt()).toString())
                                 } else {
-                                    amount.set(getPriceItem?.outsideWashingCarL)
+                                    ordAmount.set(getPriceItem?.outsideWashingCarL)
                                 }
                             }
                         }
@@ -187,34 +188,34 @@ class CustomDialogOrderViewModel @Inject constructor(
                         "내부세차" -> {
                             if (carSize == "경차") {
                                 if (isForeignCar) {
-                                    amount.set((getPriceItem?.insideWashingCarXS!!.toInt()
-                                            + getPriceItem?.addCost!!.toInt()).toString())
+                                    ordAmount.set((getPriceItem?.insideWashingCarXS!!.toInt()
+                                            + getPriceItem.addCost.toInt()).toString())
                                 } else {
-                                    amount.set(getPriceItem?.insideWashingCarXS)
+                                    ordAmount.set(getPriceItem?.insideWashingCarXS)
                                 }
                             }
                             if (carSize == "소형차") {
                                 if (isForeignCar) {
-                                    amount.set((getPriceItem?.insideWashingCarS!!.toInt()
-                                            + getPriceItem?.addCost!!.toInt()).toString())
+                                    ordAmount.set((getPriceItem?.insideWashingCarS!!.toInt()
+                                            + getPriceItem.addCost.toInt()).toString())
                                 } else {
-                                    amount.set(getPriceItem?.insideWashingCarS)
+                                    ordAmount.set(getPriceItem?.insideWashingCarS)
                                 }
                             }
                             if (carSize == "중형차") {
                                 if (isForeignCar) {
-                                    amount.set((getPriceItem?.insideWashingCarM!!.toInt()
-                                            + getPriceItem?.addCost!!.toInt()).toString())
+                                    ordAmount.set((getPriceItem?.insideWashingCarM!!.toInt()
+                                            + getPriceItem.addCost.toInt()).toString())
                                 } else {
-                                    amount.set(getPriceItem?.insideWashingCarM)
+                                    ordAmount.set(getPriceItem?.insideWashingCarM)
                                 }
                             }
                             if (carSize == "대형차") {
                                 if (isForeignCar) {
-                                    amount.set((getPriceItem?.insideWashingCarL!!.toInt()
-                                            + getPriceItem?.addCost!!.toInt()).toString())
+                                    ordAmount.set((getPriceItem?.insideWashingCarL!!.toInt()
+                                            + getPriceItem.addCost.toInt()).toString())
                                 } else {
-                                    amount.set(getPriceItem?.insideWashingCarL)
+                                    ordAmount.set(getPriceItem?.insideWashingCarL)
                                 }
                             }
                         }

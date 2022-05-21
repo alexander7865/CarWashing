@@ -133,7 +133,7 @@ class CustomDialogOrderFragment : DialogFragment() {
                     id: Long
                 ) {
                     val selectedTime = time[position]
-                    customDialogOrderViewModel.time.set(selectedTime)
+                    customDialogOrderViewModel.ordTime.set(selectedTime)
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -160,7 +160,7 @@ class CustomDialogOrderFragment : DialogFragment() {
                     id: Long
                 ) {
                     val selectedType = type1[position]
-                    customDialogOrderViewModel.type.set(selectedType)
+                    customDialogOrderViewModel.ordType.set(selectedType)
                     customDialogOrderViewModel.getCarInfo()
                 }
 
