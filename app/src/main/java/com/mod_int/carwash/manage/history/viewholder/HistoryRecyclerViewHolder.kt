@@ -14,18 +14,15 @@ class HistoryRecyclerViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(
 
     private val binding = DataBindingUtil.bind<ItemHistoryBinding>(itemView)
 
-    fun bind(item: HistoryInfo, itemClickListener: (Button : CustomDialogFragment) -> Unit) {
+    fun bind(item: HistoryInfo, itemClickListener: (item : HistoryInfo) -> Unit) {
         binding?.let {
             with(it){
                 dateHistory.text = item.date
                 washTypeHistory.text = item.washType
                 carInfo.text = item.carInfo
 
-
                 btnCancelHistory.setOnClickListener {
-                    val button = CustomDialogFragment()
-                    itemClickListener(button)
-
+                    itemClickListener(item)
                 }
             }
         }

@@ -30,8 +30,8 @@ class OmManagementHistoryFragment : BaseFragment<FragmentOmManagementHistoryBind
     private fun initUi() {
         with(binding) {
             recyclerHistory.adapter = historyAdapter
-            historyAdapter.setItemClickListener {
-                orderCfmDialog()
+            historyAdapter.setItemClickListener {info->
+                orderCfmDialog(info)
             }
         }
     }
@@ -57,7 +57,7 @@ class OmManagementHistoryFragment : BaseFragment<FragmentOmManagementHistoryBind
     }
 
     //커스텀 다이얼로그
-    private fun orderCfmDialog() {
+    private fun orderCfmDialog(info: HistoryInfo) {
         val dialog = CustomDialogFragment.CustomDialogBuilder()
             .setTitle("관리기록을 삭제할까요?")
             .setQuestion("기록을 삭제하시면 복구가 불가능합니다.")
@@ -70,7 +70,7 @@ class OmManagementHistoryFragment : BaseFragment<FragmentOmManagementHistoryBind
 
                 //삭제를 구현했으나 position 값을 못 넣네요 그냥 터져버리네요 일단 0으로 넣어놨습니다ㅋㅋㅋ
                 override fun onClickPositiveBtn() {
-                    historyAdapter.removeItem()
+                    historyAdapter.removeItem(info)
                     binding.recyclerHistory.adapter = historyAdapter
 
                 }
