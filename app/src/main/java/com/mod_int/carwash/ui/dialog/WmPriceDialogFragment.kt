@@ -73,7 +73,6 @@ class WmPriceDialogFragment : DialogFragment() {
 
 
         var count1 = item.addCost.toInt()
-
         binding.inOutsideAddCost.text = "${count1+count1}"
 
         Log.d("값", "${count1+count1}")

@@ -128,29 +128,29 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center_horizontal"
+                        android:gravity="center"
                         android:orientation="horizontal">
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
+                            android:gravity="center_vertical"
                             android:text="총단가"
                             android:textSize="14sp"/>
                         <TextView
                             android:id="@+id/orderType3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="35sp"
-                            android:layout_marginStart="20sp"
-                            android:gravity="center_horizontal"
-                            android:paddingTop="6sp"
+                            android:layout_width="60sp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10sp"
+                            android:layout_gravity="center_vertical"
+                            android:gravity="end"
                             android:text="@={viewModel.amount}"
                             android:textSize="14sp"
                             android:textStyle="bold"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="35sp"
-                            android:layout_marginStart="5sp"
-                            android:paddingTop="6sp"
+                            android:gravity="center_vertical"
+                            android:layout_marginStart="10sp"
                             android:text="원"
                             android:textSize="14sp"/>
                     </LinearLayout>

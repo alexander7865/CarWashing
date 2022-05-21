@@ -20,12 +20,12 @@ class OmHomeFragment : BaseFragment<FragmentOmHomeBinding>(R.layout.fragment_om_
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        omHomeViewModel.omHomeInfo()
         initViewModel()
         initUi()
     }
 
     private fun initUi(){
-        omHomeViewModel.omHomeInfo()
         with(binding) {
             omBanner.apply {
 
