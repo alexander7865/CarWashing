@@ -1,6 +1,5 @@
 package com.mod_int.carwash.data.repo
 
-
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
@@ -10,8 +9,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-
-class FirebaseRepositoryImpl @Inject constructor(private val firebaseRemoteDataSource: FirebaseRemoteDataSource) :
+class FirebaseRepositoryImpl @Inject constructor(
+    private val firebaseRemoteDataSource: FirebaseRemoteDataSource
+    ) :
     FirebaseRepository {
 
 

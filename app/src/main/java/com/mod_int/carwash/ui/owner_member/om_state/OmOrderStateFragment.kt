@@ -5,16 +5,26 @@ import android.content.Intent
 import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
+import androidx.core.os.HandlerCompat.postDelayed
+import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
 import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseFragment
 import com.mod_int.carwash.databinding.FragmentOmOrderStatusBinding
 import com.mod_int.carwash.ext.showSpinner
+import com.mod_int.carwash.model.PriceItem
 import com.mod_int.carwash.ui.blank.OmBlankFragment
 import com.mod_int.carwash.ui.dialog.CustomDialogFragment
 import com.mod_int.carwash.ui.dialog.CustomDialogListener
+import com.mod_int.carwash.ui.dialog.WmPriceDialogViewModel
+import com.mod_int.carwash.ui.dialog.order.CustomDialogOrderViewModel
+import com.mod_int.carwash.ui.dialog.order.CustomDialogOrderViewState
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -28,15 +38,21 @@ class OmOrderStateFragment : BaseFragment<FragmentOmOrderStatusBinding>(
         super.onViewCreated(view, savedInstanceState)
         initUi()
         initViewModel()
+        omOrderStateViewModel.orderStateInfo()
 
-        //상황 데이터 받는내용 코팅해야함 (데이터 받는 방법 스터디예정)
     }
 
     private fun initUi() {
-        omOrderStateViewModel.orderStateInfo()
         washingPointSelect()
         pickupPointSelect()
+        setFragmentResultListener("request"){ _, bundle ->
+            val result = bundle.getString("senderKey")
+            omOrderStateViewModel.companyName.set("$result")
+            if(omOrderStateViewModel.companyName.get()?.isNotEmpty() == true ) {
+                omOrderStateViewModel.wmBankInfo()
 
+            }
+        }
     }
 
     private fun initViewModel() {
@@ -54,11 +70,6 @@ class OmOrderStateFragment : BaseFragment<FragmentOmOrderStatusBinding>(
             is OmOrderStateViewState.RouteHistory -> {
                 pickupCfmDialog()
             }
-
-            is OmOrderStateViewState.WasherMemberPhoneNr -> {
-                washerMemberPhoneNr()
-            }
-
         }
     }
 
@@ -131,9 +142,11 @@ class OmOrderStateFragment : BaseFragment<FragmentOmOrderStatusBinding>(
         }
     }
 
+    //데이터를 받아와서 아래 버튼 클릭 활성화시 터져버리는 현상 발생
     private fun washerMemberPhoneNr() {
         var intent = Intent(Intent.ACTION_DIAL)
-        intent.data = Uri.parse("tel:01082277865")
+        intent.data = Uri.parse("")
         startActivity(intent)
+
     }
 }

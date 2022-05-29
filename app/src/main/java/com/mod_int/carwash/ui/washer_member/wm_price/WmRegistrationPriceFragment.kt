@@ -74,6 +74,7 @@ class WmRegistrationPriceFragment : BaseFragment<FragmentWmRegistrationPriceBind
             inout4.isEnabled = isEnable
             time3.isEnabled = isEnable
             addCost.isEnabled = isEnable
+            pickupDeliCost.isEnabled = isEnable
             intro.isEnabled = isEnable
         }
     }

@@ -37,6 +37,7 @@ class WmRegistrationPriceViewModel @Inject constructor(
     val insideWashingTime1 = ObservableField("")
     val outsideWashingTime2 = ObservableField("")
     val inOutsideWashingTime3 = ObservableField("")
+    val pickupDeliCost =ObservableField("")
     val addCost = ObservableField("")
     val washerIntroduce1 = ObservableField("")
 
@@ -58,6 +59,7 @@ class WmRegistrationPriceViewModel @Inject constructor(
             val outsideWashingTimeCheck = async { outsideWashingTimeCheck() }
             val inOutsideWashingTimeCheck = async { inOutsideWashingTimeCheck() }
             val pickupDeliveryCostCheck = async { pickupDeliveryCostCheck() }
+            val addCostCheck = async { addCostCheck() }
             val washerIntroduceCheck = async { washerIntroduceCheck() }
             checkPrice(
                 insideWashingCarXSCheck.await(),
@@ -76,7 +78,8 @@ class WmRegistrationPriceViewModel @Inject constructor(
                 outsideWashingTimeCheck.await(),
                 inOutsideWashingTimeCheck.await(),
                 pickupDeliveryCostCheck.await(),
-                washerIntroduceCheck.await()
+                addCostCheck.await(),
+                washerIntroduceCheck.await(),
             )?.let { priceInfo ->
                 val email = firebaseRepository.getFirebaseAuth().currentUser!!.email
                 firebaseRepository.getFirebaseFireStore().collection("WasherMember")
@@ -113,8 +116,9 @@ class WmRegistrationPriceViewModel @Inject constructor(
         insideWashingTimeCheck: Boolean,
         outsideWashingTimeCheck: Boolean,
         inOutsideWashingTimeCheck: Boolean,
+        pickupDeliveryCostCheck: Boolean,
         addCostCheck: Boolean,
-        washerIntroduceCheck: Boolean
+        washerIntroduceCheck: Boolean,
 
     ): PriceInfo? {
         return if (
@@ -133,7 +137,8 @@ class WmRegistrationPriceViewModel @Inject constructor(
             && insideWashingTimeCheck
             && outsideWashingTimeCheck
             && inOutsideWashingTimeCheck
-            && addCostCheck
+            || pickupDeliveryCostCheck
+            || addCostCheck
             && washerIntroduceCheck
         ) {
             PriceInfo(
@@ -152,6 +157,7 @@ class WmRegistrationPriceViewModel @Inject constructor(
                 insideWashingTime1.get()!!,
                 outsideWashingTime2.get()!!,
                 inOutsideWashingTime3.get()!!,
+                pickupDeliCost.get()!!,
                 addCost.get()!!,
                 washerIntroduce1.get()!!,
             )
@@ -297,10 +303,11 @@ class WmRegistrationPriceViewModel @Inject constructor(
 
     private fun pickupDeliveryCostCheck(): Boolean {
         return when {
-            addCost.get()?.isEmpty() == true -> {
+            pickupDeliCost.get()?.isEmpty() == true -> {
+                pickupDeliCost.set("0")
                 false
             }
-            (8000 > addCost.get()!!.toInt()) -> {
+            (8000 > pickupDeliCost.get()!!.toInt()) -> {
                 viewStateChanged(WmRegistrationPriceViewState.ErrorMsg(message = "픽업/탁송 비용은 8000원 이상 등록하세요"))
                 false
             }
@@ -311,6 +318,15 @@ class WmRegistrationPriceViewModel @Inject constructor(
     private fun washerIntroduceCheck(): Boolean {
         return when {
             washerIntroduce1.get()?.isEmpty() == true -> {
+                false
+            }
+            else -> true
+        }
+    }
+
+    private fun addCostCheck(): Boolean {
+        return when {
+            addCost.get()?.isEmpty() == true -> {
                 false
             }
             else -> true
@@ -340,6 +356,7 @@ class WmRegistrationPriceViewModel @Inject constructor(
         var insideWashingTime: String = "",
         var outsideWashingTime: String = "",
         var inOutsideWashingTime: String = "",
+        var pickupDeliveryCost:String = "",
         var addCost: String = "",
         var washerIntroduce: String = ""
     )

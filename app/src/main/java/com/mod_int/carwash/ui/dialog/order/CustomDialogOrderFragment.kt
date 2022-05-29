@@ -4,16 +4,21 @@ import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import androidx.core.os.bundleOf
 import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.viewModels
 import com.mod_int.carwash.R
 import com.mod_int.carwash.databinding.FragmentCustomDialogOrderBinding
+import com.mod_int.carwash.ext.lamDa
 import com.mod_int.carwash.ui.owner_member.om_activity.OmActivity
+import com.mod_int.carwash.ui.owner_member.om_state.OmOrderStateFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -75,7 +80,6 @@ class CustomDialogOrderFragment : DialogFragment() {
             orderType1()
             initUi()
             initViewModel()
-            //화면이 늦게 뜨는 문제 해결했습니다.
             customDialogOrderViewModel.getCarInfo()
 
             tvNo.text = noBtn
@@ -88,6 +92,13 @@ class CustomDialogOrderFragment : DialogFragment() {
                 customDialogOrderViewModel.saveOmInfo()
                 listener?.onClickPositiveBtn()
                 dismiss()
+
+                // 버튼 클릭시 다른 프래그먼트로 데이터 보내기~
+                val result = "$companyName"
+                setFragmentResult("request", bundleOf("senderKey" to result))
+                parentFragmentManager.beginTransaction()
+                    .replace(R.id.container_owner_find_washer, OmOrderStateFragment())
+                    .commit()
             }
             return view
         }
@@ -96,6 +107,12 @@ class CustomDialogOrderFragment : DialogFragment() {
     private fun initUi() {
         lifecycle.addObserver(customDialogOrderViewModel)
         customDialogOrderViewModel.companyName.set(companyName)
+
+        //람다 연습중 테스트
+        lamDa(300) {
+            Log.d("람다연습", "onViewCreated: $it 입니다")
+        }
+
     }
 
     private fun initViewModel() {
@@ -109,8 +126,8 @@ class CustomDialogOrderFragment : DialogFragment() {
 
     private fun onChangedCustomDialogOrderViewState(viewState: CustomDialogOrderViewState) {
         when (viewState) {
-            is CustomDialogOrderViewState.SaveOmInfo -> {
-
+            is CustomDialogOrderViewState.CheckPickupDelivery -> {
+//                pickupDeliCostCheck()
             }
         }
     }
@@ -162,6 +179,7 @@ class CustomDialogOrderFragment : DialogFragment() {
                     val selectedType = type1[position]
                     customDialogOrderViewModel.ordType.set(selectedType)
                     customDialogOrderViewModel.getCarInfo()
+
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -170,12 +188,20 @@ class CustomDialogOrderFragment : DialogFragment() {
             }
         }
     }
+
+    //픽업,탁송 단가가 들어오지 않을경우 해당레이아웃 숨김으로 변경가능 하지만 무조껀 들어오는값임
+//    private fun pickupDeliCostCheck() {
+//        if (customDialogOrderViewModel.pickupDeliCost.get()?.isEmpty() == true){
+//            binding.linearLayout5.isInvisible = true
+//        }
+//    }
 }
 
 interface CustomDialogOrderListener {
     fun onClickNegativeBtn()
     fun onClickPositiveBtn()
 }
+
 
 
 

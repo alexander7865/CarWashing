@@ -1,12 +1,18 @@
 package com.mod_int.carwash.ui.owner_member.om_state
 
 import android.app.Application
+import android.os.Parcelable
 import android.util.Log
 import androidx.databinding.ObservableField
+import androidx.fragment.app.setFragmentResultListener
+import com.google.firebase.firestore.DocumentSnapshot
 import com.mod_int.carwash.base.BaseViewModel
 import com.mod_int.carwash.data.repo.FirebaseRepository
 import com.mod_int.carwash.ext.ioScope
+import com.mod_int.carwash.model.PriceItem
+import com.mod_int.carwash.ui.dialog.order.CustomDialogOrderViewState
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.android.parcel.Parcelize
 import java.time.LocalDateTime
 import javax.inject.Inject
 
@@ -15,57 +21,95 @@ class OmOrderStateViewModel @Inject constructor(
     app: Application,
     private val firebaseRepository: FirebaseRepository
 ) : BaseViewModel(app) {
+
     var omDate = ObservableField("")
-    var carNumber = ObservableField("")
+    var carInfo = ObservableField("")
     var washingType = ObservableField("")
+    var washingAmount = ObservableField("")
     var pickupDeliveryPrice = ObservableField("")
     var totalPrice = ObservableField("")
-    var orderStateMsg = ObservableField("")
-    var washerName = ObservableField("")
-    var washerBank = ObservableField("")
-    var washerBankAccount = ObservableField("")
-    var washerPhoneNr = ObservableField("")
+    var wmAccountNameInfo = ObservableField("")
+    var wmBankNameInfo = ObservableField("")
+    var wmBankAccountNrInfo = ObservableField("")
+    var wmPhoneNumberInfo = ObservableField("")
     var washingState1 = ObservableField("")
     var washingState2 = ObservableField("")
     var washingState3 = ObservableField("")
     var washingState4 = ObservableField("")
-    private val current: LocalDateTime = LocalDateTime.now()
+    var companyName = ObservableField("")
 
     fun orderStateInfo() {
-
-
-        //오더현황에서 오너가 입력한 정보가 모두 넘어와야합니다. 어떻게 해야 맞는지요?
         ioScope {
             val email = firebaseRepository.getFirebaseAuth().currentUser!!.email
             firebaseRepository.getFirebaseFireStore().collection("OwnerMember")
                 .document("$email")
                 .get()
                 .addOnSuccessListener {
-                    val orderDate = it.get("orderDate")
-                    val ordType = it.get("orderType")
+                    val amount = it.get("orderAmount")
+                    val pickupDeliCost = it.get("pickupDeliCost")
                     val carInfo1 = it.get("carNumber")
                     val carInfo2 = it.get("carBrand")
                     val carInfo3 = it.get("carModel")
                     val carInfo4 = it.get("carKinds")
                     val carInfo5 = it.get("carColor")
                     val carInfo6 = it.get("carSize")
-                    omDate.set("$orderDate")
-                    washingType.set("$ordType")
-                    carNumber.set("$carInfo1 $carInfo2 $carInfo3 $carInfo4 $carInfo5 $carInfo6")
-                    Log.d("오더현황", "orderStateInfo: $ordType")
-                }
+                    val totalAmount = "${(amount.toString().toInt()) + (pickupDeliCost.toString().toInt())}"
+                    omDate.set("${it.get("orderDate")}")
+                    washingType.set("${it.get("orderType")}")
+                    carInfo.set("$carInfo1 $carInfo2 $carInfo3 $carInfo4 $carInfo5 $carInfo6")
+                    washingAmount.set("$amount")
+                    pickupDeliveryPrice.set("$pickupDeliCost")
+                    totalPrice.set(totalAmount)
 
+                }
         }
     }
+
+    fun wmBankInfo() {
+        ioScope {
+            firebaseRepository.getFirebaseFireStore().collection("WasherMember")
+                .addSnapshotListener { querySnapshot, _ ->
+                    val bankInfo = mutableListOf<WmBankInfo>()
+                    for (info in querySnapshot!!.documentChanges) {
+                        var dc = info.document.toObject(WmBankInfo::class.java)
+                        bankInfo.add(dc)
+                    }
+
+                    val getBankItem =
+                        bankInfo.firstOrNull { it.wmCompanyName == companyName.get() }
+                    wmAccountNameInfo.set("${getBankItem?.wmAccountName}")
+                    wmBankNameInfo.set("${getBankItem?.wmBankName}")
+                    wmBankAccountNrInfo.set("${getBankItem?.wmAccountNr}")
+                    wmPhoneNumberInfo.set("${getBankItem?.phoneNumber}")
+                    viewStateChanged(OmOrderStateViewState.WasherMemberPhoneNr)
+
+                    Log.d("결과값들", "wmInfo: ${getBankItem?.phoneNumber}")
+
+                }
+        }
+    }
+
 
 
     fun routeHistory() {
         viewStateChanged(OmOrderStateViewState.RouteHistory)
     }
 
-    fun washerMemberPhoneNr() {
-        viewStateChanged(OmOrderStateViewState.WasherMemberPhoneNr)
-    }
+//    fun washerMemberPhoneNr() {
+//        viewStateChanged(OmOrderStateViewState.WasherMemberPhoneNr)
+//    }
+
+}
+
+@Parcelize
+data class WmBankInfo(
+    var wmCompanyName : String = "",
+    var wmAccountName : String = "",
+    var wmBankName : String = "",
+    var wmAccountNr : String ="",
+    var phoneNumber : String ="",
+) : Parcelable
+
 
 //    fun hashMapTest(){
 //        ioScope {
@@ -94,5 +138,3 @@ class OmOrderStateViewModel @Inject constructor(
 //                }
 //        }
 //    }
-
-}

@@ -25,7 +25,6 @@ interface FirebaseRepository {
         resetPassToId: String
     ): Task<Void>
 
-
     fun getFirebaseAuth(): FirebaseAuth
 
     fun getFirebaseFireStore(): FirebaseFirestore

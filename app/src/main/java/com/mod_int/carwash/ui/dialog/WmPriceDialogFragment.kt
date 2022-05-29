@@ -9,6 +9,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isInvisible
+import androidx.databinding.ObservableField
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
@@ -71,6 +73,7 @@ class WmPriceDialogFragment : DialogFragment() {
         val view = binding.root
         isCancelable = false
 
+
         var count1 = item.addCost.toInt()
         binding.inOutsideAddCost.text = "${count1+count1}"
 
@@ -85,6 +88,7 @@ class WmPriceDialogFragment : DialogFragment() {
             return view
         }
     }
+
     private fun initUi(){
 
     }
@@ -110,6 +114,8 @@ class WmPriceDialogViewModel @Inject constructor(
     app: Application,
     private val firebaseRepository: FirebaseRepository
 ) : BaseViewModel(app){
+
+
 
 }
 

@@ -6,10 +6,10 @@
         <variable
             name="viewModel"
             type="com.mod_int.carwash.ui.owner_member.om_state.OmOrderStateViewModel" />
-
         <variable
-            name="orderOmInfo"
-            type="com.mod_int.carwash.model.OrderOmInfo" />
+            name="priceItem"
+            type="com.mod_int.carwash.model.PriceItem" />
+
     </data>
 
     <FrameLayout
@@ -69,7 +69,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="26sp"
                             android:layout_marginEnd="26sp"
-                            android:text="@{viewModel.carNumber}"
+                            android:text="@{viewModel.carInfo}"
                             android:textSize="16sp"
                             android:textStyle="bold"
                             android:textColor="@color/dgray" />
@@ -156,7 +156,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
                                 android:layout_marginStart="5sp"
-                                android:text="25000"
+                                android:text="@{viewModel.washingAmount}"
                                 android:textSize="16sp"
                                 android:textColor="@color/dgray" />
                         </LinearLayout>
@@ -188,7 +188,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
                                 android:layout_marginStart="5sp"
-                                android:text="8000"
+                                android:text="@{viewModel.pickupDeliveryPrice}"
                                 android:textSize="16sp"
                                 android:textColor="@color/dgray" />
                         </LinearLayout>
@@ -219,7 +219,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
                                 android:layout_marginStart="5sp"
-                                android:text="31000"
+                                android:text="@{viewModel.totalPrice}"
                                 android:textSize="16sp"
                                 android:textColor="@color/dgray" />
                         </LinearLayout>
@@ -339,26 +339,7 @@
                     </LinearLayout>
                     <Space
                         android:layout_width="match_parent"
-                        android:layout_height="10sp">
-                    </Space>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginStart="26sp"
-                            android:text="작업비용 결제계좌"
-                            android:textSize="16sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/dgray" />
-                    </LinearLayout>
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="5sp">
+                        android:layout_height="20sp">
                     </Space>
 
                     <LinearLayout
@@ -370,11 +351,12 @@
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
                             <TextView
+                                android:id="@+id/name"
                                 android:layout_width="130sp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
                                 android:layout_marginStart="26sp"
-                                android:text="홍길동"
+                                android:text="@{viewModel.wmAccountNameInfo}"
                                 android:textSize="16sp"
                                 android:textStyle="bold"
                                 android:textColor="@color/dgray" />
@@ -382,7 +364,7 @@
                     </LinearLayout>
                     <Space
                         android:layout_width="match_parent"
-                        android:layout_height="5sp">
+                        android:layout_height="8sp">
                     </Space>
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -398,7 +380,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_gravity="center_vertical"
                                 android:layout_marginStart="26sp"
-                                android:text="하나은행"
+                                android:text="@{viewModel.wmBankNameInfo}"
                                 android:textColor="@color/dgray"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
@@ -407,7 +389,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
                                 android:layout_marginStart="5sp"
-                                android:text="00000000000000"
+                                android:text="@{viewModel.wmBankAccountNrInfo}"
                                 android:textSize="16sp"
                                 android:textStyle="bold"
                                 android:textColor="@color/dgray" />
@@ -415,7 +397,7 @@
                     </LinearLayout>
                     <Space
                         android:layout_width="match_parent"
-                        android:layout_height="5sp">
+                        android:layout_height="8sp">
                     </Space>
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -428,7 +410,7 @@
 
                             <TextView
                                 android:layout_width="130sp"
-                                android:layout_height="match_parent"
+                                android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
                                 android:gravity="center_vertical"
                                 android:layout_marginStart="26sp"
@@ -438,12 +420,11 @@
                                 android:textStyle="bold" />
 
                             <TextView
-                                style="@style/Widget.AppCompat.Button.Borderless"
                                 android:layout_width="wrap_content"
-                                android:layout_height="25sp"
+                                android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
                                 android:layout_marginStart="5sp"
-                                android:onClick="@{()->viewModel.washerMemberPhoneNr()}"
+                                android:text="@{viewModel.wmPhoneNumberInfo}"
                                 android:textColor="@color/dgray"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
@@ -451,7 +432,7 @@
                     </LinearLayout>
                     <Space
                         android:layout_width="match_parent"
-                        android:layout_height="10sp">
+                        android:layout_height="20sp">
                     </Space>
                     <LinearLayout
                         android:layout_width="match_parent"

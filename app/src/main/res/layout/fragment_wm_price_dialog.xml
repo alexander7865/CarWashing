@@ -15,7 +15,7 @@
         tools:context=".ui.dialog.WmPriceDialogFragment">
 
         <androidx.cardview.widget.CardView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardCornerRadius="10dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -23,7 +23,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
@@ -51,7 +51,7 @@
                         android:id="@+id/btn_back"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
-                        android:layout_marginEnd="18sp"
+                        android:layout_marginEnd="24sp"
                         android:background="@drawable/button_cancel2"
                         tools:ignore="SpeakableTextPresentCheck" />
                 </LinearLayout>
@@ -63,13 +63,13 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="26sp"
-                    android:layout_marginEnd="26sp"
+                    android:layout_marginStart="30sp"
+                    android:layout_marginEnd="30sp"
                     android:gravity="center_horizontal"
                     android:orientation="vertical">
 
                     <LinearLayout
-                        android:layout_width="250sp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
                         <TextView
@@ -98,6 +98,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="2sp"
+                            android:layout_weight="1"
                             android:text="원)"
                             android:textColor="@color/dgray"
                             android:textSize="14sp"
@@ -111,8 +112,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="26sp"
-                    android:layout_marginEnd="26sp"
+                    android:layout_marginStart="30sp"
+                    android:layout_marginEnd="30sp"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -129,6 +130,7 @@
                         <TextView
                             android:layout_width="100sp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
                             android:text="(1,000cc 미만)"
                             android:textSize="14sp" />
                         <TextView
@@ -155,8 +157,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="26sp"
-                    android:layout_marginEnd="26sp"
+                    android:layout_marginStart="30sp"
+                    android:layout_marginEnd="30sp"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -173,6 +175,7 @@
                         <TextView
                             android:layout_width="100sp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
                             android:text="(1,600cc 미만)"
                             android:textSize="14sp" />
                         <TextView
@@ -199,8 +202,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="26sp"
-                    android:layout_marginEnd="26sp"
+                    android:layout_marginStart="30sp"
+                    android:layout_marginEnd="30sp"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -217,6 +220,7 @@
                         <TextView
                             android:layout_width="100sp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
                             android:text="(2,000cc 미만)"
                             android:textSize="14sp" />
                         <TextView
@@ -243,8 +247,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="26sp"
-                    android:layout_marginEnd="26sp"
+                    android:layout_marginStart="30sp"
+                    android:layout_marginEnd="30sp"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -261,6 +265,7 @@
                         <TextView
                             android:layout_width="100sp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
                             android:text="(2,000cc 이상)"
                             android:textSize="14sp" />
                         <TextView
@@ -285,8 +290,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="26sp"
-                    android:layout_marginEnd="26sp"
+                    android:layout_marginStart="30sp"
+                    android:layout_marginEnd="30sp"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -298,6 +303,7 @@
                         <TextView
                             android:layout_width="160sp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
                             android:text="예상 작업시간"
                             android:textSize="14sp" />
 
@@ -324,13 +330,13 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="26sp"
-                    android:layout_marginEnd="26sp"
+                    android:layout_marginStart="30sp"
+                    android:layout_marginEnd="30sp"
                     android:gravity="center_horizontal"
                     android:orientation="vertical">
 
                     <LinearLayout
-                        android:layout_width="250sp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
                         <TextView
@@ -359,6 +365,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="2sp"
+                            android:layout_weight="1"
                             android:text="원)"
                             android:textColor="@color/dgray"
                             android:textSize="14sp"
@@ -373,8 +380,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="26sp"
-                    android:layout_marginEnd="26sp"
+                    android:layout_marginStart="30sp"
+                    android:layout_marginEnd="30sp"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -391,6 +398,7 @@
                         <TextView
                             android:layout_width="100sp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
                             android:text="(1,000cc 미만)"
                             android:textSize="14sp" />
                         <TextView
@@ -417,8 +425,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="26sp"
-                    android:layout_marginEnd="26sp"
+                    android:layout_marginStart="30sp"
+                    android:layout_marginEnd="30sp"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -435,6 +443,7 @@
                         <TextView
                             android:layout_width="100sp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
                             android:text="(1,600cc 미만)"
                             android:textSize="14sp" />
                         <TextView
@@ -461,8 +470,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="26sp"
-                    android:layout_marginEnd="26sp"
+                    android:layout_marginStart="30sp"
+                    android:layout_marginEnd="30sp"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -479,6 +488,7 @@
                         <TextView
                             android:layout_width="100sp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
                             android:text="(2,000cc 미만)"
                             android:textSize="14sp" />
                         <TextView
@@ -505,8 +515,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="26sp"
-                    android:layout_marginEnd="26sp"
+                    android:layout_marginStart="30sp"
+                    android:layout_marginEnd="30sp"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -523,6 +533,7 @@
                         <TextView
                             android:layout_width="100sp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
                             android:text="(2,000cc 이상)"
                             android:textSize="14sp" />
                         <TextView
@@ -547,8 +558,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="26sp"
-                    android:layout_marginEnd="26sp"
+                    android:layout_marginStart="30sp"
+                    android:layout_marginEnd="30sp"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -560,6 +571,7 @@
                         <TextView
                             android:layout_width="160sp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
                             android:text="예상 작업시간"
                             android:textSize="14sp" />
 
@@ -586,13 +598,13 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="26sp"
-                    android:layout_marginEnd="26sp"
+                    android:layout_marginStart="30sp"
+                    android:layout_marginEnd="30sp"
                     android:gravity="center_horizontal"
                     android:orientation="vertical">
 
                     <LinearLayout
-                        android:layout_width="250sp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
                         <TextView
@@ -621,6 +633,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="2sp"
+                            android:layout_weight="1"
                             android:text="원)"
                             android:textColor="@color/dgray"
                             android:textSize="14sp"
@@ -635,8 +648,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="26sp"
-                    android:layout_marginEnd="26sp"
+                    android:layout_marginStart="30sp"
+                    android:layout_marginEnd="30sp"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -653,6 +666,7 @@
                         <TextView
                             android:layout_width="100sp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
                             android:text="(1,000cc 미만)"
                             android:textSize="14sp" />
                         <TextView
@@ -679,8 +693,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="26sp"
-                    android:layout_marginEnd="26sp"
+                    android:layout_marginStart="30sp"
+                    android:layout_marginEnd="30sp"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -697,6 +711,7 @@
                         <TextView
                             android:layout_width="100sp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
                             android:text="(1,600cc 미만)"
                             android:textSize="14sp" />
                         <TextView
@@ -723,8 +738,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="26sp"
-                    android:layout_marginEnd="26sp"
+                    android:layout_marginStart="30sp"
+                    android:layout_marginEnd="30sp"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -741,6 +756,7 @@
                         <TextView
                             android:layout_width="100sp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
                             android:text="(2,000cc 미만)"
                             android:textSize="14sp" />
                         <TextView
@@ -767,8 +783,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="26sp"
-                    android:layout_marginEnd="26sp"
+                    android:layout_marginStart="30sp"
+                    android:layout_marginEnd="30sp"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -785,6 +801,7 @@
                         <TextView
                             android:layout_width="100sp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
                             android:text="(2,000cc 이상)"
                             android:textSize="14sp" />
                         <TextView
@@ -809,8 +826,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="26sp"
-                    android:layout_marginEnd="26sp"
+                    android:layout_marginStart="30sp"
+                    android:layout_marginEnd="30sp"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -822,6 +839,7 @@
                         <TextView
                             android:layout_width="160sp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
                             android:text="예상 작업시간"
                             android:textSize="14sp" />
 
@@ -846,10 +864,11 @@
                     android:layout_height="20sp"></Space>
 
                 <LinearLayout
+                    android:id="@+id/pickupDeli"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="26sp"
-                    android:layout_marginEnd="26sp"
+                    android:layout_marginStart="30sp"
+                    android:layout_marginEnd="30sp"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -861,6 +880,7 @@
                         <TextView
                             android:layout_width="160sp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
                             android:text="픽업 / 탁송비용"
                             android:textSize="14sp"
                             android:textColor="@color/dgray"

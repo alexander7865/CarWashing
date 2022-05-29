@@ -775,6 +775,49 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="26sp"
                                 android:textColor="@color/dgray"
+                                android:text="픽업/탁송 비용"
+                                android:textStyle="bold"
+                                android:textSize="16sp"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text=""
+                                android:textSize="16sp"/>
+                            <EditText
+                                android:id="@+id/pickupDeliCost"
+                                android:layout_width="65sp"
+                                android:layout_height="wrap_content"
+                                android:gravity="end"
+                                android:ellipsize="end"
+                                android:hint="10000"
+                                android:text="@={viewModel.pickupDeliCost}"
+                                android:inputType="numberDecimal"
+                                android:maxLength="5"
+                                android:maxLines="1"
+                                tools:ignore="TouchTargetSizeCheck" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="5sp"
+                                android:layout_marginEnd="26sp"
+                                android:text="원"
+                                android:textSize="16sp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="120sp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="26sp"
+                                android:textColor="@color/dgray"
                                 android:text="외제차 추가비용"
                                 android:textStyle="bold"
                                 android:textSize="16sp"/>

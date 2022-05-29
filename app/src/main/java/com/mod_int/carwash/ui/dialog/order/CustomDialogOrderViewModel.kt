@@ -93,13 +93,13 @@ class CustomDialogOrderViewModel @Inject constructor(
 
     private fun getTotalPrice(documentSnapshot: DocumentSnapshot) {
 
+        //오너의 정보를 변수로 저장
         val carSize = documentSnapshot.get("carSize") as String
         val isForeignCar  = (documentSnapshot.get("carOrigin") as String) == "외제차"
         
         ioScope {
             firebaseRepository.getFirebaseFireStore().collection("WasherMember")
                 .addSnapshotListener { querySnapshot, _ ->
-
                     val priceList = mutableListOf<PriceItem>()
                     for (info in querySnapshot!!.documentChanges) {
                         var document = info.document.toObject(PriceItem::class.java)
@@ -108,7 +108,12 @@ class CustomDialogOrderViewModel @Inject constructor(
                     val getPriceItem =
                         priceList.firstOrNull { it.wmCompanyName == companyName.get() }
 
-                    pickupDeliCost.set("${getPriceItem?.pickupDeliveryCost}")
+                    if (pickupDeliCost.get()?.isNotEmpty() == true){
+                        pickupDeliCost.set(getPriceItem?.pickupDeliveryCost)
+                        Log.d("픽업비용", "getTotalPrice: ${pickupDeliCost.get()}")
+                    }
+
+                    viewStateChanged(CustomDialogOrderViewState.CheckPickupDelivery)
 
                     when (ordType.get()) {
                         "내부+외부세차" -> {
@@ -117,6 +122,7 @@ class CustomDialogOrderViewModel @Inject constructor(
                                     ordAmount.set((getPriceItem?.inOutsideWashingCarXS!!.toInt()
                                             + getPriceItem.addCost.toInt()
                                             + getPriceItem.addCost.toInt()).toString())
+
                                 } else {
                                     ordAmount.set(getPriceItem?.inOutsideWashingCarXS)
                                 }
