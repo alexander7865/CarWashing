@@ -15,8 +15,10 @@ import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.viewModels
 import com.mod_int.carwash.R
+import com.mod_int.carwash.data.source.local.TestRoomViewModel
 import com.mod_int.carwash.databinding.FragmentCustomDialogOrderBinding
-import com.mod_int.carwash.ext.lamDa
+import com.mod_int.carwash.ext.highFun
+import com.mod_int.carwash.ext.wmOrderCount
 import com.mod_int.carwash.ui.owner_member.om_activity.OmActivity
 import com.mod_int.carwash.ui.owner_member.om_state.OmOrderStateFragment
 import dagger.hilt.android.AndroidEntryPoint
@@ -24,6 +26,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class CustomDialogOrderFragment : DialogFragment() {
     private val customDialogOrderViewModel by viewModels<CustomDialogOrderViewModel>()
+    private val testRoomViewModel by viewModels<TestRoomViewModel>()
     lateinit var binding: FragmentCustomDialogOrderBinding
     lateinit var ownerActivity: OmActivity
 
@@ -82,6 +85,7 @@ class CustomDialogOrderFragment : DialogFragment() {
             initViewModel()
             customDialogOrderViewModel.getCarInfo()
 
+
             tvNo.text = noBtn
             tvNo.setOnClickListener {
                 listener?.onClickNegativeBtn()
@@ -108,11 +112,15 @@ class CustomDialogOrderFragment : DialogFragment() {
         lifecycle.addObserver(customDialogOrderViewModel)
         customDialogOrderViewModel.companyName.set(companyName)
 
-        //람다 연습중 테스트
-        lamDa(300) {
-            Log.d("람다연습", "onViewCreated: $it 입니다")
+        //고차함수 연습중
+        highFun(10){
+
         }
 
+        wmOrderCount(20){
+            Log.d("고차함수", "initUi: $companyName 의 $it")
+
+        }
     }
 
     private fun initViewModel() {
@@ -128,6 +136,8 @@ class CustomDialogOrderFragment : DialogFragment() {
         when (viewState) {
             is CustomDialogOrderViewState.CheckPickupDelivery -> {
 //                pickupDeliCostCheck()
+
+
             }
         }
     }
@@ -188,13 +198,6 @@ class CustomDialogOrderFragment : DialogFragment() {
             }
         }
     }
-
-    //픽업,탁송 단가가 들어오지 않을경우 해당레이아웃 숨김으로 변경가능 하지만 무조껀 들어오는값임
-//    private fun pickupDeliCostCheck() {
-//        if (customDialogOrderViewModel.pickupDeliCost.get()?.isEmpty() == true){
-//            binding.linearLayout5.isInvisible = true
-//        }
-//    }
 }
 
 interface CustomDialogOrderListener {

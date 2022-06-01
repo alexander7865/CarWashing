@@ -3,18 +3,14 @@ package com.mod_int.carwash.ext
 import android.os.Handler
 import android.os.Looper
 
-
-//람다 연습중
-fun lamDa(myNum: Int, comp: (String) -> Unit) {
+fun highFun(wmCount: Int, comp: (String) -> Unit) {
     Handler(Looper.getMainLooper())
         .postDelayed({
-            comp("good $myNum")
+            comp("현재건수는 $wmCount 건 입니다.")
         }, 1000L)
 }
 
-//fun wmOrderCountPoint(
-//    wmCount: Int,
-//    wmPoint: (Int) -> String
-//) {
-//
-//}
+fun wmOrderCount(wmCount: Int, comp: (String) -> Unit) {
+    val seCount = wmCount + 10
+    comp("현재 누적 건수는 $seCount 건 입니다.")
+}

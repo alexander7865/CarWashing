@@ -8,6 +8,7 @@ import android.widget.Filterable
 import androidx.recyclerview.widget.RecyclerView
 import com.mod_int.carwash.model.WasherInfo
 import com.mod_int.carwash.manage.findwasher.viewholder.FindRecyclerViewHolder
+import kotlinx.coroutines.withContext
 
 
 class FindRecyclerAdapter : RecyclerView.Adapter<FindRecyclerViewHolder>(), Filterable {

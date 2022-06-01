@@ -10,7 +10,7 @@ import kotlinx.coroutines.internal.synchronized
 
 @Database(entities = [RoomTest::class], version = 1, exportSchema = false)
 abstract class TestRoomDatabase : RoomDatabase() {
-    abstract fun testRoomDAO() : TestRoomDAO
+    abstract fun testRoomDao() : TestRoomDao
 
     companion object {
         @Volatile

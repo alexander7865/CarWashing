@@ -12,5 +12,5 @@ data class RoomTest (
     var id : Long?,
 
     @ColumnInfo
-    var wmPoint : String = ""
+    var wmCount : String = ""
 )
