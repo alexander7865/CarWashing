@@ -10,7 +10,6 @@ import com.mod_int.carwash.data.repo.FirebaseRepository
 import com.mod_int.carwash.data.repo.UserRepository
 import com.mod_int.carwash.ext.ioScope
 import com.mod_int.carwash.room.entity.UserEntity
-import com.mod_int.carwash.util.Result
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.async
 import javax.inject.Inject
@@ -24,11 +23,40 @@ class OmJoinViewModel @Inject constructor(
     val inputCarNumber = MutableLiveData("")
     val inputCarBrand = ObservableField("")
     val inputCarModel = ObservableField("")
-    val inputCarKinds = ObservableField("SUV")
-    val inputCarSize = ObservableField("중형차")
-    val inputCarOrigin = ObservableField("외제차")
+    val inputCarKinds = ObservableField("")
+    val inputCarSize = ObservableField("")
+    val inputCarOrigin = ObservableField("")
     val inputCarColor = MutableLiveData("")
     val inputDetailLocation = MutableLiveData("")
+
+    init {
+        getUserInfo()
+    }
+
+    private fun getUserInfo() {
+        ioScope {
+            val email = firebaseRepository.getFirebaseAuth().currentUser!!.email!!
+            firebaseRepository.getFirebaseFireStore().collection("OwnerMember")
+                .document("$email")
+                .get()
+                .addOnSuccessListener { document ->
+                    val ownerInfo = document.toObject(OwnerInfo::class.java)
+                    inputCarNumber.value = ownerInfo?.carNumber
+                    inputCarColor.value = ownerInfo?.carColor
+                    inputDetailLocation.value = ownerInfo?.carDetailLocation
+                    inputCarBrand.set(ownerInfo?.carBrand)
+                    inputCarModel.set(ownerInfo?.carModel)
+                    inputCarKinds.set(ownerInfo?.carKinds)
+                    inputCarSize.set(ownerInfo?.carSize)
+                    inputCarOrigin.set(ownerInfo?.carOrigin)
+
+                    ioScope {
+                        userRepository.registerUser(ownerInfo!!.toUserEntity(email))
+                    }
+                }
+        }
+    }
+
 
     fun omSaveInfo() {
         ioScope {
