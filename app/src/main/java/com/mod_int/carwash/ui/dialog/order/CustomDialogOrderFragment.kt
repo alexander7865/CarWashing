@@ -15,7 +15,6 @@ import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.viewModels
 import com.mod_int.carwash.R
-import com.mod_int.carwash.data.source.local.TestRoomViewModel
 import com.mod_int.carwash.databinding.FragmentCustomDialogOrderBinding
 import com.mod_int.carwash.ext.highFun
 import com.mod_int.carwash.ext.wmOrderCount
@@ -26,7 +25,6 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class CustomDialogOrderFragment : DialogFragment() {
     private val customDialogOrderViewModel by viewModels<CustomDialogOrderViewModel>()
-    private val testRoomViewModel by viewModels<TestRoomViewModel>()
     lateinit var binding: FragmentCustomDialogOrderBinding
     lateinit var ownerActivity: OmActivity
 
@@ -113,11 +111,11 @@ class CustomDialogOrderFragment : DialogFragment() {
         customDialogOrderViewModel.companyName.set(companyName)
 
         //고차함수 연습중
-        highFun(10){
+        highFun(10) {
 
         }
 
-        wmOrderCount(20){
+        wmOrderCount(20) {
             Log.d("고차함수", "initUi: $companyName 의 $it")
 
         }
@@ -188,7 +186,7 @@ class CustomDialogOrderFragment : DialogFragment() {
                 ) {
                     val selectedType = type1[position]
                     customDialogOrderViewModel.ordType.set(selectedType)
-                    customDialogOrderViewModel.getCarInfo()
+                    customDialogOrderViewModel.getTotalPrice()
 
                 }
 

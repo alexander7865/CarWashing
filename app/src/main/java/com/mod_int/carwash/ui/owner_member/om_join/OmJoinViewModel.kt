@@ -1,12 +1,16 @@
 package com.mod_int.carwash.ui.owner_member.om_join
 
 import android.app.Application
+import android.util.Log
 import androidx.databinding.ObservableField
 import androidx.lifecycle.MutableLiveData
 import com.google.firebase.firestore.SetOptions
 import com.mod_int.carwash.base.BaseViewModel
 import com.mod_int.carwash.data.repo.FirebaseRepository
+import com.mod_int.carwash.data.repo.UserRepository
 import com.mod_int.carwash.ext.ioScope
+import com.mod_int.carwash.room.entity.UserEntity
+import com.mod_int.carwash.util.Result
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.async
 import javax.inject.Inject
@@ -14,6 +18,7 @@ import javax.inject.Inject
 @HiltViewModel
 class OmJoinViewModel @Inject constructor(
     app: Application,
+    private val userRepository: UserRepository,
     private val firebaseRepository: FirebaseRepository
 ) : BaseViewModel(app) {
     val inputCarNumber = MutableLiveData("")
@@ -39,20 +44,21 @@ class OmJoinViewModel @Inject constructor(
                 carColInputCheck.await(),
                 carDetailLocation.await(),
             )?.let { ownerInfo ->
-                val email = firebaseRepository.getFirebaseAuth().currentUser!!.email
+                val email = firebaseRepository.getFirebaseAuth().currentUser?.email!!
                 firebaseRepository.getFirebaseFireStore().collection("OwnerMember")
                     .document("$email")
                     .set(ownerInfo, SetOptions.merge()).addOnCompleteListener {
-                        if (it.isSuccessful) {
-                            viewStateChanged(OmJoinViewState.EnableInput(false))
-                            viewStateChanged(OmJoinViewState.OmInfoSave)
-
-                        } else {
-                            viewStateChanged(OmJoinViewState.ErrorMsg(message = "정보를 모두 입력하세요"))
-
+                        ioScope {
+                            if (userRepository.registerUser(ownerInfo.toUserEntity(email))) {
+                                Log.d("결과", "로컬등록 o")
+                            } else {
+                                Log.d("결과", "로컬등록 x")
+                            }
                         }
+                    }.addOnSuccessListener {
+                        viewStateChanged(OmJoinViewState.EnableInput(false))
+                        viewStateChanged(OmJoinViewState.OmInfoSave)
                     }
-
             }
         }
     }
@@ -88,7 +94,6 @@ class OmJoinViewModel @Inject constructor(
             null
         }
     }
-
 
 
     private fun carNumInputCheck(): Boolean {
@@ -150,7 +155,21 @@ class OmJoinViewModel @Inject constructor(
         var carOrigin: String = "",
         var carColor: String = "",
         var carDetailLocation: String = "",
-    )
+    ) {
+        fun toUserEntity(email: String): UserEntity {
+            return UserEntity(
+                userEmail = email,
+                carNum = carNumber,
+                carBrand = carBrand,
+                carCategory = carKinds,
+                carColor = carColor,
+                carLocation = carDetailLocation,
+                carModelName = carModel,
+                carOrigin = carOrigin,
+                carSize = carSize
+            )
+        }
+    }
 }
 
 
