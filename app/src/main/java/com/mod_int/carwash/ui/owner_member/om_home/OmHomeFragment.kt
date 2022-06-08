@@ -16,7 +16,6 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class OmHomeFragment : BaseFragment<FragmentOmHomeBinding>(R.layout.fragment_om_home) {
     private val omHomeViewModel by viewModels<OmHomeViewModel>()
-    private val omBannerAdapter = OmBannerPagerAdapter()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -26,15 +25,6 @@ class OmHomeFragment : BaseFragment<FragmentOmHomeBinding>(R.layout.fragment_om_
     }
 
     private fun initUi(){
-        with(binding) {
-            omBanner.apply {
-
-                // 뷰페이저2 구현안됨 화면 확인해야함 터지는 문제 발생함
-//                adapter = omBannerAdapter
-                orientation = ViewPager2.ORIENTATION_HORIZONTAL
-
-            }
-        }
     }
 
     private fun initViewModel(){
@@ -56,10 +46,6 @@ class OmHomeFragment : BaseFragment<FragmentOmHomeBinding>(R.layout.fragment_om_
 
             is OmHomeViewState.RouteOmJoin -> {
                 routeOmJoinFragment()
-            }
-
-            is OmHomeViewState.GetBannerList -> {
-                omBannerAdapter.addAll(viewState.list)
             }
 
             is OmHomeViewState.RouteWebViewSuggestOm1 -> {

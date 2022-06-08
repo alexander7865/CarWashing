@@ -21,4 +21,8 @@ class UserLocalDataSourceImpl @Inject constructor(private val userDatabase: User
             Result.Error(e)
         }
     }
+
+    override suspend fun delete(userEntity: UserEntity) {
+        return userDatabase.userDao().delete(userEntity)
+    }
 }

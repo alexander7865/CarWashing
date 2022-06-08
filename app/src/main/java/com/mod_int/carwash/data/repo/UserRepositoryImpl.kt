@@ -13,4 +13,9 @@ class UserRepositoryImpl @Inject constructor(private val userLocalDataSource: Us
 
     override suspend fun getUserInfo(email: String): Result<UserEntity> =
         userLocalDataSource.getUserInfo(email)
+
+    override suspend fun delete(userEntity: UserEntity) {
+        userLocalDataSource.delete(userEntity)
+    }
+
 }

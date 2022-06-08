@@ -18,6 +18,7 @@ class OmFindWasherViewModel @Inject constructor(
 ) : BaseViewModel(app) {
 
     private val washerInfo = mutableListOf<WasherInfo>()
+    private val priceList = mutableListOf<PriceItem>()
     // 체크하여 비어있지 않았을때만 구현되도록 수정
     fun getWasherMember() {
         ioScope {
@@ -37,9 +38,6 @@ class OmFindWasherViewModel @Inject constructor(
         ioScope {
             firebaseRepository.getFirebaseFireStore().collection("WasherMember")
                 .addSnapshotListener { querySnapshot, _ ->
-
-                    val priceList = mutableListOf<PriceItem>()
-
                     for (info in querySnapshot!!.documentChanges) {
                         var document = info.document.toObject(PriceItem::class.java)
                         priceList.add(document)

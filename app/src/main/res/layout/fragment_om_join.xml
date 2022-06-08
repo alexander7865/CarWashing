@@ -212,7 +212,6 @@
                                 android:layout_weight="1"
                                 android:background="@drawable/layout_box_color_stroke"
                                 android:gravity="center_vertical"
-                                android:hint="SUV"
                                 android:text="@={viewModel.inputCarKinds}"
                                 android:paddingStart="20sp"
                                 android:textSize="16sp" />
@@ -244,7 +243,6 @@
                                 android:layout_weight="1"
                                 android:background="@drawable/layout_box_color_stroke"
                                 android:gravity="center_vertical"
-                                android:hint="준중형"
                                 android:text="@={viewModel.inputCarSize}"
                                 android:paddingStart="20sp"
                                 android:textSize="16sp" />
@@ -274,7 +272,6 @@
                                 android:layout_weight="1"
                                 android:background="@drawable/layout_box_color_stroke"
                                 android:gravity="center_vertical"
-                                android:hint="물건너온 차량"
                                 android:text="@={viewModel.inputCarOrigin}"
                                 android:paddingStart="20sp"
                                 android:textSize="16sp" />

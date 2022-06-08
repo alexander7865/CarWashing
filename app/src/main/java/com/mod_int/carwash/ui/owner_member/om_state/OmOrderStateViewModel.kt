@@ -60,7 +60,6 @@ class OmOrderStateViewModel @Inject constructor(
                     washingAmount.set("$amount")
                     pickupDeliveryPrice.set("$pickupDeliCost")
                     totalPrice.set(totalAmount)
-
                 }
         }
     }
@@ -82,8 +81,6 @@ class OmOrderStateViewModel @Inject constructor(
                     wmBankAccountNrInfo.set("${getBankItem?.wmAccountNr}")
                     wmPhoneNumberInfo.set("${getBankItem?.phoneNumber}")
                     viewStateChanged(OmOrderStateViewState.WasherMemberPhoneNr)
-
-                    Log.d("결과값들", "wmInfo: ${getBankItem?.phoneNumber}")
 
                 }
         }

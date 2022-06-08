@@ -38,11 +38,6 @@
                     android:textStyle="bold"
                     android:textColor="@color/aqua"
                     android:layout_weight="1" />
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginEnd="26sp"
-                    android:background="@drawable/menu_open"/>
 
             </LinearLayout>
 

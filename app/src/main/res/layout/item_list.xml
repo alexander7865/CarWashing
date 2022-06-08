@@ -31,176 +31,171 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:orientation="vertical">
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
                             <TextView
-                                android:id="@+id/date_orderList_washer"
+                                android:id="@+id/ordDate"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="10sp"
+                                android:layout_marginStart="16sp"
                                 android:textColor="@color/dgray"
                                 android:text="2022.02.02"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
                             <TextView
-                                android:id="@+id/time_request_washer"
+                                android:id="@+id/ordState"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_marginEnd="16sp"
                                 android:layout_weight="1"
-                                android:layout_marginStart="26sp"
-                                android:textColor="@color/dgray"
-                                android:text="12시30분"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
-                            <TextView
-                                android:id="@+id/name_pickupManager"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginEnd="10sp"
+                                android:gravity="end"
                                 android:textColor="@color/aqua"
-                                android:text="의뢰확인"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
+                                android:text="세차대기중"
+                                android:textSize="14sp" />
+
 
                         </LinearLayout>
+                        <androidx.legacy.widget.Space
+                            android:layout_width="match_parent"
+                            android:layout_height="3sp">
+                        </androidx.legacy.widget.Space>
                         <LinearLayout
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
 
                             <TextView
-                                android:id="@+id/wash_type_orderList_washer"
+                                android:id="@+id/ordType"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="10sp"
-                                android:layout_marginTop="5sp"
+                                android:layout_marginStart="16sp"
                                 android:text="내부+외부세차(외제차)"
                                 android:textColor="@color/dgray"
-                                android:textSize="14sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:id="@+id/car_number_orderList_washer"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textColor="@color/dgray"
-                                android:layout_marginTop="5sp"
-                                android:layout_marginStart="10sp"
-                                android:text="000허0000"
-                                android:textSize="14sp"
-                                android:textStyle="bold" />
+                                android:textSize="14sp"/>
                         </LinearLayout>
-
+                        <androidx.legacy.widget.Space
+                            android:layout_width="match_parent"
+                            android:layout_height="3sp">
+                        </androidx.legacy.widget.Space>
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
 
                             <TextView
-                                android:id="@+id/brand_orderList_washer"
+                                android:id="@+id/ordCarNum"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="10sp"
-                                android:layout_marginTop="5sp"
+                                android:textColor="@color/dgray"
+                                android:layout_marginStart="16sp"
+                                android:text="000허0000"
+                                android:textSize="14sp"/>
+
+                            <TextView
+                                android:id="@+id/ordCarBrand"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="5sp"
                                 android:text="벤츠"
                                 android:textColor="@color/dgray"
-                                android:textSize="14sp"
-                                android:textStyle="bold"/>
+                                android:textSize="14sp"/>
 
                             <TextView
-                                android:id="@+id/styleName_orderList_washer"
+                                android:id="@+id/ordCarModel"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="5sp"
-                                android:layout_marginTop="5sp"
                                 android:text="GLC220"
                                 android:textColor="@color/dgray"
-                                android:textSize="14sp"
-                                android:textStyle="bold"/>
+                                android:textSize="14sp"/>
                             <TextView
-                                android:id="@+id/car_kinds_orderList_washer"
+                                android:id="@+id/ordCarCategory"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:textColor="@color/dgray"
-                                android:layout_marginTop="5sp"
                                 android:layout_marginStart="5sp"
                                 android:text="SUV"
-                                android:textSize="14sp"
-                                android:textStyle="bold"/>
+                                android:textSize="14sp"/>
                             <TextView
-                                android:id="@+id/car_color_orderList_washer"
+                                android:id="@+id/ordCarCol"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:textColor="@color/dgray"
-                                android:layout_marginTop="5sp"
                                 android:layout_marginStart="5sp"
                                 android:text="BLACK"
-                                android:textSize="14sp"
-                                android:textStyle="bold"/>
+                                android:textSize="14sp"/>
 
                             <TextView
-                                android:id="@+id/car_size_orderList_washer"
+                                android:id="@+id/ordCarSize"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:textColor="@color/dgray"
-                                android:layout_marginTop="5sp"
                                 android:layout_marginStart="5sp"
-                                android:text="준중형차"
-                                android:textSize="14sp"
-                                android:textStyle="bold"/>
+                                android:text="중형차"
+                                android:textSize="14sp"/>
                         </LinearLayout>
+                        <androidx.legacy.widget.Space
+                            android:layout_width="match_parent"
+                            android:layout_height="3sp">
+                        </androidx.legacy.widget.Space>
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
 
                             <TextView
-                                android:id="@+id/owner_address_orderList_washer"
+                                android:id="@+id/ordLocation"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="5sp"
-                                android:layout_marginStart="10sp"
+                                android:layout_marginStart="16sp"
+                                android:layout_marginEnd="16sp"
                                 android:text="서울특별시 서초구 잠원동 10-7 101호"
                                 android:textColor="@color/dgray"
-                                android:textSize="14sp"
-                                android:textStyle="bold" />
+                                android:textSize="14sp"/>
 
                         </LinearLayout>
                         <LinearLayout
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical">
-
-                            <com.google.android.material.chip.Chip
-                                android:id="@+id/cfmOrder_washer"
-                                android:layout_width="wrap_content"
-                                android:layout_height="50dp"
-                                android:layout_marginStart="10sp"
-                                android:textColor="@color/white"
-                                android:text="세차의뢰 확인하기"
-                                android:backgroundTint="@color/aqua"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
-                            <Space
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="5sp"
+                                android:layout_marginStart="16sp"
+                                android:gravity="end"
+                                android:textColor="@color/dgray"
+                                android:text="예약시간 _"
+                                android:textSize="14sp"
+                                android:textStyle="bold"/>
+                            <TextView
+                                android:id="@+id/ordTime"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1">
-                            </Space>
+                                android:textColor="@color/dgray"
+                                android:text="12시00분"
+                                android:textSize="14sp"
+                                android:textStyle="bold"/>
                             <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="35sp"
-                                android:drawableStart="@drawable/recycler_bubble"
-                                android:paddingStart="10sp"
-                                android:paddingEnd="16sp"
-                                android:background="@drawable/recyclerview_radius_washer_pickup"
+                                android:layout_width="500sp"
+                                android:layout_height="wrap_content"
                                 android:gravity="center"
-                                android:text="픽업완료"
-                                android:textColor="@color/white"
+                                android:layout_weight="1" />
+
+                            <TextView
+                                android:id="@+id/cfmOrder_washer"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="13sp"
+                                android:drawableEnd="@drawable/arrow_right_alt"
+                                android:gravity="center"
+                                android:text="의뢰확인 "
+                                android:textSize="14sp"
+                                android:textColor="@color/dgray"
                                 android:textStyle="bold"/>
                         </LinearLayout>
                     </LinearLayout>

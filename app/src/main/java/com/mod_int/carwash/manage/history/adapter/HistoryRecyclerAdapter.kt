@@ -40,6 +40,4 @@ class HistoryRecyclerAdapter : RecyclerView.Adapter<HistoryRecyclerViewHolder>()
     fun setItemClickListener(listener: (item: HistoryInfo) -> Unit) {
         itemClickListener = listener
     }
-
-
 }

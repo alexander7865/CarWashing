@@ -8,4 +8,6 @@ interface UserLocalDataSource {
     suspend fun registerUser(userEntity: UserEntity): Boolean
 
     suspend fun getUserInfo(email: String): Result<UserEntity>
+
+    suspend fun delete(userEntity: UserEntity)
 }

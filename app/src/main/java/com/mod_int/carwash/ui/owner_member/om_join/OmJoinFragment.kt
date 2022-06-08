@@ -4,6 +4,7 @@ import android.Manifest
 import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -165,6 +166,7 @@ class OmJoinFragment : BaseFragment<FragmentOmJoinBinding>(R.layout.fragment_om_
                     if (position > 0) {
                         val selected = brand[position]
                         omJoinViewModel.inputCarBrand.set(selected)
+                        omJoinViewModel.inputCarOrigin.set("외제차")
                         showToast(message = "${brand[position]}가 선택되었습니다.")
                     }
                 }
@@ -196,6 +198,8 @@ class OmJoinFragment : BaseFragment<FragmentOmJoinBinding>(R.layout.fragment_om_
                     if (position > 0) {
                         var selected = model[position]
                         omJoinViewModel.inputCarModel.set(selected)
+                        omJoinViewModel.inputCarSize.set("중형차")
+                        omJoinViewModel.inputCarKinds.set("SUV")
                         showToast(message = "${model[position]}가 선택되었습니다.")
                     }
                 }
@@ -214,6 +218,7 @@ class OmJoinFragment : BaseFragment<FragmentOmJoinBinding>(R.layout.fragment_om_
             spCarModel.isEnabled = isEnable
             tvCarKinds.isEnabled = isEnable
             tvCarSize.isEnabled = isEnable
+            carOrigin.isEnabled = isEnable
             etCarCol.isEnabled = isEnable
             carLocation.isEnabled = isEnable
             etDetailLocation.isEnabled =isEnable

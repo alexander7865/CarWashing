@@ -6,14 +6,16 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class OrderList (
-    val dateOrderListWasher : String,
-    val namePickupManager : String,
-    val washTypeOrderListWasher : String,
-    val carNumberOrderListWasher : String,
-    val brandOrderListWasher : String,
-    val styleNameOrderListWasher : String,
-    val carKindsOrderListWasher : String,
-    val carColorOrderListWasher : String,
-    val carSizeOrderListWasher : String,
-    val ownerAddressOrderListWasher : String,
+    val email : String,
+    val ordDate: String,
+    val ordState : String,
+    val ordType : String,
+    val ordCarNum : String,
+    val ordCarBrand : String,
+    val ordCarModel : String,
+    val ordCarCategory : String,
+    val ordCarCol : String,
+    val ordCarSize : String,
+    val ordLocation : String,
+    val ordTime : String,
     ): Parcelable

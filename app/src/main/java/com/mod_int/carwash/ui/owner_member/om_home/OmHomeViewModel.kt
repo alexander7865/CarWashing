@@ -1,11 +1,9 @@
 package com.mod_int.carwash.ui.owner_member.om_home
 
 import android.app.Application
-import android.util.Log
 import androidx.databinding.ObservableField
 import com.mod_int.carwash.base.BaseViewModel
 import com.mod_int.carwash.data.repo.FirebaseRepository
-import com.mod_int.carwash.model.BannerItem
 import dagger.hilt.android.lifecycle.HiltViewModel
 import java.time.LocalDateTime
 import javax.inject.Inject
@@ -30,7 +28,6 @@ class OmHomeViewModel @Inject constructor(
         phoneNr.set("010-1111-1111")
         myLocation.set("서울시 강남구 논현동 111-11 지하주차장")
         carInfoCheck()
-        getBannerItem()
     }
 
     private fun carInfoCheck() {
@@ -58,17 +55,6 @@ class OmHomeViewModel @Inject constructor(
                 }
 
         }
-    }
-
-    private fun getBannerItem(){
-        var banner = BannerItem(
-            date = "2022.02.02"
-        )
-        val bannerList = ArrayList<BannerItem>().apply {
-            add(banner)
-        }
-        Log.d("배너", "$bannerList")
-        viewStateChanged(OmHomeViewState.GetBannerList(bannerList))
     }
 
     fun routeOmJoin() {

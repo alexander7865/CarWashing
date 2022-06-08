@@ -11,7 +11,6 @@ import androidx.fragment.app.viewModels
 import com.mod_int.carwash.R
 import com.mod_int.carwash.base.BaseFragment
 import com.mod_int.carwash.databinding.FragmentWmHomeBinding
-import com.mod_int.carwash.ui.washer_member.wm_payment.WmPaymentFragment
 import com.mod_int.carwash.ui.washer_member.wm_price.WmRegistrationPriceFragment
 import dagger.hilt.android.AndroidEntryPoint
 

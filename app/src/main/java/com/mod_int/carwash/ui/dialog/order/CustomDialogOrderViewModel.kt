@@ -6,7 +6,7 @@ import androidx.databinding.ObservableField
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.LifecycleOwner
-import com.google.firebase.firestore.DocumentSnapshot
+import androidx.room.Delete
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.SetOptions
 import com.mod_int.carwash.base.BaseViewModel
@@ -15,7 +15,6 @@ import com.mod_int.carwash.data.repo.UserRepository
 import com.mod_int.carwash.ext.ioScope
 import com.mod_int.carwash.model.OrderOmInfo
 import com.mod_int.carwash.model.PriceItem
-import com.mod_int.carwash.room.entity.UserEntity
 import com.mod_int.carwash.util.Result
 import dagger.hilt.android.lifecycle.HiltViewModel
 import java.time.LocalDateTime
@@ -45,8 +44,12 @@ class CustomDialogOrderViewModel @Inject constructor(
             val email = firebaseRepository.getFirebaseAuth().currentUser!!.email!!
             when (val result = userRepository.getUserInfo(email)) {
                 is Result.Success -> {
+                    //룸데이터 가지고 오는방법
                     carSize.set(result.data.carSize)
                     carOrigin.set(result.data.carOrigin)
+                    Log.d("결과", result.data.carSize)
+                    Log.d("결과", result.data.carOrigin)
+                    Log.d("결과", result.data.userEmail)
                     getTotalPrice()
                 }
 
@@ -102,8 +105,6 @@ class CustomDialogOrderViewModel @Inject constructor(
 
 
     fun getTotalPrice() {
-
-
         val isForeignCar = carOrigin.get() == "외제차"
 
         ioScope {

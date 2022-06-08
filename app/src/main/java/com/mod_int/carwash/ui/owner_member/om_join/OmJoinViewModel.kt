@@ -4,12 +4,16 @@ import android.app.Application
 import android.util.Log
 import androidx.databinding.ObservableField
 import androidx.lifecycle.MutableLiveData
+import com.google.android.gms.tasks.Task
+import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.SetOptions
+import com.google.firebase.firestore.ktx.toObject
 import com.mod_int.carwash.base.BaseViewModel
 import com.mod_int.carwash.data.repo.FirebaseRepository
 import com.mod_int.carwash.data.repo.UserRepository
 import com.mod_int.carwash.ext.ioScope
 import com.mod_int.carwash.room.entity.UserEntity
+import com.mod_int.carwash.ui.owner_member.om_state.WmBankInfo
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.async
 import javax.inject.Inject
@@ -30,30 +34,30 @@ class OmJoinViewModel @Inject constructor(
     val inputDetailLocation = MutableLiveData("")
 
     init {
-        getUserInfo()
+//        getUserInfo()
     }
 
     private fun getUserInfo() {
         ioScope {
-            val email = firebaseRepository.getFirebaseAuth().currentUser!!.email!!
-            firebaseRepository.getFirebaseFireStore().collection("OwnerMember")
-                .document("$email")
-                .get()
-                .addOnSuccessListener { document ->
-                    val ownerInfo = document.toObject(OwnerInfo::class.java)
-                    inputCarNumber.value = ownerInfo?.carNumber
-                    inputCarColor.value = ownerInfo?.carColor
-                    inputDetailLocation.value = ownerInfo?.carDetailLocation
-                    inputCarBrand.set(ownerInfo?.carBrand)
-                    inputCarModel.set(ownerInfo?.carModel)
-                    inputCarKinds.set(ownerInfo?.carKinds)
-                    inputCarSize.set(ownerInfo?.carSize)
-                    inputCarOrigin.set(ownerInfo?.carOrigin)
-
-                    ioScope {
-                        userRepository.registerUser(ownerInfo!!.toUserEntity(email))
-                    }
-                }
+//            val email = firebaseRepository.getFirebaseAuth().currentUser!!.email!!
+//            firebaseRepository.getFirebaseFireStore().collection("OwnerMember")
+//                .document("$email")
+//                .get()
+//                .addOnSuccessListener { document ->
+//                    val ownerInfo = document.toObject(OwnerInfo::class.java)
+//                    inputCarNumber.value = ownerInfo?.carNumber
+//                    inputCarColor.value = ownerInfo?.carColor
+//                    inputDetailLocation.value = ownerInfo?.carDetailLocation
+//                    inputCarBrand.set(ownerInfo?.carBrand)
+//                    inputCarModel.set(ownerInfo?.carModel)
+//                    inputCarKinds.set(ownerInfo?.carKinds)
+//                    inputCarSize.set(ownerInfo?.carSize)
+//                    inputCarOrigin.set(ownerInfo?.carOrigin)
+//
+//                    ioScope {
+//                        userRepository.registerUser(ownerInfo!!.toUserEntity(email))
+//                    }
+//                }
         }
     }
 
@@ -63,12 +67,18 @@ class OmJoinViewModel @Inject constructor(
             val carNumInputCheck = async { carNumInputCheck() }
             val carBrandInputCheck = async { carBrandInputCheck() }
             val carModelInputCheck = async { carModelInputCheck() }
+            val carKindsInputCheck = async { carKindsInputCheck() }
+            val carSizeInputCheck = async { carSizeInputCheck() }
+            val carOriginInputCheck = async { carOriginInputCheck() }
             val carColInputCheck = async { carColInputCheck() }
             val carDetailLocation = async { carDetailLocationCheck() }
             checkInfo(
                 carNumInputCheck.await(),
                 carBrandInputCheck.await(),
                 carModelInputCheck.await(),
+                carKindsInputCheck.await(),
+                carSizeInputCheck.await(),
+                carOriginInputCheck.await(),
                 carColInputCheck.await(),
                 carDetailLocation.await(),
             )?.let { ownerInfo ->
@@ -86,6 +96,7 @@ class OmJoinViewModel @Inject constructor(
                     }.addOnSuccessListener {
                         viewStateChanged(OmJoinViewState.EnableInput(false))
                         viewStateChanged(OmJoinViewState.OmInfoSave)
+
                     }
             }
         }
@@ -99,12 +110,18 @@ class OmJoinViewModel @Inject constructor(
         carNumInputCheck: Boolean,
         carBrandInputCheck: Boolean,
         carModelInputCheck: Boolean,
+        carKindsInputCheck: Boolean,
+        carSizeInputCheck: Boolean,
+        carOriginInputCheck: Boolean,
         carColInputCheck: Boolean,
         carDetailLocation: Boolean,
     ): OwnerInfo? {
         return if (carNumInputCheck
             && carBrandInputCheck
             && carModelInputCheck
+            || carKindsInputCheck
+            || carSizeInputCheck
+            || carOriginInputCheck
             && carColInputCheck
             && carDetailLocation
         ) {
@@ -122,6 +139,21 @@ class OmJoinViewModel @Inject constructor(
             null
         }
     }
+
+//    val brand : () -> Task<DocumentSnapshot> = {
+//        val email = firebaseRepository.getFirebaseAuth().currentUser!!.email!!
+//        firebaseRepository.getFirebaseFireStore().collection("OwnerMember")
+//            .document("$email")
+//            .get()
+//            .addOnSuccessListener { document ->
+//                val info = mutableListOf<OwnerInfo>()
+//                val brand = document.toObject(OwnerInfo::class.java)
+//                if (brand != null) {
+//                    info.add(brand)
+//                }
+//            }
+//
+//    }
 
 
     private fun carNumInputCheck(): Boolean {
@@ -148,6 +180,30 @@ class OmJoinViewModel @Inject constructor(
         return when {
             inputCarModel.get()?.isEmpty() == true -> {
                 viewStateChanged(OmJoinViewState.ErrorMsg(message = "모델명을 선택하세요."))
+                false
+            }
+            else -> true
+        }
+    }
+    private fun carKindsInputCheck(): Boolean {
+        return when {
+            inputCarKinds.get()?.isEmpty() == true -> {
+                false
+            }
+            else -> true
+        }
+    }
+    private fun carSizeInputCheck(): Boolean {
+        return when {
+            inputCarSize.get()?.isEmpty() == true -> {
+                false
+            }
+            else -> true
+        }
+    }
+    private fun carOriginInputCheck(): Boolean {
+        return when {
+            inputCarOrigin.get()?.isEmpty() == true -> {
                 false
             }
             else -> true
