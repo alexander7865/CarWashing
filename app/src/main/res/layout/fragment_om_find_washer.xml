@@ -37,20 +37,19 @@
                     android:layout_weight="1"
                     android:textStyle="bold"
                     android:text="워셔찾기"
+                    android:fontFamily="@font/elice_regular"
                     android:textSize="20sp"
                     android:textColor="@color/dgray" />
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginBottom="4dp"
+                    android:layout_gravity="center_vertical"
                     android:background="@drawable/content_paste_search"/>
                 <Spinner
                     android:id="@+id/searchSpinner"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_marginEnd="13sp"
-                    android:gravity="center_vertical"
                     android:layout_gravity="center_vertical"
                     android:background="@drawable/custom_background_spinner_white"
                     android:textSize="16sp">

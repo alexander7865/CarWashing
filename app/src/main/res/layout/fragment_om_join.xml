@@ -37,6 +37,7 @@
                     android:layout_marginStart="26sp"
                     android:layout_weight="1"
                     android:text="정보등록"
+                    android:fontFamily="@font/elice_regular"
                     android:textColor="@color/dgray"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -75,6 +76,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="26sp"
                             android:text="차량정보를 입력해주세요!"
+                            android:fontFamily="@font/elice_regular"
                             android:textColor="@color/dgray"
                             android:textSize="16sp"
                             android:textStyle="bold" />
@@ -100,6 +102,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="26sp"
                                 android:text="차량번호"
+                                android:fontFamily="@font/elice_regular"
                                 android:textColor="@color/dgray"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
@@ -109,6 +112,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="40sp"
                                 android:layout_marginTop="3sp"
+                                android:fontFamily="@font/elice_regular"
                                 android:layout_marginBottom="3sp"
                                 android:layout_marginEnd="26sp"
                                 android:layout_weight="1"
@@ -138,6 +142,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="26sp"
                                 android:text="브랜드"
+                                android:fontFamily="@font/elice_regular"
                                 android:textColor="@color/dgray"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
@@ -150,6 +155,7 @@
                                 android:layout_marginEnd="26sp"
                                 android:layout_marginBottom="3sp"
                                 android:layout_weight="1"
+                                android:fontFamily="@font/elice_regular"
                                 android:background="@drawable/layout_box_stroke"
                                 android:paddingTop="5sp"
                                 android:popupBackground="@drawable/layout_box"
@@ -168,6 +174,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="26sp"
                                 android:text="모델명"
+                                android:fontFamily="@font/elice_regular"
                                 android:textColor="@color/dgray"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
@@ -180,6 +187,7 @@
                                 android:layout_marginEnd="26sp"
                                 android:layout_marginBottom="3sp"
                                 android:layout_weight="1"
+                                android:fontFamily="@font/elice_regular"
                                 android:background="@drawable/layout_box_stroke"
                                 android:paddingTop="5sp"
                                 android:popupBackground="@drawable/layout_box"
@@ -198,6 +206,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="26sp"
                                 android:text="차량종류"
+                                android:fontFamily="@font/elice_regular"
                                 android:textColor="@color/dgray"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
@@ -210,6 +219,7 @@
                                 android:layout_marginEnd="26sp"
                                 android:layout_marginBottom="3sp"
                                 android:layout_weight="1"
+                                android:fontFamily="@font/elice_regular"
                                 android:background="@drawable/layout_box_color_stroke"
                                 android:gravity="center_vertical"
                                 android:text="@={viewModel.inputCarKinds}"
@@ -229,6 +239,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="26sp"
                                 android:text="차량크기"
+                                android:fontFamily="@font/elice_regular"
                                 android:textColor="@color/dgray"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
@@ -241,6 +252,7 @@
                                 android:layout_marginEnd="26sp"
                                 android:layout_marginBottom="3sp"
                                 android:layout_weight="1"
+                                android:fontFamily="@font/elice_regular"
                                 android:background="@drawable/layout_box_color_stroke"
                                 android:gravity="center_vertical"
                                 android:text="@={viewModel.inputCarSize}"
@@ -258,6 +270,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="26sp"
                                 android:text="원산지"
+                                android:fontFamily="@font/elice_regular"
                                 android:textColor="@color/dgray"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
@@ -270,6 +283,7 @@
                                 android:layout_marginEnd="26sp"
                                 android:layout_marginBottom="3sp"
                                 android:layout_weight="1"
+                                android:fontFamily="@font/elice_regular"
                                 android:background="@drawable/layout_box_color_stroke"
                                 android:gravity="center_vertical"
                                 android:text="@={viewModel.inputCarOrigin}"
@@ -289,6 +303,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="26sp"
                                 android:text="차량색상"
+                                android:fontFamily="@font/elice_regular"
                                 android:textColor="@color/dgray"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
@@ -305,6 +320,7 @@
                                 android:ellipsize="end"
                                 android:gravity="center_vertical"
                                 android:hint="BLACK"
+                                android:fontFamily="@font/elice_regular"
                                 android:imeOptions="actionNext"
                                 android:inputType="textCapWords"
                                 android:maxLength="10"
@@ -331,6 +347,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="26sp"
                                 android:text="010-1234-1234"
+                                android:fontFamily="@font/elice_regular"
                                 android:textColor="@color/dgray"
                                 android:textSize="18sp"
                                 android:textStyle="bold" />
@@ -358,6 +375,7 @@
                                 android:layout_gravity="center_vertical"
                                 android:layout_marginStart="5sp"
                                 android:text="차량 위치 등록하기"
+                                android:fontFamily="@font/elice_regular"
                                 android:textColor="@color/dgray"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
@@ -391,6 +409,7 @@
                                     android:layout_marginEnd="16sp"
                                     android:layout_weight="1"
                                     android:hint="주소를 검색하시라요"
+                                    android:fontFamily="@font/elice_regular"
                                     android:textColor="@color/dgray"
                                     android:textSize="16sp"/>
                                 <ImageView
@@ -424,6 +443,7 @@
                                     android:paddingEnd="20sp"
                                     android:layout_weight="1"
                                     android:ellipsize="end"
+                                    android:fontFamily="@font/elice_regular"
                                     android:text="@={viewModel.inputDetailLocation}"
                                     android:hint="디테일 주소를 입력하세요"
                                     android:maxLines="1"
@@ -443,6 +463,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="70sp"
                             android:layout_marginStart="26sp"
+                            android:fontFamily="@font/elice_regular"
                             android:layout_marginEnd="26sp"
                             android:hint="차량 위치를 등록하세요!"
                             android:padding="10sp">
@@ -466,6 +487,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="26sp"
                                 android:layout_weight="1"
+                                android:fontFamily="@font/elice_regular"
                                 android:background="@drawable/button_action_lorange"
                                 android:text="수정하기"
                                 android:textColor="@color/white"
@@ -480,6 +502,7 @@
                                 android:layout_marginStart="16sp"
                                 android:layout_marginEnd="26sp"
                                 android:layout_weight="1"
+                                android:fontFamily="@font/elice_regular"
                                 android:background="@drawable/button_action_lorange"
                                 android:onClick="@{()->viewModel.omSaveInfo()}"
                                 android:text="등록하기"
@@ -492,11 +515,11 @@
                             android:layout_width="match_parent"
                             android:layout_height="40sp" />
 
-                        <LinearLayout
-                            android:id="@+id/container_map"
-                            android:layout_width="match_parent"
-                            android:layout_height="300dp"
-                            android:orientation="vertical" />
+<!--                        <LinearLayout-->
+<!--                            android:id="@+id/container_map"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="300dp"-->
+<!--                            android:orientation="vertical" />-->
                     </LinearLayout>
                 </LinearLayout>
             </ScrollView>

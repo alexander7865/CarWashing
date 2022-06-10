@@ -2,12 +2,11 @@
 
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="50dp"
-    android:layout_marginTop="5sp"
-    android:paddingTop="10dp"
+    android:layout_height="35dp"
     android:paddingStart="10sp"
     android:paddingEnd="10sp"
+    android:text="휴가중"
     android:textSize="18sp"
     android:textStyle="normal"
-    android:gravity="center_horizontal">
+    android:gravity="center">
 </TextView>

@@ -205,8 +205,7 @@
                                     <androidx.appcompat.widget.AppCompatSpinner
                                         android:id="@+id/workSetting"
                                         android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="3sp"
+                                        android:layout_height="match_parent"
                                         android:gravity="center_horizontal"
                                         android:popupBackground="@drawable/layout_box"
                                         android:background="@drawable/custom_background_spinner_white" />

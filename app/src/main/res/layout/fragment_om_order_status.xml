@@ -40,6 +40,7 @@
                     android:layout_marginStart="26sp"
                     android:layout_weight="1"
                     android:text="세차현황"
+                    android:fontFamily="@font/elice_regular"
                     android:textSize="20dp"
                     android:textStyle="bold"
                     android:textColor="@color/dgray"/>
@@ -71,6 +72,7 @@
                             android:layout_marginEnd="26sp"
                             android:text="@{viewModel.carInfo}"
                             android:textSize="16sp"
+                            android:fontFamily="@font/elice_regular"
                             android:textStyle="bold"
                             android:textColor="@color/dgray" />
                     </LinearLayout>
@@ -90,6 +92,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
                             android:layout_marginStart="26sp"
+                            android:fontFamily="@font/elice_regular"
                             android:text="@{viewModel.omDate}"
                             android:textSize="16sp"
                             android:textStyle="bold"
@@ -115,6 +118,7 @@
                                 android:layout_gravity="center_vertical"
                                 android:layout_marginStart="26sp"
                                 android:text="세차형태"
+                                android:fontFamily="@font/elice_regular"
                                 android:textColor="@color/dgray"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
@@ -124,6 +128,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_gravity="center_vertical"
                                 android:layout_marginStart="5sp"
+                                android:fontFamily="@font/elice_regular"
                                 android:text="@{viewModel.washingType}"
                                 android:textColor="@color/dgray"
                                 android:textSize="16sp"/>
@@ -148,6 +153,7 @@
                                 android:layout_gravity="center_vertical"
                                 android:layout_marginStart="26sp"
                                 android:text="세차비용"
+                                android:fontFamily="@font/elice_regular"
                                 android:textColor="@color/dgray"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
@@ -156,6 +162,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
                                 android:layout_marginStart="5sp"
+                                android:fontFamily="@font/elice_regular"
                                 android:text="@{viewModel.washingAmount}"
                                 android:textSize="16sp"
                                 android:textColor="@color/dgray" />
@@ -180,6 +187,7 @@
                                 android:layout_gravity="center_vertical"
                                 android:layout_marginStart="26sp"
                                 android:text="픽업탁송비용"
+                                android:fontFamily="@font/elice_regular"
                                 android:textColor="@color/dgray"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
@@ -188,6 +196,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
                                 android:layout_marginStart="5sp"
+                                android:fontFamily="@font/elice_regular"
                                 android:text="@{viewModel.pickupDeliveryPrice}"
                                 android:textSize="16sp"
                                 android:textColor="@color/dgray" />
@@ -211,6 +220,7 @@
                                 android:layout_gravity="center_vertical"
                                 android:layout_marginStart="26sp"
                                 android:text="총비용"
+                                android:fontFamily="@font/elice_regular"
                                 android:textSize="16sp"
                                 android:textStyle="bold"
                                 android:textColor="@color/dgray" />
@@ -219,6 +229,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
                                 android:layout_marginStart="5sp"
+                                android:fontFamily="@font/elice_regular"
                                 android:text="@{viewModel.totalPrice}"
                                 android:textSize="16sp"
                                 android:textColor="@color/dgray" />
@@ -246,6 +257,7 @@
                                 android:layout_height="wrap_content"
                                 android:gravity="center_horizontal"
                                 android:text="워셔님이 작업을 확인하는 중입니다."
+                                android:fontFamily="@font/elice_regular"
                                 android:layout_marginStart="16sp"
                                 android:layout_weight="1"
                                 android:textSize="14sp"
@@ -282,6 +294,7 @@
                                     android:layout_marginStart="16sp"
                                     android:layout_weight="1"
                                     android:gravity="center_horizontal"
+                                    android:fontFamily="@font/elice_regular"
                                     android:text="15:15:15"
                                     android:textColor="@color/dgray"
                                     android:textSize="14sp"
@@ -291,6 +304,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
                                     android:gravity="center_horizontal"
+                                    android:fontFamily="@font/elice_regular"
                                     android:text="15:15:15"
                                     android:textColor="@color/dgray"
                                     android:textSize="14sp"
@@ -300,6 +314,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
                                     android:gravity="center_horizontal"
+                                    android:fontFamily="@font/elice_regular"
                                     android:text="15:15:15"
                                     android:textColor="@color/dgray"
                                     android:textSize="14sp"
@@ -310,6 +325,7 @@
                                     android:layout_weight="1"
                                     android:gravity="center_horizontal"
                                     android:layout_marginEnd="17sp"
+                                    android:fontFamily="@font/elice_regular"
                                     android:text="15:15:15"
                                     android:textColor="@color/dgray"
                                     android:textSize="14sp"
@@ -333,6 +349,7 @@
                             android:layout_marginStart="26sp"
                             android:layout_marginEnd="26sp"
                             android:gravity="center_horizontal"
+                            android:fontFamily="@font/elice_regular"
                             android:text="세차비용은 아래 계좌로 결제하여 주세요!"
                             android:textSize="14sp"
                             android:textColor="@color/dgray" />
@@ -356,6 +373,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
                                 android:layout_marginStart="26sp"
+                                android:fontFamily="@font/elice_regular"
                                 android:text="@{viewModel.wmAccountNameInfo}"
                                 android:textSize="16sp"
                                 android:textStyle="bold"
@@ -380,6 +398,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_gravity="center_vertical"
                                 android:layout_marginStart="26sp"
+                                android:fontFamily="@font/elice_regular"
                                 android:text="@{viewModel.wmBankNameInfo}"
                                 android:textColor="@color/dgray"
                                 android:textSize="16sp"
@@ -389,6 +408,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
                                 android:layout_marginStart="5sp"
+                                android:fontFamily="@font/elice_regular"
                                 android:text="@{viewModel.wmBankAccountNrInfo}"
                                 android:textSize="16sp"
                                 android:textStyle="bold"
@@ -415,6 +435,7 @@
                                 android:gravity="center_vertical"
                                 android:layout_marginStart="26sp"
                                 android:text="휴대본번호"
+                                android:fontFamily="@font/elice_regular"
                                 android:textColor="@color/dgray"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
@@ -424,6 +445,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
                                 android:layout_marginStart="5sp"
+                                android:fontFamily="@font/elice_regular"
                                 android:text="@{viewModel.wmPhoneNumberInfo}"
                                 android:textColor="@color/dgray"
                                 android:textSize="16sp"
@@ -448,6 +470,7 @@
                                 android:layout_gravity="center_vertical"
                                 android:layout_marginStart="26sp"
                                 android:text="세차점수를 주신다면?"
+                                android:fontFamily="@font/elice_regular"
                                 android:textSize="16sp"
                                 android:textStyle="bold"
                                 android:textColor="@color/dgray" />
@@ -460,6 +483,7 @@
                                 android:paddingTop="5sp"
                                 android:popupBackground="@drawable/layout_box"
                                 android:textColor="@color/dgray"
+                                android:fontFamily="@font/elice_regular"
                                 android:textSize="20sp"
                                 android:textStyle="bold" />
                         </LinearLayout>
@@ -480,6 +504,7 @@
                                 android:layout_gravity="center_vertical"
                                 android:layout_marginStart="26sp"
                                 android:text="픽업점수를 주신다면?"
+                                android:fontFamily="@font/elice_regular"
                                 android:textSize="16sp"
                                 android:textStyle="bold"
                                 android:textColor="@color/dgray" />
@@ -488,6 +513,7 @@
                                 android:layout_width="120sp"
                                 android:layout_height="40dp"
                                 android:paddingTop="5sp"
+                                android:fontFamily="@font/elice_regular"
                                 android:popupBackground="@drawable/layout_box"
                                 android:background="@drawable/layout_box_stroke"
                                 android:textSize="20sp"
@@ -516,6 +542,7 @@
                             android:layout_marginEnd="16sp"
                             android:textColor="@color/white"
                             android:layout_weight="1"
+                            android:fontFamily="@font/elice_regular"
                             android:text="확인하기"
                             android:onClick="@{()->viewModel.routeHistory()}"
                             android:background="@drawable/button_action_lorange"

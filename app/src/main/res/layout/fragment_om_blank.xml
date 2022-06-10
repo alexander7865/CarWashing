@@ -32,6 +32,7 @@
                     android:layout_marginStart="26sp"
                     android:gravity="center_vertical"
                     android:text="세차현황"
+                    android:fontFamily="@font/elice_regular"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:textColor="@color/dgray" />
@@ -47,6 +48,7 @@
                     android:text="세차중인 차량이 없어요"
                     android:textSize="24dp"
                     android:textStyle="bold"
+                    android:fontFamily="@font/elice_regular"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

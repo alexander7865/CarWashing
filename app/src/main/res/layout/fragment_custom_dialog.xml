@@ -46,7 +46,6 @@
                     android:gravity="center"
                     android:text="세차 의뢰가 들어왔어요!\n승인 버튼을 클릭하시면,\n픽업매니저님이 차량으로 이동을 하게 됩니다. "
                     android:textSize="16sp"
-                    android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/titleDialog" />

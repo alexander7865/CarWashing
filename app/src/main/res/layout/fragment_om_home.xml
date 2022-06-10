@@ -37,6 +37,7 @@
                     android:layout_marginStart="26sp"
                     android:layout_weight="1"
                     android:text="카우"
+                    android:fontFamily="@font/elice_regular"
                     android:textColor="@color/aqua"
                     android:textSize="38sp"
                     android:textStyle="bold" />
@@ -84,6 +85,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="16sp"
                                 android:text="365일 24시간"
+                                android:fontFamily="@font/elice_regular"
                                 android:textColor="@color/dgray"
                                 android:textSize="28sp"
                                 android:textStyle="bold" />
@@ -92,7 +94,9 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="16sp"
+                                android:layout_marginTop="5sp"
                                 android:text="내차를 매일매일 깨끗하게~"
+                                android:fontFamily="@font/elice_regular"
                                 android:textColor="@color/dgray"
                                 android:textSize="20sp" />
 
@@ -100,7 +104,9 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="16sp"
-                                android:text="픽업 손세차 플랫폼"
+                                android:fontFamily="@font/elice_regular"
+                                android:layout_marginTop="5sp"
+                                android:text="픽업/탁송 손세차 플랫폼"
                                 android:textColor="@color/dgray"
                                 android:textSize="20sp" />
 
@@ -118,6 +124,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="16sp"
+                                    android:fontFamily="@font/elice_regular"
                                     android:text="@{viewModel.nowDate1}"
                                     android:textColor="@color/dgray"
                                     android:textSize="18sp"
@@ -139,6 +146,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="16sp"
                                     android:inputType="phone"
+                                    android:fontFamily="@font/elice_regular"
                                     android:text="@{viewModel.phoneNr}"
                                     android:textColor="@color/dgray"
                                     android:textSize="16sp"
@@ -164,6 +172,7 @@
                                     android:layout_gravity="center_vertical"
                                     android:layout_marginStart="16sp"
                                     android:layout_marginEnd="16sp"
+                                    android:fontFamily="@font/elice_regular"
                                     android:text="@{viewModel.myCar}"
                                     android:textColor="@color/dgray"
                                     android:textSize="16sp"
@@ -184,6 +193,7 @@
                                     android:layout_height="55dp"
                                     android:layout_marginStart="16sp"
                                     android:backgroundTint="@color/aqua"
+                                    android:fontFamily="@font/elice_regular"
                                     android:text="정보등록/수정"
                                     android:onClick="@{()->viewModel.routeOmJoin()}"
                                     android:textColor="@color/white"
@@ -214,6 +224,7 @@
                             android:layout_gravity="center_vertical"
                             android:layout_marginStart="5sp"
                             android:text="내차 여기있어요"
+                            android:fontFamily="@font/elice_regular"
                             android:textColor="@color/dgray"
                             android:textSize="16sp"
                             android:textStyle="bold" />
@@ -223,6 +234,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
                             android:layout_marginStart="5sp"
+                            android:fontFamily="@font/elice_regular"
                             android:text="(정보등록 에서 변경할 수 있어요)"
                             android:textSize="14sp" />
                     </LinearLayout>
@@ -256,6 +268,7 @@
                                 android:layout_marginBottom="3dp"
                                 android:layout_weight="1"
                                 android:ellipsize="end"
+                                android:fontFamily="@font/elice_regular"
                                 android:gravity="center_vertical"
                                 android:text="@{viewModel.myLocation}"
                                 android:textSize="14sp"
@@ -283,6 +296,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="@font/elice_regular"
                                 android:text="@{viewModel.nowDate2}"
                                 android:textColor="@color/dgray"
                                 android:textSize="26sp" />
@@ -303,6 +317,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="15sp"
                                 android:text="7.7"
+                                android:fontFamily="@font/elice_regular"
                                 android:textColor="@color/dgray"
                                 android:textSize="26sp" />
 
@@ -313,6 +328,7 @@
                                 android:layout_marginStart="5sp"
                                 android:layout_marginTop="5sp"
                                 android:text="o"
+                                android:fontFamily="@font/elice_regular"
                                 android:textColor="@color/dgray"
                                 android:textSize="10sp" />
 
@@ -321,6 +337,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="1sp"
                                 android:text="C"
+                                android:fontFamily="@font/elice_regular"
                                 android:textColor="@color/dgray"
                                 android:textSize="26sp" />
                         </LinearLayout>
@@ -339,6 +356,7 @@
                                 android:layout_height="wrap_content"
                                 android:elevation="3dp"
                                 android:text="추천 카페/맛집"
+                                android:fontFamily="@font/elice_regular"
                                 android:textColor="@color/dgray"
                                 android:textStyle="bold" />
 
@@ -350,6 +368,7 @@
                                 android:elevation="3dp"
                                 android:ellipsize="end"
                                 android:text="미사리 나인블럭"
+                                android:fontFamily="@font/elice_regular"
                                 android:textColor="@color/dgray"/>
 
                             <ImageView
@@ -374,6 +393,7 @@
                                 android:layout_height="wrap_content"
                                 android:elevation="3dp"
                                 android:text="오늘의 드라이브코스"
+                                android:fontFamily="@font/elice_regular"
                                 android:textColor="@color/dgray"
                                 android:textStyle="bold" />
 
@@ -382,6 +402,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10sp"
                                 android:layout_weight="1"
+                                android:fontFamily="@font/elice_regular"
                                 android:elevation="3dp"
                                 android:ellipsize="end"
                                 android:text="북한산 둘레길"

@@ -63,12 +63,11 @@
             android:layout_width="350sp"
             android:layout_height="wrap_content"
             android:layout_marginTop="100sp"
-            android:elevation="10sp"
-            android:gravity="center_horizontal"
-            android:text="WELCOME"
+            android:layout_marginStart="50sp"
+            android:layout_marginEnd="50sp"
+            android:text="카우 서비스를 이용하면\n삶의 여유가 생겨요!"
             android:textColor="@color/dgray"
             android:textSize="32sp"
-            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/memberType_appbar" />
@@ -77,27 +76,27 @@
             android:id="@+id/text_title2"
             android:layout_width="350sp"
             android:layout_height="wrap_content"
-            android:elevation="10sp"
-            android:gravity="center_horizontal"
-            android:padding="5sp"
-            android:text="원하시는 서비스를\n선택 하세요"
+            android:layout_marginTop="100sp"
+            android:layout_marginStart="50sp"
+            android:layout_marginEnd="50sp"
+            android:text="중간이 너무 심심함\n뭔가있어야할거 같음"
             android:textColor="@color/dgray"
-            android:textSize="26sp"
-            android:textStyle="bold"
+            android:textSize="32sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_title1" />
+
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/goOwner"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="120sp"
+            android:layout_height="50sp"
+            android:layout_marginTop="150sp"
             android:layout_marginStart="26sp"
             android:layout_marginEnd="26sp"
             android:background="@drawable/button_action_lorange"
-            android:text="세차작업 의뢰하기"
+            android:text="가입하기"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold"
@@ -105,23 +104,33 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_title2" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/goWasher"
-            style="@style/Widget.AppCompat.Button.Borderless"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30sp"
-            android:layout_marginStart="26sp"
-            android:layout_marginEnd="26sp"
-            android:background="@drawable/button_action_lorange"
-            android:text="워셔로 활동하기"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            android:textStyle="bold"
+            android:layout_marginTop="25sp"
+            android:gravity="center"
+            android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/goOwner" />
+            app:layout_constraintTop_toBottomOf="@+id/goOwner">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="세차업주 or 픽업/탁송 맴버로 활동하려면?"
+                android:textColor="@color/dgray"
+                android:textSize="16sp" />
 
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/goWasher"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5sp"
+                android:background="@android:color/transparent"
+                android:text="파트너로 가입하기"
+                android:textColor="@color/aqua"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -11,13 +11,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:backgroundTint="@color/white">
-
         <TextView
             android:id="@+id/textView2"
             android:layout_width="300sp"
             android:layout_height="wrap_content"
             android:layout_marginTop="145sp"
             android:gravity="center_horizontal"
+            android:fontFamily="@font/elice_regular"
             android:text="CAW logo"
             android:textColor="@color/aqua"
             android:textSize="38sp"
@@ -41,70 +41,46 @@
             android:id="@+id/text_title1"
             android:layout_width="350sp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="170sp"
+            android:layout_marginTop="50sp"
             android:gravity="center_horizontal"
-            android:text="365일 24시간 언제 어디서나"
+            android:padding="5sp"
+            android:text="365일 24시간\n언제 어디서나"
             android:textColor="@color/dgray"
-            android:textSize="26sp"
+            android:textSize="32sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView2" />
-        <LinearLayout
-            android:id="@+id/text_title2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5sp"
-            android:orientation="horizontal"
-            android:gravity="center"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_title1">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="손세차 예약은"
-                android:textColor="@color/dgray"
-                android:textSize="26sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10sp"
-                android:text="카우"
-                android:textColor="@color/aqua"
-                android:textSize="28sp" />
-        </LinearLayout>
-
         <TextView
-            android:id="@+id/text_title3"
+            android:id="@+id/text_title2"
             android:layout_width="350sp"
             android:layout_height="wrap_content"
             android:layout_marginTop="5sp"
             android:gravity="center_horizontal"
-            android:padding="15sp"
+            android:fontFamily="@font/elice_regular"
             android:text="이젠 편하게 세차하자!"
             android:textColor="@color/dgray"
-            android:textSize="20sp"
+            android:textSize="26sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_title2" />
+            app:layout_constraintTop_toBottomOf="@+id/text_title1" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/goStart"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="250sp"
             android:layout_marginStart="26sp"
             android:layout_marginEnd="26sp"
             android:background="@drawable/button_action_lorange"
+            android:fontFamily="@font/elice_regular"
             android:text="시작하기"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_title3" />
+            app:layout_constraintTop_toBottomOf="@+id/text_title2" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -119,6 +95,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/elice_regular"
                 android:text="아직 회원이 아니신가요?"
                 android:textColor="@color/dgray"
                 android:textSize="16sp" />
@@ -129,6 +106,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10sp"
                 android:background="@android:color/transparent"
+                android:fontFamily="@font/elice_regular"
                 android:text="회원가입"
                 android:textColor="@color/aqua"
                 android:textSize="16sp"

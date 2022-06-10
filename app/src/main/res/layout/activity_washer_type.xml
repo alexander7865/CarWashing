@@ -61,7 +61,10 @@
             android:id="@+id/text_title_washerType"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50sp"
+            android:layout_marginTop="30sp"
+            android:layout_marginStart="30sp"
+            android:layout_marginEnd="30sp"
+            android:gravity="center_vertical"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -70,109 +73,110 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
                 android:padding="5sp"
-                android:text="세차장 매출 UP"
+                android:text="반갑습니다 여러분"
                 android:textColor="@color/dgray"
-                android:textSize="26sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:padding="5sp"
-                android:text="아르바이트 수익 UP"
-                android:textColor="@color/dgray"
-                android:textSize="24sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:padding="5sp"
-                android:text="원하시는 작업을 선택하세요!"
-                android:textColor="@color/dgray"
-                android:textSize="22sp"
-                android:textStyle="bold" />
+                android:textSize="30sp"
+                android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5sp"
+                    android:text="원하시는 맴버타입을 선택하세요"
+                    android:textColor="@color/dgray"
+                    android:textSize="24sp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="60sp"
-            android:orientation="horizontal"
+            android:layout_marginStart="30sp"
+            android:layout_marginEnd="30sp"
+            android:layout_marginTop="150sp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_title_washerType">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="26sp"
-                android:layout_marginEnd="10sp"
-                android:background="@drawable/button_action_lorange"
-                android:layout_weight="1"
-                android:orientation="vertical">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginTop="30sp"
-                    android:layout_marginBottom="20sp">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center_horizontal"
-                        android:text="세차 작업장을 운영중이신가요?"
-                        android:textSize="16sp"
-                        android:textColor="@color/white"
-                        android:textStyle="bold"/>
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/headWasher"
-                        style="@style/Widget.AppCompat.Button.Borderless"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="30sp"
-                        android:background="@drawable/button_action_dgray"
-                        android:text="헤드워셔"
-                        android:textColor="@color/white"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="10sp"
-                android:layout_marginEnd="26sp"
-                android:background="@drawable/button_action_lorange"
-                android:layout_weight="1"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
+
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginTop="30sp"
-                    android:layout_marginBottom="20sp">
-                    <TextView
+                    android:layout_height="match_parent"
+                    android:background="@drawable/button_action_aqua"
+                    android:orientation="vertical">
+
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center_horizontal"
-                        android:text="픽업/탁송 알바를 지원하시나요?"
-                        android:textSize="16sp"
-                        android:textColor="@color/white"
-                        android:textStyle="bold"/>
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/pickupWasher"
-                        style="@style/Widget.AppCompat.Button.Borderless"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_marginTop="30sp"
-                        android:background="@drawable/button_action_dgray"
-                        android:text="픽업워셔"
-                        android:textColor="@color/white"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:layout_marginBottom="20sp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_horizontal"
+                            android:text="세차 작업장을 운영중이신가요?"
+                            android:textColor="@color/aqua"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/headWasher"
+                            style="@style/Widget.AppCompat.Button.Borderless"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="30sp"
+                            android:background="@drawable/button_action_lorange"
+                            android:text="세차장 업주님으로 가입하기"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="15sp"></Space>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/button_action_aqua"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30sp"
+                        android:layout_marginBottom="20sp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_horizontal"
+                            android:text="픽업/탁송 맴버로 지원하시나요?"
+                            android:textColor="@color/aqua"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/pickupWasher"
+                            style="@style/Widget.AppCompat.Button.Borderless"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="30sp"
+                            android:background="@drawable/button_action_lorange"
+                            android:text="픽업/탁송 기사님으로 가입하기"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

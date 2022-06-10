@@ -2,11 +2,11 @@
 
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="40sp"
+    android:layout_height="35sp"
+    android:paddingStart="20sp"
+    android:paddingEnd="20sp"
     android:gravity="center_vertical"
-    android:layout_gravity="center_horizontal"
-    android:paddingStart="20dp"
-    android:paddingBottom="5sp"
+    android:text="스피너"
     android:textSize="16sp"
     android:textStyle="normal">
 </TextView>
